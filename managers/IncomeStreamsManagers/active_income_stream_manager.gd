@@ -2,13 +2,16 @@ extends Node
 
 class_name ActiveIncomeStreamsManager
 
+@export var potential_income_stream_manager: PotentialIncomeStreamsManager
+
 signal active_income_stream_added(income_stream: IncomeStream)
 signal active_income_stream_removed(income_stream: IncomeStream)
 
-@onready var income_stream_manager: Node = $"."
+func _ready() -> void:
+	potential_income_stream_manager.income_stream_accepted.connect(accept_income_stream)
 
 func accept_income_stream(income_stream: IncomeStream) -> void:
-	income_stream_manager.add_child(income_stream)
+	add_child(income_stream)
 	active_income_stream_added.emit(income_stream)
 
 func get_income_streams() -> Array[IncomeStream]:

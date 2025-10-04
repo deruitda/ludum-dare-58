@@ -6,11 +6,12 @@
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_koybo"]
 [ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="5_u46w4"]
 
-[node name="PotentialIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("paginator", "no_jobs_available_control", "jobs_available_control")]
+[node name="PotentialIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("paginator", "no_jobs_available_control", "jobs_available_control", "income_stream_view")]
 script = ExtResource("1_41x14")
 paginator = NodePath("Paginator")
 no_jobs_available_control = NodePath("NoPotentialJobsControl")
 jobs_available_control = NodePath("JobsAvailableControl")
+income_stream_view = NodePath("JobsAvailableControl/IncomeStreamView")
 
 [node name="Paper" parent="." instance=ExtResource("2_2rux7")]
 

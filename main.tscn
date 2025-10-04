@@ -33,6 +33,7 @@ worker_manager = NodePath("../WorkerManager")
 
 [node name="PotentialIncomeStreamManager" parent="." instance=ExtResource("6_272bh")]
 
-[node name="ActiveIncomeStreamManager" parent="." instance=ExtResource("7_5vw27")]
+[node name="ActiveIncomeStreamManager" parent="." node_paths=PackedStringArray("potential_income_stream_manager") instance=ExtResource("7_5vw27")]
+potential_income_stream_manager = NodePath("../PotentialIncomeStreamManager")
 
 [connection signal="progress_button_click" from="Room" to="GameManager" method="_on_room_progress_button_click"]
