@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
-[ext_resource type="Texture2D" uid="uid://o8uu8qru7f4k" path="res://assets/proto/background.png" id="1_ccn0v"]
+[ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
 [ext_resource type="PackedScene" uid="uid://bhoid1trkoqrp" path="res://desk/Resumes/resumes.tscn" id="2_xcxlp"]
 [ext_resource type="PackedScene" uid="uid://cg62p43atjvcx" path="res://desk/phone.tscn" id="3_4is0s"]
 [ext_resource type="PackedScene" uid="uid://04sehxv1q6xu" path="res://desk/money_counter.tscn" id="4_4is0s"]
@@ -13,9 +13,9 @@ resumes = NodePath("Resumes")
 phone = NodePath("Phone")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(579, 324.5)
+position = Vector2(580, 5.0000305)
 scale = Vector2(1.7875, 1.7972223)
-texture = ExtResource("1_ccn0v")
+texture = ExtResource("2_bnidx")
 
 [node name="Phone" parent="." instance=ExtResource("3_4is0s")]
 position = Vector2(509, 465)
@@ -34,8 +34,8 @@ offset_bottom = 637.0
 text = "Next Week"
 
 [node name="WeekLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 92.0
+offset_bottom = 33.0
 script = ExtResource("6_bnidx")
 
 [connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]
