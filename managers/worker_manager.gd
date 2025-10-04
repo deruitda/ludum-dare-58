@@ -1,12 +1,8 @@
 extends Node
 class_name WorkerManager
 
-@export var candidate_manager: CandidateManager
 
 signal worker_hired(worker: Worker)
-
-func _ready() -> void:
-	candidate_manager.worker_hired.connect(hire_worker)
 
 func hire_worker(worker: Worker) -> void:
 	add_child(worker)
