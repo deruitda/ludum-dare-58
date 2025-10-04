@@ -6,13 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cg62p43atjvcx" path="res://desk/phone.tscn" id="3_4is0s"]
 [ext_resource type="PackedScene" uid="uid://04sehxv1q6xu" path="res://desk/money_counter.tscn" id="4_4is0s"]
 [ext_resource type="Script" uid="uid://dn18yypee5ytb" path="res://desk/week_label.gd" id="6_bnidx"]
-[ext_resource type="PackedScene" uid="uid://jx2vulg5n542" path="res://desk/potential_income_streams.tscn" id="7_bs3hi"]
+[ext_resource type="PackedScene" uid="uid://jx2vulg5n542" path="res://desk/potential_income_stream_binder.tscn" id="7_bs3hi"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone", "potential_income_streams")]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone")]
 script = ExtResource("1_bs3hi")
 resumes = NodePath("Resumes")
 phone = NodePath("Phone")
-potential_income_streams = NodePath("PotentialIncomeStreams")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(580, 5.0000305)

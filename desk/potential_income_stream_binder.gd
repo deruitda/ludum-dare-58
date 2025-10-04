@@ -1,5 +1,5 @@
 extends Node2D
-class_name PotentialIncomeStreams
+class_name PotentialIncomeStreamBinder
 @export var paginator: Paginator
 @export var no_jobs_available_control: Control
 @export var jobs_available_control: Control
