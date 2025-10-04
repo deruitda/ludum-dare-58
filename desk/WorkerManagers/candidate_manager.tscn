@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7djoso36p0b4"]
+
+[ext_resource type="Script" uid="uid://tuduxmet07xr" path="res://desk/WorkerManagers/candidate_manager.gd" id="1_m7bhm"]
+
+[node name="CandidateManager" type="Node"]
+script = ExtResource("1_m7bhm")

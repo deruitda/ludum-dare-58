@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg62p43atjvcx"]
+
+[ext_resource type="Texture2D" uid="uid://dv1noa142snri" path="res://assets/proto/phone.png" id="1_l1i1x"]
+
+[node name="Phone" type="Sprite2D"]
+texture = ExtResource("1_l1i1x")

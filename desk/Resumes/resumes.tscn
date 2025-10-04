@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhoid1trkoqrp"]
+
+[ext_resource type="Script" uid="uid://bd0e47mwkyvb2" path="res://desk/Resumes/resumes.gd" id="1_jlcb0"]
+[ext_resource type="PackedScene" uid="uid://148tvjdfcv2j" path="res://desk/Resumes/resume.tscn" id="2_w0461"]
+
+[node name="Resumes" type="Node2D" node_paths=PackedStringArray("resume")]
+script = ExtResource("1_jlcb0")
+resume = NodePath("Resume")
+
+[node name="Left" type="Button" parent="."]
+offset_left = -200.0
+offset_top = -47.0
+offset_right = -161.0
+offset_bottom = 48.0
+text = "<"
+
+[node name="Right" type="Button" parent="."]
+offset_left = 158.0
+offset_top = -43.0
+offset_right = 199.0
+offset_bottom = 52.0
+text = ">"
+
+[node name="Resume" parent="." instance=ExtResource("2_w0461")]
+
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="on_hire_button_pressed" from="Resume" to="." method="_on_resume_on_hire_button_pressed"]
