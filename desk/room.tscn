@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cg62p43atjvcx" path="res://desk/phone.tscn" id="3_4is0s"]
 [ext_resource type="PackedScene" uid="uid://04sehxv1q6xu" path="res://desk/money_counter.tscn" id="4_4is0s"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes")]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone")]
 script = ExtResource("1_bs3hi")
 resumes = NodePath("Resumes")
+phone = NodePath("Phone")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(579, 324.5)

@@ -9,8 +9,9 @@
 script = ExtResource("1_3fcf7")
 candidate_manager = NodePath("CandidateManager")
 
-[node name="Room" parent="." node_paths=PackedStringArray("candidate_manager") instance=ExtResource("2_1bvp3")]
+[node name="Room" parent="." node_paths=PackedStringArray("candidate_manager", "worker_manager") instance=ExtResource("2_1bvp3")]
 candidate_manager = NodePath("../CandidateManager")
+worker_manager = NodePath("../WorkerManager")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 951.0
