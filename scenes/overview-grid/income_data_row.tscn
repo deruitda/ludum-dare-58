@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://duwlhtwcqgncq"]
+
+[ext_resource type="Texture2D" uid="uid://btt5dlu1r12te" path="res://assets/proto/money-counter.png" id="1_xcmw4"]
+
+[sub_resource type="Gradient" id="Gradient_cabeh"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0n6gc"]
+gradient = SubResource("Gradient_cabeh")
+
+[sub_resource type="Gradient" id="Gradient_5iqje"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8pqwb"]
+gradient = SubResource("Gradient_5iqje")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0.0066006603, 0)
+
+[node name="IncomeDataRow" type="HBoxContainer"]
+
+[node name="ImageTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_xcmw4")
+expand_mode = 3
+
+[node name="DescriptionLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Collect Debt from Mario Pizzaface"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Idle"
+horizontal_alignment = 1
+
+[node name="DetailsButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = SubResource("GradientTexture2D_0n6gc")
+texture_pressed = SubResource("GradientTexture2D_8pqwb")
+stretch_mode = 0

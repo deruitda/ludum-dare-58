@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_w1wq0"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_b1eng"]
-[ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/income-data-row/income-data-row.tscn" id="3_b1eng"]
+[ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/overview-grid/overview-grid.tscn" id="3_b1eng"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
 atlas = ExtResource("1_w1wq0")
@@ -92,17 +92,10 @@ offset_top = 40.0
 offset_right = 120.0
 offset_bottom = 128.0
 
-[node name="VScrollBar" type="VScrollBar" parent="Control/Control"]
-layout_mode = 0
-offset_left = 106.0
-offset_right = 114.0
-offset_bottom = 88.0
-step = 10.0
-
 [node name="VBoxContainer" parent="Control/Control" instance=ExtResource("3_b1eng")]
 layout_mode = 1
-offset_left = -10.0
+offset_left = -6.0
 offset_top = 1.0
-offset_right = 420.0
-offset_bottom = 65.0
+offset_right = 468.9986
+offset_bottom = 340.28348
 scale = Vector2(0.24000072, 0.28000185)
