@@ -18,13 +18,13 @@ scale = Vector2(1.7875, 1.7972223)
 texture = ExtResource("2_bnidx")
 
 [node name="Phone" parent="." instance=ExtResource("3_4is0s")]
-position = Vector2(509, 465)
+position = Vector2(628, 445)
 
 [node name="MoneyCounter" parent="." instance=ExtResource("4_4is0s")]
-position = Vector2(813, 486)
+position = Vector2(920, 443)
 
 [node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
-position = Vector2(208, 413)
+position = Vector2(237, 356)
 
 [node name="ProgressButton" type="Button" parent="."]
 offset_left = 951.0

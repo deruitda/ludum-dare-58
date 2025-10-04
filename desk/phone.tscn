@@ -1,90 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg62p43atjvcx"]
+[gd_scene load_steps=5 format=3 uid="uid://cg62p43atjvcx"]
 
 [ext_resource type="Texture2D" uid="uid://dv1noa142snri" path="res://assets/proto/phone.png" id="1_l1i1x"]
 [ext_resource type="Script" uid="uid://ltygev2lcgig" path="res://desk/phone.gd" id="2_4jse3"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_fo3w8"]
+[ext_resource type="PackedScene" uid="uid://cxh3bwtvp3el1" path="res://ui/worker_view.tscn" id="3_ptgd1"]
 
-[node name="Phone" type="Sprite2D" node_paths=PackedStringArray("worker_screen", "no_worker_screen", "name_value", "type_value", "cost_value")]
-texture = ExtResource("1_l1i1x")
+[node name="Phone" type="Sprite2D" node_paths=PackedStringArray("no_worker_screen")]
 script = ExtResource("2_4jse3")
-worker_screen = NodePath("WorkerScreen")
 no_worker_screen = NodePath("NoWorkers")
-name_value = NodePath("WorkerScreen/NameValue")
-type_value = NodePath("WorkerScreen/TypeValue")
-cost_value = NodePath("WorkerScreen/CostValue")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15.625013, -12)
+scale = Vector2(1.7061169, 1)
+texture = ExtResource("1_l1i1x")
 
 [node name="LeftButton" type="Button" parent="."]
-offset_left = -55.0
-offset_top = 91.0
-offset_right = -16.0
-offset_bottom = 145.0
+offset_left = -66.0
+offset_top = 79.0
+offset_right = -27.0
+offset_bottom = 133.0
 
 [node name="RightButton" type="Button" parent="."]
-offset_left = 18.0
-offset_top = 88.0
-offset_right = 57.0
-offset_bottom = 142.0
+offset_left = 55.0
+offset_top = 84.0
+offset_right = 94.0
+offset_bottom = 138.0
 
-[node name="WorkerScreen" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -91.0
-offset_top = -169.0
-offset_right = 93.0
-offset_bottom = 61.0
-
-[node name="NameLabel" type="Label" parent="WorkerScreen"]
-layout_mode = 0
-offset_left = 66.53846
-offset_top = 23.000006
-offset_right = 113.53846
-offset_bottom = 46.000008
-text = "Name"
-label_settings = ExtResource("3_fo3w8")
-horizontal_alignment = 1
-
-[node name="NameValue" type="TextEdit" parent="WorkerScreen"]
-layout_mode = 0
-offset_left = 34.384613
-offset_top = 49.6988
-offset_right = 151.15387
-offset_bottom = 69.72289
-
-[node name="TypeLabel" type="Label" parent="WorkerScreen"]
-layout_mode = 0
-offset_left = 68.23077
-offset_top = 78.62249
-offset_right = 115.23077
-offset_bottom = 101.62249
-text = "Type"
-label_settings = ExtResource("3_fo3w8")
-horizontal_alignment = 1
-
-[node name="TypeValue" type="TextEdit" parent="WorkerScreen"]
-layout_mode = 0
-offset_left = 31.846153
-offset_top = 107.54619
-offset_right = 146.9231
-offset_bottom = 127.5703
-
-[node name="CostLabel" type="Label" parent="WorkerScreen"]
-layout_mode = 0
-offset_left = 32.6923
-offset_top = 136.46988
-offset_right = 144.69229
-offset_bottom = 159.46988
-text = "Cost per Week"
-label_settings = ExtResource("3_fo3w8")
-
-[node name="CostValue" type="TextEdit" parent="WorkerScreen"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 165.39359
-offset_right = 146.92307
-offset_bottom = 190.6091
+[node name="WorkerView" parent="." instance=ExtResource("3_ptgd1")]
+visible = false
+offset_left = -141.0
+offset_top = -157.0
+offset_right = 189.0
+offset_bottom = -39.056213
 
 [node name="NoWorkers" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -92,11 +41,11 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="NoWorkers"]
 layout_mode = 0
-offset_left = -47.0
-offset_top = -57.0
-offset_right = 41.0
-offset_bottom = -27.0
-text = "NoWorkers"
+offset_left = -36.0
+offset_top = -63.0
+offset_right = 52.0
+offset_bottom = -33.0
+text = "No Workers"
 label_settings = ExtResource("3_fo3w8")
 
 [connection signal="button_up" from="LeftButton" to="." method="_on_left_pressed"]
