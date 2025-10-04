@@ -20,6 +20,7 @@ animations = [{
 }]
 
 [node name="BinderBase" type="Node2D"]
+scale = Vector2(4.6512938, 4.6512938)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(66, 69.25)
@@ -92,7 +93,7 @@ offset_top = 40.0
 offset_right = 120.0
 offset_bottom = 128.0
 
-[node name="VBoxContainer" parent="Control/Control" instance=ExtResource("3_b1eng")]
+[node name="OverviewGrid" parent="Control/Control" instance=ExtResource("3_b1eng")]
 layout_mode = 1
 offset_left = -6.0
 offset_top = 1.0

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qbwa4lpt2k1b"]
+
+[ext_resource type="PackedScene" uid="uid://duwlhtwcqgncq" path="res://scenes/overview-grid/income_data_row.tscn" id="1_co8m4"]
+
+[node name="DebtCollectionDataRow" type="Node2D"]
+
+[node name="IncomeDataRow" parent="." instance=ExtResource("1_co8m4")]
+description_text = "TEST!!!"

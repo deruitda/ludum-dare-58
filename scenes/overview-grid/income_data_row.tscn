@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://duwlhtwcqgncq"]
+[gd_scene load_steps=7 format=3 uid="uid://duwlhtwcqgncq"]
 
+[ext_resource type="Script" uid="uid://ba35sc0t5sky5" path="res://scenes/overview-grid/income_data_row.gd" id="1_e6oim"]
 [ext_resource type="Texture2D" uid="uid://btt5dlu1r12te" path="res://assets/proto/money-counter.png" id="1_xcmw4"]
 
 [sub_resource type="Gradient" id="Gradient_cabeh"]
@@ -15,6 +16,7 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(0.0066006603, 0)
 
 [node name="IncomeDataRow" type="HBoxContainer"]
+script = ExtResource("1_e6oim")
 
 [node name="ImageTextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
@@ -24,6 +26,11 @@ size_flags_vertical = 4
 texture = ExtResource("1_xcmw4")
 expand_mode = 3
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="DescriptionLabel" type="Label" parent="."]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
@@ -32,11 +39,21 @@ text = "Collect Debt from Mario Pizzaface"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Status" type="Label" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Idle"
 horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="DetailsButton" type="TextureButton" parent="."]
 layout_mode = 2
