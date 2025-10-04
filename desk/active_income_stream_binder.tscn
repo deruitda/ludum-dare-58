@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://doxyjb1hpinnl"]
+[gd_scene load_steps=6 format=3 uid="uid://doxyjb1hpinnl"]
 
 [ext_resource type="Script" uid="uid://dnitr14mmxi23" path="res://desk/active_income_stream_binder.gd" id="1_2j2su"]
 [ext_resource type="PackedScene" uid="uid://bq8o5jne4yws1" path="res://utilities/paginator.tscn" id="3_honsa"]
 [ext_resource type="PackedScene" uid="uid://dx4fh10vgnuhk" path="res://scenes/binder/income-stream-overview.tscn" id="4_8n841"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_ggwav"]
+[ext_resource type="PackedScene" uid="uid://og67qjuev08k" path="res://scenes/binder/income-stream-detail.tscn" id="5_m6nng"]
 
-[node name="ActiveIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("no_jobs_available_control", "income_stream_overview")]
+[node name="ActiveIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("no_jobs_available_control", "income_stream_overview", "income_stream_detail")]
 script = ExtResource("1_2j2su")
 no_jobs_available_control = NodePath("NoPotentialJobsControl")
 income_stream_overview = NodePath("IncomeStreamOverview")
+income_stream_detail = NodePath("IncomeStreamDetail")
 
 [node name="Paginator" parent="." instance=ExtResource("3_honsa")]
 
@@ -31,3 +33,8 @@ text = "No Active Jobs"
 label_settings = ExtResource("4_ggwav")
 
 [node name="IncomeStreamOverview" parent="." instance=ExtResource("4_8n841")]
+
+[node name="IncomeStreamDetail" parent="." instance=ExtResource("5_m6nng")]
+visible = false
+
+[connection signal="on_detail_button_press" from="IncomeStreamOverview" to="." method="_on_income_stream_overview_on_detail_button_press"]

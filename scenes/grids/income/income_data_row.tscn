@@ -63,3 +63,5 @@ size_flags_vertical = 0
 texture_normal = SubResource("GradientTexture2D_0n6gc")
 texture_pressed = SubResource("GradientTexture2D_8pqwb")
 stretch_mode = 0
+
+[connection signal="button_up" from="DetailsButton" to="." method="_on_details_button_button_up"]

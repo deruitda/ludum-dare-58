@@ -21,7 +21,7 @@ animations = [{
 }]
 
 [node name="IncomeStreamOverview" type="Node2D" node_paths=PackedStringArray("income_overview_grid", "total_money_label", "forcasted_money_label")]
-scale = Vector2(4.6512938, 4.6512938)
+scale = Vector2(4.6512938, 4.5897837)
 script = ExtResource("1_l6iai")
 income_overview_grid = NodePath("Control/Control/OverviewGrid")
 total_money_label = NodePath("Control/TotalAmount")
@@ -138,3 +138,5 @@ offset_top = 1.0
 offset_right = 468.9986
 offset_bottom = 340.28348
 scale = Vector2(0.24000072, 0.28000185)
+
+[connection signal="on_detail_button_press" from="Control/Control/OverviewGrid" to="." method="_on_overview_grid_on_detail_button_press"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l4u388885woc"]
+
+[ext_resource type="Script" uid="uid://drruqwrhq0sr4" path="res://entities/IncomeStreams/capacity_manager.gd" id="1_kxrw8"]
+
+[node name="CapacityManager" type="Node2D"]
+script = ExtResource("1_kxrw8")

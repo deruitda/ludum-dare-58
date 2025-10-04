@@ -5,6 +5,7 @@ signal active_income_stream_added(income_stream: IncomeStream)
 
 func accept_income_stream(income_stream: IncomeStream) -> void:
 	add_child(income_stream)
+	income_stream.set_capacity_items()
 	active_income_stream_added.emit(income_stream)
 
 func get_income_streams() -> Array[IncomeStream]:

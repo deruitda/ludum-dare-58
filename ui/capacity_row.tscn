@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5kfuahvbhjn1"]
+
+[ext_resource type="Script" uid="uid://dao4k3okgq547" path="res://ui/capacity_row.gd" id="1_ca7ih"]
+[ext_resource type="PackedScene" uid="uid://354ndc2yqo5x" path="res://ui/capacity_button.tscn" id="2_jisyx"]
+
+[node name="CapacityRow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 57.0
+offset_bottom = 41.0
+scale = Vector2(1.018868, 1.0588236)
+script = ExtResource("1_ca7ih")
+
+[node name="CapacityButton" parent="." instance=ExtResource("2_jisyx")]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 41.0
+
+[node name="CapacityButton2" parent="." instance=ExtResource("2_jisyx")]
+layout_mode = 0
+offset_left = 57.907402
+offset_top = 1.8888887
+offset_right = 65.9074
+offset_bottom = 42.88889
+scale = Vector2(1.004902, 1)
+
+[node name="CapacityButton3" parent="." instance=ExtResource("2_jisyx")]
+layout_mode = 0
+offset_left = 121.7037
+offset_right = 129.7037
+offset_bottom = 41.0
+
+[node name="CapacityButton4" parent="." instance=ExtResource("2_jisyx")]
+layout_mode = 0
+offset_left = 182.55554
+offset_top = 0.9444444
+offset_right = 190.55554
+offset_bottom = 41.944443
+
+[node name="CapacityButton5" parent="." instance=ExtResource("2_jisyx")]
+layout_mode = 0
+offset_left = 239.48148
+offset_top = 2.833333
+offset_right = 247.48148
+offset_bottom = 43.833332
+scale = Vector2(1.004902, 1)

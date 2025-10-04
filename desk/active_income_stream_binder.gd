@@ -3,6 +3,7 @@ class_name ActiveIncomeStreamBinder
 @export var no_jobs_available_control: Control
 @onready var active_income_streams_manager: ActiveIncomeStreamsManager
 @export var income_stream_overview: IncomeStreamOverview
+@export var income_stream_detail: IncomeStreamDetail
 
 func set_active_income_stream_manager(stream_manager: ActiveIncomeStreamsManager) -> void:
 	active_income_streams_manager = stream_manager
@@ -26,3 +27,9 @@ func set_items() -> void:
 func set_income_stream_view() -> void:
 	income_stream_overview.set_income_streams(active_income_streams_manager.get_income_streams())
  
+
+
+func _on_income_stream_overview_on_detail_button_press(income_stream: IncomeStream) -> void:
+	income_stream_detail.set_income_stream(income_stream)
+	income_stream_overview.visible = false
+	income_stream_detail.visible = true

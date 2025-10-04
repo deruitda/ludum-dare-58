@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c24mew64l4h0k"]
+
+[ext_resource type="Script" uid="uid://cvilcvncntddg" path="res://entities/IncomeStreams/capacity.gd" id="1_mewci"]
+
+[node name="Capacity" type="Node"]
+script = ExtResource("1_mewci")

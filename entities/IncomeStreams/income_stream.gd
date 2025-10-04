@@ -1,5 +1,4 @@
 extends Node
-
 class_name IncomeStream
 
 @export var income_stream_name: String = ""
@@ -14,9 +13,19 @@ class_name IncomeStream
 @export var description: String = ""
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
 
+@onready var capacity_manager: CapacityManager
+
 func add_worker(worker: Worker) -> void:
 	if  capacity > len(currentWorkers):
 		currentWorkers.append(worker)
 		
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired
+
+func set_capacity_items() -> void:
+	if capacity_manager == null:
+		capacity_manager = CapacityManager.new()
+		add_child(capacity_manager)
+	for i in capacity:
+		capacity_manager.create_vacant_capacity_item()
+		
