@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=4 format=3 uid="uid://c2344ekwvlk2t"]
+
+[ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_of657"]
+[ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="1_s7aht"]
+[ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_0kq84"]
+
+[resource]
+script = ExtResource("1_s7aht")
+type = "Debt Collection"
+accepted_worker_types = Array[ExtResource("1_of657")]([ExtResource("2_0kq84")])
+metadata/_custom_type_script = "uid://dtm2kuspofwj3"
