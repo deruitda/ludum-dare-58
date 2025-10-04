@@ -40,5 +40,4 @@ offset_right = 163.23076
 offset_bottom = -40.111115
 text = "Hire"
 
-[connection signal="action_button_pressed" from="WorkerView" to="." method="_on_worker_view_action_button_pressed"]
 [connection signal="button_up" from="HireButton" to="." method="_on_hire_button_button_up"]

@@ -19,10 +19,6 @@ func set_no_resumes_left_screen():
 	worker_view.visible = false
 	no_resumes_left.visible = true
 
-func _on_worker_view_action_button_pressed(worker: Worker) -> void:
-	print('resume')
-
-
 func _on_hire_button_button_up() -> void:
 	on_hire_button_pressed.emit()
 	pass # Replace with function body.

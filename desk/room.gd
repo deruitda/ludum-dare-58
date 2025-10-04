@@ -4,6 +4,7 @@ class_name Room
 @export var candidate_manager: CandidateManager
 @export var worker_manager: WorkerManager
 @export var potential_income_streams_manager: PotentialIncomeStreamsManager
+@export var accepted_income_streams_manager: AcceptedIncomeStreamsManager
 
 @export var resumes: Resumes
 @export var phone: Phone

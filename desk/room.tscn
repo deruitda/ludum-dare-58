@@ -8,24 +8,31 @@
 [ext_resource type="Script" uid="uid://dn18yypee5ytb" path="res://desk/week_label.gd" id="6_bnidx"]
 [ext_resource type="PackedScene" uid="uid://jx2vulg5n542" path="res://desk/potential_income_stream_binder.tscn" id="7_bs3hi"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone")]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone", "potential_income_stream_binder")]
+position = Vector2(4, 205)
 script = ExtResource("1_bs3hi")
 resumes = NodePath("Resumes")
 phone = NodePath("Phone")
+potential_income_stream_binder = NodePath("PotentialIncomeStreamBinder")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(580, 5.0000305)
+position = Vector2(584, -1.0000076)
 scale = Vector2(1.7875, 1.7972223)
 texture = ExtResource("2_bnidx")
 
+[node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
+position = Vector2(253.00002, -241.00003)
+scale = Vector2(0.6956009, 0.76000094)
+
 [node name="Phone" parent="." instance=ExtResource("3_4is0s")]
-position = Vector2(605, 293)
+position = Vector2(824.99994, -190.00003)
+scale = Vector2(0.67747736, 0.93460965)
+
+[node name="PotentialIncomeStreamBinder" parent="." instance=ExtResource("7_bs3hi")]
+position = Vector2(293, 156)
 
 [node name="MoneyCounter" parent="." instance=ExtResource("4_4is0s")]
 position = Vector2(967, 279)
-
-[node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
-position = Vector2(200, 282)
 
 [node name="ProgressButton" type="Button" parent="."]
 offset_left = 951.0
@@ -38,8 +45,5 @@ text = "Next Week"
 offset_right = 92.0
 offset_bottom = 33.0
 script = ExtResource("6_bnidx")
-
-[node name="PotentialIncomeStreams" parent="." instance=ExtResource("7_bs3hi")]
-position = Vector2(972, 302)
 
 [connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]
