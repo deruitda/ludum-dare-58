@@ -24,3 +24,12 @@ position = Vector2(813, 486)
 
 [node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
 position = Vector2(208, 413)
+
+[node name="ProgressButton" type="Button" parent="."]
+offset_left = 951.0
+offset_top = 551.0
+offset_right = 1142.0
+offset_bottom = 637.0
+text = "Next Week"
+
+[connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]

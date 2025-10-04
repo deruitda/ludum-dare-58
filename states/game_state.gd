@@ -9,12 +9,17 @@ extends Node
 
 func spend_money(amount: int) -> void:
 	total_money = total_money - amount
+	SignalBus.money_changed.emit(total_money)
 	
 func collect_money(amount: int) -> void:
 	total_money = total_money + amount
+	SignalBus.money_changed.emit(total_money)
 
 func gain_respect(amount: int) -> void:
 	total_respect = total_respect + amount
 	
 func lose_respect(amount: int) -> void:
 	total_respect = total_respect - amount
+
+func progress_to_next_week():
+	current_week = current_week + 1
