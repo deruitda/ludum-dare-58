@@ -20,4 +20,5 @@ func set_no_resumes_left_screen():
 	no_resumes_left.visible = true
 
 func _on_worker_view_action_button_pressed(worker: Worker) -> void:
+	print('resume')
 	on_hire_button_pressed.emit(worker)

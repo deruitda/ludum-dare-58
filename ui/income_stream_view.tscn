@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://euex01opw2ii"]
+
+[ext_resource type="Script" uid="uid://vcgoa0uv7lvn" path="res://ui/income_stream_view.gd" id="1_mdr4a"]
+
+[node name="IncomeStreamView" type="Node2D" node_paths=PackedStringArray("name_label", "expected_weekly_income_label", "weeks_left_label")]
+script = ExtResource("1_mdr4a")
+name_label = NodePath("NameLabel")
+expected_weekly_income_label = NodePath("ExpectedWeeklyIncomeLabel")
+weeks_left_label = NodePath("WeeksLeftLabel")
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 9.0
+offset_right = 132.0
+offset_bottom = 34.0
+text = "Steve"
+
+[node name="ExpectedWeeklyIncomeLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 37.0
+offset_right = 66.0
+offset_bottom = 60.0
+text = "$10"
+
+[node name="WeeksLeftLabel" type="Label" parent="."]
+offset_left = 36.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 87.0
+text = "10 Weeks Left"
