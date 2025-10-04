@@ -25,5 +25,5 @@ func accept_income_stream_by_index(index: int) -> IncomeStream:
 	var potential_income_streams = get_potential_income_streams()
 	var income_stream = potential_income_streams.pop_at(index)
 	remove_child(income_stream)
-	income_stream_accepted.emit()
+	income_stream_accepted.emit(income_stream)
 	return income_stream
