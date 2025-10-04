@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqspr2io7mkjl"]
 
-[ext_resource type="Script" uid="uid://cfv7wlu7njipl" path="res://desk/worker_manager.gd" id="1_vr6xl"]
+[ext_resource type="Script" uid="uid://cfv7wlu7njipl" path="res://desk/WorkerManagers/worker_manager.gd" id="1_vr6xl"]
 
 [node name="WorkerManager" type="Node"]
 script = ExtResource("1_vr6xl")

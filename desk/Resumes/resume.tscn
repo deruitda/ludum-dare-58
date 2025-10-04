@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://148tvjdfcv2j"]
+
+[ext_resource type="Script" uid="uid://d22jpy3e2lp35" path="res://desk/Resumes/resume.gd" id="1_u5s1c"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_csx3w"]
+
+[node name="Resume" type="ColorRect" node_paths=PackedStringArray("name_value", "type_value", "cost_value")]
+offset_right = 396.0
+offset_bottom = 478.0
+script = ExtResource("1_u5s1c")
+name_value = NodePath("NameValue")
+type_value = NodePath("TypeValue")
+cost_value = NodePath("CostValue")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 11.0
+offset_right = 210.0
+offset_bottom = 34.0
+text = "Name"
+label_settings = ExtResource("2_csx3w")
+
+[node name="NameValue" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 39.0
+offset_right = 292.0
+offset_bottom = 92.0
+
+[node name="TypeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 106.0
+offset_right = 214.0
+offset_bottom = 129.0
+text = "Type"
+label_settings = ExtResource("2_csx3w")
+
+[node name="TypeValue" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 135.0
+offset_right = 296.0
+offset_bottom = 188.0
+
+[node name="CostLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 199.0
+offset_right = 246.0
+offset_bottom = 222.0
+text = "Cost per Week"
+label_settings = ExtResource("2_csx3w")
+
+[node name="CostValue" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 232.0
+offset_right = 294.0
+offset_bottom = 290.0
+
+[node name="HireButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 312.0
+offset_right = 284.0
+offset_bottom = 395.0
+text = "Hire"
