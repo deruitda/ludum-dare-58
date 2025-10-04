@@ -64,13 +64,3 @@ offset_left = 134.0
 offset_top = 67.94379
 offset_right = 220.0
 offset_bottom = 93.1593
-
-[node name="HireButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 236.0
-offset_top = 10.943787
-offset_right = 296.0
-offset_bottom = 93.94379
-text = "Hire"
-
-[connection signal="button_up" from="HireButton" to="." method="_on_action_button_button_up"]

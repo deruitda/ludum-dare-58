@@ -41,7 +41,7 @@ func _on_right_pressed() -> void:
 	paginator.paginate_left()
 	set_worker_on_resume()
 
-func _on_resume_on_hire_button_pressed(worker: Worker) -> void:
+func _on_resume_on_hire_button_pressed() -> void:
 	print('hiya')
 	candidate_manager.hire_worker_by_index(paginator.current_index)
 	set_items()

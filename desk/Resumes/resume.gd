@@ -2,7 +2,7 @@ extends Sprite2D
 
 class_name Resume
 
-signal on_hire_button_pressed(worker: Worker)
+signal on_hire_button_pressed()
 @onready var worker_view: WorkerView = $WorkerView
 @onready var no_resumes_left: Control = $NoResumesLeft
 
@@ -21,4 +21,8 @@ func set_no_resumes_left_screen():
 
 func _on_worker_view_action_button_pressed(worker: Worker) -> void:
 	print('resume')
-	on_hire_button_pressed.emit(worker)
+
+
+func _on_hire_button_button_up() -> void:
+	on_hire_button_pressed.emit()
+	pass # Replace with function body.
