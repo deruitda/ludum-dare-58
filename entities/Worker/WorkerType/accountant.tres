@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WorkerType" load_steps=2 format=3 uid="uid://duke24o2sks78"]
+
+[ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_anyuk"]
+
+[resource]
+script = ExtResource("1_anyuk")
+type = "Accountant"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WorkerType" load_steps=2 format=3 uid="uid://d1vf41qhlc86o"]
+
+[ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_6y2t1"]
+
+[resource]
+script = ExtResource("1_6y2t1")
+type = "Soldier"
