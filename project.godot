@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameState="*res://states/game_state.gd"
 SignalBus="*res://signal_buses/signal_bus.gd"
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
