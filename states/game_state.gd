@@ -4,6 +4,9 @@ extends Node
 @onready var total_respect: int = 0
 @onready var current_week: int = 1
 
+@onready var candidate_manager: CandidateManager
+@onready var worker_manager: WorkerManager
+
 func spend_money(amount: int) -> void:
 	total_money = total_money - amount
 	

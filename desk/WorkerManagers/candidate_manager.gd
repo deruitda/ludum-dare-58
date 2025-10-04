@@ -11,7 +11,7 @@ func _ready() -> void:
 func generate_worker() -> void:
 	var new_worker = Worker.new()
 	new_worker.worker_name = generate_name()
-	new_worker.cost_per_week = randi()
+	new_worker.cost_per_week = randi() % 20 + 10 # between 10 and 30
 	new_worker.worker_type = preload("res://entities/Worker/WorkerType/soldier.tres")
 	add_child(new_worker)
 	worker_generated.emit(new_worker)

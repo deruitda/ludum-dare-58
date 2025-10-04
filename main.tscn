@@ -1,17 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6vd1ct10le5s"]
+[gd_scene load_steps=3 format=3 uid="uid://c6vd1ct10le5s"]
 
 [ext_resource type="Script" uid="uid://vkhugeyoj47s" path="res://main.gd" id="1_3fcf7"]
-[ext_resource type="PackedScene" uid="uid://7djoso36p0b4" path="res://desk/WorkerManagers/candidate_manager.tscn" id="1_t5qis"]
-[ext_resource type="PackedScene" uid="uid://bqspr2io7mkjl" path="res://desk/WorkerManagers/worker_manager.tscn" id="2_tkmgi"]
-[ext_resource type="PackedScene" uid="uid://bhoid1trkoqrp" path="res://desk/Resumes/resumes.tscn" id="4_rlmbb"]
+[ext_resource type="PackedScene" uid="uid://bpa13iucdr4gj" path="res://desk/room.tscn" id="2_1bvp3"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3fcf7")
 
-[node name="CandidateManager" parent="." instance=ExtResource("1_t5qis")]
-
-[node name="WorkerManager" parent="." node_paths=PackedStringArray("candidate_manager") instance=ExtResource("2_tkmgi")]
-candidate_manager = NodePath("../CandidateManager")
-
-[node name="Resumes" parent="." node_paths=PackedStringArray("candidate_manager") instance=ExtResource("4_rlmbb")]
-candidate_manager = NodePath("../CandidateManager")
+[node name="Room" parent="." instance=ExtResource("2_1bvp3")]

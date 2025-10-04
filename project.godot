@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameState="*res://states/game_state.gd"
-CandidateManagerSignalBus="*res://signal_buses/candidate_manager_signal_bus.gd"
 
 [rendering]
 

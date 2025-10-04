@@ -8,24 +8,20 @@ script = ExtResource("1_jlcb0")
 resume = NodePath("Resume")
 
 [node name="Left" type="Button" parent="."]
-offset_left = 18.0
-offset_top = 166.0
-offset_right = 176.0
-offset_bottom = 407.0
+offset_left = -200.0
+offset_top = -47.0
+offset_right = -161.0
+offset_bottom = 48.0
 text = "<"
 
 [node name="Right" type="Button" parent="."]
-offset_left = 948.0
-offset_top = 184.0
-offset_right = 1106.0
-offset_bottom = 425.0
+offset_left = 158.0
+offset_top = -43.0
+offset_right = 199.0
+offset_bottom = 52.0
 text = ">"
 
 [node name="Resume" parent="." instance=ExtResource("2_w0461")]
-offset_left = 316.0
-offset_top = 49.0
-offset_right = 712.0
-offset_bottom = 527.0
 
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
