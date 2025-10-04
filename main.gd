@@ -1,7 +1,10 @@
 extends Node2D
+@export var candidate_manager: CandidateManager
 
-#@onready var candidate_manager: CandidateManager = $CandidateManager
-#@onready var worker_manager: WorkerManager = $WorkerManager
-
-#func _ready() -> void:
+func _ready() -> void:
+	candidate_manager.generate_worker()
+	candidate_manager.generate_worker()
+	candidate_manager.generate_worker()
+func _on_button_button_up() -> void:
 	
+	pass # Replace with function body.

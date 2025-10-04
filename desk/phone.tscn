@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg62p43atjvcx"]
+[gd_scene load_steps=3 format=3 uid="uid://cg62p43atjvcx"]
 
 [ext_resource type="Texture2D" uid="uid://dv1noa142snri" path="res://assets/proto/phone.png" id="1_l1i1x"]
+[ext_resource type="Script" uid="uid://ltygev2lcgig" path="res://desk/phone.gd" id="2_4jse3"]
 
 [node name="Phone" type="Sprite2D"]
 texture = ExtResource("1_l1i1x")
+script = ExtResource("2_4jse3")
+
+[node name="LeftButton" type="Button" parent="."]
+offset_left = -55.0
+offset_top = 91.0
+offset_right = -16.0
+offset_bottom = 145.0
+
+[node name="RightButton" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 88.0
+offset_right = 57.0
+offset_bottom = 142.0
