@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq8o5jne4yws1"]
+
+[ext_resource type="Script" uid="uid://bj6ts2m353w5l" path="res://utilities/paginator.gd" id="1_kn756"]
+
+[node name="Paginator" type="Node"]
+script = ExtResource("1_kn756")

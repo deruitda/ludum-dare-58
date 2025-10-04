@@ -2,8 +2,7 @@ extends Sprite2D
 class_name Phone
 
 @onready var worker_manager: WorkerManager
-
-@export var worker_screen: Control
+@onready var worker_view: WorkerView = $WorkerView
 @export var no_worker_screen: Control
 
 @export var name_value: TextEdit
@@ -29,14 +28,12 @@ func on_worker_hired(worker: Worker):
 		initialized = true
 	
 func set_has_workers():
-	worker_screen.visible = true
+	worker_view.visible = true
 	no_worker_screen.visible = false
 
 func show_worker(worker: Worker):
 	set_has_workers()
-	name_value.text = worker.worker_name
-	type_value.text = worker.worker_type.type
-	cost_value.text = "$" + str(worker.cost_per_week)
+	worker_view.set_worker(worker)
 
 func _on_left_pressed() -> void:
 	var number_of_workers = worker_manager.get_number_of_workers()

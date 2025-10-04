@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7t8sq5x7di2w"]
+
+[ext_resource type="Script" uid="uid://ciop1umxirq4d" path="res://managers/IncomeStreamsManagers/active_income_stream_manager.gd" id="1_2tdms"]
+
+[node name="ActiveIncomeStreamManager" type="Node"]
+script = ExtResource("1_2tdms")

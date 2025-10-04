@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddutbdrluxxjn"]
 
-[ext_resource type="Script" uid="uid://dh2agh4vtqvov" path="res://desk/IncomeStreamsManagers/potential_income_stream_manager.gd" id="1_3r1qr"]
+[ext_resource type="Script" uid="uid://dh2agh4vtqvov" path="res://managers/IncomeStreamsManagers/potential_income_stream_manager.gd" id="1_3r1qr"]
 
 [node name="PotentialIncomeStreamManager" type="Node"]
 script = ExtResource("1_3r1qr")

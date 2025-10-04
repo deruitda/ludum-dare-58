@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://jx2vulg5n542"]
+
+[ext_resource type="Script" uid="uid://mxhshfx6aswx" path="res://desk/potential_income_stream_binder.gd" id="1_41x14"]
+[ext_resource type="PackedScene" uid="uid://dbwt8k6axdtsr" path="res://ui/paper.tscn" id="2_2rux7"]
+[ext_resource type="PackedScene" uid="uid://bq8o5jne4yws1" path="res://utilities/paginator.tscn" id="3_1accn"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_koybo"]
+[ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="5_u46w4"]
+
+[node name="PotentialIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("paginator", "no_jobs_available_control", "jobs_available_control", "income_stream_view")]
+script = ExtResource("1_41x14")
+paginator = NodePath("Paginator")
+no_jobs_available_control = NodePath("NoPotentialJobsControl")
+jobs_available_control = NodePath("JobsAvailableControl")
+income_stream_view = NodePath("JobsAvailableControl/IncomeStreamView")
+
+[node name="Paper" parent="." instance=ExtResource("2_2rux7")]
+
+[node name="Left" type="Button" parent="."]
+offset_left = -171.0
+offset_top = -60.0
+offset_right = -132.0
+offset_bottom = 35.0
+text = "<"
+
+[node name="Right" type="Button" parent="."]
+offset_left = 134.0
+offset_top = -49.0
+offset_right = 175.0
+offset_bottom = 46.0
+text = ">"
+
+[node name="Paginator" parent="." instance=ExtResource("3_1accn")]
+
+[node name="NoPotentialJobsControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -81.0
+offset_top = -48.0
+offset_right = -41.0
+offset_bottom = -8.0
+
+[node name="Label" type="Label" parent="NoPotentialJobsControl"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 17.0
+offset_right = 202.0
+offset_bottom = 40.0
+text = "No Potential Jobs Available"
+label_settings = ExtResource("4_koybo")
+
+[node name="JobsAvailableControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -98.0
+offset_top = -88.0
+offset_right = 83.0
+offset_bottom = -4.0
+
+[node name="IncomeStreamView" parent="JobsAvailableControl" instance=ExtResource("5_u46w4")]
+position = Vector2(-43, -15)
+
+[node name="AcceptIncomeStreamButton" type="Button" parent="JobsAvailableControl"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = -1.0
+offset_right = 214.0
+offset_bottom = 68.0
+text = "Accept"
+
+[connection signal="button_up" from="JobsAvailableControl/AcceptIncomeStreamButton" to="." method="_on_accept_income_stream_button_button_up"]

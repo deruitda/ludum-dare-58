@@ -5,16 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://7djoso36p0b4" path="res://managers/candidate_manager.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bqspr2io7mkjl" path="res://managers/worker_manager.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://b10w3xmnbpwwf" path="res://game_manager.gd" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://ddutbdrluxxjn" path="res://desk/IncomeStreamsManagers/potential_income_stream_manager.tscn" id="6_272bh"]
-[ext_resource type="PackedScene" uid="uid://7t8sq5x7di2w" path="res://desk/IncomeStreamsManagers/accepted_income_stream_manager.tscn" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://ddutbdrluxxjn" path="res://managers/IncomeStreamsManagers/potential_income_stream_manager.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://7t8sq5x7di2w" path="res://managers/IncomeStreamsManagers/active_income_stream_manager.tscn" id="7_5vw27"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("candidate_manager")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("candidate_manager", "potential_income_stream_manager", "active_income_streams_manager")]
 script = ExtResource("1_3fcf7")
 candidate_manager = NodePath("CandidateManager")
+potential_income_stream_manager = NodePath("PotentialIncomeStreamManager")
+active_income_streams_manager = NodePath("ActiveIncomeStreamManager")
 
-[node name="Room" parent="." node_paths=PackedStringArray("candidate_manager", "worker_manager") instance=ExtResource("2_1bvp3")]
+[node name="Room" parent="." node_paths=PackedStringArray("candidate_manager", "worker_manager", "potential_income_streams_manager", "active_income_streams_manager") instance=ExtResource("2_1bvp3")]
+position = Vector2(-16, 424)
 candidate_manager = NodePath("../CandidateManager")
 worker_manager = NodePath("../WorkerManager")
+potential_income_streams_manager = NodePath("../PotentialIncomeStreamManager")
+active_income_streams_manager = NodePath("../ActiveIncomeStreamManager")
 
 [node name="CandidateManager" parent="." instance=ExtResource("3_1bvp3")]
 
@@ -28,6 +33,7 @@ worker_manager = NodePath("../WorkerManager")
 
 [node name="PotentialIncomeStreamManager" parent="." instance=ExtResource("6_272bh")]
 
-[node name="AcceptedIncomeStreamManager" parent="." instance=ExtResource("7_5vw27")]
+[node name="ActiveIncomeStreamManager" parent="." node_paths=PackedStringArray("potential_income_stream_manager") instance=ExtResource("7_5vw27")]
+potential_income_stream_manager = NodePath("../PotentialIncomeStreamManager")
 
 [connection signal="progress_button_click" from="Room" to="GameManager" method="_on_room_progress_button_click"]

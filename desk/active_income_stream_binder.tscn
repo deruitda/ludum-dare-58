@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://doxyjb1hpinnl"]
+
+[ext_resource type="Script" uid="uid://dnitr14mmxi23" path="res://desk/active_income_stream_binder.gd" id="1_2j2su"]
+[ext_resource type="PackedScene" uid="uid://dbwt8k6axdtsr" path="res://ui/paper.tscn" id="2_y8lr7"]
+[ext_resource type="PackedScene" uid="uid://bq8o5jne4yws1" path="res://utilities/paginator.tscn" id="3_honsa"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_ggwav"]
+[ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="5_sf5e3"]
+
+[node name="ActiveIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("paginator", "no_jobs_available_control", "jobs_available_control")]
+script = ExtResource("1_2j2su")
+paginator = NodePath("Paginator")
+no_jobs_available_control = NodePath("NoPotentialJobsControl")
+jobs_available_control = NodePath("JobsAvailableControl")
+
+[node name="Paper" parent="." instance=ExtResource("2_y8lr7")]
+
+[node name="Left" type="Button" parent="."]
+offset_left = -171.0
+offset_top = -60.0
+offset_right = -132.0
+offset_bottom = 35.0
+text = "<"
+
+[node name="Right" type="Button" parent="."]
+offset_left = 134.0
+offset_top = -49.0
+offset_right = 175.0
+offset_bottom = 46.0
+text = ">"
+
+[node name="Paginator" parent="." instance=ExtResource("3_honsa")]
+
+[node name="NoPotentialJobsControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -81.0
+offset_top = -48.0
+offset_right = -41.0
+offset_bottom = -8.0
+
+[node name="Label" type="Label" parent="NoPotentialJobsControl"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 17.0
+offset_right = 218.0
+offset_bottom = 40.0
+text = "No Active Jobs"
+label_settings = ExtResource("4_ggwav")
+
+[node name="JobsAvailableControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -98.0
+offset_top = -88.0
+offset_right = 83.0
+offset_bottom = -4.0
+
+[node name="IncomeStreamView" parent="JobsAvailableControl" instance=ExtResource("5_sf5e3")]
+position = Vector2(-43, -15)
