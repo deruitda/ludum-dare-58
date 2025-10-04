@@ -20,5 +20,3 @@ func add_worker(worker: Worker) -> void:
 		
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired
-
-	

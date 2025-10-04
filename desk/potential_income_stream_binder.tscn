@@ -68,4 +68,6 @@ offset_right = 214.0
 offset_bottom = 68.0
 text = "Accept"
 
+[connection signal="button_up" from="Left" to="." method="_on_left_pressed"]
+[connection signal="button_up" from="Right" to="." method="_on_right_pressed"]
 [connection signal="button_up" from="JobsAvailableControl/AcceptIncomeStreamButton" to="." method="_on_accept_income_stream_button_button_up"]
