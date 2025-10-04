@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://nqfj0vilw5qr"]
+
+[ext_resource type="Script" uid="uid://cmbqmq4xjicmf" path="res://entities/IncomeStreams/income_streams.gd" id="1_j85tg"]
+
+[node name="IncomeStream" type="Node2D"]
+script = ExtResource("1_j85tg")
