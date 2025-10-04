@@ -8,13 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://ddutbdrluxxjn" path="res://desk/IncomeStreamsManagers/potential_income_stream_manager.tscn" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://7t8sq5x7di2w" path="res://desk/IncomeStreamsManagers/accepted_income_stream_manager.tscn" id="7_5vw27"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("candidate_manager")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("candidate_manager", "potential_income_stream_manager")]
 script = ExtResource("1_3fcf7")
 candidate_manager = NodePath("CandidateManager")
+potential_income_stream_manager = NodePath("PotentialIncomeStreamManager")
 
-[node name="Room" parent="." node_paths=PackedStringArray("candidate_manager", "worker_manager") instance=ExtResource("2_1bvp3")]
+[node name="Room" parent="." node_paths=PackedStringArray("candidate_manager", "worker_manager", "potential_income_streams_manager") instance=ExtResource("2_1bvp3")]
 candidate_manager = NodePath("../CandidateManager")
 worker_manager = NodePath("../WorkerManager")
+potential_income_streams_manager = NodePath("../PotentialIncomeStreamManager")
 
 [node name="CandidateManager" parent="." instance=ExtResource("3_1bvp3")]
 

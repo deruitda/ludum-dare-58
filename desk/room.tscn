@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=8 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cg62p43atjvcx" path="res://desk/phone.tscn" id="3_4is0s"]
 [ext_resource type="PackedScene" uid="uid://04sehxv1q6xu" path="res://desk/money_counter.tscn" id="4_4is0s"]
 [ext_resource type="Script" uid="uid://dn18yypee5ytb" path="res://desk/week_label.gd" id="6_bnidx"]
+[ext_resource type="PackedScene" uid="uid://jx2vulg5n542" path="res://desk/potential_income_streams.tscn" id="7_bs3hi"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone")]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone", "potential_income_streams")]
 script = ExtResource("1_bs3hi")
 resumes = NodePath("Resumes")
 phone = NodePath("Phone")
+potential_income_streams = NodePath("PotentialIncomeStreams")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(580, 5.0000305)
@@ -37,5 +39,8 @@ text = "Next Week"
 offset_right = 92.0
 offset_bottom = 33.0
 script = ExtResource("6_bnidx")
+
+[node name="PotentialIncomeStreams" parent="." instance=ExtResource("7_bs3hi")]
+position = Vector2(972, 302)
 
 [connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]
