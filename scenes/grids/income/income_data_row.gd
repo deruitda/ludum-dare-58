@@ -1,14 +1,10 @@
 extends HBoxContainer
 class_name IncomeDataRow
 
-var income_stream: IncomeStream
+@onready var income_stream: IncomeStream
 
-@onready var description_label: Label = $DescriptionLabel
-@onready var status_label: Label = $StatusLabel
+@export var description_label: Label 
 	
-func _ready() -> void:
-	description_label.text = self.income_stream.income_stream_name
-	
-func set_income_stream(income_stream: IncomeStream):
-	self.income_stream = income_stream
-	
+func set_income_stream(new_income_stream: IncomeStream) -> void:
+	income_stream = new_income_stream
+	description_label.text = income_stream.income_stream_name
