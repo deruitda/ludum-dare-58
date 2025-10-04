@@ -28,4 +28,6 @@ func set_capacity_items() -> void:
 		add_child(capacity_manager)
 	for i in capacity:
 		capacity_manager.create_vacant_capacity_item()
-		
+
+func get_capacity(index: int) -> Capacity:
+	return capacity_manager.get_children().get(index) as Capacity
