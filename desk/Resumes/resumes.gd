@@ -1,12 +1,13 @@
 extends Node2D
-
-@export var candidate_manager: CandidateManager
+class_name Resumes
+@onready var candidate_manager: CandidateManager
 @export var resume: Resume
 
 @onready var current_index: int = 0
 @onready var initialized: bool = false
 
-func _ready() -> void:
+func set_candidate_manager(cm: CandidateManager) -> void:
+	candidate_manager = cm
 	candidate_manager.worker_generated.connect(worker_generated)
 	if candidate_manager.get_number_of_hierable_workers() > 0:
 		resume.set_worker(candidate_manager.get_hierable_workers()[0])
@@ -38,7 +39,6 @@ func _on_right_pressed() -> void:
 
 
 func _on_resume_on_hire_button_pressed() -> void:
-	print("yo")
 	candidate_manager.hire_worker_by_index(current_index)
 	var number_of_hireable_workers = candidate_manager.get_number_of_hierable_workers()
 	

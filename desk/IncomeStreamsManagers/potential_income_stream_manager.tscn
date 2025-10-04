@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://dh2agh4vtqvov" path="res://desk/IncomeStreamsManagers/potential_income_stream_manager.gd" id="1_3r1qr"]
 
-[node name="PotentialIncomeStreamManager" type="Node2D"]
+[node name="PotentialIncomeStreamManager" type="Node"]
 script = ExtResource("1_3r1qr")
