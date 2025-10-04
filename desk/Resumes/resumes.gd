@@ -38,7 +38,14 @@ func _on_right_pressed() -> void:
 
 
 func _on_resume_on_hire_button_pressed() -> void:
+	print("yo")
 	candidate_manager.hire_worker_by_index(current_index)
+	var number_of_hireable_workers = candidate_manager.get_number_of_hierable_workers()
+	
+	if number_of_hireable_workers == 0:
+		resume.set_no_resumes_left_screen()
+		return 
+		
 	if candidate_manager.get_number_of_hierable_workers() == current_index:
 		current_index = current_index - 1
 	resume.set_worker(candidate_manager.get_hierable_workers()[current_index])

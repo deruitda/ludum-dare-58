@@ -7,11 +7,16 @@
 offset_right = 396.0
 offset_bottom = 478.0
 script = ExtResource("1_u5s1c")
-name_value = NodePath("NameValue")
-type_value = NodePath("TypeValue")
-cost_value = NodePath("CostValue")
+name_value = NodePath("Resume/NameValue")
+type_value = NodePath("Resume/TypeValue")
+cost_value = NodePath("Resume/CostValue")
 
-[node name="NameLabel" type="Label" parent="."]
+[node name="Resume" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 398.0
+offset_bottom = 481.0
+
+[node name="NameLabel" type="Label" parent="Resume"]
 layout_mode = 0
 offset_left = 163.0
 offset_top = 11.0
@@ -20,14 +25,14 @@ offset_bottom = 34.0
 text = "Name"
 label_settings = ExtResource("2_csx3w")
 
-[node name="NameValue" type="TextEdit" parent="."]
+[node name="NameValue" type="TextEdit" parent="Resume"]
 layout_mode = 0
 offset_left = 92.0
 offset_top = 39.0
 offset_right = 292.0
 offset_bottom = 92.0
 
-[node name="TypeLabel" type="Label" parent="."]
+[node name="TypeLabel" type="Label" parent="Resume"]
 layout_mode = 0
 offset_left = 167.0
 offset_top = 106.0
@@ -36,14 +41,14 @@ offset_bottom = 129.0
 text = "Type"
 label_settings = ExtResource("2_csx3w")
 
-[node name="TypeValue" type="TextEdit" parent="."]
+[node name="TypeValue" type="TextEdit" parent="Resume"]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 135.0
 offset_right = 296.0
 offset_bottom = 188.0
 
-[node name="CostLabel" type="Label" parent="."]
+[node name="CostLabel" type="Label" parent="Resume"]
 layout_mode = 0
 offset_left = 134.0
 offset_top = 199.0
@@ -52,17 +57,35 @@ offset_bottom = 222.0
 text = "Cost per Week"
 label_settings = ExtResource("2_csx3w")
 
-[node name="CostValue" type="TextEdit" parent="."]
+[node name="CostValue" type="TextEdit" parent="Resume"]
 layout_mode = 0
 offset_left = 95.0
 offset_top = 232.0
 offset_right = 294.0
 offset_bottom = 290.0
 
-[node name="HireButton" type="Button" parent="."]
+[node name="HireButton" type="Button" parent="Resume"]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 312.0
 offset_right = 284.0
 offset_bottom = 395.0
 text = "Hire"
+
+[node name="NoResumesLeft" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="NoResumesLeft"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 180.0
+offset_right = 297.0
+offset_bottom = 240.0
+text = "No more new hires available. 
+Try again next week."
+label_settings = ExtResource("2_csx3w")
+
+[connection signal="button_up" from="Resume/HireButton" to="." method="_on_hire_button_button_up"]

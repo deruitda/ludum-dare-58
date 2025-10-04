@@ -2,6 +2,7 @@ extends Node
 class_name CandidateManager
 
 signal worker_generated(worker: Worker)
+signal worker_hired(worker: Worker)
 
 func _ready() -> void:
 	pass
@@ -28,8 +29,8 @@ func get_hierable_workers() -> Array[Worker]:
 func get_number_of_hierable_workers() -> int:
 	return get_child_count()
 
-func hire_worker_by_index(index: int) -> Worker:
+func hire_worker_by_index(index: int) -> void:
 	var hierable_workers = get_hierable_workers()
 	var worker = hierable_workers.pop_at(index)
 	remove_child(worker)
-	return worker
+	worker_hired.emit(worker)

@@ -8,9 +8,10 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3fcf7")
 
-[node name="WorkerManager" parent="." instance=ExtResource("2_tkmgi")]
+[node name="CandidateManager" parent="." instance=ExtResource("1_t5qis")]
+
+[node name="WorkerManager" parent="." node_paths=PackedStringArray("candidate_manager") instance=ExtResource("2_tkmgi")]
+candidate_manager = NodePath("../CandidateManager")
 
 [node name="Resumes" parent="." node_paths=PackedStringArray("candidate_manager") instance=ExtResource("4_rlmbb")]
-candidate_manager = NodePath("CandidateManager")
-
-[node name="CandidateManager" parent="Resumes" instance=ExtResource("1_t5qis")]
+candidate_manager = NodePath("../CandidateManager")
