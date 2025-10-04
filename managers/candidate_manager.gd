@@ -1,61 +1,24 @@
 extends Node
 class_name CandidateManager
 
+@export var name_generator: NameGenerator
+
 signal worker_generated(worker: Worker)
 signal worker_hired(worker: Worker)
 
-var worker_first_names = [
-	"Luca",
-	"Fioremante",
-	"Aria",
-	"Enzo",
-	"Emiliano",
-	"Giovanni",
-	"Matteo",
-	"Nico",
-	"Armani",
-	"Romeo",
-	"Santino",
-	"Marco",
-	"Gianni",
-	"Mario",
-	"Valentino",
-	"Rocco",
-	"Lorenzo",
-	"Dario",
-	"Ernesto",
-	"Alessio",
-	"Renzo",
-	"Federico",
-	"Amadeo",
-	"Tullio",
-	"Michelangelo",
-	"Dino",
-	"Fabrizio",
-    "Gaetano"
-]
-var worker_nicknames = [
-	
-]
-var worker_lastnames = [
-	
-]
 func _ready() -> void:
 	pass
 	#CandidateManagerSignalBus.hire_worker_button_pressed.connect()
 
 func generate_worker() -> void:
 	var new_worker = Worker.new()
-	new_worker.worker_name = generate_name()
+	new_worker.worker_name = name_generator.generate_name()
 	new_worker.cost_per_week = randi() % 20 + 10 # between 10 and 30
 	new_worker.worker_type = preload("res://entities/Worker/WorkerType/soldier.tres")
 	add_child(new_worker)
 	worker_generated.emit(new_worker)
 
-func generate_name() -> String:
-	#var worker_name = worker_first_names[randi() % worker_first_names.size()] + worker_nicknames[randi() % worker_nicknames.size()] + worker_last_names[randi() % worker_last_names.size()]
 
-	return "Steve"
 
 func get_hierable_workers() -> Array[Worker]:
 	var return_array: Array[Worker]

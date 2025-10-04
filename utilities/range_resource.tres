@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ds52p3c47sxy5"]
+
+[ext_resource type="Script" uid="uid://cka4w8iop4hux" path="res://utilities/range_resource.gd" id="1_7rjfj"]
+
+[resource]
+script = ExtResource("1_7rjfj")

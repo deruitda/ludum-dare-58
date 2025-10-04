@@ -1,11 +1,34 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=4 format=3 uid="uid://c2344ekwvlk2t"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=9 format=3 uid="uid://c2344ekwvlk2t"]
 
 [ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_of657"]
 [ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="1_s7aht"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_0kq84"]
+[ext_resource type="Script" uid="uid://cka4w8iop4hux" path="res://utilities/range_resource.gd" id="3_0kq84"]
+[ext_resource type="Script" uid="uid://3vlxcis7548q" path="res://utilities/float_range_resource.gd" id="4_ilewg"]
+
+[sub_resource type="Resource" id="Resource_ilewg"]
+script = ExtResource("3_0kq84")
+min_value = 50
+max_value = 200
+metadata/_custom_type_script = "uid://cka4w8iop4hux"
+
+[sub_resource type="Resource" id="Resource_olfx7"]
+script = ExtResource("3_0kq84")
+min_value = 6
+max_value = 12
+metadata/_custom_type_script = "uid://cka4w8iop4hux"
+
+[sub_resource type="Resource" id="Resource_dhnjb"]
+script = ExtResource("4_ilewg")
+min_value = 1.1
+max_value = 1.3
+metadata/_custom_type_script = "uid://3vlxcis7548q"
 
 [resource]
 script = ExtResource("1_s7aht")
 type = "Debt Collection"
+cost = SubResource("Resource_ilewg")
+duration_in_week = SubResource("Resource_olfx7")
+return_percentage = SubResource("Resource_dhnjb")
 accepted_worker_types = Array[ExtResource("1_of657")]([ExtResource("2_0kq84")])
 metadata/_custom_type_script = "uid://dtm2kuspofwj3"

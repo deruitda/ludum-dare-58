@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dtcqtkcturfdx"]
+
+[sub_resource type="GDScript" id="GDScript_h2bpk"]
+script/source = "extends Resource
+class_name RangeResource
+
+@export var min_value: int
+@export var max_value: int
+"
+
+[resource]
+script = SubResource("GDScript_h2bpk")
+metadata/_custom_type_script = "uid://cka4w8iop4hux"

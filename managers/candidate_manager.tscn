@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://7djoso36p0b4"]
+[gd_scene load_steps=3 format=3 uid="uid://7djoso36p0b4"]
 
 [ext_resource type="Script" uid="uid://tuduxmet07xr" path="res://managers/candidate_manager.gd" id="1_m7bhm"]
+[ext_resource type="Script" uid="uid://btyuie20qu0fh" path="res://utilities/name_generator.gd" id="2_7wlxw"]
 
-[node name="CandidateManager" type="Node"]
+[node name="CandidateManager" type="Node" node_paths=PackedStringArray("name_generator")]
 script = ExtResource("1_m7bhm")
+name_generator = NodePath("NameGenerator")
+
+[node name="NameGenerator" type="Node" parent="."]
+script = ExtResource("2_7wlxw")
+metadata/_custom_type_script = "uid://btyuie20qu0fh"
