@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx4fh10vgnuhk"]
+
+[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_w1wq0"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_b1eng"]
+[ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/income-data-row/income-data-row.tscn" id="3_b1eng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
+atlas = ExtResource("1_w1wq0")
+region = Rect2(0, 0, 264, 277)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evvlh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8ktw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BinderBase" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(66, 69.25)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_evvlh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 132.0
+offset_bottom = 139.0
+
+[node name="Forecasted Incom" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 15.0
+offset_right = 149.0
+offset_bottom = 38.0
+scale = Vector2(0.31999952, 0.32000005)
+text = "Forecasted Income"
+label_settings = ExtResource("2_b1eng")
+metadata/_edit_use_anchors_ = true
+
+[node name="Money in da Bank" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 149.0
+offset_bottom = 30.0
+scale = Vector2(0.31999952, 0.32000005)
+text = "Money in the bank"
+label_settings = ExtResource("2_b1eng")
+
+[node name="Income Streams" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28800002
+anchor_top = 0.23700002
+anchor_right = 0.64400005
+anchor_bottom = 0.29000002
+offset_left = 1.9839973
+offset_top = -0.9430008
+offset_right = 104.99223
+offset_bottom = 14.689999
+scale = Vector2(0.31999952, 0.32000005)
+text = "Income Streams"
+label_settings = ExtResource("2_b1eng")
+horizontal_alignment = 1
+
+[node name="Income Streams2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28800002
+anchor_top = 0.23700002
+anchor_right = 0.64400005
+anchor_bottom = 0.29000002
+offset_left = 1.9839973
+offset_top = -0.9430008
+offset_right = 104.99223
+offset_bottom = 14.689999
+scale = Vector2(0.31999952, 0.32000005)
+text = "Income Streams"
+label_settings = ExtResource("2_b1eng")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 128.0
+
+[node name="VScrollBar" type="VScrollBar" parent="Control/Control"]
+layout_mode = 0
+offset_left = 106.0
+offset_right = 114.0
+offset_bottom = 88.0
+step = 10.0
+
+[node name="VBoxContainer" parent="Control/Control" instance=ExtResource("3_b1eng")]
+layout_mode = 1
+offset_left = -10.0
+offset_top = 1.0
+offset_right = 420.0
+offset_bottom = 65.0
+scale = Vector2(0.24000072, 0.28000185)

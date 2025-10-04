@@ -1,0 +1,130 @@
+[gd_scene load_steps=19 format=3 uid="uid://b4uimt1clhey4"]
+
+[ext_resource type="Texture2D" uid="uid://dnlvnk5ufkk2f" path="res://assets/final/ceiling-fan-capo.png" id="1_7yoin"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg8d4"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(0, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wat4d"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(128, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mndvh"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(256, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3u28"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(384, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ix3x"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(512, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vub6"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(640, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc2jg"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(768, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vha4w"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(896, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxm4o"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(1024, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3axac"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(1152, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cnhk"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(1280, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mnye"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(1408, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6io2a"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(1536, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4533"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(1664, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gssv"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(1792, 0, 128, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihkg6"]
+atlas = ExtResource("1_7yoin")
+region = Rect2(1920, 0, 128, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7uyov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg8d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wat4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mndvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3u28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ix3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vub6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc2jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vha4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxm4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3axac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cnhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mnye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6io2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4533")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gssv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihkg6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="CeilingFan" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7uyov")
+autoplay = "default"
+frame_progress = 0.3127806
