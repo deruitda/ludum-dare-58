@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=7 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://o8uu8qru7f4k" path="res://assets/proto/background.png" id="1_ccn0v"]
 [ext_resource type="PackedScene" uid="uid://bhoid1trkoqrp" path="res://desk/Resumes/resumes.tscn" id="2_xcxlp"]
 [ext_resource type="PackedScene" uid="uid://cg62p43atjvcx" path="res://desk/phone.tscn" id="3_4is0s"]
 [ext_resource type="PackedScene" uid="uid://04sehxv1q6xu" path="res://desk/money_counter.tscn" id="4_4is0s"]
+[ext_resource type="Script" uid="uid://dn18yypee5ytb" path="res://desk/week_label.gd" id="6_bnidx"]
 
 [node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone")]
 script = ExtResource("1_bs3hi")
@@ -31,5 +32,10 @@ offset_top = 551.0
 offset_right = 1142.0
 offset_bottom = 637.0
 text = "Next Week"
+
+[node name="WeekLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("6_bnidx")
 
 [connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]

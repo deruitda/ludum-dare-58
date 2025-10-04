@@ -23,3 +23,4 @@ func lose_respect(amount: int) -> void:
 
 func progress_to_next_week():
 	current_week = current_week + 1
+	SignalBus.week_changed.emit(current_week)
