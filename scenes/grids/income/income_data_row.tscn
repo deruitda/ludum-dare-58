@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://duwlhtwcqgncq"]
 
-[ext_resource type="Script" uid="uid://ba35sc0t5sky5" path="res://scenes/overview-grid/income_data_row.gd" id="1_e6oim"]
+[ext_resource type="Script" uid="uid://ba35sc0t5sky5" path="res://scenes/grids/income/income_data_row.gd" id="1_e6oim"]
 [ext_resource type="Texture2D" uid="uid://btt5dlu1r12te" path="res://assets/proto/money-counter.png" id="1_xcmw4"]
 
 [sub_resource type="Gradient" id="Gradient_cabeh"]

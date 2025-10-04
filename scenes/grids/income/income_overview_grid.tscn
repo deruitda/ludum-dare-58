@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsf0578qhhgyk"]
 
-[ext_resource type="Script" uid="uid://xhcbykyqj7hi" path="res://scenes/overview-grid/overview_grid.gd" id="1_1ljx6"]
+[ext_resource type="Script" uid="uid://xhcbykyqj7hi" path="res://scenes/grids/income/income_overview_grid.gd" id="1_1ljx6"]
 
 [node name="ScrollContainer" type="ScrollContainer"]
 offset_right = 480.0

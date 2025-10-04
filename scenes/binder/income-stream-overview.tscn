@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_w1wq0"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_b1eng"]
-[ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/overview-grid/overview-grid.tscn" id="3_b1eng"]
+[ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/grids/income/income_overview_grid.tscn" id="3_b1eng"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
 atlas = ExtResource("1_w1wq0")
@@ -19,7 +19,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BinderBase" type="Node2D"]
+[node name="IncomeStreamOverview" type="Node2D"]
 scale = Vector2(4.6512938, 4.6512938)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

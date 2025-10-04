@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctp3y23im581d"]
+
+[ext_resource type="Script" uid="uid://cqs2gejix7wx2" path="res://scenes/grids/workers/worker_overview_grid.gd" id="1_gc22b"]
+
+[node name="ScrollContainer" type="ScrollContainer"]
+offset_right = 352.0
+offset_bottom = 320.0
+script = ExtResource("1_gc22b")
+
+[node name="WorkersVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
