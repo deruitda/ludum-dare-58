@@ -14,5 +14,5 @@ func gain_experience(amount: int) -> void:
 	experience = experience + amount
 	
 func get_current_capacity() -> int:
-	return 0
+	return len(CapacityManager.get_capacities_by_worker(self))
 	

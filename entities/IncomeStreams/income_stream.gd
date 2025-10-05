@@ -17,6 +17,8 @@ class_name IncomeStream
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired
 
+func get_capacities() -> Array[Capacity]:
+	return CapacityManager.get_capacities_by_income_stream(self)
 
 func get_capacity() -> int:
-	return 0
+	return len(CapacityManager.get_capacities_by_income_stream(self))

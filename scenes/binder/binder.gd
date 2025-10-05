@@ -22,9 +22,9 @@ func open_binder():
 	income_streams_page.visible = true
 	visible = true
 
-func _on_individual_income_stream_page_capacity_button_pressed(income_stream: IncomeStream, capacity: Capacity) -> void:
+func _on_individual_income_stream_page_capacity_button_pressed(income_stream: IncomeStream) -> void:
 	reset_pages()
-	add_worker_to_capacity_page.load_page(income_stream, capacity)
+	add_worker_to_capacity_page.load_page(income_stream)
 	add_worker_to_capacity_page.visible = true
 	
 	pass # Replace with function body.

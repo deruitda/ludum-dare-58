@@ -4,14 +4,12 @@ class_name AddWorkerToCapacityPage
 @onready var worker_overview_grid: WorkerOverviewGrid = $WorkerOverviewGrid
 
 @onready var income_stream: IncomeStream
-@onready var capacity: Capacity
 
 signal on_back_button_pressed
 signal on_worker_selected(worker: Worker)
 
-func load_page(p_income_stream: IncomeStream, p_capacity: Capacity):
+func load_page(p_income_stream: IncomeStream):
 	income_stream = p_income_stream
-	capacity = p_capacity
 	load_workers()
 
 func load_workers():

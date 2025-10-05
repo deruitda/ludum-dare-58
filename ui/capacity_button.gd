@@ -6,10 +6,6 @@ class_name CapacityButton
 
 signal on_capacity_button_press(capacity: Capacity)
 
-func set_capacity(new_capacity: Capacity) -> void:
-	capacity = new_capacity
-	set_is_taken(capacity.is_taken)
-
 func set_is_taken(is_taken: bool):
 	if is_taken:
 		taken_label.visible = true

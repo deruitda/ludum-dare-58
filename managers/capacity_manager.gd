@@ -1,9 +1,27 @@
 extends Node
 
-func create_vacant_capacity_item():
-	var capacity = Capacity.new()
-	add_child(capacity)
+const CAPACITY = preload("uid://d24t86ob64maj")
 
-func add_worker(worker: Worker, index: int) -> void:
-	pass
-	
+func create_capacity(income_stream: IncomeStream, worker: Worker):
+	var capacity = CAPACITY.instantiate() as Capacity
+	add_child(capacity)
+	capacity.worker = worker
+	capacity.income_stream = income_stream
+
+func get_capacities_by_worker(worker: Worker) -> Array[Capacity]:
+	var return_array: Array[Capacity] = []
+	for capacity in get_children():
+		var c = capacity as Capacity
+		if c.worker == worker:
+			return_array.append(c)
+		
+	return return_array
+
+func get_capacities_by_income_stream(income_stream: IncomeStream) -> Array[Capacity]:
+	var return_array: Array[Capacity] = []
+	for capacity in get_children():
+		var c = capacity as Capacity
+		if c.income_stream == income_stream:
+			return_array.append(c)
+		
+	return return_array
