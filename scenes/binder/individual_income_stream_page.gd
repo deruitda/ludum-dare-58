@@ -23,6 +23,7 @@ func refresh():
 		return
 	capacity_row.set_income_stream(income_stream)
 	if income_stream.has_idle_event():
+		idle_event_view.set_idle_event(income_stream.get_idle_event())
 		idle_event_view.visible = true
 	else:
 		idle_event_view.visible = false

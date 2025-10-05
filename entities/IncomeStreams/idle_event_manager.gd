@@ -2,7 +2,6 @@ extends Node
 
 @export var current_idle_event: IdleEvent
 
-
 func has_idle_event() -> bool:
 	return (current_idle_event == null) == false
 
@@ -14,7 +13,11 @@ func create_idle_event_from_potential_idle_events(potential_idle_events: Array[P
 	current_idle_event.idle_event_name = potential_idle_event.idle_event_name
 	current_idle_event.chance_of_failure = potential_idle_event.chance_of_failure
 	current_idle_event.idle_description = potential_idle_event.idle_description
+	current_idle_event.cost_to_attempt_to_resolve = potential_idle_event.cost_to_attempt_to_resolve
 
 func remove_idle_event() -> void:
 	current_idle_event.queue_free()
 	current_idle_event = null
+
+func get_idle_event() -> IdleEvent:
+	return current_idle_event

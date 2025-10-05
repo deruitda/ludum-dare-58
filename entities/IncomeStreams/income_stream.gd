@@ -51,3 +51,8 @@ func increment_week() -> void:
 
 func is_completed() -> bool:
 	return active_weeks_transpired == duration_in_weeks
+
+func get_idle_event() -> IdleEvent:
+	if has_idle_event():
+		return idle_event_manager.get_idle_event()
+	return
