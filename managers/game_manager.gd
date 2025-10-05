@@ -2,6 +2,9 @@ extends Node
 
 signal worker_fired
 
+@export var number_of_potential_income_streams_per_week: int = 3
+@export var number_of_candidates_per_week: int = 3
+
 func _on_room_progress_button_click() -> void:
 	pass
 
@@ -33,5 +36,14 @@ func progress_to_next_week():
 			pass
 	
 	simulate_events()
+	
+	PotentialIncomeStreamManager.remove_all_income_streams()
+	CandidateManager.remove_all_candidates()
+	
+	for i in number_of_potential_income_streams_per_week:
+		PotentialIncomeStreamManager.generate_income_stream()
+	
+	for i in number_of_candidates_per_week:
+		CandidateManager.generate_worker()
 	
 	GameState.increment_week()

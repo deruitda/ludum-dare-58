@@ -7,12 +7,13 @@ signal worker_hired(worker: Worker)
 @onready var name_generator: NameGenerator
 
 func _ready() -> void:
-	name_generator = NameGenerator.new()
-	add_child(name_generator)
 	pass
 	#CandidateManagerSignalBus.hire_worker_button_pressed.connect()
 
 func generate_worker() -> void:
+	
+	name_generator = NameGenerator.new()
+	add_child(name_generator)
 	var new_worker = Worker.new()
 	new_worker.worker_name = name_generator.generate_name()
 	name_generator.queue_free()
@@ -22,6 +23,10 @@ func generate_worker() -> void:
 	worker_generated.emit(new_worker)
 
 
+func remove_all_candidates() -> void:
+	for candidate in get_children():
+		remove_child(candidate)
+		candidate.queue_free()
 
 func get_hierable_workers() -> Array[Worker]:
 	var return_array: Array[Worker]

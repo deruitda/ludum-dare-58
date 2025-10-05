@@ -36,6 +36,12 @@ func get_available_income_stream_types(total_respect: int) -> Array:
 		if income_type.required_respect <= total_respect:
 			available_types.append(income_type)
 	return available_types
+	
+func remove_all_income_streams() -> void:
+	for income_stream in get_children():
+		remove_child(income_stream)
+		income_stream.queue_free()
+		
 
 func generate_name() -> String:
 	return "Debt Collection"
