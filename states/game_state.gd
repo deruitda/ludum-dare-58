@@ -12,6 +12,14 @@ func collect_money(amount: int) -> void:
 	total_money = total_money + amount
 	SignalBus.money_changed.emit()
 
+	
+func get_level() -> int:
+	if total_respect < 10:
+		return 1
+	elif total_respect < 20:
+		return 2
+	return 3
+
 func gain_respect(amount: int) -> void:
 	total_respect = total_respect + amount
 	

@@ -22,3 +22,10 @@ func get_forecasted_expenses() -> int:
 		forecasted_expenses = forecasted_expenses + worker.cost_per_week
 	
 	return forecasted_expenses
+
+func get_forecasted_respect() -> int:
+	var forecasted_respect: int = 0
+	for worker in WorkerManager.get_workers():
+		forecasted_respect = forecasted_respect + worker.get_current_weekly_respect_amount()
+	
+	return forecasted_respect

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwqnmfqiwpgxf"]
+[gd_scene load_steps=9 format=3 uid="uid://cwqnmfqiwpgxf"]
 
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_2lml8"]
 [ext_resource type="Script" uid="uid://c30r6pdoo0sdu" path="res://scenes/binder/workers_page.gd" id="1_mxuhj"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_kmsn1"]
 [ext_resource type="PackedScene" uid="uid://ctp3y23im581d" path="res://scenes/grids/workers/worker_overview_grid.tscn" id="3_2lml8"]
+[ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="4_7hxw3"]
+[ext_resource type="LabelSettings" uid="uid://drcmtc1m8mllw" path="res://desk/Resumes/level_label.tres" id="5_52y5v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
 atlas = ExtResource("1_2lml8")
@@ -35,15 +37,65 @@ anchors_preset = 0
 offset_right = 132.0
 offset_bottom = 139.0
 
-[node name="RespectLabel" type="Label" parent="Control"]
+[node name="ThisWeeksRespectLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 7.0
 offset_right = 149.0
 offset_bottom = 30.0
 scale = Vector2(0.31999952, 0.32000005)
-text = "Employee Respect"
+text = "Employee Weekly Respect"
 label_settings = ExtResource("2_kmsn1")
+
+[node name="ThisWeeksRespectValue" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 73.097946
+offset_top = 7.0948
+offset_right = 214.09795
+offset_bottom = 30.094799
+scale = Vector2(0.31999952, 0.32000005)
+text = "+3"
+label_settings = ExtResource("4_7hxw3")
+
+[node name="TotalRespect" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 2.1499395
+offset_top = 15.909553
+offset_right = 149.14993
+offset_bottom = 38.909554
+scale = Vector2(0.31999952, 0.32000005)
+text = "Total Respect Level"
+label_settings = ExtResource("2_kmsn1")
+
+[node name="TotalRespectValue" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 72.88294
+offset_top = 14.189601
+offset_right = 213.88293
+offset_bottom = 37.189598
+scale = Vector2(0.31999952, 0.32000005)
+text = "14"
+label_settings = ExtResource("4_7hxw3")
+
+[node name="LevelLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1.9349458
+offset_top = 24.294315
+offset_right = 149.93495
+offset_bottom = 47.294315
+scale = Vector2(0.31999952, 0.32000005)
+text = "Level"
+label_settings = ExtResource("2_kmsn1")
+
+[node name="LevelValue" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 72.88295
+offset_top = 22.144377
+offset_right = 213.88295
+offset_bottom = 45.144375
+scale = Vector2(0.31999952, 0.32000005)
+text = "1"
+label_settings = ExtResource("5_52y5v")
 
 [node name="WorkersLabel" type="Label" parent="Control"]
 layout_mode = 1
@@ -52,10 +104,10 @@ anchor_left = 0.28800002
 anchor_top = 0.23700002
 anchor_right = 0.64400005
 anchor_bottom = 0.29000002
-offset_left = 1.9839973
-offset_top = -0.9430008
-offset_right = 104.99223
-offset_bottom = 14.689999
+offset_left = -1.0370445
+offset_top = 4.0359573
+offset_right = 101.97119
+offset_bottom = 19.668957
 scale = Vector2(0.31999952, 0.32000005)
 text = "Workers"
 label_settings = ExtResource("2_kmsn1")
@@ -70,6 +122,8 @@ offset_bottom = 128.0
 
 [node name="ScrollContainer" parent="Control/Control" instance=ExtResource("3_2lml8")]
 layout_mode = 0
-offset_left = 0.0
-offset_right = 352.0
+offset_left = 1.6295035
+offset_top = 11.598544
+offset_right = 353.62952
+offset_bottom = 331.59854
 scale = Vector2(0.26042068, 0.26042068)
