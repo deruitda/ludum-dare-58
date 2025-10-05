@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PotentialIdleEventsResource" load_steps=2 format=3 uid="uid://duxylg62gu1h"]
+
+[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_resource.gd" id="1_6qwcb"]
+
+[resource]
+script = ExtResource("1_6qwcb")
+idle_event_name = "Something happened debt"
+idle_description = "Do you want to resolve it"
+metadata/_custom_type_script = "uid://cy44ryxdfwf47"

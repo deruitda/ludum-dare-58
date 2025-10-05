@@ -11,7 +11,14 @@ class_name IncomeStream
 @export var capacity: int = 1
 @export var description: String = ""
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
+@export var status: String = "Active"
+@export var chanceOfEvent: float = 0.5
 
+func idle_event_chance() -> void:
+	var roll = randf()
+	if roll < chanceOfEvent:
+		status = "Idle"
+		
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired
 
