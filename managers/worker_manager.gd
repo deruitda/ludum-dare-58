@@ -1,6 +1,4 @@
 extends Node
-class_name WorkerManager
-
 
 signal worker_hired(worker: Worker)
 

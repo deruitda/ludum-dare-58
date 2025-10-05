@@ -1,8 +1,6 @@
 extends Node
 
-class_name ActiveIncomeStreamsManager
 signal active_income_stream_added(income_stream: IncomeStream)
-
 
 func accept_income_stream(income_stream: IncomeStream) -> void:
 	add_child(income_stream)

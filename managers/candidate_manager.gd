@@ -1,5 +1,4 @@
 extends Node
-class_name CandidateManager
 
 @export var name_generator: NameGenerator
 

@@ -10,13 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://doxyjb1hpinnl" path="res://desk/active_income_stream_binder.tscn" id="8_tfbhj"]
 [ext_resource type="PackedScene" uid="uid://b4uimt1clhey4" path="res://scenes/ceiling-fan.tscn" id="9_x1u2a"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone", "potential_income_stream_binder", "active_income_stream_binder")]
-position = Vector2(-136, -10)
+[node name="Room" type="Node2D"]
 script = ExtResource("1_bs3hi")
-resumes = NodePath("Resumes")
-phone = NodePath("Phone")
-potential_income_stream_binder = NodePath("PotentialIncomeStreamBinder")
-active_income_stream_binder = NodePath("AcceptedIncomeStreamBinder")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(584, -1.0000076)
@@ -24,14 +19,17 @@ scale = Vector2(1.7875, 1.7972223)
 texture = ExtResource("2_bnidx")
 
 [node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
+visible = false
 position = Vector2(253.00002, -241.00003)
 scale = Vector2(0.6956009, 0.76000094)
 
 [node name="Phone" parent="." instance=ExtResource("3_4is0s")]
+visible = false
 position = Vector2(824.99994, -190.00003)
 scale = Vector2(0.67747736, 0.93460965)
 
 [node name="PotentialIncomeStreamBinder" parent="." instance=ExtResource("7_bs3hi")]
+visible = false
 position = Vector2(293, 156)
 
 [node name="MoneyCounter" parent="." instance=ExtResource("4_4is0s")]
