@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wge1ujom1m24"]
+[gd_scene load_steps=8 format=3 uid="uid://wge1ujom1m24"]
 
 [ext_resource type="Script" uid="uid://kx1qefdojlef" path="res://scenes/binder/add_worker_to_capacity_page.gd" id="1_q4qy8"]
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="2_2mqqt"]
 [ext_resource type="PackedScene" uid="uid://ctp3y23im581d" path="res://scenes/grids/workers/worker_overview_grid.tscn" id="3_8k224"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_2mqqt"]
+[ext_resource type="LabelSettings" uid="uid://0ejlgbcqp8ns" path="res://desk/Resumes/description_label.tres" id="5_jitoe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
 atlas = ExtResource("2_2mqqt")
@@ -20,7 +22,6 @@ animations = [{
 }]
 
 [node name="AddWorkerToCapacityPage" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(4.656634, 4.6512938)
@@ -40,12 +41,42 @@ offset_bottom = 135.91705
 text = "<"
 
 [node name="WorkerOverviewGrid" parent="." instance=ExtResource("3_8k224")]
+visible = false
 layout_mode = 0
 offset_left = 12.670095
 offset_top = 12.684644
 offset_right = 391.29877
 offset_bottom = 354.39902
 scale = Vector2(0.27062082, 0.3087139)
+
+[node name="NoAvailableWorkersControl" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NoAvailableWorkersLabel" type="Label" parent="NoAvailableWorkersControl"]
+layout_mode = 0
+offset_left = 9.663633
+offset_top = 48.803623
+offset_right = 175.66364
+offset_bottom = 96.47029
+scale = Vector2(0.6935678, 0.84312004)
+text = "No Workers Available
+"
+label_settings = ExtResource("4_2mqqt")
+
+[node name="NoAvailableWorkersLabel2" type="Label" parent="NoAvailableWorkersControl"]
+layout_mode = 0
+offset_left = 10.952118
+offset_top = 82.557686
+offset_right = 176.95212
+offset_bottom = 130.22433
+scale = Vector2(0.6935678, 0.84312004)
+text = "Hire more Workers, finish jobs or promote experienced workers"
+label_settings = ExtResource("5_jitoe")
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="on_details_button_pressed" from="WorkerOverviewGrid" to="." method="_on_worker_overview_grid_on_details_button_pressed"]
