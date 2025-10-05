@@ -12,8 +12,6 @@ class_name IncomeStream
 @export var description: String = ""
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
 
-
-		
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired
 
@@ -22,3 +20,6 @@ func get_capacities() -> Array[Capacity]:
 
 func get_capacity() -> int:
 	return len(CapacityManager.get_capacities_by_income_stream(self))
+	
+func has_full_capacity() -> bool:
+	return get_capacity() == capacity
