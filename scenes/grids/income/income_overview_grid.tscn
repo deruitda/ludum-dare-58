@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://xhcbykyqj7hi" path="res://scenes/grids/income/income_overview_grid.gd" id="1_1ljx6"]
 
 [node name="ScrollContainer" type="ScrollContainer"]
+custom_minimum_size = Vector2(510.91, 0)
 offset_right = 480.0
 offset_bottom = 344.0
 script = ExtResource("1_1ljx6")
 
 [node name="IncomeStreamsVBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(510.91, 344)
 layout_mode = 2
