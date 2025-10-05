@@ -16,7 +16,7 @@ potential_income_stream_manager = NodePath("PotentialIncomeStreamManager")
 active_income_streams_manager = NodePath("ActiveIncomeStreamManager")
 
 [node name="Room" parent="." node_paths=PackedStringArray("candidate_manager", "worker_manager", "potential_income_streams_manager", "active_income_streams_manager") instance=ExtResource("2_1bvp3")]
-position = Vector2(-16, 424)
+position = Vector2(6, 25)
 candidate_manager = NodePath("../CandidateManager")
 worker_manager = NodePath("../WorkerManager")
 potential_income_streams_manager = NodePath("../PotentialIncomeStreamManager")
