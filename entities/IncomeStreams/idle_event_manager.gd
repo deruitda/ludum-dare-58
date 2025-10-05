@@ -11,7 +11,7 @@ func create_idle_event_from_potential_idle_events(potential_idle_events: Array[P
 	add_child(current_idle_event)
 	
 	current_idle_event.idle_event_name = potential_idle_event.idle_event_name
-	current_idle_event.chance_to_idle = potential_idle_event.chance_to_idle
+	current_idle_event.chance_of_failure = potential_idle_event.chance_of_failure
 	current_idle_event.idle_description = potential_idle_event.idle_description
 
 func remove_idle_event() -> void:

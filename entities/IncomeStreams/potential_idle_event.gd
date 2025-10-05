@@ -3,7 +3,7 @@ extends Node
 class_name PotentialIdleEvent
 
 @export var idle_event_name: String = ""
-@export var chance_to_idle: float = .5
+@export var chance_of_failure: float = .5
 @export var status: String = "unresolved"
 @export var idle_description: String = ""
 

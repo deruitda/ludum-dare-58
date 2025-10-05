@@ -22,5 +22,8 @@ func increment_week() -> void:
 	current_week = current_week + 1
 	SignalBus.week_changed.emit(current_week)
 #
-#func get_forcasted_expenses() -> int:
-	#for 
+func get_forecasted_expenses() -> int:
+	return WorkerManager.get_forecasted_expenses()
+	
+func get_forecasted_income() -> int:
+	return IncomeStreamManager.get_forecasted_income()

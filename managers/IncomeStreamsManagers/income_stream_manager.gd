@@ -32,9 +32,15 @@ func get_active_income_streams() -> Array[IncomeStream]:
 	var return_array: Array[IncomeStream] = []
 	for child in get_children():
 		if child is IncomeStream:
-			if not child.is_idle() and not child.is_completed:
+			if not child.is_idle() and not child.is_completed():
 				return_array.append(child)
 	return return_array
+
+func get_forecasted_income() -> int:
+	var forecasted_income: int = 0
+	for income_stream in  get_active_income_streams():
+		forecasted_income = forecasted_income + income_stream.income_per_week
+	return forecasted_income
 
 #func check_events() -> Array[IncomeStream]:
 	#var return_array: Array[IncomeStream] = []
