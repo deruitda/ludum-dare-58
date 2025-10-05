@@ -22,5 +22,6 @@ func refresh_capacity_state() -> void:
 
 
 func _on_capacity_button_on_capacity_button_press() -> void:
+	print("yup")
 	capacity_button_pressed.emit()
 	pass # Replace with function body.

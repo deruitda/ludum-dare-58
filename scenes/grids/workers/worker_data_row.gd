@@ -14,12 +14,8 @@ signal on_details_button_pressed(worker: Worker)
 @onready var worker: Worker
 
 	
-func _ready() -> void:
-	if worker:
-		name_label.text = worker.worker_name
-	
-func set_worker(worker: Worker):
-	worker = worker
+func set_worker(p_worker: Worker):
+	worker = p_worker
 	name_label.text = worker.worker_name
 	capacity_label.text = str(worker.get_current_capacity()) + "/" + str(worker.total_capacity)
 	

@@ -4,7 +4,7 @@ class_name IndividualIncomeStreamPage
 @onready var income_stream: IncomeStream
 @export var capacity_row: CapacityRow
 
-signal capacity_button_pressed(income_stream: IncomeStream, capacity: Capacity)
+signal capacity_button_pressed(income_stream: IncomeStream)
 signal back_button_pressed()
 
 func set_income_stream(new_income_stream: IncomeStream) -> void:
@@ -14,8 +14,8 @@ func set_income_stream(new_income_stream: IncomeStream) -> void:
 func refresh_capacity_state() -> void:
 	capacity_row.refresh_capacity_state()
 
-func _on_capacity_row_capacity_button_pressed(capacity: Capacity) -> void:
-	capacity_button_pressed.emit(income_stream, capacity)
+func _on_capacity_row_capacity_button_pressed() -> void:
+	capacity_button_pressed.emit(income_stream)
 
 
 func _on_back_button_button_up() -> void:
