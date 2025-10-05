@@ -5,12 +5,28 @@ signal active_income_stream_added(income_stream: IncomeStream)
 func accept_income_stream(income_stream: IncomeStream) -> void:
 	add_child(income_stream)
 	active_income_stream_added.emit(income_stream)
-
+	GameState.simulate_events()
+	
+func get_idle_income_streams() -> Array[IncomeStream]:
+	var return_array: Array[IncomeStream] = []
+	for child in get_children():
+		if child is IncomeStream and child.status == "Idle":
+			return_array.append(child)
+	return return_array
+	
 func get_income_streams() -> Array[IncomeStream]:
-	var return_array: Array[IncomeStream]
+	var return_array: Array[IncomeStream] = []
 	for child in get_children():
 		if child is IncomeStream:
-			return_array.append(child as IncomeStream)
+			return_array.append(child)
+	return return_array
+
+func check_events() -> Array[IncomeStream]:
+	var return_array: Array[IncomeStream] = []
+	for child in get_children():
+		if child is IncomeStream:
+			child.type
+			return_array.append(child)
 	return return_array
 	
 func get_income_stream_by_index(index: int) -> IncomeStream:

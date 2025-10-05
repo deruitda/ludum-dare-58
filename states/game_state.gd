@@ -21,6 +21,13 @@ func gain_respect(amount: int) -> void:
 func lose_respect(amount: int) -> void:
 	total_respect = total_respect - amount
 
+func simulate_events():
+	var streams = ActiveIncomeStreamManager.get_income_streams()
+	for stream in streams:
+		stream.idle_event_chance()
+		
+	var idle_streams = ActiveIncomeStreamManager.get_idle_income_streams()
+	
 func progress_to_next_week():
 	current_week = current_week + 1
 	SignalBus.week_changed.emit(current_week)
