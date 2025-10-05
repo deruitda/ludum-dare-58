@@ -3,30 +3,39 @@ class_name PotentialIncomeStreamsManager
 
 signal potential_income_stream_generated(income_stream: IncomeStream)
 signal income_stream_accepted(income_stream: IncomeStream)
-var income_stream_types = [preload("res://entities/IncomeStreams/IncomeStreamType/debt_collection.tres")]
+#var income_stream_types = [preload("res://entities/IncomeStreams/IncomeStreamType/debt_collection.tres"),preload("res://entities/IncomeStreams/IncomeStreamType/drug_deal.tres")]
 
+
+var income_stream_types: Array = []
+
+func _ready():
+	var dir = DirAccess.open("res://entities/IncomeStreams/IncomeStreamType")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".tres"):
+				var path = "res://entities/IncomeStreams/IncomeStreamType/" + file_name
+				var resource = load(path)
+				if resource:
+					income_stream_types.append(resource)
+			file_name = dir.get_next()
+		dir.list_dir_end()	
+		
 func generate_income_stream() -> void:
+	var available_streams = get_available_income_stream_types(GameState.total_respect)
+	var chosen_type = available_streams.pick_random()
+	var new_income_stream = chosen_type.create_income_stream_node()
 	var income_stream_type: IncomeStreamTypeResource = income_stream_types.pick_random()
-	var new_income_stream = income_stream_type.create_income_stream_node()
-	#match new_income_stream.type:
-		#"Debt Collection": 
-			#new_income_stream.name = generate_name()
-			#new_income_stream.income_per_week = generate_income_stream()
-			#new_income_stream.duration_in_weeks = generate_duration_in_weeks()
-			#new_income_stream.active_weeks_transpired = generate_active_weeks_transpired()
-			#new_income_stream.total_weekly_income = generate_total_weekly_income()
-			#new_income_stream.currentWorkers = []
-			#new_income_stream.cost = generate_cost()
-			#new_income_stream.capacity = generate_capacity()
-			#new_income_stream.description = generate_description()
-			#new_income_stream.accepted_worker_types = generate_accepted_worker_types()	
-			#print 
-		
-		
-	#////new_income_stream.income_stream_name = generate_name()
-	#//new_income_stream.accepted_worker_types = [preload("res://entities/Worker/WorkerType/soldier.tres")]
 	add_child(new_income_stream)
 	potential_income_stream_generated.emit(new_income_stream)
+
+func get_available_income_stream_types(total_respect: int) -> Array:
+	var available_types = []
+	for income_type in income_stream_types:
+		if income_type.required_respect <= total_respect:
+			available_types.append(income_type)
+	return available_types
 
 func generate_name() -> String:
 	return "Debt Collection"
