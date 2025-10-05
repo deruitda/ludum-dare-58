@@ -4,7 +4,7 @@ func _on_room_progress_button_click() -> void:
 	pass
 
 func simulate_events():
-	var streams = IncomeStreamManager.get_income_streams()
+	var streams = IncomeStreamManager.get_active_income_streams()
 	for stream in streams:
 		stream.idle_event_chance()
 	
@@ -14,6 +14,7 @@ func progress_to_next_week():
 		GameState.collect_money(income_stream.income_per_week)
 		income_stream.increment_week()
 		if income_stream.is_completed():
+			#add to report
 			pass
 		
 	

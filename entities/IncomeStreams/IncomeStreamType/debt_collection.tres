@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="1_s7aht"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_0kq84"]
 [ext_resource type="Script" uid="uid://cka4w8iop4hux" path="res://utilities/range_resource.gd" id="3_0kq84"]
+[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_event_resource.gd" id="4_dhnjb"]
 [ext_resource type="Script" uid="uid://3vlxcis7548q" path="res://utilities/float_range_resource.gd" id="4_ilewg"]
-[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_resource.gd" id="4_olfx7"]
 [ext_resource type="Resource" uid="uid://duxylg62gu1h" path="res://entities/PotentialIdleEventsType/debt_collection_event.tres" id="5_dhnjb"]
 
 [sub_resource type="Resource" id="Resource_ilewg"]
@@ -33,5 +33,5 @@ cost = SubResource("Resource_ilewg")
 duration_in_week = SubResource("Resource_olfx7")
 return_percentage = SubResource("Resource_dhnjb")
 accepted_worker_types = Array[ExtResource("1_of657")]([ExtResource("2_0kq84")])
-potential_idle_events = Array[ExtResource("4_olfx7")]([ExtResource("5_dhnjb")])
+potential_idle_events = Array[ExtResource("4_dhnjb")]([ExtResource("5_dhnjb")])
 metadata/_custom_type_script = "uid://dtm2kuspofwj3"

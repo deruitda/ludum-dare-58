@@ -12,12 +12,10 @@ class_name IncomeStreamTypeResource
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
 @export var potential_idle_events: Array[PotentialIdleEventsResource] = []
 
-func create_income_stream_node() -> IncomeStream:
+func set_income_stream(income_stream: IncomeStream) -> void:
 	var name_generator = NameGenerator.new()
-	var random_name = name_generator.generate_name()
 	var victim_random_name = name_generator.generate_victim_name()
 	name_generator.queue_free()
-	var income_stream = IncomeStream.new()
 	income_stream.type = self
 	
 	income_stream.cost = cost.get_random_value()
@@ -30,5 +28,3 @@ func create_income_stream_node() -> IncomeStream:
 	income_stream.income_stream_name = type + " " + victim_random_name
 	var potential_idle_event = PotentialIdleEvent.new()
 	income_stream.type.potential_idle_events.append(potential_idle_event)
-	
-	return income_stream
