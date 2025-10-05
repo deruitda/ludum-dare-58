@@ -40,11 +40,11 @@ func get_weeks_left() -> int:
 func get_capacities() -> Array[Capacity]:
 	return CapacityManager.get_capacities_by_income_stream(self)
 
-func get_capacity() -> int:
+func get_current_capacity() -> int:
 	return len(CapacityManager.get_capacities_by_income_stream(self))
 	
 func has_full_capacity() -> bool:
-	return get_capacity() == capacity
+	return get_current_capacity() == capacity
 
 func increment_week() -> void:
 	active_weeks_transpired = active_weeks_transpired + 1

@@ -129,7 +129,8 @@ offset_right = 21.865454
 offset_bottom = 135.91705
 text = "<"
 
-[connection signal="capacity_button_pressed" from="VBoxContainer/CapacityRow" to="." method="_on_capacity_row_capacity_button_pressed"]
+[connection signal="on_assign_workers_button_pressed" from="VBoxContainer/CapacityRow" to="." method="_on_capacity_row_on_assign_workers_button_pressed"]
+[connection signal="on_unassign_workers_button_pressed" from="VBoxContainer/CapacityRow" to="." method="_on_capacity_row_on_unassign_workers_button_pressed"]
 [connection signal="on_abandon_button_pressed" from="VBoxContainer/IdleEvents/IdleEventView" to="." method="_on_idle_event_view_on_abandon_button_pressed"]
 [connection signal="on_attempt_to_resolve_button_pressed" from="VBoxContainer/IdleEvents/IdleEventView" to="." method="_on_idle_event_view_on_attempt_to_resolve_button_pressed"]
 [connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

@@ -45,9 +45,6 @@ func refresh():
 func refresh_capacity_state() -> void:
 	capacity_row.refresh_capacity_state()
 
-func _on_capacity_row_capacity_button_pressed() -> void:
-	capacity_button_pressed.emit(income_stream)
-
 func _on_back_button_button_up() -> void:
 	back_button_pressed.emit()
 
@@ -63,3 +60,10 @@ func _on_idle_event_view_on_attempt_to_resolve_button_pressed() -> void:
 		resolution_failed_label.visible = true
 	else:
 		resolution_successful_label.visible = true
+
+func _on_capacity_row_on_assign_workers_button_pressed() -> void:
+	capacity_button_pressed.emit(income_stream)
+
+func _on_capacity_row_on_unassign_workers_button_pressed() -> void:
+	CapacityManager.remove_capacities_by_income_stream(income_stream)
+	refresh()

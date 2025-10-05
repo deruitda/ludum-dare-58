@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5kfuahvbhjn1"]
+[gd_scene load_steps=2 format=3 uid="uid://b5kfuahvbhjn1"]
 
 [ext_resource type="Script" uid="uid://dao4k3okgq547" path="res://ui/capacity_row.gd" id="1_ca7ih"]
-[ext_resource type="PackedScene" uid="uid://354ndc2yqo5x" path="res://ui/capacity_button.tscn" id="2_jisyx"]
 
 [node name="CapacityRow" type="Control"]
 layout_mode = 3
@@ -11,35 +10,29 @@ offset_bottom = 41.0
 scale = Vector2(1.018868, 1.0588236)
 script = ExtResource("1_ca7ih")
 
-[node name="CapacityButton" parent="." instance=ExtResource("2_jisyx")]
+[node name="AssignWorkersButton" type="Button" parent="."]
 layout_mode = 0
-offset_bottom = 41.0
+offset_left = 0.9814815
+offset_top = 43.444443
+offset_right = 127.98148
+offset_bottom = 74.44444
+text = "Assign Workers"
 
-[node name="CapacityButton2" parent="." instance=ExtResource("2_jisyx")]
+[node name="UnassignWorkersButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 57.907402
-offset_top = 1.8888887
-offset_right = 65.9074
-offset_bottom = 42.88889
-scale = Vector2(1.004902, 1)
+offset_left = 140.35185
+offset_top = 42.5
+offset_right = 312.35187
+offset_bottom = 73.5
+text = "Unassign All Workers"
 
-[node name="CapacityButton3" parent="." instance=ExtResource("2_jisyx")]
+[node name="CapacityLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 121.7037
-offset_right = 129.7037
-offset_bottom = 41.0
+offset_left = 59.870373
+offset_top = 1.8888888
+offset_right = 202.1852
+offset_bottom = 39.666668
+text = "1/1 Necessary Capacity Filled"
 
-[node name="CapacityButton4" parent="." instance=ExtResource("2_jisyx")]
-layout_mode = 0
-offset_left = 182.55554
-offset_top = 0.9444444
-offset_right = 190.55554
-offset_bottom = 41.944443
-
-[node name="CapacityButton5" parent="." instance=ExtResource("2_jisyx")]
-layout_mode = 0
-offset_left = 239.48148
-offset_top = 2.833333
-offset_right = 247.48148
-offset_bottom = 43.833332
-scale = Vector2(1.004902, 1)
+[connection signal="button_up" from="AssignWorkersButton" to="." method="_on_assign_workers_button_button_up"]
+[connection signal="button_up" from="UnassignWorkersButton" to="." method="_on_unassign_workers_button_button_up"]

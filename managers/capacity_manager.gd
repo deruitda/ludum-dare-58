@@ -26,7 +26,7 @@ func get_capacities_by_income_stream(income_stream: IncomeStream) -> Array[Capac
 		
 	return return_array
 
-func abandon_by_income_stream(income_stream: IncomeStream):
+func remove_capacities_by_income_stream(income_stream: IncomeStream):
 	var capacities = get_capacities_by_income_stream(income_stream)
 	for cap in capacities:
 		remove_child(cap)

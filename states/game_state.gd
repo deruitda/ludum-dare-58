@@ -1,6 +1,6 @@
 extends Node
 
-@onready var total_money: int = 10000
+@onready var total_money: int = 500
 @onready var total_respect: int = 0
 @onready var current_week: int = 1
 
