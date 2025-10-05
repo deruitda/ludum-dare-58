@@ -1,22 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0asi7pvmfh83"]
+[gd_scene load_steps=7 format=3 uid="uid://d0asi7pvmfh83"]
 
 [ext_resource type="Script" uid="uid://c2d0o6rhqpo2s" path="res://desk/buttons/desk_button.gd" id="1_f0irj"]
 [ext_resource type="Texture2D" uid="uid://bqetbx2w07djp" path="res://assets/final/binder.png" id="2_2njfd"]
-[ext_resource type="Texture2D" uid="uid://x3qljeh2h5y0" path="res://assets/final/binder-selected.png" id="3_qmsus"]
 [ext_resource type="Script" uid="uid://1b5h2cwbl1y3" path="res://desk/buttons/binder_sprite_controller.gd" id="4_slwsa"]
 
-[node name="BinderButton" type="Node2D" node_paths=PackedStringArray("button", "sprite", "highlighted_sprite")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_huvnw"]
+atlas = ExtResource("2_2njfd")
+region = Rect2(0, 0, 69, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmsus"]
+atlas = ExtResource("2_2njfd")
+region = Rect2(69, 0, 69, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slwsa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huvnw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmsus")
+}],
+"loop": true,
+"name": &"highlighted",
+"speed": 5.0
+}]
+
+[node name="BinderButton" type="Node2D" node_paths=PackedStringArray("button", "animated_sprite_2d")]
 script = ExtResource("1_f0irj")
 button = NodePath("Button")
-sprite = NodePath("BinderButtonSprite")
-highlighted_sprite = NodePath("HighlightedBinderButtonSprite")
-
-[node name="BinderButtonSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_2njfd")
-
-[node name="HighlightedBinderButtonSprite" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("3_qmsus")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
 
 [node name="Button" type="Button" parent="."]
 offset_left = -29.0
@@ -27,3 +45,7 @@ flat = true
 
 [node name="SpriteController" type="Node" parent="."]
 script = ExtResource("4_slwsa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_slwsa")
+autoplay = "default"

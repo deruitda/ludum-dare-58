@@ -4,8 +4,7 @@ class_name DeskButton
 @export var button: Button
 @export var open_scene: PackedScene
 
-@export var sprite: Sprite2D
-@export var highlighted_sprite: Sprite2D
+@export var animated_sprite_2d: AnimatedSprite2D
 
 signal button_pressed(packed_scene: PackedScene)
 
@@ -16,12 +15,10 @@ func _ready() -> void:
 	button.mouse_exited.connect(_on_mouse_exited)
 	
 func set_highlighted() -> void:
-	sprite.visible = false
-	highlighted_sprite.visible = true
+	animated_sprite_2d.play("highlighted")
 	
 func set_not_highlighted() -> void:
-	sprite.visible = true
-	highlighted_sprite.visible = false
+	animated_sprite_2d.play("default")
 
 func _on_mouse_entered() -> void:
 	set_highlighted()
