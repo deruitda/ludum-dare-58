@@ -1,6 +1,5 @@
 extends Node2D
 class_name Resumes
-@onready var candidate_manager: CandidateManager
 
 @export var paginator: Paginator
 @export var resume: Resume
@@ -8,14 +7,14 @@ class_name Resumes
 @onready var current_index: int = 0
 @onready var initialized: bool = false
 
-func set_candidate_manager(cm: CandidateManager) -> void:
-	candidate_manager = cm
-	candidate_manager.worker_generated.connect(worker_generated)
-	candidate_manager.worker_hired.connect(worker_hired)
+func _ready() -> void:
+	CandidateManager.worker_generated.connect(worker_generated)
+	CandidateManager.worker_hired.connect(worker_hired)
 	set_items()
+
 	
 func set_items() -> void:
-	var workers = candidate_manager.get_hierable_workers()
+	var workers = CandidateManager.get_hierable_workers()
 	paginator.set_items(workers)
 
 func set_worker_on_resume() -> void:
@@ -42,7 +41,7 @@ func _on_right_pressed() -> void:
 	set_worker_on_resume()
 
 func _on_resume_on_hire_button_pressed() -> void:
-	candidate_manager.hire_worker_by_index(paginator.current_index)
+	CandidateManager.hire_worker_by_index(paginator.current_index)
 	set_items()
 	if not paginator.has_items():
 		resume.set_no_resumes_left_screen()

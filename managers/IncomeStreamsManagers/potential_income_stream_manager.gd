@@ -1,5 +1,4 @@
 extends Node
-class_name PotentialIncomeStreamsManager
 
 signal potential_income_stream_generated(income_stream: IncomeStream)
 signal income_stream_accepted(income_stream: IncomeStream)

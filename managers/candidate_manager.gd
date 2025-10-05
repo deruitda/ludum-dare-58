@@ -1,18 +1,21 @@
 extends Node
-class_name CandidateManager
 
-@export var name_generator: NameGenerator
 
 signal worker_generated(worker: Worker)
 signal worker_hired(worker: Worker)
 
+@onready var name_generator: NameGenerator
+
 func _ready() -> void:
+	name_generator = NameGenerator.new()
+	add_child(name_generator)
 	pass
 	#CandidateManagerSignalBus.hire_worker_button_pressed.connect()
 
 func generate_worker() -> void:
 	var new_worker = Worker.new()
 	new_worker.worker_name = name_generator.generate_name()
+	name_generator.queue_free()
 	new_worker.cost_per_week = randi() % 20 + 10 # between 10 and 30
 	new_worker.worker_type = preload("res://entities/Worker/WorkerType/soldier.tres")
 	add_child(new_worker)

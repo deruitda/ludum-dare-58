@@ -1,41 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6vd1ct10le5s"]
+[gd_scene load_steps=4 format=3 uid="uid://c6vd1ct10le5s"]
 
 [ext_resource type="Script" uid="uid://vkhugeyoj47s" path="res://main.gd" id="1_3fcf7"]
-[ext_resource type="PackedScene" uid="uid://bpa13iucdr4gj" path="res://desk/room.tscn" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://7djoso36p0b4" path="res://managers/candidate_manager.tscn" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bqspr2io7mkjl" path="res://managers/worker_manager.tscn" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://b10w3xmnbpwwf" path="res://game_manager.gd" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://ddutbdrluxxjn" path="res://managers/IncomeStreamsManagers/potential_income_stream_manager.tscn" id="6_272bh"]
-[ext_resource type="PackedScene" uid="uid://7t8sq5x7di2w" path="res://managers/IncomeStreamsManagers/active_income_stream_manager.tscn" id="7_5vw27"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("candidate_manager", "worker_manager", "potential_income_stream_manager", "active_income_streams_manager")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_3fcf7")
-candidate_manager = NodePath("CandidateManager")
-worker_manager = NodePath("WorkerManager")
-potential_income_stream_manager = NodePath("PotentialIncomeStreamManager")
-active_income_streams_manager = NodePath("ActiveIncomeStreamManager")
 
-[node name="Room" parent="." node_paths=PackedStringArray("candidate_manager", "worker_manager", "potential_income_streams_manager", "active_income_streams_manager") instance=ExtResource("2_1bvp3")]
-position = Vector2(-16, 424)
-candidate_manager = NodePath("../CandidateManager")
-worker_manager = NodePath("../WorkerManager")
-potential_income_streams_manager = NodePath("../PotentialIncomeStreamManager")
-active_income_streams_manager = NodePath("../ActiveIncomeStreamManager")
-
-[node name="CandidateManager" parent="." instance=ExtResource("3_1bvp3")]
-
-[node name="WorkerManager" parent="." instance=ExtResource("4_lquwl")]
+[node name="Room" type="Node2D" parent="."]
+script = ExtResource("2_h2yge")
+metadata/_custom_type_script = "uid://d357h8upue4fy"
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("candidate_manager", "worker_manager")]
 script = ExtResource("5_lquwl")
-candidate_manager = NodePath("../CandidateManager")
-worker_manager = NodePath("../WorkerManager")
-
-[node name="PotentialIncomeStreamManager" parent="." instance=ExtResource("6_272bh")]
-
-[node name="ActiveIncomeStreamManager" parent="." instance=ExtResource("7_5vw27")]
-
-[connection signal="progress_button_click" from="Room" to="GameManager" method="_on_room_progress_button_click"]
-[connection signal="worker_hired" from="CandidateManager" to="." method="_on_candidate_manager_worker_hired"]
-[connection signal="income_stream_accepted" from="PotentialIncomeStreamManager" to="." method="_on_potential_income_stream_manager_income_stream_accepted"]
-[connection signal="income_stream_accepted" from="PotentialIncomeStreamManager" to="GameManager" method="_on_potential_income_stream_manager_income_stream_accepted"]
+candidate_manager = NodePath("")
+worker_manager = NodePath("")

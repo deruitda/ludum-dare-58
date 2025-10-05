@@ -10,13 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://doxyjb1hpinnl" path="res://desk/active_income_stream_binder.tscn" id="8_tfbhj"]
 [ext_resource type="PackedScene" uid="uid://b4uimt1clhey4" path="res://scenes/ceiling-fan.tscn" id="9_x1u2a"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("resumes", "phone", "potential_income_stream_binder", "active_income_stream_binder")]
-position = Vector2(-136, -10)
+[node name="Room" type="Node2D"]
 script = ExtResource("1_bs3hi")
-resumes = NodePath("Resumes")
-phone = NodePath("Phone")
-potential_income_stream_binder = NodePath("PotentialIncomeStreamBinder")
-active_income_stream_binder = NodePath("AcceptedIncomeStreamBinder")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(584, -1.0000076)
@@ -50,7 +45,7 @@ offset_bottom = 33.0
 script = ExtResource("6_bnidx")
 
 [node name="AcceptedIncomeStreamBinder" parent="." instance=ExtResource("8_tfbhj")]
-position = Vector2(813, 136)
+position = Vector2(604, 311)
 
 [node name="CeilingFan" parent="." instance=ExtResource("9_x1u2a")]
 position = Vector2(592, -524)
