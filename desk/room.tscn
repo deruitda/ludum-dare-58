@@ -19,17 +19,14 @@ scale = Vector2(1.7875, 1.7972223)
 texture = ExtResource("2_bnidx")
 
 [node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
-visible = false
 position = Vector2(253.00002, -241.00003)
 scale = Vector2(0.6956009, 0.76000094)
 
 [node name="Phone" parent="." instance=ExtResource("3_4is0s")]
-visible = false
 position = Vector2(824.99994, -190.00003)
 scale = Vector2(0.67747736, 0.93460965)
 
 [node name="PotentialIncomeStreamBinder" parent="." instance=ExtResource("7_bs3hi")]
-visible = false
 position = Vector2(293, 156)
 
 [node name="MoneyCounter" parent="." instance=ExtResource("4_4is0s")]
@@ -48,7 +45,7 @@ offset_bottom = 33.0
 script = ExtResource("6_bnidx")
 
 [node name="AcceptedIncomeStreamBinder" parent="." instance=ExtResource("8_tfbhj")]
-position = Vector2(813, 136)
+position = Vector2(604, 311)
 
 [node name="CeilingFan" parent="." instance=ExtResource("9_x1u2a")]
 position = Vector2(592, -524)

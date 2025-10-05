@@ -5,6 +5,9 @@ func _ready() -> void:
 	
 	var room = ROOM.instantiate()
 	add_child(room)
+	
+	CandidateManager.worker_hired.connect(_on_candidate_manager_worker_hired)
+	PotentialIncomeStreamManager.income_stream_accepted.connect(_on_potential_income_stream_manager_income_stream_accepted)
 	CandidateManager.generate_worker()
 	CandidateManager.generate_worker()
 	CandidateManager.generate_worker()
