@@ -77,10 +77,10 @@ text = "-5"
 label_settings = ExtResource("5_0b26s")
 
 [node name="WorkerActionRow" parent="." instance=ExtResource("6_b02kc")]
-offset_left = 151.0
-offset_top = 266.0
-offset_right = 151.0
-offset_bottom = 266.0
+offset_left = 166.0
+offset_top = 325.0
+offset_right = 166.0
+offset_bottom = 325.0
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 32.0
@@ -90,6 +90,8 @@ offset_bottom = 518.0
 scale = Vector2(3.615479, 3.2000902)
 text = "<"
 
+[connection signal="on_add_to_income_stream_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_add_to_income_stream_button_pressed"]
 [connection signal="on_fire_worker_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_fire_worker_button_pressed"]
+[connection signal="on_relieved_of_jobs" from="WorkerActionRow" to="." method="_on_worker_action_row_on_relieved_of_jobs"]
 [connection signal="on_worker_promoted" from="WorkerActionRow" to="." method="_on_worker_action_row_on_worker_promoted"]
 [connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://db21s6qar5o5s"]
+
+[ext_resource type="Script" uid="uid://g155d6lult2v" path="res://scenes/binder/add_income_stream_to_capacity_page.gd" id="1_jxx27"]
+[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="2_xiud6"]
+[ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/grids/income/income_overview_grid.tscn" id="3_jxx27"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_b83br"]
+[ext_resource type="LabelSettings" uid="uid://0ejlgbcqp8ns" path="res://desk/Resumes/description_label.tres" id="5_uscjv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
+atlas = ExtResource("2_xiud6")
+region = Rect2(0, 0, 264, 277)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evvlh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8ktw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AddIncomeStreamToCapacityPage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(4.656634, 4.6512938)
+script = ExtResource("1_jxx27")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(66, 69.25)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_evvlh")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.865453
+offset_top = 104.917046
+offset_right = 21.865454
+offset_bottom = 135.91705
+text = "<"
+
+[node name="IncomeOverviewGrid" parent="." instance=ExtResource("3_jxx27")]
+layout_mode = 0
+
+[node name="NoAvailableIncomeStreamControl" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NoAvailableWorkersLabel" type="Label" parent="NoAvailableIncomeStreamControl"]
+layout_mode = 0
+offset_left = 10.522621
+offset_top = 31.819107
+offset_right = 176.52261
+offset_bottom = 79.48578
+scale = Vector2(0.6935678, 0.84312004)
+text = "No jobs available for this worker"
+label_settings = ExtResource("4_b83br")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NoAvailableWorkersLabel2" type="Label" parent="NoAvailableIncomeStreamControl"]
+layout_mode = 0
+offset_left = 10.952118
+offset_top = 82.557686
+offset_right = 176.95212
+offset_bottom = 130.22433
+scale = Vector2(0.6935678, 0.84312004)
+text = "Fire some workers or get more jobs"
+label_settings = ExtResource("5_uscjv")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="on_detail_button_press" from="IncomeOverviewGrid" to="." method="_on_income_overview_grid_on_detail_button_press"]

@@ -31,3 +31,9 @@ func remove_capacities_by_income_stream(income_stream: IncomeStream):
 	for cap in capacities:
 		remove_child(cap)
 		cap.queue_free()
+
+func remove_capacities_by_worker(worker: Worker):
+	var capacities = get_capacities_by_worker(worker)
+	for cap in capacities:
+		remove_child(cap)
+		cap.queue_free()

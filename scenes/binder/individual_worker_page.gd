@@ -9,6 +9,7 @@ class_name IndividualWorkerPage
 @onready var worker_action_row: WorkerActionRow = $WorkerActionRow
 
 signal on_back_button_pressed
+signal capacity_button_pressed(worker)
 
 func set_worker(new_worker: Worker):
 	worker = new_worker
@@ -30,4 +31,11 @@ func _on_worker_action_row_on_fire_worker_button_pressed() -> void:
 
 func _on_worker_action_row_on_worker_promoted() -> void:
 	refresh()
-	pass # Replace with function body.
+
+
+func _on_worker_action_row_on_relieved_of_jobs() -> void:
+	refresh()
+
+
+func _on_worker_action_row_on_add_to_income_stream_button_pressed() -> void:
+		capacity_button_pressed.emit(worker)
