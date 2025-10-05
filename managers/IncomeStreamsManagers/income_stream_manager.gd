@@ -44,6 +44,7 @@ func get_forecasted_income() -> int:
 
 func abandon_income_stream(income_stream) -> void:
 	CapacityManager.abandon_by_income_stream(income_stream)
+	remove_child(income_stream)
 	income_stream.queue_free()
 	
 #func check_events() -> Array[IncomeStream]:
