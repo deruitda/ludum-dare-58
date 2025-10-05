@@ -91,5 +91,4 @@ scale = Vector2(3.615479, 3.2000902)
 text = "<"
 
 [connection signal="on_fire_worker_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_fire_worker_button_pressed"]
-[connection signal="on_give_raise_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_give_raise_button_pressed"]
 [connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

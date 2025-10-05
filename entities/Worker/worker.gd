@@ -12,7 +12,8 @@ class_name Worker
 @export var current_level: int = 1
 
 func get_cost_per_week() -> int:
-	return cost_per_week
+	var half_cost = ceil(cost_per_week / 2)
+	return cost_per_week + (number_of_raises * half_cost)
 
 func gain_experience() -> void:
 	experience = experience + get_current_capacity()
@@ -46,3 +47,9 @@ func get_current_weekly_respect_amount() -> int:
 	if is_underpaid():
 		return_val = return_val * -1
 	return return_val 
+
+func is_eligable_for_promotion() -> bool:
+	return is_underpaid()
+
+func do_promotion() -> void:
+	number_of_raises = number_of_raises + 1
