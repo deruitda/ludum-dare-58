@@ -16,7 +16,8 @@ func load_workers():
 	worker_overview_grid.reset()
 	var workers = WorkerManager.get_workers()
 	for worker in workers:
-		worker_overview_grid.add_row(worker)
+		if not worker.has_full_capacity() and not worker.is_working_income_stream(income_stream):
+			worker_overview_grid.add_row(worker)
 
 
 func _on_back_button_button_up() -> void:

@@ -14,7 +14,18 @@ func gain_experience() -> void:
 	experience = experience + get_current_capacity()
 	
 func get_current_capacity() -> int:
-	return len(CapacityManager.get_capacities_by_worker(self))
+	return len(get_current_capacities())
+
+func get_current_capacities() -> Array[Capacity]:
+	return CapacityManager.get_capacities_by_worker(self)
+func has_full_capacity() -> bool:
+	return get_current_capacity() == total_capacity
+
+func is_working_income_stream(income_stream: IncomeStream) -> bool:
+	for capacity in get_current_capacities():
+		if capacity.income_stream == income_stream:
+			return true
+	return false
 
 func get_level() -> int:
 	if experience < 10:

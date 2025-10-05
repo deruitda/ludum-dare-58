@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://wge1ujom1m24"]
+[gd_scene load_steps=6 format=3 uid="uid://wge1ujom1m24"]
 
 [ext_resource type="Script" uid="uid://kx1qefdojlef" path="res://scenes/binder/add_worker_to_capacity_page.gd" id="1_q4qy8"]
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="2_2mqqt"]
 [ext_resource type="PackedScene" uid="uid://ctp3y23im581d" path="res://scenes/grids/workers/worker_overview_grid.tscn" id="3_8k224"]
-[ext_resource type="PackedScene" uid="uid://bt6ns88810b87" path="res://scenes/grids/workers/worker_data_row.tscn" id="4_q4qy8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
 atlas = ExtResource("2_2mqqt")
@@ -21,6 +20,7 @@ animations = [{
 }]
 
 [node name="AddWorkerToCapacityPage" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(4.656634, 4.6512938)
@@ -46,7 +46,6 @@ offset_top = 12.684644
 offset_right = 391.29877
 offset_bottom = 354.39902
 scale = Vector2(0.27062082, 0.3087139)
-worker_row_packed_scene = ExtResource("4_q4qy8")
 
 [connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="on_details_button_pressed" from="WorkerOverviewGrid" to="." method="_on_worker_overview_grid_on_details_button_pressed"]
