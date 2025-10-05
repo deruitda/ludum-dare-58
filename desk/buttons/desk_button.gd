@@ -2,11 +2,9 @@ extends Node2D
 class_name DeskButton
 
 @export var button: Button
-@export var open_scene: PackedScene
-
 @export var animated_sprite_2d: AnimatedSprite2D
 
-signal button_pressed(packed_scene: PackedScene)
+signal button_pressed()
 
 func _ready() -> void:
 	button.button_down.connect(_on_button_down)
@@ -29,7 +27,7 @@ func _on_mouse_exited() -> void:
 
 func _on_button_up() -> void:
 	set_highlighted()
-	button_pressed.emit(open_scene)
+	button_pressed.emit()
 
 
 func _on_button_down() -> void:

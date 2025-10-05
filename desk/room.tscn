@@ -46,7 +46,9 @@ offset_bottom = 45.0
 script = ExtResource("6_bnidx")
 
 [node name="Binder" parent="." instance=ExtResource("7_bs3hi")]
-position = Vector2(579, 323)
-scale = Vector2(1.7123828, 1.9083959)
+visible = false
+position = Vector2(334, 76)
+scale = Vector2(0.72871965, 0.74256176)
 
+[connection signal="button_pressed" from="Background/BinderButton" to="." method="_on_binder_button_button_pressed"]
 [connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]

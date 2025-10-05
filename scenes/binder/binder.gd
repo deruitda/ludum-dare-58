@@ -13,3 +13,10 @@ func _on_income_streams_page_on_detail_button_press(income_stream: IncomeStream)
 	individual_income_stream_page.set_income_stream(income_stream)
 	individual_income_stream_page.visible = true
 	pass # Replace with function body.
+
+func open_binder():
+	reset_pages()
+	income_streams_page.refresh()
+	income_streams_page.visible = true
+	visible = true
+	

@@ -34,6 +34,9 @@ sprite_frames = SubResource("SpriteFrames_ycaq0")
 
 [node name="WorkerOverviewGrid" parent="." instance=ExtResource("2_jdlh2")]
 layout_mode = 0
-offset_right = 288.0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 275.0
+offset_bottom = 323.0
 
 [connection signal="on_details_button_pressed" from="WorkerOverviewGrid" to="." method="_on_worker_overview_grid_on_details_button_pressed"]
