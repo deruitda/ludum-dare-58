@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwey7fsjlbv0i"]
+
+[ext_resource type="Script" uid="uid://bo717ldyv82qy" path="res://scenes/binder/idle_event_view.gd" id="1_vt80s"]
+[ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="2_cen5y"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_nyro6"]
+
+[node name="IdleEventView" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 12.065344
+offset_top = 60.66731
+offset_right = 124.75355
+offset_bottom = 100.66731
+script = ExtResource("1_vt80s")
+
+[node name="Idle" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Idle"]
+layout_mode = 0
+offset_left = 31.934656
+offset_top = -53.66731
+offset_right = 272.93466
+offset_bottom = -30.667309
+text = "There's a problem with the job!"
+label_settings = ExtResource("2_cen5y")
+
+[node name="NameLabel" type="Label" parent="Idle"]
+layout_mode = 0
+offset_left = 29.934656
+offset_top = -8.667313
+offset_right = 118.93466
+offset_bottom = 14.332687
+text = "Name"
+label_settings = ExtResource("2_nyro6")
+
+[node name="DescriptionLabel" type="Label" parent="Idle"]
+layout_mode = 0
+offset_left = 399.93466
+offset_top = -10.667309
+offset_right = 488.9347
+offset_bottom = 12.332687
+text = "%15"
+label_settings = ExtResource("2_nyro6")
+
+[node name="CostToAttemptToResolve" type="Label" parent="Idle"]
+layout_mode = 0
+offset_left = 309.93466
+offset_top = -9.667309
+offset_right = 358.93466
+offset_bottom = 13.332691
+text = "$15"
+label_settings = ExtResource("2_nyro6")
+
+[node name="ChanceOfFailure" type="Label" parent="Idle"]
+layout_mode = 0
+offset_left = 27.934656
+offset_top = 22.332691
+offset_right = 447.93466
+offset_bottom = 71.33269
+text = "Description"
+label_settings = ExtResource("2_nyro6")
+
+[node name="AttemptToResolveButton" type="Button" parent="Idle"]
+layout_mode = 0
+offset_left = 39.934654
+offset_top = 77.33269
+offset_right = 195.93466
+offset_bottom = 116.665375
+text = "Attempt to Resolve
+"
+
+[node name="AbandonButton" type="Button" parent="Idle"]
+layout_mode = 0
+offset_left = 289.93466
+offset_top = 77.33269
+offset_right = 445.93466
+offset_bottom = 116.665375
+text = "Abandon Job"
+
+[node name="ResolutionFailed" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 145.93466
+offset_top = 6.332691
+offset_right = 185.93466
+offset_bottom = 46.33269
+
+[node name="Label" type="Label" parent="ResolutionFailed"]
+visible = false
+layout_mode = 0
+offset_left = -28.0
+offset_top = 10.0
+offset_right = 268.0
+offset_bottom = 33.0
+text = "Resolution Failed. Try again next week"
+label_settings = ExtResource("2_cen5y")
+
+[node name="ResolutionSuccessful" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ResolutionSuccessful"]
+visible = false
+layout_mode = 0
+offset_left = 134.93466
+offset_top = 16.332691
+offset_right = 315.93466
+offset_bottom = 39.33269
+text = "This has been resolved!"
+label_settings = ExtResource("2_nyro6")

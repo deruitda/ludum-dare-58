@@ -11,9 +11,13 @@ signal on_workers_button_press()
 
 func _ready() -> void:
 	IncomeStreamManager.income_stream_added.connect(_on_income_stream_added)
+	WorkerManager.worker_hired.connect(_on_worker_hired)
 	refresh()
 
 func _on_income_stream_added(income_stream: IncomeStream) -> void:
+	refresh()
+
+func _on_worker_hired(worker: Worker):
 	refresh()
 
 func set_labels() -> void:

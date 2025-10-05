@@ -9,11 +9,17 @@ signal on_detail_button_press(income_stream: IncomeStream)
 @onready var money_per_week_label: Label = $HBoxContainer/MoneyPerWeekLabel
 @onready var weeks_left_label: Label = $HBoxContainer/WeeksLeftLabel
 
+func _ready() -> void:
+	SignalBus.week_changed.connect(refresh)
+	SignalBus.money_changed.connect(refresh)
+	
 func set_income_stream(new_income_stream: IncomeStream) -> void:
 	income_stream = new_income_stream
 	refresh()
 
 func refresh():
+	if income_stream == null:
+		return
 	description_label.text = income_stream.income_stream_name
 	if income_stream.is_idle():
 		status_label.text = "Idle"

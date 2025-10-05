@@ -2,6 +2,7 @@ extends Node
 
 @export var current_idle_event: IdleEvent
 
+
 func has_idle_event() -> bool:
 	return (current_idle_event == null) == false
 
