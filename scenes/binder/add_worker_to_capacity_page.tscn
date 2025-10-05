@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://wge1ujom1m24"]
+
+[ext_resource type="Script" uid="uid://kx1qefdojlef" path="res://scenes/binder/add_worker_to_capacity_page.gd" id="1_q4qy8"]
+[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="2_2mqqt"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_jitoe"]
+[ext_resource type="PackedScene" uid="uid://b5kfuahvbhjn1" path="res://ui/capacity_row.tscn" id="4_1vptm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
+atlas = ExtResource("2_2mqqt")
+region = Rect2(0, 0, 264, 277)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evvlh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8ktw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AddWorkerToCapacityPage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(4.656634, 4.6512938)
+script = ExtResource("1_q4qy8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(66, 69.25)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_evvlh")
+
+[node name="VBoxContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 0.21499395
+offset_right = 139.53831
+offset_bottom = 129.37003
+scale = Vector2(0.9433105, 1.0702332)
+
+[node name="IncomeNameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 0
+offset_left = 8.878202
+offset_top = 0.20088513
+offset_right = 127.878204
+offset_bottom = 22.53422
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 6
+text = "Debt Collection"
+label_settings = ExtResource("3_jitoe")
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 26.0
+offset_right = 93.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WeeklyIncomeLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 5
+text = "Weekly Income:"
+
+[node name="WeeklyIncomeValueLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 5
+text = "$100"
+
+[node name="CapacityRow" parent="VBoxContainer" instance=ExtResource("4_1vptm")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 14.358601
+offset_top = 41.984993
+offset_right = 146.3586
+offset_bottom = 91.98499
+scale = Vector2(0.33333334, 0.35050365)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.865453
+offset_top = 104.917046
+offset_right = 21.865454
+offset_bottom = 135.91705
+text = "<"
+
+[connection signal="capacity_button_pressed" from="VBoxContainer/CapacityRow" to="." method="_on_capacity_row_capacity_button_pressed"]
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

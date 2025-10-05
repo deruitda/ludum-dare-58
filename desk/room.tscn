@@ -1,17 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=8 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
-[ext_resource type="PackedScene" uid="uid://bhoid1trkoqrp" path="res://desk/Resumes/resumes.tscn" id="2_xcxlp"]
-[ext_resource type="PackedScene" uid="uid://cg62p43atjvcx" path="res://desk/phone.tscn" id="3_4is0s"]
 [ext_resource type="PackedScene" uid="uid://04sehxv1q6xu" path="res://desk/money_counter.tscn" id="4_4is0s"]
 [ext_resource type="Script" uid="uid://dn18yypee5ytb" path="res://desk/week_label.gd" id="6_bnidx"]
-[ext_resource type="PackedScene" uid="uid://jx2vulg5n542" path="res://desk/potential_income_stream_binder.tscn" id="7_bs3hi"]
+[ext_resource type="PackedScene" uid="uid://cysmy3brcpvbr" path="res://scenes/binder/binder.tscn" id="7_bs3hi"]
 [ext_resource type="PackedScene" uid="uid://b4uimt1clhey4" path="res://scenes/ceiling-fan.tscn" id="9_x1u2a"]
 [ext_resource type="PackedScene" uid="uid://d0asi7pvmfh83" path="res://desk/buttons/binder_button.tscn" id="10_bil3o"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_bs3hi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(581, 322)
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(584, -1.0000076)
@@ -22,22 +23,13 @@ texture = ExtResource("2_bnidx")
 position = Vector2(-184.05594, 245.37865)
 scale = Vector2(3.4174724, 3.398985)
 
-[node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
-visible = false
-position = Vector2(253.00002, -241.00003)
-scale = Vector2(0.6956009, 0.76000094)
+[node name="MoneyCounter" parent="Background" instance=ExtResource("4_4is0s")]
+position = Vector2(183.49649, 232.58113)
+scale = Vector2(0.55944055, 0.5564142)
 
-[node name="Phone" parent="." instance=ExtResource("3_4is0s")]
-visible = false
-position = Vector2(824.99994, -190.00003)
-scale = Vector2(0.67747736, 0.93460965)
-
-[node name="PotentialIncomeStreamBinder" parent="." instance=ExtResource("7_bs3hi")]
-visible = false
-position = Vector2(293, 156)
-
-[node name="MoneyCounter" parent="." instance=ExtResource("4_4is0s")]
-position = Vector2(967, 279)
+[node name="CeilingFan" parent="Background" instance=ExtResource("9_x1u2a")]
+position = Vector2(4.475525, -291.0046)
+scale = Vector2(3.9160812, 3.8948967)
 
 [node name="ProgressButton" type="Button" parent="."]
 offset_left = 939.0
@@ -47,15 +39,14 @@ offset_bottom = 625.0
 text = "Next Week"
 
 [node name="WeekLabel" type="Label" parent="."]
-offset_right = 92.0
-offset_bottom = 33.0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 83.0
+offset_bottom = 45.0
 script = ExtResource("6_bnidx")
 
-[node name="CeilingFan" parent="." instance=ExtResource("9_x1u2a")]
-position = Vector2(592, -524)
-scale = Vector2(6.999995, 6.999995)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(581, 322)
+[node name="Binder" parent="." instance=ExtResource("7_bs3hi")]
+position = Vector2(579, 323)
+scale = Vector2(1.7123828, 1.9083959)
 
 [connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]

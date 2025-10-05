@@ -1,5 +1,5 @@
 extends Node2D
-class_name IncomeStreamOverview
+class_name IncomeStreamsPage
 
 signal on_detail_button_press(income_stream: IncomeStream)
 

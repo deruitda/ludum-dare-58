@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dnitr14mmxi23" path="res://desk/active_income_stream_binder.gd" id="1_2j2su"]
 [ext_resource type="PackedScene" uid="uid://bq8o5jne4yws1" path="res://utilities/paginator.tscn" id="3_honsa"]
-[ext_resource type="PackedScene" uid="uid://dx4fh10vgnuhk" path="res://scenes/binder/income-stream-overview.tscn" id="4_8n841"]
+[ext_resource type="PackedScene" uid="uid://dx4fh10vgnuhk" path="res://scenes/binder/income_streams_page.tscn" id="4_8n841"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_ggwav"]
-[ext_resource type="PackedScene" uid="uid://og67qjuev08k" path="res://scenes/binder/income-stream-detail.tscn" id="5_m6nng"]
+[ext_resource type="PackedScene" uid="uid://og67qjuev08k" path="res://scenes/binder/individual_income_stream_page.tscn" id="5_m6nng"]
 [ext_resource type="PackedScene" uid="uid://dacd0r2wjul6f" path="res://desk/income_capacity_view.tscn" id="6_3mej1"]
 
 [node name="ActiveIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("no_jobs_available_control", "income_stream_overview", "income_stream_detail", "income_capacity_view", "paginator")]

@@ -1,5 +1,5 @@
 extends Control
-class_name IncomeStreamDetail
+class_name IndividualIncomeStreamPage
 
 @onready var income_stream: IncomeStream
 @export var capacity_row: CapacityRow

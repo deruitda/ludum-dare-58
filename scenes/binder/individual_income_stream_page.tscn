@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://og67qjuev08k"]
 
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_fubfi"]
-[ext_resource type="Script" uid="uid://d22do6aaw1qih" path="res://scenes/binder/income_stream_detail.gd" id="1_vns1v"]
+[ext_resource type="Script" uid="uid://d22do6aaw1qih" path="res://scenes/binder/individual_income_stream_page.gd" id="1_vns1v"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_vns1v"]
 [ext_resource type="PackedScene" uid="uid://b5kfuahvbhjn1" path="res://ui/capacity_row.tscn" id="4_vns1v"]
 
@@ -20,7 +20,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="IncomeStreamDetail" type="Control" node_paths=PackedStringArray("capacity_row")]
+[node name="IndividualIncomeStreamPage" type="Control" node_paths=PackedStringArray("capacity_row")]
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(4.656634, 4.6512938)
@@ -87,8 +87,8 @@ scale = Vector2(0.33333334, 0.35050365)
 layout_mode = 0
 offset_left = 3.865453
 offset_top = 104.917046
-offset_right = 15.6765585
-offset_bottom = 119.10664
+offset_right = 21.865454
+offset_bottom = 135.91705
 text = "<"
 
 [connection signal="capacity_button_pressed" from="VBoxContainer/CapacityRow" to="." method="_on_capacity_row_capacity_button_pressed"]
