@@ -26,7 +26,6 @@ func _on_individual_income_stream_page_capacity_button_pressed(income_stream: In
 	add_worker_to_capacity_page.load_page(income_stream)
 	add_worker_to_capacity_page.visible = true
 
-
 func _on_add_worker_to_capacity_page_on_back_button_pressed() -> void:
 	add_worker_to_capacity_page.visible = false
 	individual_income_stream_page.refresh_capacity_state()
