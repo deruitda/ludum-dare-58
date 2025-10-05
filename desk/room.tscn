@@ -47,8 +47,8 @@ offset_bottom = 45.0
 
 [node name="Binder" parent="." instance=ExtResource("7_bs3hi")]
 visible = false
-position = Vector2(406, 101)
-scale = Vector2(0.72871965, 0.74256176)
+position = Vector2(610.99994, 97)
+scale = Vector2(0.4887172, 0.4980004)
 
 [node name="PotentialIncomeStreamBinder" parent="." instance=ExtResource("8_tfbhj")]
 position = Vector2(190, 157)

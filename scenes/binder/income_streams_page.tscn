@@ -1,34 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx4fh10vgnuhk"]
+[gd_scene load_steps=4 format=3 uid="uid://dx4fh10vgnuhk"]
 
 [ext_resource type="Script" uid="uid://bctfcrf60s5kt" path="res://scenes/binder/income_streams_page.gd" id="1_l6iai"]
-[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_w1wq0"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_b1eng"]
 [ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/grids/income/income_overview_grid.tscn" id="3_b1eng"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
-atlas = ExtResource("1_w1wq0")
-region = Rect2(0, 0, 264, 277)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_evvlh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x8ktw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="IncomeStreamsPage" type="Node2D" node_paths=PackedStringArray("income_overview_grid")]
 scale = Vector2(4.6512938, 4.5897837)
 script = ExtResource("1_l6iai")
 income_overview_grid = NodePath("Control/Control/OverviewGrid")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(66, 69.25)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_evvlh")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -165,17 +144,8 @@ offset_bottom = 128.0
 layout_mode = 1
 offset_left = -6.0
 offset_top = 1.0
-offset_right = 468.9986
-offset_bottom = 340.28348
+offset_right = 504.91
+offset_bottom = 353.34766
 scale = Vector2(0.24000072, 0.28000185)
 
-[node name="WorkersButton" type="Button" parent="."]
-offset_left = 100.18718
-offset_top = 3.0502527
-offset_right = 173.18718
-offset_bottom = 34.05025
-scale = Vector2(0.31354517, 0.26190478)
-text = "Workers"
-
 [connection signal="on_detail_button_press" from="Control/Control/OverviewGrid" to="." method="_on_overview_grid_on_detail_button_press"]
-[connection signal="button_up" from="WorkersButton" to="." method="_on_workers_button_button_up"]

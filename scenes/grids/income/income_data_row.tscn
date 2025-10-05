@@ -78,3 +78,5 @@ size_flags_vertical = 0
 texture_normal = ExtResource("3_vchko")
 texture_pressed = ExtResource("4_ldsg2")
 stretch_mode = 0
+
+[connection signal="button_up" from="IncomeDataRow/DetailsButton" to="." method="_on_details_button_button_up"]

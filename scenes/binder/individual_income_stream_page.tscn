@@ -1,26 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://og67qjuev08k"]
+[gd_scene load_steps=6 format=3 uid="uid://og67qjuev08k"]
 
-[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_fubfi"]
 [ext_resource type="Script" uid="uid://d22do6aaw1qih" path="res://scenes/binder/individual_income_stream_page.gd" id="1_vns1v"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_vns1v"]
 [ext_resource type="PackedScene" uid="uid://b5kfuahvbhjn1" path="res://ui/capacity_row.tscn" id="4_vns1v"]
 [ext_resource type="PackedScene" uid="uid://bwey7fsjlbv0i" path="res://scenes/binder/idle_event_view.tscn" id="5_dcgje"]
 [ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="6_1om3t"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
-atlas = ExtResource("1_fubfi")
-region = Rect2(0, 0, 264, 277)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_evvlh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x8ktw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="IndividualIncomeStreamPage" type="Control" node_paths=PackedStringArray("capacity_row")]
 layout_mode = 3
@@ -28,11 +12,6 @@ anchors_preset = 0
 scale = Vector2(4.656634, 4.6512938)
 script = ExtResource("1_vns1v")
 capacity_row = NodePath("VBoxContainer/CapacityRow")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(66, 69.25)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_evvlh")
 
 [node name="VBoxContainer" type="Control" parent="."]
 anchors_preset = 0

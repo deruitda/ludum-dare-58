@@ -1,36 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://wge1ujom1m24"]
+[gd_scene load_steps=5 format=3 uid="uid://wge1ujom1m24"]
 
 [ext_resource type="Script" uid="uid://kx1qefdojlef" path="res://scenes/binder/add_worker_to_capacity_page.gd" id="1_q4qy8"]
-[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="2_2mqqt"]
 [ext_resource type="PackedScene" uid="uid://ctp3y23im581d" path="res://scenes/grids/workers/worker_overview_grid.tscn" id="3_8k224"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_2mqqt"]
 [ext_resource type="LabelSettings" uid="uid://0ejlgbcqp8ns" path="res://desk/Resumes/description_label.tres" id="5_jitoe"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
-atlas = ExtResource("2_2mqqt")
-region = Rect2(0, 0, 264, 277)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_evvlh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x8ktw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="AddWorkerToCapacityPage" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(4.656634, 4.6512938)
 script = ExtResource("1_q4qy8")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(66, 69.25)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_evvlh")
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
