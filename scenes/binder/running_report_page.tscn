@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://8ho5lvoidmio"]
+
+[ext_resource type="Script" uid="uid://du8qonkmtu0ui" path="res://scenes/binder/running_report_page.gd" id="1_jukmm"]
+[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="2_6lh7a"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_g3n0d"]
+[ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="4_3rgv7"]
+[ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="6_bcxn2"]
+[ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/grids/income/income_overview_grid.tscn" id="6_jukmm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
+atlas = ExtResource("2_6lh7a")
+region = Rect2(0, 0, 264, 277)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evvlh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8ktw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RoundReportPage" type="Node2D"]
+scale = Vector2(4.6512938, 4.6512938)
+script = ExtResource("1_jukmm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(66, 69.25)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_evvlh")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 28.164211
+offset_top = 5.8048368
+offset_right = 172.16422
+offset_bottom = 28.804836
+scale = Vector2(0.4200399, 0.437108)
+text = "Last Round Report"
+label_settings = ExtResource("3_g3n0d")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -0.4299879
+offset_top = 19.994438
+offset_right = 131.57
+offset_bottom = 53.3185
+
+[node name="RespectChangeLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 149.0
+offset_bottom = 30.0
+scale = Vector2(0.31999952, 0.32000005)
+text = "Respect Gained"
+label_settings = ExtResource("3_g3n0d")
+
+[node name="RespectChangeValue" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 70.73301
+offset_top = 8.169768
+offset_right = 211.733
+offset_bottom = 31.16977
+scale = Vector2(0.31999952, 0.32000005)
+text = "+3"
+label_settings = ExtResource("4_3rgv7")
+
+[node name="MoneyChangeLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1.7199516
+offset_top = 15.694554
+offset_right = 149.71996
+offset_bottom = 38.694557
+scale = Vector2(0.31999952, 0.32000005)
+text = "Money Earned"
+label_settings = ExtResource("3_g3n0d")
+
+[node name="MoneyChangeValue" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 70.948006
+offset_top = 15.264569
+offset_right = 211.948
+offset_bottom = 38.26457
+scale = Vector2(0.31999952, 0.32000005)
+text = "$15"
+label_settings = ExtResource("6_bcxn2")
+
+[node name="IncomeOverviewGrid" parent="." instance=ExtResource("6_jukmm")]

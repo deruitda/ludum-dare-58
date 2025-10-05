@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brielx5y15lvf"]
+
+[ext_resource type="Script" uid="uid://dxsfn5l85neqy" path="res://utilities/running_report.gd" id="1_3elxu"]
+
+[node name="RoundReport" type="Node"]
+script = ExtResource("1_3elxu")

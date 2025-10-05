@@ -5,6 +5,13 @@ signal worker_fired
 @export var number_of_potential_income_streams_per_week: int = 3
 @export var number_of_candidates_per_week: int = 3
 
+@export var running_report: RunningReport
+@onready var running_reports: Node
+const RUNNING_REPORT = preload("uid://brielx5y15lvf")
+
+func _ready() -> void:
+	running_report = RUNNING_REPORT.instantiate()
+	add_child(running_report)
 func _on_room_progress_button_click() -> void:
 	pass
 
@@ -23,7 +30,7 @@ func progress_to_next_week():
 		GameState.collect_money(income_stream.income_per_week)
 		income_stream.increment_week()
 		if income_stream.is_completed():
-			#add to report
+			SignalBus.income_stream_completed.emit(income_stream)
 			pass
 	
 	for worker in WorkerManager.get_workers():
@@ -47,3 +54,6 @@ func progress_to_next_week():
 		CandidateManager.generate_worker()
 	
 	GameState.increment_week()
+	SignalBus.week_changed.emit()
+	SignalBus.on_week_report_publish.emit(running_report)
+	running_report.refresh()
