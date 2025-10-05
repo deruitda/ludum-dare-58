@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://og67qjuev08k" path="res://scenes/binder/income-stream-detail.tscn" id="5_m6nng"]
 [ext_resource type="PackedScene" uid="uid://dacd0r2wjul6f" path="res://desk/income_capacity_view.tscn" id="6_3mej1"]
 
-[node name="ActiveIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("no_jobs_available_control", "income_stream_overview", "income_stream_detail", "income_capacity_view")]
+[node name="ActiveIncomeStreamBinder" type="Node2D" node_paths=PackedStringArray("no_jobs_available_control", "income_stream_overview", "income_stream_detail", "income_capacity_view", "paginator")]
 script = ExtResource("1_2j2su")
 no_jobs_available_control = NodePath("NoPotentialJobsControl")
 income_stream_overview = NodePath("IncomeStreamOverview")
 income_stream_detail = NodePath("IncomeStreamDetail")
 income_capacity_view = NodePath("IncomeCapacityView")
+paginator = NodePath("Paginator")
 
 [node name="Paginator" parent="." instance=ExtResource("3_honsa")]
 
