@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cysmy3brcpvbr"]
+[gd_scene load_steps=8 format=3 uid="uid://cysmy3brcpvbr"]
 
 [ext_resource type="Script" uid="uid://7n4qrj3cof3c" path="res://scenes/binder/binder.gd" id="1_pm15x"]
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_prpyi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://og67qjuev08k" path="res://scenes/binder/individual_income_stream_page.tscn" id="4_c8f22"]
 [ext_resource type="PackedScene" uid="uid://wge1ujom1m24" path="res://scenes/binder/add_worker_to_capacity_page.tscn" id="5_bv00m"]
 [ext_resource type="PackedScene" uid="uid://cwqnmfqiwpgxf" path="res://scenes/binder/workers_page.tscn" id="6_jey3g"]
+[ext_resource type="PackedScene" uid="uid://def27twulj86u" path="res://scenes/binder/individual_worker_page.tscn" id="7_10clj"]
 
 [node name="Binder" type="Node2D"]
 script = ExtResource("1_pm15x")
@@ -16,7 +17,6 @@ scale = Vector2(2.3248491, 2.2851985)
 texture = ExtResource("1_prpyi")
 
 [node name="IncomeStreamsPage" parent="." instance=ExtResource("2_c8f22")]
-visible = false
 
 [node name="IndividualIncomeStreamPage" parent="." instance=ExtResource("4_c8f22")]
 visible = false
@@ -32,9 +32,14 @@ offset_bottom = -1.0
 visible = false
 position = Vector2(0, -2)
 
+[node name="IndividualWorkerPage" parent="." instance=ExtResource("7_10clj")]
+visible = false
+
 [connection signal="on_detail_button_press" from="IncomeStreamsPage" to="." method="_on_income_streams_page_on_detail_button_press"]
 [connection signal="on_workers_button_press" from="IncomeStreamsPage" to="." method="_on_income_streams_page_on_workers_button_press"]
 [connection signal="back_button_pressed" from="IndividualIncomeStreamPage" to="." method="_on_individual_income_stream_page_back_button_pressed"]
 [connection signal="capacity_button_pressed" from="IndividualIncomeStreamPage" to="." method="_on_individual_income_stream_page_capacity_button_pressed"]
 [connection signal="on_back_button_pressed" from="AddWorkerToCapacityPage" to="." method="_on_add_worker_to_capacity_page_on_back_button_pressed"]
 [connection signal="on_capacity_created" from="AddWorkerToCapacityPage" to="." method="_on_add_worker_to_capacity_page_on_capacity_created"]
+[connection signal="on_open_worker_page_button_pressed" from="WorkersPage" to="." method="_on_workers_page_on_open_worker_page_button_pressed"]
+[connection signal="on_back_button_pressed" from="IndividualWorkerPage" to="." method="_on_individual_worker_page_on_back_button_pressed"]

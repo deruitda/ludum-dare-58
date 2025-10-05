@@ -1,7 +1,13 @@
 extends Node
 
+signal worker_fired
+
 func _on_room_progress_button_click() -> void:
 	pass
+
+func fire_worker(worker: Worker):
+	WorkerManager.remove_worker(worker)
+	worker_fired.emit()
 
 func simulate_events():
 	var streams = IncomeStreamManager.get_active_income_streams()
@@ -18,7 +24,7 @@ func progress_to_next_week():
 			pass
 	
 	for worker in WorkerManager.get_workers():
-		GameState.spend_money(worker.cost_per_week)
+		GameState.spend_money(worker.get_cost_per_week())
 		GameState.gain_respect(worker.get_current_weekly_respect_amount())
 		var current_level = worker.get_level()
 		worker.gain_experience()

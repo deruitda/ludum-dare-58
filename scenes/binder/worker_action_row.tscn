@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyybl5axjotgx"]
+
+[ext_resource type="Script" uid="uid://gyisxvsvsm5a" path="res://scenes/binder/worker_action_row.gd" id="1_jsay1"]
+
+[node name="WorkerActionRow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jsay1")
+
+[node name="FireWorkerButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 59.0
+text = "Fire Worker"
+
+[node name="GiveRaiseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 1.0
+offset_right = 237.0
+offset_bottom = 60.0
+text = "Give Raise"
+
+[connection signal="button_up" from="FireWorkerButton" to="." method="_on_fire_worker_button_button_up"]
+[connection signal="button_up" from="GiveRaiseButton" to="." method="_on_give_raise_button_button_up"]

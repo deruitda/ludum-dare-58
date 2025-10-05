@@ -120,10 +120,12 @@ offset_top = 40.0
 offset_right = 120.0
 offset_bottom = 128.0
 
-[node name="ScrollContainer" parent="Control/Control" instance=ExtResource("3_2lml8")]
+[node name="WorkerOverviewGrid" parent="Control/Control" instance=ExtResource("3_2lml8")]
 layout_mode = 0
 offset_left = 1.6295035
 offset_top = 11.598544
 offset_right = 353.62952
 offset_bottom = 331.59854
 scale = Vector2(0.26042068, 0.26042068)
+
+[connection signal="on_details_button_pressed" from="Control/Control/WorkerOverviewGrid" to="." method="_on_worker_overview_grid_on_details_button_pressed"]

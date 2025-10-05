@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://def27twulj86u"]
+
+[ext_resource type="Script" uid="uid://d0u7nf16bg8ck" path="res://scenes/binder/individual_worker_page.gd" id="1_e51yi"]
+[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="2_nqdli"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_kg0ra"]
+[ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="4_kg0ra"]
+[ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="5_0b26s"]
+[ext_resource type="PackedScene" uid="uid://cyybl5axjotgx" path="res://scenes/binder/worker_action_row.tscn" id="6_b02kc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
+atlas = ExtResource("2_nqdli")
+region = Rect2(0, 0, 264, 277)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0b26s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8ktw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="IndividualWorkerPage" type="Node2D"]
+script = ExtResource("1_e51yi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(306.99997, 319.00003)
+scale = Vector2(2.3248491, 2.2851985)
+texture = ExtResource("2_nqdli")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(169, 233.99998)
+scale = Vector2(1.2872272, 1.6972823)
+sprite_frames = SubResource("SpriteFrames_0b26s")
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = 233.0
+offset_top = 16.0
+offset_right = 336.0
+offset_bottom = 39.0
+text = "Johnny Smith"
+label_settings = ExtResource("3_kg0ra")
+
+[node name="MonthlyRespectLabel" type="Label" parent="."]
+offset_left = 196.0
+offset_top = 55.0
+offset_right = 299.0
+offset_bottom = 78.0
+text = "Johnny Smith"
+label_settings = ExtResource("3_kg0ra")
+
+[node name="MonthlyRespectValue" type="Label" parent="."]
+offset_left = 327.0
+offset_top = 53.0
+offset_right = 430.0
+offset_bottom = 76.0
+text = "+5"
+label_settings = ExtResource("4_kg0ra")
+
+[node name="MonthlyWages" type="Label" parent="."]
+offset_left = 186.0
+offset_top = 80.0
+offset_right = 301.0
+offset_bottom = 103.0
+text = "Monthly Wages"
+label_settings = ExtResource("3_kg0ra")
+
+[node name="MonthlyWagesValue" type="Label" parent="."]
+offset_left = 326.0
+offset_top = 82.0
+offset_right = 429.0
+offset_bottom = 105.0
+text = "-5"
+label_settings = ExtResource("5_0b26s")
+
+[node name="WorkerActionRow" parent="." instance=ExtResource("6_b02kc")]
+offset_left = 151.0
+offset_top = 266.0
+offset_right = 151.0
+offset_bottom = 266.0
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 32.0
+offset_top = 487.0
+offset_right = 50.0
+offset_bottom = 518.0
+scale = Vector2(3.615479, 3.2000902)
+text = "<"
+
+[connection signal="on_fire_worker_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_fire_worker_button_pressed"]
+[connection signal="on_give_raise_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_give_raise_button_pressed"]
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

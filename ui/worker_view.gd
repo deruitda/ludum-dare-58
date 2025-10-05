@@ -10,4 +10,4 @@ func set_worker(new_worker: Worker):
 	worker = new_worker
 	name_value.text = worker.worker_name
 	type_value.text = worker.worker_type.type
-	cost_value.text = "$" + str(worker.cost_per_week)
+	cost_value.text = "$" + str(worker.get_cost_per_week())

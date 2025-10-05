@@ -9,6 +9,10 @@ class_name Worker
 @export var worker_name: String = ""
 @export var worker_type: WorkerTypeResource
 @export var number_of_raises: int = 0
+@export var current_level: int = 1
+
+func get_cost_per_week() -> int:
+	return cost_per_week
 
 func gain_experience() -> void:
 	experience = experience + get_current_capacity()
@@ -18,6 +22,7 @@ func get_current_capacity() -> int:
 
 func get_current_capacities() -> Array[Capacity]:
 	return CapacityManager.get_capacities_by_worker(self)
+
 func has_full_capacity() -> bool:
 	return get_current_capacity() == total_capacity
 
@@ -28,11 +33,10 @@ func is_working_income_stream(income_stream: IncomeStream) -> bool:
 	return false
 
 func get_level() -> int:
-	if experience < 10:
-		return 1
-	elif experience < 20:
-		return 2
-	return 3
+	return number_of_raises + 1
+	
+func grant_promotion() -> void:
+	current_level = current_level + 1
 
 func is_underpaid() -> bool:
 	return number_of_raises + 1 < get_level()
