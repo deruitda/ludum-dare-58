@@ -10,9 +10,14 @@ class_name Worker
 @export var worker_type: WorkerTypeResource
 
 
-func gain_experience(amount: int) -> void:
-	experience = experience + amount
+func gain_experience() -> void:
+	experience = experience + get_current_capacity()
 	
 func get_current_capacity() -> int:
 	return len(CapacityManager.get_capacities_by_worker(self))
 	
+func get_level() -> int:
+	return ceil(experience / 10)
+	
+#func get_current_weekly_respect_amount() -> int:
+	#

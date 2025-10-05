@@ -80,4 +80,4 @@ text = "Money Per Week: $15"
 layout_mode = 2
 text = "Weeks Left: 8"
 
-[connection signal="button_up" from="IncomeDataRow/DetailsButton" to="IncomeDataRow" method="_on_details_button_button_up"]
+[connection signal="button_up" from="IncomeDataRow/DetailsButton" to="." method="_on_details_button_button_up"]

@@ -19,12 +19,18 @@ func progress_to_next_week():
 	
 	for worker in WorkerManager.get_workers():
 		GameState.spend_money(worker.cost_per_week)
+		var current_level = worker.get_level()
+		worker.gain_experience()
+		var new_level = worker.get_level()
+		if new_level > current_level:
+			pass
+		
 	
 	# remove completed jobs
 	
 	simulate_events()
 	
-	# refresh potential jobs and resumes
+	
 	
 	
 	GameState.increment_week()

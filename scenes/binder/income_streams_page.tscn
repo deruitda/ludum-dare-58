@@ -20,7 +20,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="IncomeStreamOverview" type="Node2D" node_paths=PackedStringArray("income_overview_grid", "total_money_label", "forcasted_money_label")]
+[node name="IncomeStreamsPage" type="Node2D" node_paths=PackedStringArray("income_overview_grid", "total_money_label", "forcasted_money_label")]
 scale = Vector2(4.6512938, 4.5897837)
 script = ExtResource("1_l6iai")
 income_overview_grid = NodePath("Control/Control/OverviewGrid")
