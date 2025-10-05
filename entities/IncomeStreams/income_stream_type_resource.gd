@@ -10,6 +10,7 @@ class_name IncomeStreamTypeResource
 @export var capacity: int = 1
 @export var description: String = ""
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
+@export var potential_idle_events: Array[PotentialIdleEventsResource] = []
 
 func create_income_stream_node() -> IncomeStream:
 	var name_generator = NameGenerator.new()
@@ -27,5 +28,7 @@ func create_income_stream_node() -> IncomeStream:
 	
 	income_stream.income_per_week = ceil(expected_income / income_stream.duration_in_weeks)
 	income_stream.income_stream_name = type + " " + victim_random_name
+	var potential_idle_event = PotentialIdleEvent.new()
+	income_stream.type.potential_idle_events.append(potential_idle_event)
 	
 	return income_stream

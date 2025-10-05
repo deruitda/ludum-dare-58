@@ -15,8 +15,9 @@ gradient = SubResource("Gradient_5iqje")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0.0066006603, 0)
 
-[node name="IncomeDataRow" type="HBoxContainer"]
+[node name="IncomeDataRow" type="HBoxContainer" node_paths=PackedStringArray("description_label")]
 script = ExtResource("1_e6oim")
+description_label = NodePath("DescriptionLabel")
 
 [node name="ImageTextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
@@ -62,3 +63,5 @@ size_flags_vertical = 0
 texture_normal = SubResource("GradientTexture2D_0n6gc")
 texture_pressed = SubResource("GradientTexture2D_8pqwb")
 stretch_mode = 0
+
+[connection signal="button_up" from="DetailsButton" to="." method="_on_details_button_button_up"]

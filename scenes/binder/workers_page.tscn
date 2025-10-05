@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwqnmfqiwpgxf"]
+[gd_scene load_steps=7 format=3 uid="uid://cwqnmfqiwpgxf"]
 
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_2lml8"]
+[ext_resource type="Script" uid="uid://c30r6pdoo0sdu" path="res://scenes/binder/workers_page.gd" id="1_mxuhj"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_kmsn1"]
 [ext_resource type="PackedScene" uid="uid://ctp3y23im581d" path="res://scenes/grids/workers/worker_overview_grid.tscn" id="3_2lml8"]
 
@@ -19,8 +20,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="IncomeStreamOverview" type="Node2D"]
+[node name="WorkersPage" type="Node2D"]
 scale = Vector2(4.6512938, 4.6512938)
+script = ExtResource("1_mxuhj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(66, 69.25)
@@ -68,4 +70,6 @@ offset_bottom = 128.0
 
 [node name="ScrollContainer" parent="Control/Control" instance=ExtResource("3_2lml8")]
 layout_mode = 0
+offset_left = 0.0
+offset_right = 352.0
 scale = Vector2(0.26042068, 0.26042068)

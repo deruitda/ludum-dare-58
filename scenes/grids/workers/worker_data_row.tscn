@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt6ns88810b87"]
+[gd_scene load_steps=9 format=3 uid="uid://bt6ns88810b87"]
 
 [ext_resource type="Script" uid="uid://dttxj8qukvbsc" path="res://scenes/grids/workers/worker_data_row.gd" id="1_ifnqu"]
 [ext_resource type="Texture2D" uid="uid://btt5dlu1r12te" path="res://assets/proto/money-counter.png" id="2_2gqjb"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_rnyny"]
+[ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="4_26sid"]
 
 [sub_resource type="Gradient" id="Gradient_cabeh"]
 
@@ -16,6 +18,10 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(0.0066006603, 0)
 
 [node name="WorkerDataRow" type="HBoxContainer"]
+offset_top = -2.0
+offset_right = 349.0
+offset_bottom = 62.0
+scale = Vector2(0.72, 1)
 script = ExtResource("1_ifnqu")
 
 [node name="ImageTextureRect" type="TextureRect" parent="."]
@@ -36,6 +42,7 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 1
 text = "Tony Baloney"
+label_settings = ExtResource("3_rnyny")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -48,6 +55,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0/1"
+label_settings = ExtResource("4_26sid")
 horizontal_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
@@ -62,3 +70,5 @@ size_flags_vertical = 0
 texture_normal = SubResource("GradientTexture2D_0n6gc")
 texture_pressed = SubResource("GradientTexture2D_8pqwb")
 stretch_mode = 0
+
+[connection signal="button_up" from="DetailsButton" to="." method="_on_details_button_button_up"]

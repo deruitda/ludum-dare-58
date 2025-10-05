@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://og67qjuev08k"]
+[gd_scene load_steps=7 format=3 uid="uid://og67qjuev08k"]
 
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_fubfi"]
+[ext_resource type="Script" uid="uid://d22do6aaw1qih" path="res://scenes/binder/individual_income_stream_page.gd" id="1_vns1v"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_vns1v"]
+[ext_resource type="PackedScene" uid="uid://b5kfuahvbhjn1" path="res://ui/capacity_row.tscn" id="4_vns1v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
 atlas = ExtResource("1_fubfi")
@@ -18,23 +20,31 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="IncomeStreamOverview" type="Control"]
+[node name="IndividualIncomeStreamPage" type="Control" node_paths=PackedStringArray("capacity_row")]
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(4.6512938, 4.6512938)
+scale = Vector2(4.656634, 4.6512938)
+script = ExtResource("1_vns1v")
+capacity_row = NodePath("VBoxContainer/CapacityRow")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(66, 69.25)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_evvlh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 132.00629
-offset_bottom = 138.4561
+[node name="VBoxContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 0.21499395
+offset_right = 139.53831
+offset_bottom = 129.37003
+scale = Vector2(0.9433105, 1.0702332)
 
 [node name="IncomeNameLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+layout_mode = 0
+offset_left = 8.878202
+offset_top = 0.20088513
+offset_right = 127.878204
+offset_bottom = 22.53422
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 6
 text = "Debt Collection"
@@ -42,7 +52,11 @@ label_settings = ExtResource("2_vns1v")
 vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+layout_mode = 0
+offset_left = 39.0
+offset_top = 26.0
+offset_right = 93.0
+offset_bottom = 32.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -59,3 +73,23 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 5
 text = "$100"
+
+[node name="CapacityRow" parent="VBoxContainer" instance=ExtResource("4_vns1v")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 14.358601
+offset_top = 41.984993
+offset_right = 146.3586
+offset_bottom = 91.98499
+scale = Vector2(0.33333334, 0.35050365)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.865453
+offset_top = 104.917046
+offset_right = 21.865454
+offset_bottom = 135.91705
+text = "<"
+
+[connection signal="capacity_button_pressed" from="VBoxContainer/CapacityRow" to="." method="_on_capacity_row_capacity_button_pressed"]
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

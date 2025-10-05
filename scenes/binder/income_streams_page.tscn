@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx4fh10vgnuhk"]
+[gd_scene load_steps=7 format=3 uid="uid://dx4fh10vgnuhk"]
 
+[ext_resource type="Script" uid="uid://bctfcrf60s5kt" path="res://scenes/binder/income_streams_page.gd" id="1_l6iai"]
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_w1wq0"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_b1eng"]
 [ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/grids/income/income_overview_grid.tscn" id="3_b1eng"]
@@ -19,8 +20,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="IncomeStreamOverview" type="Node2D"]
-scale = Vector2(4.6512938, 4.6512938)
+[node name="IncomeStreamOverview" type="Node2D" node_paths=PackedStringArray("income_overview_grid", "total_money_label", "forcasted_money_label")]
+scale = Vector2(4.6512938, 4.5897837)
+script = ExtResource("1_l6iai")
+income_overview_grid = NodePath("Control/Control/OverviewGrid")
+total_money_label = NodePath("Control/TotalAmount")
+forcasted_money_label = NodePath("Control/Forecasted Income Amount")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(66, 69.25)
@@ -33,7 +38,7 @@ anchors_preset = 0
 offset_right = 132.0
 offset_bottom = 139.0
 
-[node name="Forecasted Incom" type="Label" parent="Control"]
+[node name="Forecasted Income" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 15.0
@@ -41,6 +46,22 @@ offset_right = 149.0
 offset_bottom = 38.0
 scale = Vector2(0.31999952, 0.32000005)
 text = "Forecasted Income"
+label_settings = ExtResource("2_b1eng")
+metadata/_edit_use_anchors_ = true
+
+[node name="Forecasted Income Amount" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38063258
+anchor_top = 0.0033751014
+anchor_right = 0.38063258
+anchor_bottom = 0.0033751014
+offset_left = 2.0
+offset_top = 15.0
+offset_right = 149.0
+offset_bottom = 38.0
+scale = Vector2(0.31999952, 0.32000005)
+text = "$15"
 label_settings = ExtResource("2_b1eng")
 metadata/_edit_use_anchors_ = true
 
@@ -54,7 +75,24 @@ scale = Vector2(0.31999952, 0.32000005)
 text = "Money in the bank"
 label_settings = ExtResource("2_b1eng")
 
+[node name="TotalAmount" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3773754
+anchor_top = -0.056187917
+anchor_right = 0.3773754
+anchor_bottom = -0.056187913
+offset_left = 1.9999847
+offset_top = 15.000002
+offset_right = 148.99998
+offset_bottom = 38.000004
+scale = Vector2(0.31999952, 0.32000005)
+text = "$15"
+label_settings = ExtResource("2_b1eng")
+metadata/_edit_use_anchors_ = true
+
 [node name="Income Streams" type="Label" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.28800002
@@ -70,7 +108,7 @@ text = "Income Streams"
 label_settings = ExtResource("2_b1eng")
 horizontal_alignment = 1
 
-[node name="Income Streams2" type="Label" parent="Control"]
+[node name="IncomeStreamAmount" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.28800002
@@ -100,3 +138,14 @@ offset_top = 1.0
 offset_right = 468.9986
 offset_bottom = 340.28348
 scale = Vector2(0.24000072, 0.28000185)
+
+[node name="WorkersButton" type="Button" parent="."]
+offset_left = 100.18718
+offset_top = 3.0502527
+offset_right = 173.18718
+offset_bottom = 34.05025
+scale = Vector2(0.31354517, 0.26190478)
+text = "Workers"
+
+[connection signal="on_detail_button_press" from="Control/Control/OverviewGrid" to="." method="_on_overview_grid_on_detail_button_press"]
+[connection signal="button_up" from="WorkersButton" to="." method="_on_workers_button_button_up"]

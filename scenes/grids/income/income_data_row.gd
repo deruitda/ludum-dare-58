@@ -1,14 +1,23 @@
 extends HBoxContainer
 class_name IncomeDataRow
 
-var income_stream: IncomeStream
-
-@onready var description_label: Label = $DescriptionLabel
+signal on_detail_button_press(income_stream: IncomeStream)
 @onready var status_label: Label = $StatusLabel
+
+@onready var income_stream: IncomeStream
+@export var description_label: Label 
 	
-func _ready() -> void:
-	description_label.text = self.income_stream.income_stream_name
-	
-func set_income_stream(income_stream: IncomeStream):
-	self.income_stream = income_stream
-	
+func set_income_stream(new_income_stream: IncomeStream) -> void:
+	income_stream = new_income_stream
+	refresh()
+
+func refresh():
+	description_label.text = income_stream.income_stream_name
+	if income_stream.is_idle():
+		status_label.text = "Idle"
+	else:
+		status_label.text = "Ready"
+
+func _on_details_button_button_up() -> void:
+	on_detail_button_press.emit(income_stream)
+	pass # Replace with function body.

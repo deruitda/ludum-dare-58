@@ -23,6 +23,7 @@ ActiveIncomeStreamManager="*res://managers/IncomeStreamsManagers/active_income_s
 PotentialIncomeStreamManager="*res://managers/IncomeStreamsManagers/potential_income_stream_manager.gd"
 CandidateManager="*res://managers/candidate_manager.gd"
 WorkerManager="*res://managers/worker_manager.gd"
+CapacityManager="*res://managers/capacity_manager.gd"
 
 [gui]
 

@@ -1,5 +1,4 @@
 extends Node
-
 class_name IncomeStream
 
 @export var income_stream_name: String = ""
@@ -7,16 +6,41 @@ class_name IncomeStream
 @export var duration_in_weeks: int = 10
 @onready var active_weeks_transpired: int = 0
 @onready var total_weekly_income: int = 0
-@onready var currentWorkers: Array[Worker] = []
 @export var type: IncomeStreamTypeResource
 @export var cost = 50
 @export var capacity: int = 1
 @export var description: String = ""
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
+@export var status: String = "Active"
+@export var chanceOfEvent: float = 0.5
+@export var current_idle_event: PotentialIdleEvent
 
-func add_worker(worker: Worker) -> void:
-	if  capacity > len(currentWorkers):
-		currentWorkers.append(worker)
+func is_idle() -> bool:
+	if not has_full_capacity():
+		return true
+	if has_idle_event():
+		return true
+	
+	return false
+
+func has_idle_event() -> bool:
+	return (current_idle_event == null) == false
+
+func idle_event_chance() -> void:
+	if has_idle_event():
+		return
+	var roll = randf()
+	#if roll < chanceOfEvent:
+		#current_idle_event = type.potential_idle_events.pick_random()
 		
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired
+
+func get_capacities() -> Array[Capacity]:
+	return CapacityManager.get_capacities_by_income_stream(self)
+
+func get_capacity() -> int:
+	return len(CapacityManager.get_capacities_by_income_stream(self))
+	
+func has_full_capacity() -> bool:
+	return get_capacity() == capacity

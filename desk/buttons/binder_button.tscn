@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0asi7pvmfh83"]
+
+[ext_resource type="Script" uid="uid://c2d0o6rhqpo2s" path="res://desk/buttons/desk_button.gd" id="1_f0irj"]
+[ext_resource type="Texture2D" uid="uid://bqetbx2w07djp" path="res://assets/final/binder.png" id="2_2njfd"]
+[ext_resource type="Script" uid="uid://1b5h2cwbl1y3" path="res://desk/buttons/binder_sprite_controller.gd" id="4_slwsa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huvnw"]
+atlas = ExtResource("2_2njfd")
+region = Rect2(0, 0, 69, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmsus"]
+atlas = ExtResource("2_2njfd")
+region = Rect2(69, 0, 69, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slwsa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huvnw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmsus")
+}],
+"loop": true,
+"name": &"highlighted",
+"speed": 5.0
+}]
+
+[node name="BinderButton" type="Node2D" node_paths=PackedStringArray("button", "animated_sprite_2d")]
+script = ExtResource("1_f0irj")
+button = NodePath("Button")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -28.0
+offset_top = -17.0
+offset_right = 29.0
+offset_bottom = 26.0
+scale = Vector2(1, 0.9599994)
+focus_mode = 0
+flat = true
+
+[node name="SpriteController" type="Node" parent="."]
+script = ExtResource("4_slwsa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_slwsa")
+autoplay = "default"

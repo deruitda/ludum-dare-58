@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d24t86ob64maj"]
+
+[ext_resource type="Script" uid="uid://cvilcvncntddg" path="res://managers/capacity.gd" id="1_843hr"]
+
+[node name="Capacity" type="Node"]
+script = ExtResource("1_843hr")

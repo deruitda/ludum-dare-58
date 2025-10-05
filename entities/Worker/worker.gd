@@ -9,6 +9,10 @@ class_name Worker
 @export var worker_name: String = ""
 @export var worker_type: WorkerTypeResource
 
+
 func gain_experience(amount: int) -> void:
 	experience = experience + amount
+	
+func get_current_capacity() -> int:
+	return len(CapacityManager.get_capacities_by_worker(self))
 	
