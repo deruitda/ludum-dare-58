@@ -25,3 +25,8 @@ func get_capacities_by_income_stream(income_stream: IncomeStream) -> Array[Capac
 			return_array.append(c)
 		
 	return return_array
+
+func abandon_by_income_stream(income_stream: IncomeStream):
+	var capacities = get_capacities_by_income_stream(income_stream)
+	for cap in capacities:
+		cap.queue_free()

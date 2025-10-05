@@ -3,13 +3,17 @@ class_name IndividualIncomeStreamPage
 
 @onready var income_stream: IncomeStream
 @export var capacity_row: CapacityRow
-@onready var idle_event_view: IdleEventView = $VBoxContainer/IdleEventView
+
+@onready var idle_event_view: IdleEventView = $VBoxContainer/IdleEvents/IdleEventView
+@onready var resolution_failed_label: Label = $VBoxContainer/IdleEvents/ResolutionFailedLabel
+@onready var resolution_successful_label: Label = $VBoxContainer/IdleEvents/ResolutionSuccessfulLabel
 
 signal capacity_button_pressed(income_stream: IncomeStream)
 signal back_button_pressed()
 
+
 func _ready() -> void:
-	WorkerManager.worker_hired.connect(refresh)
+	WorkerManager.worker_hired.connect(_on_worker_hired)
 
 func _on_worker_hired(worker: Worker) -> void:
 	refresh()
@@ -36,3 +40,16 @@ func _on_capacity_row_capacity_button_pressed() -> void:
 
 func _on_back_button_button_up() -> void:
 	back_button_pressed.emit()
+
+func _on_idle_event_view_on_abandon_button_pressed() -> void:
+	IncomeStreamManager.abandon_income_stream(income_stream)
+	back_button_pressed.emit()
+
+func _on_idle_event_view_on_attempt_to_resolve_button_pressed() -> void:
+	GameState.spend_money(income_stream.get_idle_event().cost_to_attempt_to_resolve)
+	income_stream.attempt_to_resolve_idle_event()
+	idle_event_view.visible = false
+	if income_stream.has_idle_event():
+		resolution_successful_label.visible = true
+	else:
+		resolution_failed_label.visible = true

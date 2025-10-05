@@ -42,6 +42,10 @@ func get_forecasted_income() -> int:
 		forecasted_income = forecasted_income + income_stream.income_per_week
 	return forecasted_income
 
+func abandon_income_stream(income_stream) -> void:
+	CapacityManager.abandon_by_income_stream(income_stream)
+	income_stream.queue_free()
+
 #func check_events() -> Array[IncomeStream]:
 	#var return_array: Array[IncomeStream] = []
 	#for child in get_children():

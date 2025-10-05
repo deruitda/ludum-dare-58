@@ -21,3 +21,6 @@ func remove_idle_event() -> void:
 
 func get_idle_event() -> IdleEvent:
 	return current_idle_event
+
+func roll_dice_for_resolve() -> bool:
+	return current_idle_event.roll_dice_for_resolve()

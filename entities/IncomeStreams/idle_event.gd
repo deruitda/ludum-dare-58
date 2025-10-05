@@ -13,6 +13,10 @@ func _ready() -> void:
 
 func attempt() -> void:
 	has_attempted_success_this_week = true
+	
+func roll_dice_for_resolve() -> bool:
+	var roll = randf()
+	return roll > chance_of_failure
 
 func _on_week_changed() -> void:
 	has_attempted_success_this_week = false

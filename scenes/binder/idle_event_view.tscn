@@ -80,34 +80,5 @@ offset_right = 445.93466
 offset_bottom = 116.665375
 text = "Abandon Job"
 
-[node name="ResolutionFailed" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 145.93466
-offset_top = 6.332691
-offset_right = 185.93466
-offset_bottom = 46.33269
-
-[node name="Label" type="Label" parent="ResolutionFailed"]
-visible = false
-layout_mode = 0
-offset_left = -28.0
-offset_top = 10.0
-offset_right = 268.0
-offset_bottom = 33.0
-text = "Resolution Failed. Try again next week"
-label_settings = ExtResource("2_cen5y")
-
-[node name="ResolutionSuccessful" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="ResolutionSuccessful"]
-visible = false
-layout_mode = 0
-offset_left = 134.93466
-offset_top = 16.332691
-offset_right = 315.93466
-offset_bottom = 39.33269
-text = "This has been resolved!"
-label_settings = ExtResource("2_nyro6")
+[connection signal="button_up" from="Idle/AttemptToResolveButton" to="." method="_on_attempt_to_resolve_button_button_up"]
+[connection signal="button_up" from="Idle/AbandonButton" to="." method="_on_abandon_button_button_up"]

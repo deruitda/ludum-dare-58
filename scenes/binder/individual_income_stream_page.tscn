@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://og67qjuev08k"]
+[gd_scene load_steps=9 format=3 uid="uid://og67qjuev08k"]
 
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_fubfi"]
 [ext_resource type="Script" uid="uid://d22do6aaw1qih" path="res://scenes/binder/individual_income_stream_page.gd" id="1_vns1v"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_vns1v"]
 [ext_resource type="PackedScene" uid="uid://b5kfuahvbhjn1" path="res://ui/capacity_row.tscn" id="4_vns1v"]
 [ext_resource type="PackedScene" uid="uid://bwey7fsjlbv0i" path="res://scenes/binder/idle_event_view.tscn" id="5_dcgje"]
+[ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="6_1om3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
 atlas = ExtResource("1_fubfi")
@@ -84,13 +85,41 @@ offset_right = 146.3586
 offset_bottom = 91.98499
 scale = Vector2(0.33333334, 0.35050365)
 
-[node name="IdleEventView" parent="VBoxContainer" instance=ExtResource("5_dcgje")]
+[node name="IdleEvents" type="Control" parent="VBoxContainer"]
+anchors_preset = 0
+offset_left = -0.22791429
+offset_right = 39.772087
+offset_bottom = 40.0
+
+[node name="IdleEventView" parent="VBoxContainer/IdleEvents" instance=ExtResource("5_dcgje")]
 layout_mode = 0
-offset_left = 28.001049
+offset_left = 28.22896
 offset_top = 79.751396
-offset_right = 140.68925
+offset_right = 140.91716
 offset_bottom = 119.7514
 scale = Vector2(0.1586053, 0.2138672)
+
+[node name="ResolutionFailedLabel" type="Label" parent="VBoxContainer/IdleEvents"]
+visible = false
+layout_mode = 0
+offset_left = 35.286205
+offset_top = 78.74698
+offset_right = 331.2862
+offset_bottom = 101.74698
+scale = Vector2(0.22161491, 0.46712258)
+text = "Resolution Failed. Try again next week"
+label_settings = ExtResource("6_1om3t")
+
+[node name="ResolutionSuccessfulLabel" type="Label" parent="VBoxContainer/IdleEvents"]
+visible = false
+layout_mode = 0
+offset_left = 35.513824
+offset_top = 78.74697
+offset_right = 216.51384
+offset_bottom = 101.74697
+scale = Vector2(0.35882306, 0.42798993)
+text = "This has been resolved!"
+label_settings = ExtResource("2_vns1v")
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
@@ -101,4 +130,6 @@ offset_bottom = 135.91705
 text = "<"
 
 [connection signal="capacity_button_pressed" from="VBoxContainer/CapacityRow" to="." method="_on_capacity_row_capacity_button_pressed"]
+[connection signal="on_abandon_button_pressed" from="VBoxContainer/IdleEvents/IdleEventView" to="." method="_on_idle_event_view_on_abandon_button_pressed"]
+[connection signal="on_attempt_to_resolve_button_pressed" from="VBoxContainer/IdleEvents/IdleEventView" to="." method="_on_idle_event_view_on_attempt_to_resolve_button_pressed"]
 [connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

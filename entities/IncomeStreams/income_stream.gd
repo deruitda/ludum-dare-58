@@ -56,3 +56,10 @@ func get_idle_event() -> IdleEvent:
 	if has_idle_event():
 		return idle_event_manager.get_idle_event()
 	return
+
+func attempt_to_resolve_idle_event() -> void:
+	if idle_event_manager.roll_dice_for_resolve():
+		idle_event_manager.remove_idle_event()
+	
+	
+	
