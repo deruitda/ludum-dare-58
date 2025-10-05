@@ -37,10 +37,12 @@ button = NodePath("Button")
 animated_sprite_2d = NodePath("AnimatedSprite2D")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -29.0
-offset_top = -20.0
-offset_right = 28.0
-offset_bottom = 23.0
+offset_left = -28.0
+offset_top = -17.0
+offset_right = 29.0
+offset_bottom = 26.0
+scale = Vector2(1, 0.9599994)
+focus_mode = 0
 flat = true
 
 [node name="SpriteController" type="Node" parent="."]
