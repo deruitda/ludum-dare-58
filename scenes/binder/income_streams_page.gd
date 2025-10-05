@@ -19,7 +19,8 @@ func set_income_streams(income_streams: Array[IncomeStream]) -> void:
 		income_overview_grid.add_row(income_stream)
 func refresh() -> void:
 	income_overview_grid.reset()
-
+	for income_stream in ActiveIncomeStreamManager.get_income_streams():
+		income_overview_grid.add_row(income_stream)
 
 func _on_overview_grid_on_detail_button_press(income_stream: IncomeStream) -> void:
 	on_detail_button_press.emit(income_stream)

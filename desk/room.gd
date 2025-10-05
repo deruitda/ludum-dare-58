@@ -11,5 +11,5 @@ func _on_progress_button_click() -> void:
 
 
 func _on_binder_button_button_pressed() -> void:
-	binder.visible = true
+	binder.open_binder()
 	pass # Replace with function body.

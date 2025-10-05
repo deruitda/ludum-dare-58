@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=10 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
+[ext_resource type="PackedScene" uid="uid://bhoid1trkoqrp" path="res://desk/Resumes/resumes.tscn" id="2_xcxlp"]
 [ext_resource type="PackedScene" uid="uid://04sehxv1q6xu" path="res://desk/money_counter.tscn" id="4_4is0s"]
 [ext_resource type="Script" uid="uid://dn18yypee5ytb" path="res://desk/week_label.gd" id="6_bnidx"]
 [ext_resource type="PackedScene" uid="uid://cysmy3brcpvbr" path="res://scenes/binder/binder.tscn" id="7_bs3hi"]
+[ext_resource type="PackedScene" uid="uid://jx2vulg5n542" path="res://desk/potential_income_stream_binder.tscn" id="8_tfbhj"]
 [ext_resource type="PackedScene" uid="uid://b4uimt1clhey4" path="res://scenes/ceiling-fan.tscn" id="9_x1u2a"]
 [ext_resource type="PackedScene" uid="uid://d0asi7pvmfh83" path="res://desk/buttons/binder_button.tscn" id="10_bil3o"]
 
@@ -47,8 +49,15 @@ script = ExtResource("6_bnidx")
 
 [node name="Binder" parent="." instance=ExtResource("7_bs3hi")]
 visible = false
-position = Vector2(334, 76)
+position = Vector2(406, 101)
 scale = Vector2(0.72871965, 0.74256176)
+
+[node name="PotentialIncomeStreamBinder" parent="." instance=ExtResource("8_tfbhj")]
+position = Vector2(190, 157)
+
+[node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
+position = Vector2(1006, 138)
+scale = Vector2(0.55738956, 0.5596341)
 
 [connection signal="button_pressed" from="Background/BinderButton" to="." method="_on_binder_button_button_pressed"]
 [connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]
