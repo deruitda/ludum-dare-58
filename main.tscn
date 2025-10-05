@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6vd1ct10le5s"]
+[gd_scene load_steps=3 format=3 uid="uid://c6vd1ct10le5s"]
 
 [ext_resource type="Script" uid="uid://vkhugeyoj47s" path="res://main.gd" id="1_3fcf7"]
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://b10w3xmnbpwwf" path="res://game_manager.gd" id="5_lquwl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3fcf7")
@@ -10,8 +9,3 @@ script = ExtResource("1_3fcf7")
 [node name="Room" type="Node2D" parent="."]
 script = ExtResource("2_h2yge")
 metadata/_custom_type_script = "uid://d357h8upue4fy"
-
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("5_lquwl")
-candidate_manager = null
-worker_manager = null

@@ -15,11 +15,16 @@ gradient = SubResource("Gradient_5iqje")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0.0066006603, 0)
 
-[node name="IncomeDataRow" type="HBoxContainer" node_paths=PackedStringArray("description_label")]
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_left = 514.0
+offset_right = 514.0
+offset_bottom = 64.0
 script = ExtResource("1_e6oim")
-description_label = NodePath("DescriptionLabel")
 
-[node name="ImageTextureRect" type="TextureRect" parent="."]
+[node name="IncomeDataRow" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ImageTextureRect" type="TextureRect" parent="IncomeDataRow"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -27,12 +32,12 @@ size_flags_vertical = 4
 texture = ExtResource("1_xcmw4")
 expand_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="IncomeDataRow"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DescriptionLabel" type="Label" parent="."]
+[node name="DescriptionLabel" type="Label" parent="IncomeDataRow"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 1
@@ -40,23 +45,23 @@ text = "Collect Debt from Mario Pizzaface"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="IncomeDataRow"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StatusLabel" type="Label" parent="."]
+[node name="StatusLabel" type="Label" parent="IncomeDataRow"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Idle"
 horizontal_alignment = 1
 
-[node name="MarginContainer3" type="MarginContainer" parent="."]
+[node name="MarginContainer3" type="MarginContainer" parent="IncomeDataRow"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DetailsButton" type="TextureButton" parent="."]
+[node name="DetailsButton" type="TextureButton" parent="IncomeDataRow"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -64,4 +69,15 @@ texture_normal = SubResource("GradientTexture2D_0n6gc")
 texture_pressed = SubResource("GradientTexture2D_8pqwb")
 stretch_mode = 0
 
-[connection signal="button_up" from="DetailsButton" to="." method="_on_details_button_button_up"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MoneyPerWeekLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Money Per Week: $15"
+
+[node name="WeeksLeftLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Weeks Left: 8"
+
+[connection signal="button_up" from="IncomeDataRow/DetailsButton" to="." method="_on_details_button_button_up"]

@@ -1,19 +1,24 @@
 extends Node
 
-@onready var total_money: int = 10000
+@onready var total_money: int = 500
 @onready var total_respect: int = 0
 @onready var current_week: int = 1
 
-@onready var candidate_manager: CandidateManager
-@onready var worker_manager: WorkerManager
-
 func spend_money(amount: int) -> void:
 	total_money = total_money - amount
-	SignalBus.money_changed.emit(total_money)
+	SignalBus.money_changed.emit()
 	
 func collect_money(amount: int) -> void:
 	total_money = total_money + amount
-	SignalBus.money_changed.emit(total_money)
+	SignalBus.money_changed.emit()
+
+	
+func get_level() -> int:
+	if total_respect < 10:
+		return 1
+	elif total_respect < 20:
+		return 2
+	return 3
 
 func gain_respect(amount: int) -> void:
 	total_respect = total_respect + amount
@@ -21,13 +26,12 @@ func gain_respect(amount: int) -> void:
 func lose_respect(amount: int) -> void:
 	total_respect = total_respect - amount
 
-func simulate_events():
-	var streams = ActiveIncomeStreamManager.get_income_streams()
-	for stream in streams:
-		stream.idle_event_chance()
-		
-	
-func progress_to_next_week():
-	simulate_events()
+func increment_week() -> void:
 	current_week = current_week + 1
-	SignalBus.week_changed.emit(current_week)
+	SignalBus.week_changed.emit()
+#
+func get_forecasted_expenses() -> int:
+	return WorkerManager.get_forecasted_expenses()
+	
+func get_forecasted_income() -> int:
+	return IncomeStreamManager.get_forecasted_income()

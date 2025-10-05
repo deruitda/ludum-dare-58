@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_tqgtf"]
 [ext_resource type="Script" uid="uid://cka4w8iop4hux" path="res://utilities/range_resource.gd" id="3_87mv3"]
 [ext_resource type="Script" uid="uid://3vlxcis7548q" path="res://utilities/float_range_resource.gd" id="4_k58h3"]
-[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_resource.gd" id="4_tqgtf"]
+[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_event_resource.gd" id="4_tqgtf"]
 [ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="5_jakfk"]
 
 [sub_resource type="Resource" id="Resource_ilewg"]

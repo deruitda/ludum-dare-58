@@ -6,12 +6,17 @@ class_name Binder
 @onready var add_worker_to_capacity_page: AddWorkerToCapacityPage = $AddWorkerToCapacityPage
 @onready var workers_page: WorkersPage = $WorkersPage
 
+func _ready() -> void:
+	SignalBus.week_changed.connect(close_book)
+
+func close_book() -> void:
+	visible = false
+
 func reset_pages() -> void:
 	income_streams_page.visible = false
 	individual_income_stream_page.visible = false
 	add_worker_to_capacity_page.visible = false
 	workers_page.visible = false
-	
 
 func _on_income_streams_page_on_detail_button_press(income_stream: IncomeStream) -> void:
 	reset_pages()

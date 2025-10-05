@@ -3,6 +3,7 @@ extends Node
 signal potential_income_stream_generated(income_stream: IncomeStream)
 signal income_stream_accepted(income_stream: IncomeStream)
 #var income_stream_types = [preload("res://entities/IncomeStreams/IncomeStreamType/debt_collection.tres"),preload("res://entities/IncomeStreams/IncomeStreamType/drug_deal.tres")]
+const INCOME_STREAM = preload("uid://nqfj0vilw5qr")
 
 
 var income_stream_types: Array = []
@@ -24,9 +25,9 @@ func _ready():
 func generate_income_stream() -> void:
 	var available_streams = get_available_income_stream_types(GameState.total_respect)
 	var chosen_type = available_streams.pick_random()
-	var new_income_stream = chosen_type.create_income_stream_node()
-	var income_stream_type: IncomeStreamTypeResource = income_stream_types.pick_random()
+	var new_income_stream = INCOME_STREAM.instantiate()
 	add_child(new_income_stream)
+	chosen_type.set_income_stream(new_income_stream)
 	potential_income_stream_generated.emit(new_income_stream)
 
 func get_available_income_stream_types(total_respect: int) -> Array:

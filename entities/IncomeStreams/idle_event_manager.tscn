@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://i1ujbcb6d3ku"]
+
+[ext_resource type="Script" uid="uid://b1dphxwusk8g0" path="res://entities/IncomeStreams/idle_event_manager.gd" id="1_aikwu"]
+
+[node name="IdleEventManager" type="Node"]
+script = ExtResource("1_aikwu")
