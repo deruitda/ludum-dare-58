@@ -29,5 +29,6 @@ func simulate_events():
 	var idle_streams = ActiveIncomeStreamManager.get_idle_income_streams()
 	
 func progress_to_next_week():
+	simulate_events()
 	current_week = current_week + 1
 	SignalBus.week_changed.emit(current_week)
