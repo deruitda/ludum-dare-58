@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dacd0r2wjul6f"]
+
+[ext_resource type="Script" uid="uid://bm1g6075v6lya" path="res://desk/income_capacity_view.gd" id="1_bdfr5"]
+[ext_resource type="PackedScene" uid="uid://ctp3y23im581d" path="res://scenes/grids/workers/worker_overview_grid.tscn" id="2_jdlh2"]
+[ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="2_ncn1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8ktw"]
+atlas = ExtResource("2_ncn1p")
+region = Rect2(0, 0, 264, 277)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ycaq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8ktw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="IncomeCapacityView" type="Control" node_paths=PackedStringArray("worker_overview_grid")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 294.0
+offset_bottom = 350.0
+script = ExtResource("1_bdfr5")
+worker_overview_grid = NodePath("WorkerOverviewGrid")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(164, 185)
+scale = Vector2(1.2424242, 1.3357401)
+sprite_frames = SubResource("SpriteFrames_ycaq0")
+
+[node name="WorkerOverviewGrid" parent="." instance=ExtResource("2_jdlh2")]
+layout_mode = 0
+offset_right = 288.0
+
+[connection signal="on_details_button_pressed" from="WorkerOverviewGrid" to="." method="_on_worker_overview_grid_on_details_button_pressed"]

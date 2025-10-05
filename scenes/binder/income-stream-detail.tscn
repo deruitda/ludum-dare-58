@@ -35,16 +35,16 @@ sprite_frames = SubResource("SpriteFrames_evvlh")
 [node name="VBoxContainer" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 0.21499395
-offset_right = 132.22128
-offset_bottom = 138.4561
+offset_right = 139.53831
+offset_bottom = 129.37003
 scale = Vector2(0.9433105, 1.0702332)
 
 [node name="IncomeNameLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = -1.0
-offset_right = 125.0
-offset_bottom = 21.333334
+offset_left = 8.878202
+offset_top = 0.20088513
+offset_right = 127.878204
+offset_bottom = 22.53422
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 6
 text = "Debt Collection"
@@ -82,3 +82,14 @@ offset_top = 41.984993
 offset_right = 146.3586
 offset_bottom = 91.98499
 scale = Vector2(0.33333334, 0.35050365)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.865453
+offset_top = 104.917046
+offset_right = 15.6765585
+offset_bottom = 119.10664
+text = "<"
+
+[connection signal="capacity_button_pressed" from="VBoxContainer/CapacityRow" to="." method="_on_capacity_row_capacity_button_pressed"]
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

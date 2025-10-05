@@ -19,7 +19,8 @@ func _ready() -> void:
 	phone.set_worker_manager(worker_manager)
 	potential_income_stream_binder.set_potential_income_stream_manager(potential_income_streams_manager)
 	active_income_stream_binder.set_active_income_stream_manager(active_income_streams_manager)
-
+	active_income_stream_binder.set_worker_manager(worker_manager)
+	
 func _on_progress_button_click() -> void:
 	progress_button_click.emit()
 	pass # Replace with function body.

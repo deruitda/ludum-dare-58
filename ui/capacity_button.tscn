@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://ds1txkdiragd7" path="res://ui/capacity_button.gd" id="1_71tks"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_q7ojw"]
 
-[node name="CapacityButton" type="Button"]
+[node name="CapacityButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 8.0
+offset_bottom = 8.0
 script = ExtResource("1_71tks")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -12,17 +16,24 @@ offset_right = 57.0
 offset_bottom = 40.0
 scale = Vector2(1.0014733, 0.9981443)
 
-[node name="TakenLabel" type="Label" parent="ColorRect"]
+[node name="TakenLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 47.0
 offset_bottom = 23.0
 text = "Taken"
 label_settings = ExtResource("2_q7ojw")
 
-[node name="NotTakenLabel" type="Label" parent="ColorRect"]
+[node name="NotTakenLabel" type="Label" parent="."]
 visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Not"
 label_settings = ExtResource("2_q7ojw")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 57.0
+offset_bottom = 40.0
+
+[connection signal="button_up" from="Button" to="." method="_on_button_up"]
