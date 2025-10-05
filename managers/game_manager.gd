@@ -10,8 +10,12 @@ func simulate_events():
 	
 func progress_to_next_week():
 	
-	for income_streams in IncomeStreamManager.get_in_progress_income_streams():
-		GameState.collect_money(income_streams.income_per_week)
+	for income_stream in IncomeStreamManager.get_active_income_streams():
+		GameState.collect_money(income_stream.income_per_week)
+		income_stream.increment_week()
+		if income_stream.is_completed():
+			pass
+		
 	
 	for worker in WorkerManager.get_workers():
 		GameState.spend_money(worker.cost_per_week)

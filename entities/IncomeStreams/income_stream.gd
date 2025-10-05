@@ -30,8 +30,8 @@ func idle_event_chance() -> void:
 	if has_idle_event():
 		return
 	var roll = randf()
-	#if roll < chanceOfEvent:
-		#current_idle_event = type.potential_idle_events.pick_random()
+	if roll < chanceOfEvent:
+		current_idle_event = type.potential_idle_events.pick_random()
 		
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired
@@ -44,3 +44,9 @@ func get_capacity() -> int:
 	
 func has_full_capacity() -> bool:
 	return get_capacity() == capacity
+
+func increment_week() -> void:
+	active_weeks_transpired = active_weeks_transpired + 1
+
+func is_completed() -> bool:
+	return active_weeks_transpired == duration_in_weeks
