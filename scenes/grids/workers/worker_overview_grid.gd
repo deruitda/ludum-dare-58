@@ -11,10 +11,11 @@ func _ready() -> void:
 func add_row(worker: Worker, disabled: bool = false) -> void:
 	var data_row = worker_row_packed_scene.instantiate() as WorkerDataRow
 	data_row.set_worker(worker)
+	workers_v_box.add_child(data_row)
+	
 	data_row.set_disabled(disabled)
 	data_row.set_danger_on_capacity(disabled)
 	
-	workers_v_box.add_child(data_row)
 	data_row.on_details_button_pressed.connect(_on_details_button_pressed)
 
 func reset() -> void:

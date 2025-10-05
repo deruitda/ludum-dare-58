@@ -3,8 +3,15 @@ class_name AddWorkerToCapacityPage
 
 @onready var worker_overview_grid: WorkerOverviewGrid = $WorkerOverviewGrid
 
+@onready var income_stream: IncomeStream
+@onready var capacity: Capacity
 
-func set(income_stream: IncomeStream, capacity: Capacity) -> void:
+signal on_back_button_pressed
+signal on_worker_selected(worker: Worker)
+
+func load_page(p_income_stream: IncomeStream, p_capacity: Capacity):
+	income_stream = p_income_stream
+	capacity = p_capacity
 	load_workers()
 
 func load_workers():
@@ -12,3 +19,11 @@ func load_workers():
 	var workers = WorkerManager.get_workers()
 	for worker in workers:
 		worker_overview_grid.add_row(worker)
+
+
+func _on_back_button_button_up() -> void:
+	on_back_button_pressed.emit()
+
+func _on_worker_overview_grid_on_details_button_pressed(worker: Worker) -> void:
+	on_worker_selected.emit(worker)
+	pass # Replace with function body.

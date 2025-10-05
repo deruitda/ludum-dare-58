@@ -49,3 +49,4 @@ scale = Vector2(0.27062082, 0.3087139)
 worker_row_packed_scene = ExtResource("4_q4qy8")
 
 [connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="on_details_button_pressed" from="WorkerOverviewGrid" to="." method="_on_worker_overview_grid_on_details_button_pressed"]
