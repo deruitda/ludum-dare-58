@@ -13,13 +13,17 @@ func get_workers() -> Array[Worker]:
 			return_array.append(child as Worker)
 	return return_array
 
+func remove_worker(worker: Worker) -> void:
+	remove_child(worker)
+	worker.queue_free()
+
 func get_number_of_workers() -> int:
 	return get_child_count()
 
 func get_forecasted_expenses() -> int:
 	var forecasted_expenses: int = 0
 	for worker in WorkerManager.get_workers():
-		forecasted_expenses = forecasted_expenses + worker.cost_per_week
+		forecasted_expenses = forecasted_expenses + worker.get_cost_per_week()
 	
 	return forecasted_expenses
 
