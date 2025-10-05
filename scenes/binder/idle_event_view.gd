@@ -21,6 +21,5 @@ func set_idle_event(new_idle_event: IdleEvent) -> void:
 func _on_attempt_to_resolve_button_button_up() -> void:
 	on_attempt_to_resolve_button_pressed.emit()
 
-
 func _on_abandon_button_button_up() -> void:
 	on_abandon_button_pressed.emit()

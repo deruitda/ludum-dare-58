@@ -23,14 +23,24 @@ func set_income_stream(new_income_stream: IncomeStream) -> void:
 	refresh()
 
 func refresh():
+	resolution_failed_label.visible = false
+	resolution_successful_label.visible = false
+	idle_event_view.visible = false
+
 	if income_stream == null:
 		return
 	capacity_row.set_income_stream(income_stream)
 	if income_stream.has_idle_event():
-		idle_event_view.set_idle_event(income_stream.get_idle_event())
-		idle_event_view.visible = true
+		if income_stream.idle_event_manager.has_attempted_success_this_week:
+			resolution_failed_label.visible = true
+		else:
+			idle_event_view.set_idle_event(income_stream.get_idle_event())
+			idle_event_view.visible = true
+	elif income_stream.has_idle_event() == false and income_stream.idle_event_manager.has_attempted_success_this_week:
+		resolution_successful_label.visible = true
 	else:
 		idle_event_view.visible = false
+	
 
 func refresh_capacity_state() -> void:
 	capacity_row.refresh_capacity_state()
@@ -50,6 +60,6 @@ func _on_idle_event_view_on_attempt_to_resolve_button_pressed() -> void:
 	income_stream.attempt_to_resolve_idle_event()
 	idle_event_view.visible = false
 	if income_stream.has_idle_event():
-		resolution_successful_label.visible = true
-	else:
 		resolution_failed_label.visible = true
+	else:
+		resolution_successful_label.visible = true

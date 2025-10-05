@@ -14,7 +14,7 @@ class_name IncomeStream
 @export var status: String = "Active"
 @export var chanceOfEvent: float = 0.5
 
-@onready var idle_event_manager: Node = $IdleEventManager
+@onready var idle_event_manager: IdleEventManager = $IdleEventManager
 
 func is_idle() -> bool:
 	if not has_full_capacity():
@@ -58,8 +58,7 @@ func get_idle_event() -> IdleEvent:
 	return
 
 func attempt_to_resolve_idle_event() -> void:
-	if idle_event_manager.roll_dice_for_resolve():
-		idle_event_manager.remove_idle_event()
+	idle_event_manager.attempt_to_resolve()
 	
 	
 	
