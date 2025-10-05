@@ -21,4 +21,6 @@ func lose_respect(amount: int) -> void:
 func increment_week() -> void:
 	current_week = current_week + 1
 	SignalBus.week_changed.emit(current_week)
-		
+#
+#func get_forcasted_expenses() -> int:
+	#for 

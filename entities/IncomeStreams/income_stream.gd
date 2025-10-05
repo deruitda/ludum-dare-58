@@ -13,7 +13,8 @@ class_name IncomeStream
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
 @export var status: String = "Active"
 @export var chanceOfEvent: float = 0.5
-@export var current_idle_event: PotentialIdleEvent
+
+@onready var idle_event_manager: Node = $IdleEventManager
 
 func is_idle() -> bool:
 	if not has_full_capacity():
@@ -24,14 +25,14 @@ func is_idle() -> bool:
 	return false
 
 func has_idle_event() -> bool:
-	return (current_idle_event == null) == false
+	return idle_event_manager.has_idle_event()
 
 func idle_event_chance() -> void:
-	if has_idle_event():
+	if is_idle():
 		return
 	var roll = randf()
 	if roll < chanceOfEvent:
-		current_idle_event = type.potential_idle_events.pick_random()
+		idle_event_manager.create_idle_event_from_potential_idle_events(type.potential_idle_events)
 		
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired

@@ -14,6 +14,10 @@ func _ready() -> void:
 func _on_income_stream_added(income_stream: IncomeStream) -> void:
 	refresh()
 
+func set_labels() -> void:
+	total_money_label.text = "$" + str(GameState.total_money)
+	forcasted_money_label
+
 func set_money_label(label: String) -> void:
 	total_money_label.text = label
 
@@ -28,6 +32,7 @@ func refresh() -> void:
 	income_overview_grid.reset()
 	for income_stream in IncomeStreamManager.get_current_income_streams():
 		income_overview_grid.add_row(income_stream)
+	set_labels()
 
 func _on_overview_grid_on_detail_button_press(income_stream: IncomeStream) -> void:
 	on_detail_button_press.emit(income_stream)
