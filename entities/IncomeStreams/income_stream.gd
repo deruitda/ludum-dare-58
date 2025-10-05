@@ -13,11 +13,25 @@ class_name IncomeStream
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
 @export var status: String = "Active"
 @export var chanceOfEvent: float = 0.5
+@export var current_idle_event: PotentialIdleEvent
+
+func is_idle() -> bool:
+	if not has_full_capacity():
+		return true
+	if has_idle_event():
+		return true
+	
+	return false
+
+func has_idle_event() -> bool:
+	return (current_idle_event == null) == false
 
 func idle_event_chance() -> void:
+	if has_idle_event():
+		return
 	var roll = randf()
-	if roll < chanceOfEvent:
-		status = "Idle"
+	#if roll < chanceOfEvent:
+		#current_idle_event = type.potential_idle_events.pick_random()
 		
 func get_weeks_left() -> int:
 	return duration_in_weeks - active_weeks_transpired

@@ -13,10 +13,10 @@ func set_income_stream(new_income_stream: IncomeStream) -> void:
 
 func refresh():
 	description_label.text = income_stream.income_stream_name
-	if income_stream.has_full_capacity():
-		status_label.text = "Ready"
-	else:
+	if income_stream.is_idle():
 		status_label.text = "Idle"
+	else:
+		status_label.text = "Ready"
 
 func _on_details_button_button_up() -> void:
 	on_detail_button_press.emit(income_stream)
