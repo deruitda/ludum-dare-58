@@ -26,7 +26,6 @@ func simulate_events():
 	for stream in streams:
 		stream.idle_event_chance()
 		
-	var idle_streams = ActiveIncomeStreamManager.get_idle_income_streams()
 	
 func progress_to_next_week():
 	simulate_events()
