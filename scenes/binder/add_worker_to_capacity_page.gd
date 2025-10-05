@@ -6,7 +6,7 @@ class_name AddWorkerToCapacityPage
 @onready var income_stream: IncomeStream
 
 signal on_back_button_pressed
-signal on_worker_selected(worker: Worker)
+signal on_capacity_created
 
 func load_page(p_income_stream: IncomeStream):
 	income_stream = p_income_stream
@@ -23,5 +23,5 @@ func _on_back_button_button_up() -> void:
 	on_back_button_pressed.emit()
 
 func _on_worker_overview_grid_on_details_button_pressed(worker: Worker) -> void:
-	on_worker_selected.emit(worker)
-	pass # Replace with function body.
+	CapacityManager.create_capacity(income_stream, worker)
+	on_capacity_created.emit()

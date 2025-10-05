@@ -27,6 +27,7 @@ offset_right = -2.0
 offset_bottom = -1.0
 
 [connection signal="on_detail_button_press" from="IncomeStreamsPage" to="." method="_on_income_streams_page_on_detail_button_press"]
+[connection signal="back_button_pressed" from="IndividualIncomeStreamPage" to="." method="_on_individual_income_stream_page_back_button_pressed"]
 [connection signal="capacity_button_pressed" from="IndividualIncomeStreamPage" to="." method="_on_individual_income_stream_page_capacity_button_pressed"]
 [connection signal="on_back_button_pressed" from="AddWorkerToCapacityPage" to="." method="_on_add_worker_to_capacity_page_on_back_button_pressed"]
-[connection signal="on_worker_selected" from="AddWorkerToCapacityPage" to="." method="_on_add_worker_to_capacity_page_on_worker_selected"]
+[connection signal="on_capacity_created" from="AddWorkerToCapacityPage" to="." method="_on_add_worker_to_capacity_page_on_capacity_created"]
