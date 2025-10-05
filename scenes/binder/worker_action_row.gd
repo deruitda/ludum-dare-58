@@ -5,7 +5,7 @@ class_name WorkerActionRow
 @onready var worker: Worker
 
 signal on_fire_worker_button_pressed
-
+signal on_worker_promoted
 func set_worker(new_worker: Worker):
 	worker = new_worker
 	refresh()
@@ -21,4 +21,4 @@ func _on_fire_worker_button_button_up() -> void:
 
 func _on_give_raise_button_button_up() -> void:
 	worker.do_promotion()
-	refresh()
+	on_worker_promoted.emit()
