@@ -1,4 +1,4 @@
 extends Node
 
-signal money_changed(new_amount: int)
-signal week_changed(new_amount: int)
+signal money_changed
+signal week_changed

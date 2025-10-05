@@ -6,11 +6,11 @@ extends Node
 
 func spend_money(amount: int) -> void:
 	total_money = total_money - amount
-	SignalBus.money_changed.emit(total_money)
+	SignalBus.money_changed.emit()
 	
 func collect_money(amount: int) -> void:
 	total_money = total_money + amount
-	SignalBus.money_changed.emit(total_money)
+	SignalBus.money_changed.emit()
 
 func gain_respect(amount: int) -> void:
 	total_respect = total_respect + amount
@@ -20,7 +20,7 @@ func lose_respect(amount: int) -> void:
 
 func increment_week() -> void:
 	current_week = current_week + 1
-	SignalBus.week_changed.emit(current_week)
+	SignalBus.week_changed.emit()
 #
 func get_forecasted_expenses() -> int:
 	return WorkerManager.get_forecasted_expenses()

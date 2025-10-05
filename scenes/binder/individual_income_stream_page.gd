@@ -11,6 +11,9 @@ signal back_button_pressed()
 func _ready() -> void:
 	WorkerManager.worker_hired.connect(refresh)
 
+func _on_worker_hired(worker: Worker) -> void:
+	refresh()
+
 func set_income_stream(new_income_stream: IncomeStream) -> void:
 	income_stream = new_income_stream
 	refresh()
