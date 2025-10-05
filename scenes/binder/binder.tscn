@@ -1640,7 +1640,6 @@ offset_bottom = 45.0
 texture_hover = ExtResource("9_bdmok")
 
 [node name="TableOfContents" type="VBoxContainer" parent="."]
-visible = false
 offset_left = -610.0
 offset_top = 156.0
 offset_right = -85.0
@@ -1657,6 +1656,7 @@ offset_bottom = 68.0
 texture_normal = ExtResource("10_bxq2y")
 texture_pressed = ExtResource("11_pc2nc")
 texture_hover = ExtResource("12_6dbm8")
+texture_disabled = ExtResource("11_pc2nc")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="TableOfContents/Workers"]
@@ -1689,6 +1689,7 @@ offset_bottom = 68.0
 texture_normal = ExtResource("10_bxq2y")
 texture_pressed = ExtResource("11_pc2nc")
 texture_hover = ExtResource("12_6dbm8")
+texture_disabled = ExtResource("11_pc2nc")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="TableOfContents/IncomeStreams"]
