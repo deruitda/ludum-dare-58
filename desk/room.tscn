@@ -25,8 +25,8 @@ position = Vector2(-184.05594, 245.37865)
 scale = Vector2(3.4174724, 3.398985)
 
 [node name="MoneyCounter" parent="Background" instance=ExtResource("4_4is0s")]
-position = Vector2(183.49649, 232.58113)
-scale = Vector2(0.55944055, 0.5564142)
+position = Vector2(180.13985, 203.64758)
+scale = Vector2(1.0517483, 1.0460587)
 
 [node name="CeilingFan" parent="Background" instance=ExtResource("9_x1u2a")]
 position = Vector2(4.475525, -291.0046)

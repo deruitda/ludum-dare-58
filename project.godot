@@ -26,6 +26,11 @@ WorkerManager="*res://managers/worker_manager.gd"
 CapacityManager="*res://managers/capacity_manager.gd"
 GameManager="*res://managers/game_manager.gd"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
