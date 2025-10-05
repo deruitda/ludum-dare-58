@@ -1,7 +1,7 @@
 extends ScrollContainer
 class_name WorkerOverviewGrid
 @onready var workers_v_box: VBoxContainer = $WorkersVBox
-@export var worker_row_packed_scene: PackedScene
+const WORKER_DATA_ROW = preload("uid://bt6ns88810b87")
 
 signal on_details_button_pressed(worker: Worker)
 
@@ -9,7 +9,7 @@ func _ready() -> void:
 	reset()
 
 func add_row(worker: Worker, disabled: bool = false) -> void:
-	var data_row = worker_row_packed_scene.instantiate() as WorkerDataRow
+	var data_row = WORKER_DATA_ROW.instantiate() as WorkerDataRow
 	workers_v_box.add_child(data_row)
 	
 	data_row.set_worker(worker)

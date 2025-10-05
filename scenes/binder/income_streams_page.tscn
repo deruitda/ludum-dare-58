@@ -139,4 +139,13 @@ offset_right = 468.9986
 offset_bottom = 340.28348
 scale = Vector2(0.24000072, 0.28000185)
 
+[node name="WorkersButton" type="Button" parent="."]
+offset_left = 100.18718
+offset_top = 3.0502527
+offset_right = 173.18718
+offset_bottom = 34.05025
+scale = Vector2(0.31354517, 0.26190478)
+text = "Workers"
+
 [connection signal="on_detail_button_press" from="Control/Control/OverviewGrid" to="." method="_on_overview_grid_on_detail_button_press"]
+[connection signal="button_up" from="WorkersButton" to="." method="_on_workers_button_button_up"]

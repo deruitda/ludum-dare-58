@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cysmy3brcpvbr"]
+[gd_scene load_steps=7 format=3 uid="uid://cysmy3brcpvbr"]
 
 [ext_resource type="Script" uid="uid://7n4qrj3cof3c" path="res://scenes/binder/binder.gd" id="1_pm15x"]
 [ext_resource type="Texture2D" uid="uid://d355ftby527bc" path="res://assets/proto/paper.png" id="1_prpyi"]
 [ext_resource type="PackedScene" uid="uid://dx4fh10vgnuhk" path="res://scenes/binder/income_streams_page.tscn" id="2_c8f22"]
 [ext_resource type="PackedScene" uid="uid://og67qjuev08k" path="res://scenes/binder/individual_income_stream_page.tscn" id="4_c8f22"]
 [ext_resource type="PackedScene" uid="uid://wge1ujom1m24" path="res://scenes/binder/add_worker_to_capacity_page.tscn" id="5_bv00m"]
+[ext_resource type="PackedScene" uid="uid://cwqnmfqiwpgxf" path="res://scenes/binder/workers_page.tscn" id="6_jey3g"]
 
 [node name="Binder" type="Node2D"]
 script = ExtResource("1_pm15x")
@@ -21,12 +22,18 @@ visible = false
 visible = false
 
 [node name="AddWorkerToCapacityPage" parent="." instance=ExtResource("5_bv00m")]
+visible = false
 offset_left = -2.0
 offset_top = -1.0
 offset_right = -2.0
 offset_bottom = -1.0
 
+[node name="WorkersPage" parent="." instance=ExtResource("6_jey3g")]
+visible = false
+position = Vector2(0, -2)
+
 [connection signal="on_detail_button_press" from="IncomeStreamsPage" to="." method="_on_income_streams_page_on_detail_button_press"]
+[connection signal="on_workers_button_press" from="IncomeStreamsPage" to="." method="_on_income_streams_page_on_workers_button_press"]
 [connection signal="back_button_pressed" from="IndividualIncomeStreamPage" to="." method="_on_individual_income_stream_page_back_button_pressed"]
 [connection signal="capacity_button_pressed" from="IndividualIncomeStreamPage" to="." method="_on_individual_income_stream_page_capacity_button_pressed"]
 [connection signal="on_back_button_pressed" from="AddWorkerToCapacityPage" to="." method="_on_add_worker_to_capacity_page_on_back_button_pressed"]
