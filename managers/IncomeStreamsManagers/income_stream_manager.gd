@@ -5,7 +5,6 @@ signal active_income_stream_added(income_stream: IncomeStream)
 func accept_income_stream(income_stream: IncomeStream) -> void:
 	add_child(income_stream)
 	active_income_stream_added.emit(income_stream)
-	GameState.simulate_events()
 	
 func get_idle_income_streams() -> Array[IncomeStream]:
 	var return_array: Array[IncomeStream] = []

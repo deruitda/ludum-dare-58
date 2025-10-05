@@ -16,7 +16,6 @@ func _ready() -> void:
 	PotentialIncomeStreamManager.generate_income_stream()
 	PotentialIncomeStreamManager.generate_income_stream()
 func _on_button_button_up() -> void:
-	
 	pass # Replace with function body.
 
 
@@ -24,4 +23,4 @@ func _on_candidate_manager_worker_hired(worker: Worker) -> void:
 	WorkerManager.hire_worker(worker)
 
 func _on_potential_income_stream_manager_income_stream_accepted(income_stream: IncomeStream) -> void:
-	ActiveIncomeStreamManager.accept_income_stream(income_stream)
+	IncomeStreamManager.accept_income_stream(income_stream)

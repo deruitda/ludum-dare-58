@@ -19,11 +19,12 @@ config/icon="res://icon.svg"
 
 GameState="*res://states/game_state.gd"
 SignalBus="*res://signal_buses/signal_bus.gd"
-ActiveIncomeStreamManager="*res://managers/IncomeStreamsManagers/active_income_stream_manager.tscn"
+IncomeStreamManager="*res://managers/IncomeStreamsManagers/income_stream_manager.tscn"
 PotentialIncomeStreamManager="*res://managers/IncomeStreamsManagers/potential_income_stream_manager.gd"
 CandidateManager="*res://managers/candidate_manager.gd"
 WorkerManager="*res://managers/worker_manager.gd"
 CapacityManager="*res://managers/capacity_manager.gd"
+GameManager="*res://managers/game_manager.gd"
 
 [gui]
 

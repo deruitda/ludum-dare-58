@@ -8,7 +8,7 @@ func _ready() -> void:
 	set_week_label()
 
 func _on_progress_button_click() -> void:
-	GameState.progress_to_next_week()
+	GameManager.progress_to_next_week()
 	set_week_label()
 	pass # Replace with function body.
 
