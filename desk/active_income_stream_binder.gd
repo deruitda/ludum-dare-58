@@ -1,16 +1,10 @@
 extends Node2D
 class_name ActiveIncomeStreamBinder
 @export var no_jobs_available_control: Control
-@onready var active_income_streams_manager: ActiveIncomeStreamsManager
-@export var income_stream_overview: IncomeStreamOverview
-@export var income_stream_detail: IncomeStreamDetail
-@export var income_capacity_view: IncomeCapacityView
-
-@onready var worker_manager: WorkerManager
-
-func set_active_income_stream_manager(stream_manager: ActiveIncomeStreamsManager) -> void:
-	active_income_streams_manager = stream_manager
-	active_income_streams_manager.active_income_stream_added.connect(_on_income_stream_added)
+@export var jobs_available_control: Control
+@export var income_stream_view: IncomeStreamView
+func _ready() -> void:
+	ActiveIncomeStreamManager.active_income_stream_added.connect(_on_income_stream_added)
 	set_items()
 
 func set_worker_manager(new_worker_manager: WorkerManager):
@@ -23,9 +17,12 @@ func _on_income_stream_added(income_stream: IncomeStream) -> void:
 	set_income_stream_view()
 
 func set_items() -> void:
-	var income_streams = active_income_streams_manager.get_income_streams()
-	if len(income_streams) > 0:
-		income_stream_overview.visible = true
+	var income_streams = ActiveIncomeStreamManager.get_income_streams()
+	paginator.set_items(income_streams)
+	if not paginator.has_items():
+		no_jobs_available_control.visible = true
+		jobs_available_control.visible = false
+	else:
 		no_jobs_available_control.visible = false
 	else:
 		income_stream_overview.visible = false
