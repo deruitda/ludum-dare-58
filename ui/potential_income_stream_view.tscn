@@ -38,7 +38,7 @@ layout_mode = 2
 
 [node name="IntialCostLabel" type="Label" parent="Control/InitialCostControl"]
 layout_mode = 2
-text = "Initial Cost"
+text = "Acceptance Fee"
 label_settings = ExtResource("2_751ya")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/InitialCostControl"]

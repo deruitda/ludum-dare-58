@@ -341,6 +341,11 @@ animation = &"page"
 autoplay = "page"
 
 [node name="PotentialIncomeStreamView" parent="." instance=ExtResource("4_pxix6")]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 15.0
+offset_right = 279.0
+offset_bottom = 238.76994
 scale = Vector2(0.8535552, 0.8535552)
 
 [node name="WorkerView" parent="." instance=ExtResource("4_qydxe")]

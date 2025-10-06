@@ -25,6 +25,7 @@ custom_minimum_size = Vector2(244, 11)
 layout_mode = 2
 text = "Steve"
 label_settings = ExtResource("3_7nf1l")
+autowrap_mode = 3
 
 [node name="PerWeekControl" type="HBoxContainer" parent="."]
 layout_mode = 2
