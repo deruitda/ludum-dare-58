@@ -65,6 +65,7 @@ scale = Vector2(0.40299508, 0.40299508)
 label_component = NodePath("LabelComponent2")
 
 [node name="LabelComponent2" parent="RespectGainedLabel" instance=ExtResource("6_3rgv7")]
+prepend_string = ""
 positive_label_settings = ExtResource("4_3rgv7")
 
 [node name="MoneyGainedLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("5_g3n0d")]

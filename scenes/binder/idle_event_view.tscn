@@ -64,12 +64,20 @@ offset_right = 483.93466
 offset_bottom = 215.66537
 text = "Abandon Job"
 
+[node name="Label" type="Label" parent="Idle"]
+layout_mode = 0
+offset_left = 22.934656
+offset_top = 60.332687
+offset_right = 249.93466
+offset_bottom = 83.33269
+text = "Percent Chance of Resolution"
+
 [node name="PercentageLabel" parent="Idle" instance=ExtResource("4_bn6fv")]
 layout_mode = 0
-offset_left = 399.93466
-offset_top = -5.667309
-offset_right = 439.93466
-offset_bottom = 17.332691
+offset_left = 102.93466
+offset_top = 88.33269
+offset_right = 142.93466
+offset_bottom = 111.33269
 
 [node name="AttemptToResolveCostView" parent="." instance=ExtResource("5_l2qu1")]
 layout_mode = 0

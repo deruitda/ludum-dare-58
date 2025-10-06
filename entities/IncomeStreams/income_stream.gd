@@ -45,7 +45,7 @@ func has_idle_event() -> bool:
 	
 func roll_dice_for_event() -> bool:
 	var roll = randf()
-	return roll < percent_chance_of_event
+	return roll < (percent_chance_of_event / duration_in_weeks - 1)
 					
 func create_random_idle_event() -> void:
 	idle_event_manager.create_idle_event_from_potential_idle_events(type.potential_idle_events)
