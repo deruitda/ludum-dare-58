@@ -88,11 +88,11 @@ func get_duration_in_weeks_from_time_intensity(intensity: int) -> int:
 		Enums.IncomeStreamTimeIntensity.INSTANT:
 			return 1
 		Enums.IncomeStreamTimeIntensity.SHORT:
-			return randi_range(3, 8)
+			return randi_range(1, 2)
 		Enums.IncomeStreamTimeIntensity.MEDIUM:
-			return randi_range(10, 20)
+			return randi_range(1, 4)
 		Enums.IncomeStreamTimeIntensity.LONG:
-			return randi_range(20, 30)
+			return randi_range(1, 7)
 	return 1
 
 func get_minimum_total_money_by_intensity(intensity: int) -> int:

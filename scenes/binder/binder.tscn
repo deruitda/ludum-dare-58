@@ -1535,9 +1535,11 @@ visible = false
 scale = Vector2(4.25129, 4.5897837)
 
 [node name="IndividualIncomeStreamPage" parent="." instance=ExtResource("4_c8f22")]
-offset_right = 0.0
-offset_bottom = 0.0
-scale = Vector2(4.656634, 4.6512938)
+offset_left = -55.0
+offset_top = 47.000004
+offset_right = -55.0
+offset_bottom = 47.000004
+scale = Vector2(1.1948496, 1.1934794)
 
 [node name="AddWorkerToCapacityPage" parent="." instance=ExtResource("5_bv00m")]
 visible = false

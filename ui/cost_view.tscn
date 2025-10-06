@@ -17,21 +17,27 @@ respect_label = NodePath("RespectLabel")
 none_label = NodePath("NoneLabel")
 
 [node name="MoneyLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("2_2c845")]
-visible = false
 layout_mode = 2
+tooltip_text = "Money"
+mouse_filter = 0
 text = "$+10"
 label_settings = ExtResource("6_sphsk")
 label_component = NodePath("MoneyLabelComponent")
+use_tooltip = true
+tooltip_suffix = "Dollars"
 
 [node name="MoneyLabelComponent" parent="MoneyLabel" instance=ExtResource("4_tmjy7")]
 positive_label_settings = ExtResource("6_sphsk")
 
 [node name="RespectLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("2_2c845")]
-visible = false
 layout_mode = 2
+tooltip_text = "Respect"
+mouse_filter = 0
 text = "+5"
 label_settings = ExtResource("7_dcibp")
 label_component = NodePath("RespectLabelComponent")
+use_tooltip = true
+tooltip_suffix = "Respect"
 
 [node name="RespectLabelComponent" parent="RespectLabel" instance=ExtResource("4_tmjy7")]
 prepend_string = ""
