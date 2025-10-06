@@ -1,66 +1,90 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxh3bwtvp3el1"]
+[gd_scene load_steps=7 format=3 uid="uid://cxh3bwtvp3el1"]
 
 [ext_resource type="Script" uid="uid://bhxe7id87216u" path="res://ui/worker_view.gd" id="1_06gpd"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="1_arx87"]
+[ext_resource type="Script" uid="uid://du3wcqq57120u" path="res://ui/stat_label.gd" id="4_y3pfp"]
+[ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="5_cs3xm"]
+[ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="5_y3pfp"]
+[ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="6_0pnif"]
 
-[node name="WorkerView" type="Control" node_paths=PackedStringArray("name_value", "type_value", "cost_value")]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -140.0
-offset_top = -134.0
-offset_right = 190.0
-offset_bottom = -16.056213
+[node name="WorkerView" type="VBoxContainer" node_paths=PackedStringArray("name_value", "respect_per_week", "cost_per_week")]
+offset_right = 330.0
+offset_bottom = 117.94379
 script = ExtResource("1_06gpd")
 name_value = NodePath("NameValue")
-type_value = NodePath("TypeValue")
-cost_value = NodePath("CostValue")
+respect_per_week = NodePath("PerWeekControl2/RespectPerWeek")
+cost_per_week = NodePath("PerWeekControl4/PayPerWeek")
 
-[node name="NameLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 4.000006
-offset_right = 83.0
-offset_bottom = 27.000006
-text = "Name"
+[node name="NameValue" type="Label" parent="."]
+layout_mode = 2
+text = "Income Per Week"
 label_settings = ExtResource("1_arx87")
-horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="NameValue" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 131.0
-offset_top = 9.943785
-offset_right = 211.76926
-offset_bottom = 29.96788
+[node name="PerWeekControl2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
 
-[node name="TypeLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 34.0
-offset_right = 86.0
-offset_bottom = 57.0
-text = "Type"
-label_settings = ExtResource("1_arx87")
-horizontal_alignment = 1
-
-[node name="TypeValue" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 40.943787
-offset_right = 217.07693
-offset_bottom = 60.967896
-
-[node name="CostLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 69.0
-offset_right = 121.0
-offset_bottom = 92.0
-text = "Cost per Week"
+[node name="NameLabel" type="Label" parent="PerWeekControl2"]
+layout_mode = 2
+text = "Respect per Week"
 label_settings = ExtResource("1_arx87")
 
-[node name="CostValue" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 67.94379
-offset_right = 220.0
-offset_bottom = 93.1593
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RespectPerWeek" type="Label" parent="PerWeekControl2" node_paths=PackedStringArray("label_component")]
+layout_mode = 2
+script = ExtResource("4_y3pfp")
+label_component = NodePath("RespectLabelComponent")
+use_tooltip = true
+tooltip_suffix = "Respect"
+metadata/_custom_type_script = "uid://du3wcqq57120u"
+
+[node name="RespectLabelComponent" parent="PerWeekControl2/RespectPerWeek" instance=ExtResource("5_cs3xm")]
+prepend_string = ""
+positive_label_settings = ExtResource("5_y3pfp")
+
+[node name="PerWeekControl4" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="PerWeekControl4"]
+layout_mode = 2
+text = "Pay Per Week"
+label_settings = ExtResource("1_arx87")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PayPerWeek" type="Label" parent="PerWeekControl4" node_paths=PackedStringArray("label_component")]
+layout_mode = 2
+script = ExtResource("4_y3pfp")
+label_component = NodePath("MoneyLabelComponent")
+use_tooltip = true
+tooltip_suffix = "Cost"
+metadata/_custom_type_script = "uid://du3wcqq57120u"
+
+[node name="MoneyLabelComponent" parent="PerWeekControl4/PayPerWeek" instance=ExtResource("5_cs3xm")]
+positive_label_settings = ExtResource("6_0pnif")
+
+[node name="PerWeekControl3" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="PerWeekControl3"]
+layout_mode = 2
+text = "Respect per Week"
+label_settings = ExtResource("1_arx87")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameValue" type="Label" parent="PerWeekControl3"]
+layout_mode = 2
+text = "Income Per Week"
+label_settings = ExtResource("1_arx87")
