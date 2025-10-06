@@ -6,4 +6,5 @@
 [node name="IncomeStream" type="Node"]
 script = ExtResource("1_j85tg")
 
-[node name="IdleEventManager" parent="." instance=ExtResource("2_jhi8y")]
+[node name="IdleEventManager" parent="." node_paths=PackedStringArray("income_stream") instance=ExtResource("2_jhi8y")]
+income_stream = NodePath("..")

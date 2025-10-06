@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=12 format=3 uid="uid://c824ec0koaf4r"]
+
+[ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_wa26r"]
+[ext_resource type="Script" uid="uid://cllgeulnh2up3" path="res://utilities/cost_resource.gd" id="2_avass"]
+[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_event_resource.gd" id="3_l84ix"]
+[ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="4_h38pb"]
+
+[sub_resource type="Resource" id="Resource_703yy"]
+script = ExtResource("2_avass")
+respect_intensity = 2
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_aakyt"]
+script = ExtResource("2_avass")
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_l84ix"]
+script = ExtResource("2_avass")
+respect_intensity = 3
+negative_respect_intensity = true
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_h38pb"]
+script = ExtResource("2_avass")
+cost_intensity = 1
+respect_intensity = 1
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_wa26r"]
+script = ExtResource("3_l84ix")
+idle_event_name = "{subject_name} is wondering if they need protection"
+idle_description = "We'll show them just how unsafe this neighborhood can be"
+attempt_to_resolve_cost = SubResource("Resource_h38pb")
+abandon_cost = SubResource("Resource_l84ix")
+attempt_button_label = "Rock through the window"
+abandon_button_label = "I have more important things to do"
+attempt_failed_message = "You're such a loser"
+attempt_successful_message = "{subject_name} has reconsidered and appreciates your help in these trying times. Paid up a premium. "
+metadata/_custom_type_script = "uid://cy44ryxdfwf47"
+
+[sub_resource type="Resource" id="Resource_rancq"]
+script = ExtResource("2_avass")
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_avass"]
+script = ExtResource("2_avass")
+cost_intensity = 2
+respect_intensity = 1
+negative_respect_intensity = true
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[resource]
+script = ExtResource("4_h38pb")
+type = "Offer protection to {subject_name}'s business"
+requirement = SubResource("Resource_rancq")
+description = "The neighborhood has been getting a little nasty.. we'll make sure you're safe"
+has_subject = true
+initial_cost_resource = SubResource("Resource_aakyt")
+weekly_return_intensity_cost = SubResource("Resource_avass")
+completed_cost_resource = SubResource("Resource_703yy")
+potential_idle_event_intensity = 1
+duration_intensity = 3
+potential_idle_events = Array[ExtResource("3_l84ix")]([SubResource("Resource_wa26r")])
+metadata/_custom_type_script = "uid://dtm2kuspofwj3"

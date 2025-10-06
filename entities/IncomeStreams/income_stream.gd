@@ -19,6 +19,8 @@ class_name IncomeStream
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
 @export var percent_chance_of_event: float = 0.5
 
+@export var subject_name: String
+
 @onready var idle_event_manager: IdleEventManager = $IdleEventManager
 
 func is_idle() -> bool:
@@ -45,7 +47,7 @@ func has_idle_event() -> bool:
 	
 func roll_dice_for_event() -> bool:
 	var roll = randf()
-	return roll < (percent_chance_of_event / duration_in_weeks - 1)
+	return roll < (percent_chance_of_event / duration_in_weeks)
 					
 func create_random_idle_event() -> void:
 	idle_event_manager.create_idle_event_from_potential_idle_events(type.potential_idle_events)
@@ -76,5 +78,7 @@ func get_idle_event() -> IdleEvent:
 func attempt_to_resolve_idle_event() -> void:
 	idle_event_manager.attempt_to_resolve()
 	
+func remove_all_workers() -> void:
+	CapacityManager.remove_capacities_by_income_stream(self)
 	
 	

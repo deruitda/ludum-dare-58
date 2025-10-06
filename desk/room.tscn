@@ -11,9 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://d0asi7pvmfh83" path="res://desk/buttons/binder_button.tscn" id="10_bil3o"]
 [ext_resource type="PackedScene" uid="uid://ba57vblxhkv4w" path="res://desk/NewOffersGridView.tscn" id="11_26u5u"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("offers")]
+[node name="Room" type="Node2D"]
 script = ExtResource("1_bs3hi")
-offers = [null, null, null]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(581, 322)

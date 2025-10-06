@@ -71,5 +71,5 @@ func _on_capacity_row_on_assign_workers_button_pressed() -> void:
 	capacity_button_pressed.emit(income_stream)
 
 func _on_capacity_row_on_unassign_workers_button_pressed() -> void:
-	CapacityManager.remove_capacities_by_income_stream(income_stream)
+	income_stream.remove_all_workers()
 	refresh()

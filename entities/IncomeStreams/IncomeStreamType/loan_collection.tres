@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=12 format=3 uid="uid://bk1q8dt5p8frh"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=13 format=3 uid="uid://bk1q8dt5p8frh"]
 
 [ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_ua45v"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_ptop8"]
@@ -32,7 +32,6 @@ metadata/_custom_type_script = "uid://cllgeulnh2up3"
 script = ExtResource("3_fxhdf")
 idle_event_name = "{subject_name} stopped paying."
 idle_description = "Rought their ass up and let them know you mean business"
-chance_of_failure = 0.3
 attempt_to_resolve_cost = SubResource("Resource_0ixfi")
 abandon_cost = SubResource("Resource_m5ntf")
 attempt_button_label = "Beat them Up"
@@ -41,6 +40,11 @@ attempt_failed_message = "{subject_name} was tougher than they looked.... Still 
 attempt_successful_message = "You kicked {subject_name}'s ass. Loan payments are back on schedule!"
 metadata/_custom_type_script = "uid://cy44ryxdfwf47"
 
+[sub_resource type="Resource" id="Resource_0sb4e"]
+script = ExtResource("3_ptop8")
+cost_intensity = 2
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
 [sub_resource type="Resource" id="Resource_ptop8"]
 script = ExtResource("3_ptop8")
 cost_intensity = 3
@@ -48,13 +52,14 @@ metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
 [resource]
 script = ExtResource("4_m5ntf")
-type = "Loan Collection"
+type = "{subject_name} needs money"
+requirement = SubResource("Resource_0sb4e")
+description = "{subject_name} is down on their luck. Uplift your community at exorbitant interest rates."
 initial_cost_resource = SubResource("Resource_54xmu")
 weekly_return_intensity_cost = SubResource("Resource_ptop8")
 completed_cost_resource = SubResource("Resource_fxhdf")
 potential_idle_event_intensity = 3
 duration_intensity = 2
-description = "Buy some drugs. Have someone sell it on the street for you!"
 accepted_worker_types = Array[ExtResource("1_ua45v")]([ExtResource("2_ptop8")])
 potential_idle_events = Array[ExtResource("3_fxhdf")]([SubResource("Resource_87mv3")])
 metadata/_custom_type_script = "uid://dtm2kuspofwj3"

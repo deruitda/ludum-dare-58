@@ -1,6 +1,7 @@
 extends Node
 
 signal money_changed
+signal respect_changed
 signal week_changed
 
 signal on_week_report_publish(running_report: RunningReport)

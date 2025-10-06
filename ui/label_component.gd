@@ -10,6 +10,6 @@ func get_label_from_int(value: int):
 	if value > 0:
 		return  "+" + prepend_string + str(value)
 	elif value < 0:
-		return prepend_string + str(value)
+		return "(" + prepend_string + str(abs(value)) + ")"
 	
 	return prepend_string + "0"

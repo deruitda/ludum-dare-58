@@ -29,11 +29,14 @@ func has_report() -> bool:
 	return GameState.current_week > 1
 
 func progress_to_next_week():
+	simulate_events()
+	
 	for income_stream in IncomeStreamManager.get_active_income_streams():
 		GameState.collect_cost(income_stream.weekly_return_cost)
 		income_stream.increment_week()
 		if income_stream.is_completed():
 			GameState.collect_cost(income_stream.completed_return_cost)
+			income_stream.remove_all_workers()
 			SignalBus.income_stream_completed.emit(income_stream)
 			pass
 	
@@ -46,7 +49,6 @@ func progress_to_next_week():
 		if new_level > current_level:
 			pass
 	
-	simulate_events()
 	
 	PotentialIncomeStreamManager.remove_all_income_streams()
 	CandidateManager.remove_all_candidates()

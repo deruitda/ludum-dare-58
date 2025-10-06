@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=11 format=3 uid="uid://dq77f2w531w2b"]
+
+[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_event_resource.gd" id="2_4ch2l"]
+[ext_resource type="Script" uid="uid://cllgeulnh2up3" path="res://utilities/cost_resource.gd" id="2_cuy1x"]
+[ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="3_cuy1x"]
+
+[sub_resource type="Resource" id="Resource_cxks5"]
+script = ExtResource("2_cuy1x")
+cost_intensity = 1
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_aakyt"]
+script = ExtResource("2_cuy1x")
+respect_intensity = 1
+negative_respect_intensity = true
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_cuy1x"]
+script = ExtResource("2_cuy1x")
+respect_intensity = 2
+negative_respect_intensity = true
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_e8hiq"]
+script = ExtResource("2_cuy1x")
+cost_intensity = 1
+respect_intensity = 2
+negative_respect_intensity = true
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_3ng1i"]
+script = ExtResource("2_4ch2l")
+idle_event_name = "{subject_name} put up a fight.. "
+idle_description = "but we found out where they live.. pay them a house visit?"
+chance_of_failure = 2
+attempt_to_resolve_cost = SubResource("Resource_e8hiq")
+abandon_cost = SubResource("Resource_cuy1x")
+attempt_button_label = "This is low.. but let's get 'em"
+abandon_button_label = "Not worth it"
+loses_worker_on_abandon = true
+metadata/_custom_type_script = "uid://cy44ryxdfwf47"
+
+[sub_resource type="Resource" id="Resource_4ch2l"]
+script = ExtResource("2_cuy1x")
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_0g0wo"]
+script = ExtResource("2_cuy1x")
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[resource]
+script = ExtResource("3_cuy1x")
+type = "Petty Theft"
+requirement = SubResource("Resource_4ch2l")
+description = "Rob {subject_name} blind!"
+has_subject = true
+initial_cost_resource = SubResource("Resource_aakyt")
+weekly_return_intensity_cost = SubResource("Resource_0g0wo")
+completed_cost_resource = SubResource("Resource_cxks5")
+potential_idle_event_intensity = 1
+accepted_worker_types = Array[Object]([null])
+potential_idle_events = Array[Object]([SubResource("Resource_3ng1i")])
+metadata/_custom_type_script = "uid://dtm2kuspofwj3"

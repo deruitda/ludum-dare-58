@@ -17,23 +17,20 @@ enum IncomeStreamTimeIntensity {
 	RECURRING
 }
 
-func get_cost_from_cost_intensity(intensity: Enums.Intensity) -> int:
-	match intensity:
-		Enums.Intensity.NONE:
-			return 0
-		Enums.Intensity.LOW:
-			return randi_range(1, 9) * 10
-		Enums.Intensity.LOW_MEDIUM:
-			return randi_range(5, 25) * 10
-		Enums.Intensity.MEDIUM:
-			return randi_range(20, 90) * 10
-		Enums.Intensity.MEDIUM_HIGH:
-			return randi_range(100, 900) * 10
-		Enums.Intensity.HIGH:
-			return randi_range(100, 900) * 10
-	return 0
+var base_costs = {
+	Enums.Intensity.NONE: 0,
+	Enums.Intensity.LOW: 200,
+	Enums.Intensity.LOW_MEDIUM: 800,
+	Enums.Intensity.MEDIUM: 2000,
+	Enums.Intensity.MEDIUM_HIGH: 4000,
+	Enums.Intensity.HIGH: 9000
+}
 
-func get_respect_cost_from_cost_intensity(intensity: Enums.Intensity) -> int:
+func get_cost_from_cost_intensity(intensity: Intensity) -> int:
+	var variance = randf_range(0.8, 1.2)
+	return int(base_costs[intensity] * variance)
+
+func get_respect_cost_from_cost_intensity(intensity: Intensity) -> int:
 	match intensity:
 		Enums.Intensity.NONE:
 			return 0
@@ -97,4 +94,22 @@ func get_duration_in_weeks_from_time_intensity(intensity: int) -> int:
 		Enums.IncomeStreamTimeIntensity.LONG:
 			return randi_range(20, 30)
 	return 1
-		
+
+func get_minimum_total_money_by_intensity(intensity: int) -> int:
+	return base_costs[intensity]
+
+func get_minimum_total_respect_by_intensity(intensity: int) -> int:
+	match intensity:
+		Enums.Intensity.NONE:
+			return 0
+		Enums.Intensity.LOW:
+			return 5
+		Enums.Intensity.LOW_MEDIUM:
+			return 10
+		Enums.Intensity.MEDIUM:
+			return 20
+		Enums.Intensity.MEDIUM_HIGH:
+			return 30
+		Enums.Intensity.HIGH:
+			return 50
+	return 0

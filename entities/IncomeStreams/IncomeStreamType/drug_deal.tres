@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=12 format=3 uid="uid://br3k32lsh2lh3"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=13 format=3 uid="uid://br3k32lsh2lh3"]
 
 [ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_qiit0"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_tqgtf"]
@@ -38,6 +38,11 @@ attempt_to_resolve_cost = SubResource("Resource_jakfk")
 abandon_cost = SubResource("Resource_put8y")
 metadata/_custom_type_script = "uid://cy44ryxdfwf47"
 
+[sub_resource type="Resource" id="Resource_d3pga"]
+script = ExtResource("3_qiit0")
+cost_intensity = 2
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
 [sub_resource type="Resource" id="Resource_k58h3"]
 script = ExtResource("3_qiit0")
 cost_intensity = 2
@@ -46,12 +51,13 @@ metadata/_custom_type_script = "uid://cllgeulnh2up3"
 [resource]
 script = ExtResource("4_p08p6")
 type = "Drug Deal"
+requirement = SubResource("Resource_d3pga")
+description = "Buy some drugs. Have someone sell it on the street for you!"
 initial_cost_resource = SubResource("Resource_tqgtf")
 weekly_return_intensity_cost = SubResource("Resource_k58h3")
 completed_cost_resource = SubResource("Resource_qiit0")
 potential_idle_event_intensity = 3
 duration_intensity = 1
-description = "Buy some drugs. Have someone sell it on the street for you!"
 accepted_worker_types = Array[ExtResource("1_qiit0")]([ExtResource("2_tqgtf")])
 potential_idle_events = Array[ExtResource("4_tqgtf")]([SubResource("Resource_87mv3")])
 metadata/_custom_type_script = "uid://dtm2kuspofwj3"
