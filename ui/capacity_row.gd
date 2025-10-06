@@ -3,8 +3,8 @@ class_name CapacityRow
 @onready var unassign_workers_button: Button = $UnassignWorkersButton
 @onready var assign_workers_button: Button = $AssignWorkersButton
 
-@onready var capacity_label: CapacityLabel = $CapacityLabel
 @onready var income_stream: IncomeStream
+@onready var capacity_label: CapacityLabel = $HBoxContainer/CapacityLabel
 
 signal on_unassign_workers_button_pressed
 signal on_assign_workers_button_pressed

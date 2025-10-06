@@ -3,8 +3,8 @@ class_name SummaryIncomeStreamView
 
 @onready var income_stream: IncomeStream
 
+@onready var total_expenses_so_far_label: CostView = $PerWeekControl2/TotalExpensesSoFarLabel
 @onready var total_return_so_far_label: CostView = $PerWeekControl/TotalReturnSoFarLabel
-@onready var total_expenses_so_far_label: CostView = $PerWeekControl/PerWeekControl/TotalExpensesSoFarLabel
 
 func set_income_stream(new_income_stream: IncomeStream):
 	income_stream = new_income_stream

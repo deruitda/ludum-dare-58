@@ -3,13 +3,14 @@ class_name IndividualIncomeStreamPage
 
 @onready var income_stream: IncomeStream
 
-@onready var income_stream_view: IncomeStreamView = $IncomeStreamView
-@onready var summary_income_stream_view: SummaryIncomeStreamView = $SummaryIncomeStreamView
+@export var income_stream_view: IncomeStreamView
+@export var summary_income_stream_view: SummaryIncomeStreamView
 @export var capacity_row: CapacityRow
-@onready var idle_event_view: IdleEventView = $IdleEvents/IdleEventView
+@export var idle_event_view: IdleEventView
 
-@onready var resolution_failed_label: Label = $IdleEvents/ResolutionFailedLabel
-@onready var resolution_successful_label: Label = $IdleEvents/ResolutionSuccessfulLabel
+@export var resolution_failed_label: Label
+@export var resolution_successful_label: Label
+
 
 signal capacity_button_pressed(income_stream: IncomeStream)
 signal back_button_pressed()

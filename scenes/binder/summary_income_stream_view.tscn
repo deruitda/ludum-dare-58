@@ -4,54 +4,36 @@
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_nlc5u"]
 [ext_resource type="PackedScene" uid="uid://c77i2c6uu0f33" path="res://ui/cost_view.tscn" id="3_2rhip"]
 
-[node name="SummaryIncomeStreamView" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="SummaryIncomeStreamView" type="VBoxContainer"]
 scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("1_0ybko")
 
-[node name="PerWeekControl" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 188.00002
-offset_top = -19.000002
-offset_right = 228.00002
-offset_bottom = 20.999998
+[node name="PerWeekControl" type="HBoxContainer" parent="."]
+layout_mode = 2
 
 [node name="PerWeekCostLabel" type="Label" parent="PerWeekControl"]
-layout_mode = 0
-offset_left = -164.79767
-offset_top = 40.515873
-offset_right = -53.79767
-offset_bottom = 63.515873
+layout_mode = 2
 text = "Total Return So Far"
 label_settings = ExtResource("2_nlc5u")
 
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="TotalReturnSoFarLabel" parent="PerWeekControl" instance=ExtResource("3_2rhip")]
-layout_mode = 0
-offset_left = 58.470806
-offset_top = 41.888885
-offset_right = 58.470806
-offset_bottom = 41.888885
+layout_mode = 2
 
-[node name="PerWeekControl" type="Control" parent="PerWeekControl"]
-anchors_preset = 0
-offset_left = -0.99998474
-offset_top = 41.0
-offset_right = 39.000015
-offset_bottom = 81.0
+[node name="PerWeekControl2" type="HBoxContainer" parent="."]
+layout_mode = 2
 
-[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl/PerWeekControl"]
-layout_mode = 0
-offset_left = -166.00003
-offset_top = 42.000008
-offset_right = 0.9999695
-offset_bottom = 65.00001
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl2"]
+layout_mode = 2
 text = "Total Expenses So Far"
 label_settings = ExtResource("2_nlc5u")
 
-[node name="TotalExpensesSoFarLabel" parent="PerWeekControl/PerWeekControl" instance=ExtResource("3_2rhip")]
-layout_mode = 0
-offset_left = 58.470806
-offset_top = 41.888885
-offset_right = 58.470806
-offset_bottom = 41.888885
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TotalExpensesSoFarLabel" parent="PerWeekControl2" instance=ExtResource("3_2rhip")]
+layout_mode = 2
