@@ -1,4 +1,4 @@
-[gd_scene load_steps=230 format=3 uid="uid://cysmy3brcpvbr"]
+[gd_scene load_steps=229 format=3 uid="uid://cysmy3brcpvbr"]
 
 [ext_resource type="Script" uid="uid://7n4qrj3cof3c" path="res://scenes/binder/binder.gd" id="1_pm15x"]
 [ext_resource type="Texture2D" uid="uid://ce4ou8cixavsd" path="res://assets/final/binder-open.png" id="2_10clj"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cwqnmfqiwpgxf" path="res://scenes/binder/workers_page.tscn" id="6_jey3g"]
 [ext_resource type="PackedScene" uid="uid://def27twulj86u" path="res://scenes/binder/individual_worker_page.tscn" id="7_10clj"]
 [ext_resource type="PackedScene" uid="uid://clh5sbrnsfl16" path="res://scenes/x-button.tscn" id="8_licmt"]
-[ext_resource type="Texture2D" uid="uid://fiw6yw6n6b5j" path="res://assets/final/x-hover.png" id="9_bdmok"]
 [ext_resource type="Texture2D" uid="uid://t16adebrr2qk" path="res://assets/final/binder-button.png" id="10_bxq2y"]
 [ext_resource type="Texture2D" uid="uid://dhjtbycxyo2gb" path="res://assets/final/binder-button-selected-export.png" id="11_pc2nc"]
 [ext_resource type="Texture2D" uid="uid://butegaonl7dfb" path="res://assets/final/binder-button-highlighted.png" id="12_6dbm8"]
@@ -1551,7 +1550,6 @@ visible = false
 position = Vector2(0, -2)
 
 [node name="IndividualWorkerPage" parent="." instance=ExtResource("7_10clj")]
-visible = false
 
 [node name="LastWeeksReportPage" parent="." instance=ExtResource("17_3oifq")]
 visible = false
@@ -1563,7 +1561,6 @@ offset_left = -624.0
 offset_top = -19.0
 offset_right = -560.0
 offset_bottom = 45.0
-texture_hover = ExtResource("9_bdmok")
 
 [node name="TableOfContents" type="VBoxContainer" parent="."]
 offset_left = -610.0

@@ -2,11 +2,14 @@ extends Control
 class_name IndividualIncomeStreamPage
 
 @onready var income_stream: IncomeStream
-@export var capacity_row: CapacityRow
 
-@onready var idle_event_view: IdleEventView = $VBoxContainer/IdleEvents/IdleEventView
-@onready var resolution_failed_label: Label = $VBoxContainer/IdleEvents/ResolutionFailedLabel
-@onready var resolution_successful_label: Label = $VBoxContainer/IdleEvents/ResolutionSuccessfulLabel
+@onready var income_stream_view: IncomeStreamView = $IncomeStreamView
+@onready var summary_income_stream_view: SummaryIncomeStreamView = $SummaryIncomeStreamView
+@export var capacity_row: CapacityRow
+@onready var idle_event_view: IdleEventView = $IdleEvents/IdleEventView
+
+@onready var resolution_failed_label: Label = $IdleEvents/ResolutionFailedLabel
+@onready var resolution_successful_label: Label = $IdleEvents/ResolutionSuccessfulLabel
 
 signal capacity_button_pressed(income_stream: IncomeStream)
 signal back_button_pressed()
@@ -29,6 +32,8 @@ func refresh():
 
 	if income_stream == null:
 		return
+	income_stream_view.set_income_stream(income_stream)
+	summary_income_stream_view.set_income_stream(income_stream)
 	capacity_row.set_income_stream(income_stream)
 	if income_stream.has_idle_event():
 		if income_stream.idle_event_manager.has_attempted_success_this_week:

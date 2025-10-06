@@ -10,8 +10,7 @@ class_name PotentialIncomeStreamView
 
 func set_income_stream(new_income_stream: IncomeStream):
 	income_stream = new_income_stream
+	income_stream_view.set_income_stream(income_stream)
 	
 	initial_cost_view.set_cost(new_income_stream.initial_cost)
 	workers_needed_value.text = str(income_stream.capacity)
-	income_stream_view.set_income_stream(income_stream)
-	
