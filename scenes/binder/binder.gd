@@ -30,7 +30,9 @@ func close_book() -> void:
 	workers_page.visible = false
 	individual_worker_page.visible = false
 	table_of_contents.visible = false
-	animated_sprite_2d.play("lower")
+	
+	if animated_sprite_2d.animation == "raise":
+		animated_sprite_2d.play("lower")
 
 func reset_pages() -> void:
 	
