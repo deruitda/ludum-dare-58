@@ -26,7 +26,6 @@ func _ready() -> void:
 	SignalBus.game_over.connect(begin_game_over)
 	SignalBus.week_changed.connect(trigger_week_change)
 	set_week_label()
-	begin_game_over()
 
 func _process(delta: float) -> void:
 	
