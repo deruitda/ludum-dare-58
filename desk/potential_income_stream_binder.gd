@@ -3,7 +3,7 @@ class_name PotentialIncomeStreamBinder
 @export var paginator: Paginator
 @export var no_jobs_available_control: Control
 @export var jobs_available_control: Control
-@export var income_stream_view: IncomeStreamView
+@onready var potential_income_stream_view: PotentialIncomeStreamView = $JobsAvailableControl/PotentialIncomeStreamView
 
 func _ready() -> void:
 	PotentialIncomeStreamManager.income_stream_accepted.connect(_on_income_stream_accepted)
@@ -38,7 +38,7 @@ func set_items() -> void:
 func set_income_stream_view() -> void:
 	var has_items = paginator.has_items()
 	if paginator.has_items():
-		income_stream_view.set_income_stream(paginator.get_current_item() as IncomeStream)
+		potential_income_stream_view.set_income_stream(paginator.get_current_item() as IncomeStream)
 
 func _on_accept_income_stream_button_button_up() -> void:
 	PotentialIncomeStreamManager.accept_income_stream_by_index(paginator.current_index)

@@ -16,7 +16,7 @@ func _on_worker_hired(worker: Worker):
 	refresh()
 
 func refresh():
-	this_weeks_respect_value.text = str(WorkerManager.get_forecasted_respect())
+	this_weeks_respect_value.text = str(WorkerManager.get_forecasted_cost().respect)
 	total_respect_value.text = str(GameState.total_respect)
 	level_value.text = str(GameState.get_level())
 	worker_overview_grid.reset()

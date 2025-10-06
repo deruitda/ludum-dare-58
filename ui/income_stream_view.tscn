@@ -44,29 +44,6 @@ offset_top = 25.0
 offset_right = 21.0
 offset_bottom = 65.0
 
-[node name="InitialCostControl" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = 8.0
-offset_top = 10.0
-offset_right = 48.0
-offset_bottom = 50.0
-
-[node name="IntialCostLabel" type="Label" parent="Control/InitialCostControl"]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 34.0
-offset_right = 126.0
-offset_bottom = 57.0
-text = "Initial Cost"
-label_settings = ExtResource("2_b5ulf")
-
-[node name="InitialCostView" parent="Control/InitialCostControl" instance=ExtResource("3_4jaii")]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 63.0
-offset_right = 47.0
-offset_bottom = 63.0
-
 [node name="PerWeekControl" type="Control" parent="Control"]
 anchors_preset = 0
 offset_left = 212.0
@@ -76,26 +53,26 @@ offset_bottom = 50.0
 
 [node name="PerWeekCostLabel" type="Label" parent="Control/PerWeekControl"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 32.0
-offset_right = 141.0
-offset_bottom = 55.0
-text = "Cost Per Week"
+offset_left = -164.79767
+offset_top = 40.515873
+offset_right = -53.79767
+offset_bottom = 63.515873
+text = "Income Per Week"
 label_settings = ExtResource("2_b5ulf")
 
 [node name="PerWeekCostView" parent="Control/PerWeekControl" instance=ExtResource("3_4jaii")]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 63.0
-offset_right = 47.0
-offset_bottom = 63.0
+offset_left = 58.470806
+offset_top = 41.888885
+offset_right = 58.470806
+offset_bottom = 41.888885
 
 [node name="CompletionRewardControl" type="Control" parent="Control"]
 anchors_preset = 0
-offset_left = 439.0
-offset_top = 14.0
-offset_right = 479.0
-offset_bottom = 54.0
+offset_left = 11.949417
+offset_top = 57.380955
+offset_right = 51.949417
+offset_bottom = 97.38095
 
 [node name="CompletionRewardControlLabel" type="Label" parent="Control/CompletionRewardControl"]
 layout_mode = 0
@@ -103,64 +80,46 @@ offset_left = 32.0
 offset_top = 33.0
 offset_right = 143.0
 offset_bottom = 56.0
-text = "Completion Reward"
+text = "Reward when Completed"
 label_settings = ExtResource("2_b5ulf")
 
 [node name="CompletionRewardControlView" parent="Control/CompletionRewardControl" instance=ExtResource("3_4jaii")]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 63.0
-offset_right = 47.0
-offset_bottom = 63.0
+offset_left = 256.1712
+offset_top = 35.698414
+offset_right = 256.1712
+offset_bottom = 35.698414
 
 [node name="WeeksLeftLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 121.0
-offset_top = 126.0
-offset_right = 305.0
-offset_bottom = 149.0
+offset_left = 49.552536
+offset_top = 127.40477
+offset_right = 233.55254
+offset_bottom = 150.40477
 text = "Weeks until Completion"
 label_settings = ExtResource("2_b5ulf")
 
 [node name="WeeksLeftValue" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 182.0
-offset_top = 164.0
-offset_right = 290.0
-offset_bottom = 187.0
+offset_left = 310.4241
+offset_top = 128.77779
+offset_right = 418.4241
+offset_bottom = 151.77779
 text = "10"
-label_settings = ExtResource("2_b5ulf")
-
-[node name="WorkersNeededLabel" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 244.61868
-offset_top = 208.4127
-offset_right = 428.61868
-offset_bottom = 231.4127
-text = "Workers Needed on Job"
-label_settings = ExtResource("2_b5ulf")
-
-[node name="WorkersNeededValue" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 315.1245
-offset_top = 241.36508
-offset_right = 423.1245
-offset_bottom = 264.3651
-text = "1"
 label_settings = ExtResource("2_b5ulf")
 
 [node name="LabelForPercentage" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 387.0
-offset_top = 125.0
-offset_right = 571.0
-offset_bottom = 148.0
+offset_left = 51.90274
+offset_top = 160.35715
+offset_right = 239.90274
+offset_bottom = 183.35715
 text = "Percent Chance of Event"
 label_settings = ExtResource("2_b5ulf")
 
 [node name="PercentageLabel" parent="Control" instance=ExtResource("5_v03va")]
 layout_mode = 0
-offset_left = 460.0
-offset_top = 173.0
-offset_right = 500.0
-offset_bottom = 196.0
+offset_left = 298.67316
+offset_top = 161.73015
+offset_right = 338.67316
+offset_bottom = 184.73015

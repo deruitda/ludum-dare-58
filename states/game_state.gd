@@ -22,19 +22,15 @@ func get_level() -> int:
 
 func gain_respect(amount: int) -> void:
 	total_respect = total_respect + amount
-	
-func lose_respect(amount: int) -> void:
-	total_respect = total_respect - amount
+	SignalBus.respect_changed.emit()
 
 func collect_cost(cost: Cost) -> void:
-	total_money = total_money + cost.cost
-	total_respect = total_respect + cost.respect
+	collect_money(cost.cost)
+	gain_respect(cost.respect)
 
 func increment_week() -> void:
 	current_week = current_week + 1
 #
-func get_forecasted_expenses() -> int:
-	return WorkerManager.get_forecasted_expenses()
 	
-func get_forecasted_income() -> int:
-	return IncomeStreamManager.get_forecasted_income()
+	
+	

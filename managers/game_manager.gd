@@ -29,11 +29,14 @@ func has_report() -> bool:
 	return GameState.current_week > 1
 
 func progress_to_next_week():
+	simulate_events()
+	
 	for income_stream in IncomeStreamManager.get_active_income_streams():
 		GameState.collect_cost(income_stream.weekly_return_cost)
 		income_stream.increment_week()
 		if income_stream.is_completed():
 			GameState.collect_cost(income_stream.completed_return_cost)
+			income_stream.remove_all_workers()
 			SignalBus.income_stream_completed.emit(income_stream)
 			pass
 	
@@ -46,7 +49,6 @@ func progress_to_next_week():
 		if new_level > current_level:
 			pass
 	
-	simulate_events()
 	
 	PotentialIncomeStreamManager.remove_all_income_streams()
 	CandidateManager.remove_all_candidates()
@@ -61,3 +63,24 @@ func progress_to_next_week():
 	SignalBus.week_changed.emit()
 	SignalBus.on_week_report_publish.emit(running_report)
 	running_report.refresh()
+	
+
+func get_forecasted_cost() -> Cost:
+	var return_cost = Cost.new()
+	return_cost.add_to_cost(WorkerManager.get_forecasted_cost())
+	return_cost.add_to_cost(IncomeStreamManager.get_forecasted_cost())
+	return return_cost
+
+func get_forecasted_expenses() -> Cost:
+	var return_cost = Cost.new()
+	return_cost.add_to_cost(WorkerManager.get_forecasted_expenses())
+	return_cost.add_to_cost(IncomeStreamManager.get_forecasted_expense())
+	
+	return return_cost
+	
+func get_forecasted_income() -> Cost:
+	var return_cost = Cost.new()
+	return_cost.add_to_cost(WorkerManager.get_forecasted_income())
+	return_cost.add_to_cost(IncomeStreamManager.get_forecasted_income())
+	
+	return return_cost

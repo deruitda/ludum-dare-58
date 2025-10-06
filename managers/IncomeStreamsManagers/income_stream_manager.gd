@@ -36,11 +36,23 @@ func get_active_income_streams() -> Array[IncomeStream]:
 				return_array.append(child)
 	return return_array
 
-func get_forecasted_income() -> int:
-	var forecasted_income: int = 0
-	for income_stream in  get_active_income_streams():
-		forecasted_income = forecasted_income + income_stream.weekly_return_cost.cost
-	return forecasted_income
+func get_forecasted_cost() -> Cost:
+	var return_cost = Cost.new()
+	for income_stream in get_current_income_streams():
+		return_cost.add_to_cost(income_stream.get_forecasted_cost())
+	return return_cost
+
+func get_forecasted_income() -> Cost:
+	var return_cost = Cost.new()
+	for income_stream in get_current_income_streams():
+		return_cost.add_to_cost(income_stream.get_forecasted_income_cost())
+	return return_cost
+
+func get_forecasted_expense() -> Cost:
+	var return_cost = Cost.new()
+	for income_stream in get_current_income_streams():
+		return_cost.add_to_cost(income_stream.get_forecasted_expense_cost())
+	return return_cost
 
 func abandon_income_stream(income_stream) -> void:
 	CapacityManager.remove_capacities_by_income_stream(income_stream)

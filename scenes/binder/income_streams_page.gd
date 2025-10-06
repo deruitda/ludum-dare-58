@@ -5,9 +5,9 @@ signal on_detail_button_press(income_stream: IncomeStream)
 signal on_workers_button_press()
 
 @export var income_overview_grid: IncomeOverviewGrid
-@onready var total_amount: Label = $Control/TotalAmount
-@onready var forecasted_income_amount: Label = $"Control/Forecasted Income Amount"
-@onready var forecasted_expenses_amount: Label = $"Control/Forecasted Expenses Amount"
+@onready var total_money_label: StatLabel = $Control/TotalMoneyLabel
+@onready var forcasted_income_amount_label: StatLabel = $Control/ForcastedIncomeAmountLabel
+@onready var forcasted_expenses_amount_label: StatLabel = $Control/ForcastedExpensesAmountLabel
 
 func _ready() -> void:
 	IncomeStreamManager.income_stream_added.connect(_on_income_stream_added)
@@ -23,10 +23,9 @@ func _on_worker_hired(worker: Worker):
 	refresh()
 
 func set_labels() -> void:
-	total_amount.text = "$" + str(GameState.total_money)
-	forecasted_income_amount.text = "$" + str(GameState.get_forecasted_income())
-	forecasted_expenses_amount.text = "$" + str(GameState.get_forecasted_expenses())
-
+	total_money_label.set_value(GameState.total_money)
+	forcasted_income_amount_label.set_value(GameManager.get_forecasted_income().cost)
+	forcasted_expenses_amount_label.set_value(GameManager.get_forecasted_expenses().cost)
 func set_income_streams(income_streams: Array[IncomeStream]) -> void:
 	refresh()
 	for income_stream in income_streams:

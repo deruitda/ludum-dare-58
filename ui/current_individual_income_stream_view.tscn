@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://36t6gqwmuk66"]
+
+[ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="1_t25uk"]
+
+[node name="CurrentIndividualIncomeStreamView" type="Node2D"]
+
+[node name="IncomeStreamView" parent="." instance=ExtResource("1_t25uk")]
+position = Vector2(13, 3)

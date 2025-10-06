@@ -13,5 +13,5 @@ class_name PotentialIdleEventsResource
 
 @export var loses_worker_on_abandon: bool = false
 
-@export var attempt_failed_message: String
-@export var attempt_successful_message: String
+@export var attempt_failed_message: String = "Resolution Failed. Try again next week"
+@export var attempt_successful_message: String = "This has been resolved!"

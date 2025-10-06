@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=12 format=3 uid="uid://boho71235pqn8"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=13 format=3 uid="uid://boho71235pqn8"]
 
 [ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_06xff"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_2oqkb"]
@@ -8,12 +8,15 @@
 
 [sub_resource type="Resource" id="Resource_n1y87"]
 script = ExtResource("3_06xff")
-cost_intensity = 3
+cost_intensity = 2
 respect_intensity = 3
+negative_respect_intensity = true
 metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
 [sub_resource type="Resource" id="Resource_64npk"]
 script = ExtResource("3_06xff")
+cost_intensity = 1
+negative_cost = true
 respect_intensity = 1
 negative_respect_intensity = true
 metadata/_custom_type_script = "uid://cllgeulnh2up3"
@@ -41,6 +44,12 @@ attempt_to_resolve_cost = SubResource("Resource_ey3gu")
 abandon_cost = SubResource("Resource_coe0b")
 metadata/_custom_type_script = "uid://cy44ryxdfwf47"
 
+[sub_resource type="Resource" id="Resource_22esu"]
+script = ExtResource("3_06xff")
+cost_intensity = 2
+respect_intensity = 1
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
 [sub_resource type="Resource" id="Resource_06xff"]
 script = ExtResource("3_06xff")
 metadata/_custom_type_script = "uid://cllgeulnh2up3"
@@ -48,12 +57,13 @@ metadata/_custom_type_script = "uid://cllgeulnh2up3"
 [resource]
 script = ExtResource("4_06xff")
 type = "Rob a bank"
+requirement = SubResource("Resource_22esu")
+description = "Go in with weapon of choice. Come out with money. What could go wrong?"
 initial_cost_resource = SubResource("Resource_64npk")
 weekly_return_intensity_cost = SubResource("Resource_06xff")
 completed_cost_resource = SubResource("Resource_n1y87")
 potential_idle_event_intensity = 5
 duration_intensity = 1
-description = "Go in with weapon of choice. Come out with money. What could go wrong?"
 accepted_worker_types = Array[ExtResource("1_06xff")]([ExtResource("2_2oqkb")])
 potential_idle_events = Array[ExtResource("3_je7f4")]([SubResource("Resource_2oqkb")])
 metadata/_custom_type_script = "uid://dtm2kuspofwj3"
