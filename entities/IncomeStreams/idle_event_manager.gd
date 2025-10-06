@@ -4,6 +4,7 @@ class_name IdleEventManager
 
 @export var current_idle_event: IdleEvent
 @onready var has_attempted_success_this_week = false
+@onready var attempt_successful_message: String
 
 
 func _ready() -> void:
@@ -21,10 +22,18 @@ func create_idle_event_from_potential_idle_events(potential_idle_events: Array[P
 	add_child(current_idle_event)
 	
 	current_idle_event.idle_event_name = potential_idle_event.idle_event_name
-	current_idle_event.chance_of_failure = potential_idle_event.chance_of_failure
+	current_idle_event.chance_of_failure = Enums.get_percentage_rate_from_intensity(potential_idle_event.chance_of_failure)
 	current_idle_event.idle_description = potential_idle_event.idle_description
-	current_idle_event.cost_to_attempt_to_resolve = potential_idle_event.cost_to_attempt_to_resolve
-
+	
+	current_idle_event.set_attempt_to_resolve_cost(potential_idle_event.attempt_to_resolve_cost.calculate_cost())
+	current_idle_event.set_succeed_cost(potential_idle_event.succeed_cost.calculate_cost())
+	current_idle_event.set_abandon_cost(potential_idle_event.abandon_cost.calculate_cost())
+	
+	current_idle_event.abandon_button_label = potential_idle_event.abandon_button_label
+	current_idle_event.attempt_button_label = potential_idle_event.attempt_button_label
+	
+	attempt_successful_message = potential_idle_event.attempt_successful_message
+	
 func attempt_to_resolve():
 	if roll_dice_for_resolve():
 		remove_idle_event()

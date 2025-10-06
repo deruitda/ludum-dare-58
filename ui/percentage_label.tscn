@@ -8,3 +8,4 @@ offset_right = 40.0
 offset_bottom = 22.0
 text = "%20"
 script = ExtResource("1_bvfle")
+high_is_bad = true

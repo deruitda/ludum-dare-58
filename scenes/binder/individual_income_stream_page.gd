@@ -38,6 +38,7 @@ func refresh():
 			idle_event_view.visible = true
 	elif income_stream.has_idle_event() == false and income_stream.idle_event_manager.has_attempted_success_this_week:
 		resolution_successful_label.visible = true
+		resolution_successful_label.text = income_stream.idle_event_manager.attempt_successful_message
 	else:
 		idle_event_view.visible = false
 	
@@ -49,11 +50,16 @@ func _on_back_button_button_up() -> void:
 	back_button_pressed.emit()
 
 func _on_idle_event_view_on_abandon_button_pressed() -> void:
+	GameState.spend_cost(income_stream.get_idle_event().abandon_cost)
 	IncomeStreamManager.abandon_income_stream(income_stream)
 	back_button_pressed.emit()
 
 func _on_idle_event_view_on_attempt_to_resolve_button_pressed() -> void:
-	GameState.spend_money(income_stream.get_idle_event().cost_to_attempt_to_resolve)
+	var idle_event = income_stream.get_idle_event()
+	resolution_failed_label.text = idle_event.attempt_failed_message
+	resolution_successful_label.text = idle_event.attempt_successful_message
+	
+	GameState.spend_cost(income_stream.get_idle_event().attempt_to_resolve_cost)
 	income_stream.attempt_to_resolve_idle_event()
 	idle_event_view.visible = false
 	if income_stream.has_idle_event():

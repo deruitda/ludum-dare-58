@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwey7fsjlbv0i"]
+[gd_scene load_steps=6 format=3 uid="uid://bwey7fsjlbv0i"]
 
 [ext_resource type="Script" uid="uid://bo717ldyv82qy" path="res://scenes/binder/idle_event_view.gd" id="1_vt80s"]
 [ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="2_cen5y"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_nyro6"]
+[ext_resource type="PackedScene" uid="uid://b52bu006uvuoy" path="res://ui/percentage_label.tscn" id="4_bn6fv"]
+[ext_resource type="PackedScene" uid="uid://c77i2c6uu0f33" path="res://ui/cost_view.tscn" id="5_l2qu1"]
 
 [node name="IdleEventView" type="Control"]
 layout_mode = 3
@@ -36,24 +38,6 @@ offset_bottom = 14.332687
 text = "Name"
 label_settings = ExtResource("2_nyro6")
 
-[node name="DescriptionLabel" type="Label" parent="Idle"]
-layout_mode = 0
-offset_left = 399.93466
-offset_top = -10.667309
-offset_right = 488.9347
-offset_bottom = 12.332687
-text = "%15"
-label_settings = ExtResource("2_nyro6")
-
-[node name="CostToAttemptToResolve" type="Label" parent="Idle"]
-layout_mode = 0
-offset_left = 309.93466
-offset_top = -9.667309
-offset_right = 358.93466
-offset_bottom = 13.332691
-text = "$15"
-label_settings = ExtResource("2_nyro6")
-
 [node name="ChanceOfFailure" type="Label" parent="Idle"]
 layout_mode = 0
 offset_left = 27.934656
@@ -65,20 +49,41 @@ label_settings = ExtResource("2_nyro6")
 
 [node name="AttemptToResolveButton" type="Button" parent="Idle"]
 layout_mode = 0
-offset_left = 39.934654
-offset_top = 77.33269
-offset_right = 195.93466
-offset_bottom = 116.665375
+offset_left = 30.934656
+offset_top = 174.33269
+offset_right = 186.93466
+offset_bottom = 213.66537
 text = "Attempt to Resolve
 "
 
 [node name="AbandonButton" type="Button" parent="Idle"]
 layout_mode = 0
-offset_left = 289.93466
-offset_top = 77.33269
-offset_right = 445.93466
-offset_bottom = 116.665375
+offset_left = 327.93466
+offset_top = 176.33269
+offset_right = 483.93466
+offset_bottom = 215.66537
 text = "Abandon Job"
+
+[node name="PercentageLabel" parent="Idle" instance=ExtResource("4_bn6fv")]
+layout_mode = 0
+offset_left = 399.93466
+offset_top = -5.667309
+offset_right = 439.93466
+offset_bottom = 17.332691
+
+[node name="AttemptToResolveCostView" parent="." instance=ExtResource("5_l2qu1")]
+layout_mode = 0
+offset_left = 65.934654
+offset_top = 136.33269
+offset_right = 65.934654
+offset_bottom = 136.33269
+
+[node name="AbandonCostView" parent="." instance=ExtResource("5_l2qu1")]
+layout_mode = 0
+offset_left = 369.93466
+offset_top = 129.33269
+offset_right = 369.93466
+offset_bottom = 129.33269
 
 [connection signal="button_up" from="Idle/AttemptToResolveButton" to="." method="_on_attempt_to_resolve_button_button_up"]
 [connection signal="button_up" from="Idle/AbandonButton" to="." method="_on_abandon_button_button_up"]
