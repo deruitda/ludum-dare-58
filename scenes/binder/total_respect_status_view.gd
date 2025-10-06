@@ -6,6 +6,8 @@ class_name TotalRespectStatusView
 @export var current_month_value: StatLabel
 @export var current_respect_value: StatLabel
 @export var needed_respect_next_month: StatLabel
+@export var weeks_left_in_round: StatLabel
+@export var money_label: StatLabel
 
 @onready var current_respect_label_component: LabelComponent = $PerWeekControl/CurrentRespectValue/CurrentRespectLabelComponent
 
@@ -13,6 +15,7 @@ func _ready() -> void:
 	refresh()
 	SignalBus.week_changed.connect(refresh)
 	SignalBus.respect_changed.connect(refresh)
+	SignalBus.money_changed.connect(refresh)
 	
 func refresh():
 	var month = GameManager.get_current_month()
@@ -25,4 +28,7 @@ func refresh():
 	current_respect_value.set_value(GameState.total_respect)
 	
 	needed_respect_next_month.set_value(respect_threshold)
+	
+	weeks_left_in_round.set_value(GameManager.get_weeks_left_in_period())
+	money_label.set_value(GameState.total_money)
 	
