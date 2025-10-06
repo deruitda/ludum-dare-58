@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bciytemjeuvtp"]
+
+[ext_resource type="Script" uid="uid://dk7fyty7e6qd2" path="res://scenes/binder/this_months_report_page.gd" id="1_cby6a"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_cby6a"]
+
+[node name="ThisMonthsReportPage" type="Node2D"]
+script = ExtResource("1_cby6a")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 161.0
+offset_top = 17.0
+offset_right = 305.0
+offset_bottom = 56.0
+text = "This Month's Stats"
+label_settings = ExtResource("2_cby6a")
+
+[node name="CurrentRespect" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

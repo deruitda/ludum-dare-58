@@ -2,7 +2,6 @@ extends Node
 
 @onready var total_money: int = 500
 @onready var total_respect: int = 0
-@onready var current_week: int = 1
 
 func spend_money(amount: int) -> void:
 	total_money = total_money - amount
@@ -28,8 +27,6 @@ func collect_cost(cost: Cost) -> void:
 	collect_money(cost.cost)
 	gain_respect(cost.respect)
 
-func increment_week() -> void:
-	current_week = current_week + 1
 #
 	
 	

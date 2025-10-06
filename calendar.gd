@@ -6,7 +6,7 @@ var is_playing: bool = false
 @onready var label: Label = $Label
 
 func _process(delta: float) -> void:
-	var week = GameState.current_week
+	var week = GameManager.get_current_week()
 	label.text = "Week " + str(week)
 
 func _on_area_2d_mouse_entered() -> void:

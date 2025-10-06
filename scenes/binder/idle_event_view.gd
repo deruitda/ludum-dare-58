@@ -1,17 +1,17 @@
 extends Control
 class_name IdleEventView
-@onready var name_label: Label = $Idle/NameLabel
-@onready var cost_to_attempt_to_resolve: Label = $Idle/CostToAttemptToResolve
-@onready var percentage_label: PercentageLabel = $Idle/PercentageLabel
-@onready var description_label: Label = $Idle/DescriptionLabel
+@onready var name_label: Label = $NameLabel
+@onready var cost_to_attempt_to_resolve: Label = $CostToAttemptToResolve
+@onready var percentage_label: PercentageLabel = $HBoxContainer3/PercentageLabel
+@onready var description_label: Label = $DescriptionLabel
 
 @onready var idle_event: IdleEvent
+@onready var attempt_to_resolve_button: Button = $HBoxContainer/AttemptToResolveButton
+@onready var attempt_to_resolve_cost_view: CostView = $HBoxContainer/AttemptToResolveCostView
+@onready var abandon_button: Button = $HBoxContainer2/AbandonButton
+@onready var abandon_cost_view: CostView = $HBoxContainer2/AbandonCostView
 
-@onready var attempt_to_resolve_button: Button = $Idle/AttemptToResolveButton
-@onready var abandon_button: Button = $Idle/AbandonButton
 
-@onready var attempt_to_resolve_cost_view: CostView = $AttemptToResolveCostView
-@onready var abandon_cost_view: CostView = $AbandonCostView
 
 signal on_attempt_to_resolve_button_pressed
 signal on_abandon_button_pressed

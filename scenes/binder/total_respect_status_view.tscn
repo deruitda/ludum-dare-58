@@ -1,0 +1,157 @@
+[gd_scene load_steps=8 format=3 uid="uid://byiyhgqhblgmf"]
+
+[ext_resource type="Script" uid="uid://qcwowij7w0l5" path="res://scenes/binder/total_respect_status_view.gd" id="1_335ej"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_02jfr"]
+[ext_resource type="PackedScene" uid="uid://de7xv2m41lp1m" path="res://ui/stat_label.tscn" id="3_k6086"]
+[ext_resource type="Script" uid="uid://dy5gevfywaxuc" path="res://ui/label_component.gd" id="4_prucg"]
+[ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="5_jxyks"]
+[ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="5_k6086"]
+[ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="6_prucg"]
+
+[node name="TotalRespectStatus" type="VBoxContainer" node_paths=PackedStringArray("current_month_value", "current_respect_value", "needed_respect_next_month", "weeks_left_in_round", "money_label")]
+offset_left = 81.0
+offset_top = 143.0
+offset_right = 187.0
+offset_bottom = 183.0
+script = ExtResource("1_335ej")
+current_month_value = NodePath("PerWeekControl3/CurrentMonthValue")
+current_respect_value = NodePath("PerWeekControl/CurrentRespectValue")
+needed_respect_next_month = NodePath("PerWeekControl2/NeededRespectValue")
+weeks_left_in_round = NodePath("PerWeekControl5/WeeksLeftInRound")
+money_label = NodePath("PerWeekControl4/MoneyLabel")
+
+[node name="PerWeekControl3" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl3"]
+layout_mode = 2
+text = "Current Round"
+label_settings = ExtResource("2_02jfr")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentMonthValue" parent="PerWeekControl3" node_paths=PackedStringArray("label_component") instance=ExtResource("3_k6086")]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("2_02jfr")
+label_component = NodePath("LabelComponent2")
+
+[node name="LabelComponent2" type="Node" parent="PerWeekControl3/CurrentMonthValue"]
+script = ExtResource("4_prucg")
+prepend_string = ""
+positive_label_settings = ExtResource("2_02jfr")
+use_plus_sign_in_label = false
+use_paranthesis = false
+metadata/_custom_type_script = "uid://dy5gevfywaxuc"
+
+[node name="PerWeekControl5" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl5"]
+layout_mode = 2
+text = "Weeks Left in Round"
+label_settings = ExtResource("2_02jfr")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WeeksLeftInRound" parent="PerWeekControl5" node_paths=PackedStringArray("label_component") instance=ExtResource("3_k6086")]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("2_02jfr")
+label_component = NodePath("LabelComponent2")
+
+[node name="LabelComponent2" type="Node" parent="PerWeekControl5/WeeksLeftInRound"]
+script = ExtResource("4_prucg")
+prepend_string = ""
+positive_label_settings = ExtResource("2_02jfr")
+use_plus_sign_in_label = false
+use_paranthesis = false
+metadata/_custom_type_script = "uid://dy5gevfywaxuc"
+
+[node name="PerWeekControl4" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl4"]
+layout_mode = 2
+text = "Current Bank"
+label_settings = ExtResource("2_02jfr")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoneyLabel" parent="PerWeekControl4" node_paths=PackedStringArray("label_component") instance=ExtResource("3_k6086")]
+layout_mode = 2
+tooltip_text = "Money"
+mouse_filter = 0
+text = "$+10"
+label_settings = ExtResource("5_k6086")
+label_component = NodePath("MoneyLabelComponent")
+use_tooltip = true
+tooltip_suffix = "Dollars"
+
+[node name="MoneyLabelComponent" parent="PerWeekControl4/MoneyLabel" instance=ExtResource("6_prucg")]
+positive_label_settings = ExtResource("5_k6086")
+
+[node name="PerWeekControl" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl"]
+layout_mode = 2
+text = "Current Respect"
+label_settings = ExtResource("2_02jfr")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentRespectValue" parent="PerWeekControl" node_paths=PackedStringArray("label_component") instance=ExtResource("3_k6086")]
+layout_mode = 2
+text = "4"
+label_settings = ExtResource("2_02jfr")
+label_component = NodePath("CurrentRespectLabelComponent")
+use_tooltip = true
+tooltip_suffix = " Respect"
+
+[node name="CurrentRespectLabelComponent" type="Node" parent="PerWeekControl/CurrentRespectValue"]
+script = ExtResource("4_prucg")
+prepend_string = ""
+positive_label_settings = ExtResource("5_jxyks")
+use_plus_sign_in_label = false
+use_paranthesis = false
+metadata/_custom_type_script = "uid://dy5gevfywaxuc"
+
+[node name="PerWeekControl2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl2"]
+layout_mode = 2
+text = "Needed by Next Month"
+label_settings = ExtResource("2_02jfr")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NeededRespectValue" parent="PerWeekControl2" node_paths=PackedStringArray("label_component") instance=ExtResource("3_k6086")]
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("5_jxyks")
+label_component = NodePath("LabelComponent4")
+
+[node name="LabelComponent4" type="Node" parent="PerWeekControl2/NeededRespectValue"]
+script = ExtResource("4_prucg")
+prepend_string = ""
+positive_label_settings = ExtResource("5_jxyks")
+use_plus_sign_in_label = false
+use_paranthesis = false
+metadata/_custom_type_script = "uid://dy5gevfywaxuc"

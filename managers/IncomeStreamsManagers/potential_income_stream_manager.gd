@@ -45,7 +45,7 @@ func get_available_income_stream_types() -> Array:
 	var available_types = []
 	for income_type in income_stream_types:
 		if can_show_income_stream_type(income_type):
-			available_types.append(income_type)
+			available_types.push_back(income_type)
 	return available_types
 	
 func remove_all_income_streams() -> void:
