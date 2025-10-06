@@ -12,10 +12,15 @@ class_name Binder
 @onready var workers_button: TextureButton = $TableOfContents/Workers/WorkersButton
 @onready var income_streams_button: TextureButton = $TableOfContents/IncomeStreams/IncomeStreamsButton
 
+@onready var last_weeks_report_page: RunningReportPage = $LastWeeksReportPage
+@onready var last_weeks_report_button: TextureButton = $TableOfContents/LastWeeksReportRow/LastWeeksReportButton
+@onready var last_weeks_report_row: Panel = $TableOfContents/LastWeeksReportRow
+
 var active_view: Node
 
 func _ready() -> void:
 	SignalBus.week_changed.connect(close_book)
+	SignalBus.on_week_report_publish.connect(_on_week_report_publish)
 
 func close_book() -> void:
 	x_button.visible = false
@@ -112,11 +117,15 @@ func _on_x_button_pressed() -> void:
 	close_book()
 
 
+func reset_table_of_contents() -> void:
+	income_streams_button.disabled = false
+	workers_button.disabled = false
+	last_weeks_report_button.disabled = false
+
 func _on_workers_button_pressed() -> void:
 	if active_view == workers_page:
 		return
-	
-	income_streams_button.disabled = false
+	reset_table_of_contents()
 	workers_button.disabled = true
 	
 	reset_pages()
@@ -128,9 +137,24 @@ func _on_income_streams_button_pressed() -> void:
 	if active_view == income_streams_page:
 		return
 	
+	reset_table_of_contents()
 	income_streams_button.disabled = true
-	workers_button.disabled = false
 	
 	reset_pages()
 	income_streams_page.refresh()
 	change_page(income_streams_page)
+
+
+func _on_report_page_button_pressed() -> void:
+	if active_view == last_weeks_report_page:
+		return
+	
+	reset_table_of_contents()
+	last_weeks_report_button.disabled = true
+	
+	reset_pages()
+	change_page(last_weeks_report_page)
+
+func _on_week_report_publish(running_report: RunningReport):
+	last_weeks_report_page.set_running_report(running_report)
+	last_weeks_report_row.visible = true

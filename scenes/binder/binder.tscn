@@ -1,4 +1,4 @@
-[gd_scene load_steps=229 format=3 uid="uid://cysmy3brcpvbr"]
+[gd_scene load_steps=230 format=3 uid="uid://cysmy3brcpvbr"]
 
 [ext_resource type="Script" uid="uid://7n4qrj3cof3c" path="res://scenes/binder/binder.gd" id="1_pm15x"]
 [ext_resource type="Texture2D" uid="uid://ce4ou8cixavsd" path="res://assets/final/binder-open.png" id="2_10clj"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://t16adebrr2qk" path="res://assets/final/binder-button.png" id="10_bxq2y"]
 [ext_resource type="Texture2D" uid="uid://dhjtbycxyo2gb" path="res://assets/final/binder-button-selected-export.png" id="11_pc2nc"]
 [ext_resource type="Texture2D" uid="uid://butegaonl7dfb" path="res://assets/final/binder-button-highlighted.png" id="12_6dbm8"]
+[ext_resource type="PackedScene" uid="uid://8ho5lvoidmio" path="res://scenes/binder/running_report_page.tscn" id="17_3oifq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nq5rw"]
 atlas = ExtResource("2_10clj")
@@ -1552,6 +1553,10 @@ position = Vector2(0, -2)
 [node name="IndividualWorkerPage" parent="." instance=ExtResource("7_10clj")]
 visible = false
 
+[node name="LastWeeksReportPage" parent="." instance=ExtResource("17_3oifq")]
+visible = false
+position = Vector2(12, 24)
+
 [node name="X-Button" parent="." instance=ExtResource("8_licmt")]
 visible = false
 offset_left = -624.0
@@ -1561,7 +1566,6 @@ offset_bottom = 45.0
 texture_hover = ExtResource("9_bdmok")
 
 [node name="TableOfContents" type="VBoxContainer" parent="."]
-visible = false
 offset_left = -610.0
 offset_top = 156.0
 offset_right = -85.0
@@ -1630,6 +1634,40 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Manage Income Streams"
 
+[node name="MarginContainer2" type="MarginContainer" parent="TableOfContents"]
+layout_mode = 2
+
+[node name="LastWeeksReportRow" type="Panel" parent="TableOfContents"]
+visible = false
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="LastWeeksReportButton" type="TextureButton" parent="TableOfContents/LastWeeksReportRow"]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 68.0
+texture_normal = ExtResource("10_bxq2y")
+texture_pressed = ExtResource("11_pc2nc")
+texture_hover = ExtResource("12_6dbm8")
+texture_disabled = ExtResource("11_pc2nc")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TableOfContents/LastWeeksReportRow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Last Week's Report"
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="on_detail_button_press" from="IncomeStreamsPage" to="." method="_on_income_streams_page_on_detail_button_press"]
 [connection signal="on_workers_button_press" from="IncomeStreamsPage" to="." method="_on_income_streams_page_on_workers_button_press"]
@@ -1642,3 +1680,4 @@ text = "Manage Income Streams"
 [connection signal="pressed" from="X-Button" to="." method="_on_x_button_pressed"]
 [connection signal="pressed" from="TableOfContents/Workers/WorkersButton" to="." method="_on_workers_button_pressed"]
 [connection signal="pressed" from="TableOfContents/IncomeStreams/IncomeStreamsButton" to="." method="_on_income_streams_button_pressed"]
+[connection signal="pressed" from="TableOfContents/LastWeeksReportRow/LastWeeksReportButton" to="." method="_on_report_page_button_pressed"]

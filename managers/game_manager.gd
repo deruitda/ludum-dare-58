@@ -24,6 +24,9 @@ func simulate_events():
 	for stream in streams:
 		if stream.roll_dice_for_event():
 			stream.create_random_idle_event()
+			
+func has_report() -> bool:
+	return GameState.current_week > 1
 
 func progress_to_next_week():
 	for income_stream in IncomeStreamManager.get_active_income_streams():
