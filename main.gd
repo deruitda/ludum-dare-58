@@ -10,11 +10,10 @@ func _ready() -> void:
 	PotentialIncomeStreamManager.income_stream_accepted.connect(_on_potential_income_stream_manager_income_stream_accepted)
 	CandidateManager.generate_worker()
 	CandidateManager.generate_worker()
-	CandidateManager.generate_worker()
 	
 	PotentialIncomeStreamManager.generate_income_stream()
 	PotentialIncomeStreamManager.generate_income_stream()
-	PotentialIncomeStreamManager.generate_income_stream()
+
 func _on_button_button_up() -> void:
 	pass # Replace with function body.
 

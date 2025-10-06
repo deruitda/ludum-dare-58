@@ -9,6 +9,10 @@ var worker_data: Worker
 var isWorker : bool = false
 var isAccepted: bool = false
 
+func _ready() -> void:
+	SignalBus.offers_closed.connect(hide_offer)
+	SignalBus.week_changed.connect(reset_state)
+
 func show_worker_offer(worker: Worker) -> void:
 	isWorker = true
 	worker_data = worker
@@ -40,7 +44,13 @@ func show_offer() -> void:
 	visible = true
 	
 	
-	
+func reset_state() -> void:
+	isAccepted = false
+	visible = false
+	income_stream_view.visible = false
+	worker_view.visible = false
+	accept_income_stream_button.visible = false
+	hire_worker_button.visible = false
 	
 
 func hide_offer() -> void:
@@ -58,6 +68,6 @@ func _on_accept_income_stream_button_pressed() -> void:
 
 func _on_hire_worker_button_pressed() -> void:
 	isAccepted = true
-	WorkerManager.hire_worker(worker_data)
+	CandidateManager.hire_worker(worker_data)
 	SignalBus.offer_accepted.emit(worker_data)
 	hide_offer()
