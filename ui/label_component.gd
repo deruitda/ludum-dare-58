@@ -17,7 +17,7 @@ func get_label_from_int(value: int):
 			positive_label_prepend = "+"
 		return positive_label_prepend + prepend_string + str(value)
 	elif value < neutral_threshold:
-		var return_label = prepend_string + str(abs(value))
+		var return_label = prepend_string + str(value)
 		if use_paranthesis:
 			return "(" + return_label + ")"
 		else:

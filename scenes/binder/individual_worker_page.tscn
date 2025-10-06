@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://def27twulj86u"]
+[gd_scene load_steps=8 format=3 uid="uid://def27twulj86u"]
 
 [ext_resource type="Script" uid="uid://d0u7nf16bg8ck" path="res://scenes/binder/individual_worker_page.gd" id="1_e51yi"]
+[ext_resource type="PackedScene" uid="uid://cxh3bwtvp3el1" path="res://ui/worker_view.tscn" id="2_qhxny"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_kg0ra"]
 [ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="4_kg0ra"]
 [ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="5_0b26s"]
@@ -18,7 +19,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e51yi")
 
+[node name="WorkerView" parent="." instance=ExtResource("2_qhxny")]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 140.0
+offset_right = 423.0
+offset_bottom = 257.9438
+
 [node name="NameLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 233.0
 offset_top = 16.0
@@ -28,6 +37,7 @@ text = "Johnny Smith"
 label_settings = ExtResource("3_kg0ra")
 
 [node name="MonthlyRespectLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 196.0
 offset_top = 55.0
@@ -37,6 +47,7 @@ text = "Johnny Smith"
 label_settings = ExtResource("3_kg0ra")
 
 [node name="MonthlyRespectValue" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 327.0
 offset_top = 53.0
@@ -46,6 +57,7 @@ text = "+5"
 label_settings = ExtResource("4_kg0ra")
 
 [node name="MonthlyWages" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 186.0
 offset_top = 80.0
@@ -55,6 +67,7 @@ text = "Monthly Wages"
 label_settings = ExtResource("3_kg0ra")
 
 [node name="MonthlyWagesValue" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 326.0
 offset_top = 82.0
@@ -84,3 +97,4 @@ grow_vertical = 2
 [connection signal="on_fire_worker_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_fire_worker_button_pressed"]
 [connection signal="on_relieved_of_jobs" from="WorkerActionRow" to="." method="_on_worker_action_row_on_relieved_of_jobs"]
 [connection signal="on_worker_promoted" from="WorkerActionRow" to="." method="_on_worker_action_row_on_worker_promoted"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_button_up"]

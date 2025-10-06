@@ -1555,6 +1555,10 @@ scale = Vector2(4.451295, 4.6512938)
 
 [node name="IndividualWorkerPage" parent="." instance=ExtResource("7_10clj")]
 visible = false
+offset_left = 2.0
+offset_top = -79.0
+offset_right = 2.0
+offset_bottom = -79.0
 
 [node name="LastWeeksReportPage" parent="." instance=ExtResource("17_3oifq")]
 visible = false

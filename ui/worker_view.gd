@@ -11,7 +11,7 @@ class_name WorkerView
 func set_worker(new_worker: Worker):
 	worker = new_worker
 	name_value.text = worker.worker_name
-	if is_hired:
+	if is_hired == false:
 		respect_per_week.set_value(1)
 	else:
 		respect_per_week.set_value(worker.get_forecasted_cost().respect)

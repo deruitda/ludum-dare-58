@@ -8,6 +8,8 @@ class_name IndividualWorkerPage
 @onready var monthly_wages_value: Label = $MonthlyWagesValue
 @onready var worker_action_row: WorkerActionRow = $WorkerActionRow
 
+@onready var worker_view: WorkerView = $WorkerView
+
 signal on_back_button_pressed
 signal capacity_button_pressed(worker)
 
@@ -17,9 +19,10 @@ func set_worker(new_worker: Worker):
 	
 func refresh() -> void:
 	worker_action_row.set_worker(worker)
-	name_label.text = worker.worker_name
-	monthly_respect_value.text = str(worker.get_current_weekly_respect_amount())
-	monthly_wages_value.text = "$" + str(worker.get_cost_per_week())
+	worker_view.set_worker(worker)
+	#name_label.text = worker.worker_name
+	#monthly_respect_value.text = str(worker.get_current_weekly_respect_amount())
+	#monthly_wages_value.text = "$" + str(worker.get_cost_per_week())
 func _on_back_button_button_up() -> void:
 	on_back_button_pressed.emit()
 	pass # Replace with function body.
