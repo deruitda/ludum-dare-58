@@ -413,5 +413,5 @@ text = "Hire"
 horizontal_alignment = 1
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_finished"]
-[connection signal="pressed" from="AcceptIncomeStreamButton" to="Animation" method="_on_accept_income_stream_button_pressed"]
-[connection signal="pressed" from="HireWorkerButton" to="Animation" method="_on_hire_worker_button_pressed"]
+[connection signal="pressed" from="AcceptIncomeStreamButton" to="." method="_on_accept_income_stream_button_pressed"]
+[connection signal="pressed" from="HireWorkerButton" to="." method="_on_hire_worker_button_pressed"]

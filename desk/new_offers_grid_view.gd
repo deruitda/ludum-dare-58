@@ -28,20 +28,19 @@ func remove_offer_view(acceptedOfferType: Variant) -> void:
 func _on_new_offers_offers_button_press_done() -> void:
 	potential_income_streams = PotentialIncomeStreamManager.get_potential_income_streams()
 	
-	var index = 0
-	for stream in potential_income_streams:
-		offers[index].show_income_offer(stream)
-		index += 1
+	if len(potential_income_streams) == 0:
+		return
 	
 	close_offers.visible = true
 	visible = true
 	curr_offer_index = 0
+	offers[curr_offer_index].show_income_offer(potential_income_streams[curr_offer_index])
 
 func _on_new_offer_offer_anim_done() -> void:
 	curr_offer_index += 1
 	
 	# we've animated all our offers
-	if curr_offer_index >= len(offers):
+	if curr_offer_index >= len(potential_income_streams):
 		
 		# put the offers back on the table
 		if is_closing_offers:

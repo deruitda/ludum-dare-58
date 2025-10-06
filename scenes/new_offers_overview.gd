@@ -29,6 +29,7 @@ func show_offer() -> void:
 		income_stream_view.set_income_stream(income_stream)
 	else: 
 		worker_view.set_worker(worker_data)
+		
 	animation.play("show")
 	
 func hide_offer() -> void:
