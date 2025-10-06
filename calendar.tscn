@@ -1,0 +1,122 @@
+[gd_scene load_steps=15 format=3 uid="uid://cfoxhpbvyepx5"]
+
+[ext_resource type="Texture2D" uid="uid://dcc70l3gd4j4q" path="res://assets/final/calendar.png" id="1_d4o2l"]
+[ext_resource type="Script" uid="uid://d3c1ng4grispc" path="res://calendar.gd" id="2_74sj6"]
+[ext_resource type="AudioStream" uid="uid://b5c7vruew47r5" path="res://assets/final/audio/ClickyFlip2.wav" id="2_f8ws7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8ws7"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(0, 77, 120, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74sj6"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(0, 0, 120, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_use5m"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(120, 0, 120, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t0ex"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(240, 0, 120, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy7sw"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(360, 0, 120, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2q2v"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(480, 0, 120, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sdbm"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(600, 0, 120, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcaa2"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(720, 0, 120, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xviq5"]
+atlas = ExtResource("1_d4o2l")
+region = Rect2(0, 154, 120, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmjo5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8ws7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74sj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_use5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t0ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy7sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2q2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sdbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcaa2")
+}],
+"loop": false,
+"name": &"flip",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xviq5")
+}],
+"loop": false,
+"name": &"highlighted",
+"speed": 5.0
+}]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_d4o2l"]
+points = PackedVector2Array(78.84864, -2.6894054, 106.18283, 2.6894045, 89.36179, 26.89405, -104.0802, 32.272858, -110.38809, 2.6894045)
+
+[node name="Node2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_rmjo5")
+animation = &"flip"
+script = ExtResource("2_74sj6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.499999, 25)
+scale = Vector2(0.4755948, -1.4873179)
+shape = SubResource("ConvexPolygonShape2D_d4o2l")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_f8ws7")
+volume_db = 14.333
+
+[node name="Label" type="Label" parent="."]
+offset_left = -39.747486
+offset_top = -13.121239
+offset_right = 30.252514
+offset_bottom = 14.007729
+rotation = 0.061195284
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Week 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=12 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
@@ -10,9 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://b4uimt1clhey4" path="res://scenes/ceiling-fan.tscn" id="9_x1u2a"]
 [ext_resource type="PackedScene" uid="uid://d0asi7pvmfh83" path="res://desk/buttons/binder_button.tscn" id="10_bil3o"]
 [ext_resource type="PackedScene" uid="uid://dij2u6c3o584a" path="res://desk/NewOffersGridView_Simple.tscn" id="10_jo3hx"]
+[ext_resource type="PackedScene" uid="uid://cfoxhpbvyepx5" path="res://calendar.tscn" id="11_jo3hx"]
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("disable_things")]
 script = ExtResource("1_bs3hi")
+disable_things = NodePath("DisableThings")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(581, 322)
@@ -23,33 +25,20 @@ scale = Vector2(1.7875, 1.7972223)
 texture = ExtResource("2_bnidx")
 
 [node name="BinderButton" parent="Background" instance=ExtResource("10_bil3o")]
-position = Vector2(-184.05594, 245.37865)
+position = Vector2(3.9160833, 259.84543)
 scale = Vector2(3.4174724, 3.398985)
 
 [node name="MoneyCounter" parent="Background" instance=ExtResource("4_4is0s")]
-position = Vector2(180.13985, 203.64758)
-scale = Vector2(1.0517483, 1.0460587)
+position = Vector2(177.9021, 211.43741)
+scale = Vector2(1.0517483, 1.1620363)
 
 [node name="CeilingFan" parent="Background" instance=ExtResource("9_x1u2a")]
 position = Vector2(4.475525, -291.0046)
 scale = Vector2(3.9160812, 3.8948967)
 
-[node name="ProgressButton" type="Button" parent="."]
-offset_left = 939.0
-offset_top = 539.0
-offset_right = 1130.0
-offset_bottom = 625.0
-text = "Next Week"
-
 [node name="NewOffers" parent="." instance=ExtResource("9_bil3o")]
-position = Vector2(568, 344)
+position = Vector2(265, 361)
 scale = Vector2(5.7535934, 5.7535934)
-
-[node name="WeekLabel" type="Label" parent="."]
-offset_left = 18.0
-offset_top = 6.0
-offset_right = 83.0
-offset_bottom = 45.0
 
 [node name="Binder" parent="." instance=ExtResource("7_bs3hi")]
 visible = false
@@ -67,6 +56,21 @@ scale = Vector2(0.55738956, 0.5596341)
 
 [node name="NewOffersGridView" parent="." instance=ExtResource("10_jo3hx")]
 visible = false
+offset_left = 0.0
+offset_right = 1153.0
+
+[node name="Node2D" parent="." instance=ExtResource("11_jo3hx")]
+position = Vector2(999.0001, 576)
+scale = Vector2(2.0324676, 2.0324676)
+
+[node name="DisableThings" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 13.0
+offset_top = -647.0
+offset_right = 1161.0
+offset_bottom = 645.0
 
 [connection signal="button_pressed" from="Background/BinderButton" to="." method="_on_binder_button_button_pressed"]
-[connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]
+[connection signal="animation_finished" from="Background/MoneyCounter" to="." method="_on_money_counter_animation_finished"]
