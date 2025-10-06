@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckgl032ulp68t"]
+
+[ext_resource type="PackedScene" uid="uid://de7xv2m41lp1m" path="res://ui/stat_label.tscn" id="1_8o0yo"]
+[ext_resource type="Script" uid="uid://dgq0ue1ksx618" path="res://ui/capacity_label.gd" id="1_rsmw5"]
+[ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="2_rsmw5"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="4_koj3g"]
+
+[node name="CapacityLabel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rsmw5")
+
+[node name="CurrentCapacityLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("1_8o0yo")]
+layout_mode = 0
+text = "1"
+label_settings = ExtResource("4_koj3g")
+label_component = NodePath("CurrentCapacityLabelComponent")
+
+[node name="CurrentCapacityLabelComponent" parent="CurrentCapacityLabel" instance=ExtResource("2_rsmw5")]
+prepend_string = ""
+positive_label_settings = ExtResource("4_koj3g")
+use_plus_sign_in_label = false
+use_paranthesis = false
+
+[node name="Slash" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 50.0
+offset_bottom = 23.0
+text = "/"
+label_settings = ExtResource("4_koj3g")
+
+[node name="TotalCapacityNeededLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("1_8o0yo")]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 30.0
+text = "1"
+label_settings = ExtResource("4_koj3g")
+label_component = NodePath("TotalCapacityLabelComponent")
+
+[node name="TotalCapacityLabelComponent" parent="TotalCapacityNeededLabel" instance=ExtResource("2_rsmw5")]
+prepend_string = ""
+positive_label_settings = ExtResource("4_koj3g")
+use_plus_sign_in_label = false
+use_paranthesis = false

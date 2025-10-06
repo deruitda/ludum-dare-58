@@ -1,9 +1,9 @@
 extends Control
 class_name CapacityRow
-@onready var capacity_label: Label = $CapacityLabel
 @onready var unassign_workers_button: Button = $UnassignWorkersButton
 @onready var assign_workers_button: Button = $AssignWorkersButton
 
+@onready var capacity_label: CapacityLabel = $CapacityLabel
 @onready var income_stream: IncomeStream
 
 signal on_unassign_workers_button_pressed
@@ -17,8 +17,12 @@ func refresh_capacity_state() -> void:
 	unassign_workers_button.visible = false
 	assign_workers_button.visible = false
 	var current_capacity = income_stream.get_current_capacity()
+	var capacity_value = CapacityValue.new()
 	
-	capacity_label.text = str(current_capacity) + "/" + str(income_stream.capacity) + " Necessary Capacity Filled"
+	capacity_value.current_val = income_stream.get_current_capacity()
+	capacity_value.total_val = income_stream.capacity
+	capacity_label.set_capacity_value(capacity_value)
+	
 	if not income_stream.has_full_capacity():
 		assign_workers_button.visible = true
 	if current_capacity > 0:
