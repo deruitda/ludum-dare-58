@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=11 format=3 uid="uid://dq77f2w531w2b"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=12 format=3 uid="uid://dq77f2w531w2b"]
 
+[ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_4ch2l"]
 [ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_event_resource.gd" id="2_4ch2l"]
 [ext_resource type="Script" uid="uid://cllgeulnh2up3" path="res://utilities/cost_resource.gd" id="2_cuy1x"]
 [ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="3_cuy1x"]
@@ -58,6 +59,6 @@ initial_cost_resource = SubResource("Resource_aakyt")
 weekly_return_intensity_cost = SubResource("Resource_0g0wo")
 completed_cost_resource = SubResource("Resource_cxks5")
 potential_idle_event_intensity = 1
-accepted_worker_types = Array[Object]([null])
-potential_idle_events = Array[Object]([SubResource("Resource_3ng1i")])
+accepted_worker_types = Array[ExtResource("1_4ch2l")]([null])
+potential_idle_events = Array[ExtResource("2_4ch2l")]([SubResource("Resource_3ng1i")])
 metadata/_custom_type_script = "uid://dtm2kuspofwj3"

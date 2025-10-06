@@ -7,11 +7,32 @@ signal worker_fired
 
 @export var running_report: RunningReport
 @onready var running_reports: Node
-const RUNNING_REPORT = preload("uid://brielx5y15lvf")
+
+@export var time_manager: TimeManager
 
 func _ready() -> void:
-	running_report = RUNNING_REPORT.instantiate()
+	running_report = RunningReport.new()
 	add_child(running_report)
+	
+	time_manager = TimeManager.new()
+	add_child(time_manager)
+	
+	time_manager.on_current_week_incremented.connect(_on_time_manager_current_week_incremented)
+	time_manager.on_current_month_incremented.connect(_on_time_manager_current_month_incremented)
+
+
+func _on_time_manager_current_week_incremented() -> void:
+	SignalBus.week_changed.emit()
+
+func _on_time_manager_current_month_incremented() -> void:
+	SignalBus.month_changed.emit()
+
+func get_current_week() -> int:
+	return time_manager.current_week
+
+func get_current_month() -> int:
+	return time_manager.current_month
+	
 func _on_room_progress_button_click() -> void:
 	pass
 
@@ -59,8 +80,8 @@ func progress_to_next_week():
 	for i in number_of_candidates_per_week:
 		CandidateManager.generate_worker()
 	
-	GameState.increment_week()
-	SignalBus.week_changed.emit()
+	time_manager.increment_week()
+	
 	SignalBus.on_week_report_publish.emit(running_report)
 	running_report.refresh()
 	
@@ -84,3 +105,8 @@ func get_forecasted_income() -> Cost:
 	return_cost.add_to_cost(IncomeStreamManager.get_forecasted_income())
 	
 	return return_cost
+
+func get_needed_total_respect(current_month: int) -> int:
+	var base_respect = 5.0
+	var growth_factor = 1.5
+	return int(base_respect * pow(growth_factor, current_month - 1))

@@ -1,0 +1,28 @@
+extends VBoxContainer
+class_name TotalRespectStatusView
+
+@export var use_current_month: bool = false
+
+@export var current_month_value: StatLabel
+@export var current_respect_value: StatLabel
+@export var needed_respect_next_month: StatLabel
+
+@onready var current_respect_label_component: LabelComponent = $PerWeekControl/CurrentRespectValue/CurrentRespectLabelComponent
+
+func _ready() -> void:
+	refresh()
+	SignalBus.week_changed.connect(refresh)
+	SignalBus.respect_changed.connect(refresh)
+	
+func refresh():
+	var month = GameManager.get_current_month()
+	if use_current_month == false:
+		month = month + 1
+	current_month_value.set_value(GameManager.get_current_month())
+	
+	var respect_threshold = GameManager.get_needed_total_respect(use_current_month)
+	current_respect_label_component.neutral_threshold = respect_threshold
+	current_respect_value.set_value(GameState.total_respect)
+	
+	needed_respect_next_month.set_value(respect_threshold)
+	

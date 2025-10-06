@@ -1553,6 +1553,7 @@ scale = Vector2(4.451295, 4.6512938)
 [node name="LastWeeksReportPage" parent="." instance=ExtResource("17_3oifq")]
 visible = false
 position = Vector2(12, 24)
+scale = Vector2(2.321197, 2.321197)
 
 [node name="X-Button" parent="." instance=ExtResource("8_licmt")]
 visible = false

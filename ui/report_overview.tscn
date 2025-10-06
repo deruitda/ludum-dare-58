@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf225he6if7pc"]
+
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="1_a8t54"]
+[ext_resource type="Script" uid="uid://cgvfhib26026x" path="res://ui/report_overview.gd" id="1_p4j2s"]
+[ext_resource type="PackedScene" uid="uid://de7xv2m41lp1m" path="res://ui/stat_label.tscn" id="2_p4j2s"]
+[ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="3_xm4eq"]
+[ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="4_87jlj"]
+
+[node name="ReportOverview" type="VBoxContainer" node_paths=PackedStringArray("respect_gained_label", "money_gained_label")]
+offset_left = 16.769524
+offset_top = 43.643772
+offset_right = 210.4791
+offset_bottom = 110.076904
+script = ExtResource("1_p4j2s")
+respect_gained_label = NodePath("DataRow3/RespectEarnedValue")
+money_gained_label = NodePath("DataRow2/Money Earned")
+
+[node name="DataRow2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Respect Earned" type="Label" parent="DataRow2"]
+layout_mode = 2
+text = "Money Earned"
+label_settings = ExtResource("1_a8t54")
+
+[node name="MarginContainer" type="MarginContainer" parent="DataRow2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Money Earned" parent="DataRow2" node_paths=PackedStringArray("label_component") instance=ExtResource("2_p4j2s")]
+layout_mode = 2
+text = "5"
+label_settings = ExtResource("1_a8t54")
+label_component = NodePath("LabelComponent2")
+
+[node name="LabelComponent2" parent="DataRow2/Money Earned" instance=ExtResource("3_xm4eq")]
+prepend_string = ""
+positive_label_settings = ExtResource("4_87jlj")
+use_plus_sign_in_label = false
+
+[node name="DataRow3" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Respect Earned" type="Label" parent="DataRow3"]
+layout_mode = 2
+text = "Respect Earned"
+label_settings = ExtResource("1_a8t54")
+
+[node name="MarginContainer" type="MarginContainer" parent="DataRow3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RespectEarnedValue" parent="DataRow3" node_paths=PackedStringArray("label_component") instance=ExtResource("2_p4j2s")]
+layout_mode = 2
+text = "5"
+label_settings = ExtResource("1_a8t54")
+label_component = NodePath("LabelComponent2")
+
+[node name="LabelComponent2" parent="DataRow3/RespectEarnedValue" instance=ExtResource("3_xm4eq")]
+prepend_string = ""
+positive_label_settings = ExtResource("1_a8t54")
+use_plus_sign_in_label = false
