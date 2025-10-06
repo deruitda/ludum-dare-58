@@ -49,6 +49,24 @@ func get_respect_cost_from_cost_intensity(intensity: Enums.Intensity) -> int:
 			return 30
 	return 0
 
+func get_percentage_rate_from_intensity(intensity: int) -> float:
+	
+	match intensity:
+		Enums.Intensity.NONE:
+			return 0.0
+		Enums.Intensity.LOW:
+			return randf_range(0.05, 0.2) 
+		Enums.Intensity.LOW_MEDIUM:
+			return randf_range(0.2, 0.4)
+		Enums.Intensity.MEDIUM:
+			return randf_range(0.4, 0.6)
+		Enums.Intensity.MEDIUM_HIGH:
+			return randf_range(0.6, 0.8)
+		Enums.Intensity.HIGH:
+			return randf_range(0.8, 1.0)
+		
+	return 0.0
+
 ## @param intensity Enums.Intensity
 func get_rate_of_return_from_cost_intensity(intensity: int) -> float:
 	match intensity:
