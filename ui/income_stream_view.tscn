@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://euex01opw2ii"]
+[gd_scene load_steps=8 format=3 uid="uid://euex01opw2ii"]
 
 [ext_resource type="Script" uid="uid://vcgoa0uv7lvn" path="res://ui/income_stream_view.gd" id="1_mdr4a"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_b5ulf"]
 [ext_resource type="PackedScene" uid="uid://c77i2c6uu0f33" path="res://ui/cost_view.tscn" id="3_4jaii"]
 [ext_resource type="LabelSettings" uid="uid://0ejlgbcqp8ns" path="res://desk/Resumes/description_label.tres" id="3_7nf1l"]
+[ext_resource type="PackedScene" uid="uid://de7xv2m41lp1m" path="res://ui/stat_label.tscn" id="5_hroap"]
 [ext_resource type="PackedScene" uid="uid://b52bu006uvuoy" path="res://ui/percentage_label.tscn" id="5_v03va"]
+[ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="6_jjgg8"]
 
 [node name="IncomeStreamView" type="Node2D"]
 scale = Vector2(0.4254967, 0.7283237)
@@ -99,14 +101,20 @@ offset_bottom = 150.40477
 text = "Weeks until Completion"
 label_settings = ExtResource("2_b5ulf")
 
-[node name="WeeksLeftValue" type="Label" parent="Control"]
+[node name="WeeksLeftValue" parent="Control" node_paths=PackedStringArray("label_component") instance=ExtResource("5_hroap")]
 layout_mode = 0
 offset_left = 310.4241
-offset_top = 128.77779
-offset_right = 418.4241
-offset_bottom = 151.77779
-text = "10"
+offset_top = 131.5238
+offset_right = 350.4241
+offset_bottom = 154.5238
+text = "5"
 label_settings = ExtResource("2_b5ulf")
+label_component = NodePath("LabelComponent2")
+
+[node name="LabelComponent2" parent="Control/WeeksLeftValue" instance=ExtResource("6_jjgg8")]
+prepend_string = ""
+positive_label_settings = ExtResource("2_b5ulf")
+use_plus_sign_in_label = false
 
 [node name="LabelForPercentage" type="Label" parent="Control"]
 layout_mode = 0

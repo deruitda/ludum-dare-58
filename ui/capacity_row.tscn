@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5kfuahvbhjn1"]
+[gd_scene load_steps=3 format=3 uid="uid://b5kfuahvbhjn1"]
 
 [ext_resource type="Script" uid="uid://dao4k3okgq547" path="res://ui/capacity_row.gd" id="1_ca7ih"]
+[ext_resource type="PackedScene" uid="uid://ckgl032ulp68t" path="res://ui/capacity_label.tscn" id="2_jisyx"]
 
 [node name="CapacityRow" type="Control"]
 layout_mode = 3
@@ -26,13 +27,20 @@ offset_right = 312.35187
 offset_bottom = 73.5
 text = "Unassign All Workers"
 
-[node name="CapacityLabel" type="Label" parent="."]
+[node name="CapacityNameLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 59.870373
-offset_top = 1.8888888
-offset_right = 202.1852
-offset_bottom = 39.666668
-text = "1/1 Necessary Capacity Filled"
+offset_left = 8.833333
+offset_top = 3.7777777
+offset_right = 232.83336
+offset_bottom = 41.555557
+text = "Capacity:"
+
+[node name="CapacityLabel" parent="." instance=ExtResource("2_jisyx")]
+layout_mode = 0
+offset_left = 20.61111
+offset_top = 25.5
+offset_right = 20.61111
+offset_bottom = 25.5
 
 [connection signal="button_up" from="AssignWorkersButton" to="." method="_on_assign_workers_button_button_up"]
 [connection signal="button_up" from="UnassignWorkersButton" to="." method="_on_unassign_workers_button_button_up"]

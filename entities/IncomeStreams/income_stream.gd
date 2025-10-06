@@ -91,6 +91,23 @@ func get_forecasted_cost() -> Cost:
 		if is_on_last_week():
 			return_cost.add_to_cost(completed_return_cost)
 	return return_cost
+
+func get_total_so_far_cost_manager() -> CostManager:
+	var cost_manager = CostManager.new()
+	cost_manager.add_cost(initial_cost)
+	for i in active_weeks_transpired:
+		cost_manager.add_cost(weekly_return_cost)
+	
+	if is_completed():
+		cost_manager.add_cost(completed_return_cost)
+	
+	return cost_manager
+	
+func get_total_return_so_far() -> Cost:
+	return get_total_so_far_cost_manager().get_income_cost()
+
+func get_total_cost_so_far() -> Cost:
+	return get_total_so_far_cost_manager().get_total_cost()
 	
 func get_forecasted_income_cost() -> Cost:
 	var return_cost = Cost.new()

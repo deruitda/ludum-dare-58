@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://36t6gqwmuk66"]
+[gd_scene load_steps=3 format=3 uid="uid://36t6gqwmuk66"]
 
+[ext_resource type="Script" uid="uid://d3hc123yvar2y" path="res://ui/current_individual_income_stream_view.gd" id="1_ouhjp"]
 [ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="1_t25uk"]
 
 [node name="CurrentIndividualIncomeStreamView" type="Node2D"]
+script = ExtResource("1_ouhjp")
 
 [node name="IncomeStreamView" parent="." instance=ExtResource("1_t25uk")]
 position = Vector2(13, 3)

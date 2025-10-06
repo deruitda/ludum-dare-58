@@ -1549,7 +1549,6 @@ position = Vector2(29, -1.9999981)
 scale = Vector2(4.451295, 4.6512938)
 
 [node name="IndividualWorkerPage" parent="." instance=ExtResource("7_10clj")]
-visible = false
 
 [node name="LastWeeksReportPage" parent="." instance=ExtResource("17_3oifq")]
 visible = false
