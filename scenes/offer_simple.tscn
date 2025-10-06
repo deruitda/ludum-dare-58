@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ci7b0x2xambs8" path="res://scenes/offer_simple.gd" id="1_rmo8c"]
 [ext_resource type="Texture2D" uid="uid://dsp2iubqbrmub" path="res://assets/final/paper.png" id="2_pxix6"]
-[ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="3_uuxy0"]
+[ext_resource type="PackedScene" uid="uid://p2oglqfj1668" path="res://ui/potential_income_stream_view.tscn" id="4_pxix6"]
 [ext_resource type="PackedScene" uid="uid://cxh3bwtvp3el1" path="res://ui/worker_view.tscn" id="4_qydxe"]
 [ext_resource type="Texture2D" uid="uid://t16adebrr2qk" path="res://assets/final/binder-button.png" id="5_soyh0"]
 [ext_resource type="Texture2D" uid="uid://d4jm3m5g7ioux" path="res://assets/final/binder-button-selected.png" id="6_butqv"]
@@ -340,9 +340,13 @@ sprite_frames = SubResource("SpriteFrames_5d17c")
 animation = &"page"
 autoplay = "page"
 
-[node name="IncomeStreamView" parent="." instance=ExtResource("3_uuxy0")]
-visible = false
-position = Vector2(19, 32)
+[node name="PotentialIncomeStreamView" parent="." instance=ExtResource("4_pxix6")]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 15.0
+offset_right = 279.0
+offset_bottom = 238.76994
+scale = Vector2(0.8535552, 0.8535552)
 
 [node name="WorkerView" parent="." instance=ExtResource("4_qydxe")]
 visible = false
@@ -353,7 +357,6 @@ offset_right = 262.0
 offset_bottom = 214.0
 
 [node name="AcceptIncomeStreamButton" type="TextureButton" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 66.0
 offset_top = 204.0

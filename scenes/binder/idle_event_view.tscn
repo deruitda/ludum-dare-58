@@ -6,92 +6,70 @@
 [ext_resource type="PackedScene" uid="uid://b52bu006uvuoy" path="res://ui/percentage_label.tscn" id="4_bn6fv"]
 [ext_resource type="PackedScene" uid="uid://c77i2c6uu0f33" path="res://ui/cost_view.tscn" id="5_l2qu1"]
 
-[node name="IdleEventView" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="IdleEventView" type="VBoxContainer"]
 offset_left = 12.065344
 offset_top = 60.66731
 offset_right = 124.75355
-offset_bottom = 100.66731
+offset_bottom = 106.66731
 script = ExtResource("1_vt80s")
 
-[node name="Idle" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Title" type="Label" parent="Idle"]
-layout_mode = 0
-offset_left = 31.934656
-offset_top = -53.66731
-offset_right = 272.93466
-offset_bottom = -30.667309
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
 text = "There's a problem with the job!"
 label_settings = ExtResource("2_cen5y")
 
-[node name="NameLabel" type="Label" parent="Idle"]
-layout_mode = 0
-offset_left = 29.934656
-offset_top = -8.667313
-offset_right = 118.93466
-offset_bottom = 14.332687
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
 text = "Name"
 label_settings = ExtResource("2_nyro6")
 
-[node name="DescriptionLabel" type="Label" parent="Idle"]
-layout_mode = 0
-offset_left = 27.934656
-offset_top = 22.332691
-offset_right = 117.934654
-offset_bottom = 71.33269
+[node name="DescriptionLabel" type="Label" parent="."]
+layout_mode = 2
 text = "Description"
 label_settings = ExtResource("2_nyro6")
 
-[node name="AttemptToResolveButton" type="Button" parent="Idle"]
-layout_mode = 0
-offset_left = 30.934656
-offset_top = 174.33269
-offset_right = 186.93466
-offset_bottom = 213.66537
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+text = "Percent Chance of Resolution"
+
+[node name="PercentageLabel" parent="HBoxContainer3" instance=ExtResource("4_bn6fv")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AttemptToResolveButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "Attempt to Resolve
 "
 
-[node name="AbandonButton" type="Button" parent="Idle"]
-layout_mode = 0
-offset_left = 327.93466
-offset_top = 176.33269
-offset_right = 483.93466
-offset_bottom = 215.66537
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AttemptToResolveCostView" parent="HBoxContainer" instance=ExtResource("5_l2qu1")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AbandonButton" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
 text = "Abandon Job"
 
-[node name="Label" type="Label" parent="Idle"]
-layout_mode = 0
-offset_left = 22.934656
-offset_top = 60.332687
-offset_right = 249.93466
-offset_bottom = 83.33269
-text = "Percent Chance of Resolution"
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="PercentageLabel" parent="Idle" instance=ExtResource("4_bn6fv")]
-layout_mode = 0
-offset_left = 102.93466
-offset_top = 88.33269
-offset_right = 142.93466
-offset_bottom = 111.33269
+[node name="AbandonCostView" parent="HBoxContainer2" instance=ExtResource("5_l2qu1")]
+layout_mode = 2
 
-[node name="AttemptToResolveCostView" parent="." instance=ExtResource("5_l2qu1")]
-layout_mode = 0
-offset_left = 65.934654
-offset_top = 136.33269
-offset_right = 65.934654
-offset_bottom = 136.33269
-
-[node name="AbandonCostView" parent="." instance=ExtResource("5_l2qu1")]
-layout_mode = 0
-offset_left = 369.93466
-offset_top = 129.33269
-offset_right = 369.93466
-offset_bottom = 129.33269
-
-[connection signal="button_up" from="Idle/AttemptToResolveButton" to="." method="_on_attempt_to_resolve_button_button_up"]
-[connection signal="button_up" from="Idle/AbandonButton" to="." method="_on_abandon_button_button_up"]
+[connection signal="button_up" from="HBoxContainer/AttemptToResolveButton" to="." method="_on_attempt_to_resolve_button_button_up"]
+[connection signal="button_up" from="HBoxContainer2/AbandonButton" to="." method="_on_abandon_button_button_up"]

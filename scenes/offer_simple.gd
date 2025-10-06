@@ -1,6 +1,6 @@
 extends Control
 class_name OfferSimple
-@onready var income_stream_view: IncomeStreamView = $IncomeStreamView
+@onready var potential_income_stream_view: PotentialIncomeStreamView = $PotentialIncomeStreamView
 @onready var worker_view: WorkerView = $WorkerView
 @onready var accept_income_stream_button: TextureButton = $AcceptIncomeStreamButton
 @onready var hire_worker_button: TextureButton = $HireWorkerButton
@@ -29,8 +29,8 @@ func show_income_offer(incomeStream: IncomeStream) -> void:
 
 func show_offer() -> void:
 	if !isWorker:
-		income_stream_view.set_income_stream(income_stream)
-		income_stream_view.visible = true
+		potential_income_stream_view.set_income_stream(income_stream)
+		potential_income_stream_view.visible = true
 		accept_income_stream_button.visible = true
 		worker_view.visible = false
 		hire_worker_button.visible = false
@@ -39,7 +39,7 @@ func show_offer() -> void:
 		worker_view.visible = true
 		hire_worker_button.visible = true
 		
-		income_stream_view.visible = false
+		potential_income_stream_view.visible = false
 		accept_income_stream_button.visible = false
 	visible = true
 	
@@ -47,7 +47,7 @@ func show_offer() -> void:
 func reset_state() -> void:
 	isAccepted = false
 	visible = false
-	income_stream_view.visible = false
+	potential_income_stream_view.visible = false
 	worker_view.visible = false
 	accept_income_stream_button.visible = false
 	hire_worker_button.visible = false
@@ -55,7 +55,7 @@ func reset_state() -> void:
 
 func hide_offer() -> void:
 	visible = false
-	income_stream_view.visible = false
+	potential_income_stream_view.visible = false
 	worker_view.visible = false
 	accept_income_stream_button.visible = false
 	hire_worker_button.visible = false

@@ -1,20 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://c77i2c6uu0f33"]
+[gd_scene load_steps=7 format=3 uid="uid://c77i2c6uu0f33"]
 
 [ext_resource type="Script" uid="uid://cegejrjq5othg" path="res://ui/cost_view.gd" id="1_eyt04"]
 [ext_resource type="PackedScene" uid="uid://de7xv2m41lp1m" path="res://ui/stat_label.tscn" id="2_2c845"]
 [ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="4_tmjy7"]
+[ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="6_dcibp"]
 [ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="6_sphsk"]
 [ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="7_dcibp"]
 
-[node name="CostView" type="Control" node_paths=PackedStringArray("money_label", "respect_label")]
-layout_mode = 3
-anchors_preset = 0
+[node name="CostView" type="HBoxContainer" node_paths=PackedStringArray("money_label", "respect_label", "none_label")]
+offset_right = 42.0
+offset_bottom = 23.0
+alignment = 1
 script = ExtResource("1_eyt04")
 money_label = NodePath("MoneyLabel")
 respect_label = NodePath("RespectLabel")
+none_label = NodePath("NoneLabel")
 
 [node name="MoneyLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("2_2c845")]
-layout_mode = 0
+visible = false
+layout_mode = 2
 text = "$+10"
 label_settings = ExtResource("6_sphsk")
 label_component = NodePath("MoneyLabelComponent")
@@ -23,11 +27,8 @@ label_component = NodePath("MoneyLabelComponent")
 positive_label_settings = ExtResource("6_sphsk")
 
 [node name="RespectLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("2_2c845")]
-layout_mode = 0
-offset_left = 50.0
-offset_top = -1.0
-offset_right = 90.0
-offset_bottom = 22.0
+visible = false
+layout_mode = 2
 text = "+5"
 label_settings = ExtResource("7_dcibp")
 label_component = NodePath("RespectLabelComponent")
@@ -35,3 +36,8 @@ label_component = NodePath("RespectLabelComponent")
 [node name="RespectLabelComponent" parent="RespectLabel" instance=ExtResource("4_tmjy7")]
 prepend_string = ""
 positive_label_settings = ExtResource("7_dcibp")
+
+[node name="NoneLabel" type="Label" parent="."]
+layout_mode = 2
+text = "None"
+label_settings = ExtResource("6_dcibp")

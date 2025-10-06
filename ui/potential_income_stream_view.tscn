@@ -5,61 +5,45 @@
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_751ya"]
 [ext_resource type="PackedScene" uid="uid://c77i2c6uu0f33" path="res://ui/cost_view.tscn" id="3_2pcvr"]
 
-[node name="PotentialIncomeStreamView" type="Node2D"]
+[node name="PotentialIncomeStreamView" type="VBoxContainer"]
+offset_right = 330.0
+offset_bottom = 203.0
 script = ExtResource("1_751ya")
 
 [node name="IncomeStreamView" parent="." instance=ExtResource("1_x65xp")]
-position = Vector2(29, 12)
+layout_mode = 2
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 38.0
-offset_top = 30.0
-offset_right = 78.0
-offset_bottom = 70.0
+[node name="Control" type="VBoxContainer" parent="."]
+layout_mode = 2
 
-[node name="WorkersNeededLabel" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 3.000001
-offset_top = 146.00002
-offset_right = 187.0
-offset_bottom = 169.00003
-scale = Vector2(0.4482012, 0.49422494)
+[node name="VBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+
+[node name="WorkersNeededLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
 text = "Workers Needed on Job"
 label_settings = ExtResource("2_751ya")
 
-[node name="WorkersNeededValue" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 117.0
-offset_top = 147.0
-offset_right = 225.0
-offset_bottom = 170.00003
-scale = Vector2(0.6329248, 0.6329248)
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WorkersNeededValue" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
 text = "1"
 label_settings = ExtResource("2_751ya")
 
-[node name="InitialCostControl" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = 94.20622
-offset_top = 253.72221
-offset_right = 134.20622
-offset_bottom = 293.72223
+[node name="InitialCostControl" type="HBoxContainer" parent="Control"]
+layout_mode = 2
 
 [node name="IntialCostLabel" type="Label" parent="Control/InitialCostControl"]
-layout_mode = 0
-offset_left = -90.20622
-offset_top = -86.72223
-offset_right = -7.2062225
-offset_bottom = -63.72223
-scale = Vector2(0.53114843, 0.53114843)
-text = "Initial Cost"
+layout_mode = 2
+text = "Acceptance Fee"
 label_settings = ExtResource("2_751ya")
 
+[node name="MarginContainer" type="MarginContainer" parent="Control/InitialCostControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="InitialCostView" parent="Control/InitialCostControl" instance=ExtResource("3_2pcvr")]
-layout_mode = 0
-offset_left = 2.7937698
-offset_top = -84.72224
-offset_right = 2.7937698
-offset_bottom = -84.72224
-scale = Vector2(0.5609052, 0.5609052)
+layout_mode = 2
