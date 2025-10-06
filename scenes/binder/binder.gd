@@ -16,6 +16,8 @@ class_name Binder
 @onready var last_weeks_report_button: TextureButton = $TableOfContents/LastWeeksReportRow/LastWeeksReportButton
 @onready var last_weeks_report_row: Panel = $TableOfContents/LastWeeksReportRow
 
+var is_open = false
+
 var active_view: Node
 
 func _ready() -> void:
@@ -31,8 +33,10 @@ func close_book() -> void:
 	individual_worker_page.visible = false
 	table_of_contents.visible = false
 	
-	if animated_sprite_2d.animation == "raise":
+	if is_open:
 		animated_sprite_2d.play("lower")
+	
+	is_open = false
 
 func reset_pages() -> void:
 	
@@ -63,6 +67,7 @@ func change_page(new_view_node: Node, forward: bool = true):
 
 func open_binder():
 	reset_pages()
+	is_open = true
 	income_streams_page.refresh()
 	income_streams_button.disabled = true
 	workers_button.disabled = false
