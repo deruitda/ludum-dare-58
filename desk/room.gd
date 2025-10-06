@@ -12,7 +12,8 @@ class_name Room
 @onready var music: AudioStreamPlayer2D = $Music
 
 const LUDUM_DARE_58_DEATH_MUSIC_ANA = preload("uid://7jd2st33r02j")
-
+const DOOR = preload("uid://3iiu1o8s341k")
+const SHOT = preload("uid://faudk8pcwjb1")
 
 var pan_speed = 3
 var pan_up = false
@@ -66,6 +67,8 @@ func begin_pan_up() -> void:
 		is_panning = true
 
 func finish_game_over() -> void:
+	audio_stream_player_2d.stream = DOOR
+	audio_stream_player_2d.play()
 	background.play("game_over")
 
 func set_week_label() -> void:
@@ -95,6 +98,7 @@ func _on_background_frame_changed() -> void:
 		return
 		
 	if background.frame == 32:
+		audio_stream_player_2d.stream = SHOT
 		audio_stream_player_2d.play(0)
 
 
