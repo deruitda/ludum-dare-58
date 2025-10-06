@@ -2,9 +2,9 @@ extends Node2D
 class_name PotentialIncomeStreamView
 
 @onready var income_stream: IncomeStream
-
-@onready var workers_needed_value: Label = $Control/WorkersNeededValue
+@onready var workers_needed_value: Label = $Control/VBoxContainer/WorkersNeededValue
 @onready var initial_cost_view: CostView = $Control/InitialCostControl/InitialCostView
+
 
 @onready var income_stream_view: IncomeStreamView = $IncomeStreamView
 

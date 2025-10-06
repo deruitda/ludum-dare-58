@@ -8,126 +8,89 @@
 [ext_resource type="PackedScene" uid="uid://b52bu006uvuoy" path="res://ui/percentage_label.tscn" id="5_v03va"]
 [ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="6_jjgg8"]
 
-[node name="IncomeStreamView" type="Node2D"]
-scale = Vector2(0.4254967, 0.7283237)
+[node name="IncomeStreamView" type="VBoxContainer"]
+offset_right = 244.0
+offset_bottom = 141.0
 script = ExtResource("1_mdr4a")
 
-[node name="Control2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -75.0
-offset_top = -9.0
-offset_right = -35.0
-offset_bottom = 31.0
-
-[node name="NameLabel" type="Label" parent="Control2"]
-layout_mode = 0
-offset_left = 91.0
-offset_top = 12.0
-offset_right = 191.0
-offset_bottom = 37.0
+[node name="NameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(244, 22)
+layout_mode = 2
 text = "Steve"
 label_settings = ExtResource("2_b5ulf")
+autowrap_mode = 3
 
-[node name="DescriptionLabel" type="Label" parent="Control2"]
-layout_mode = 0
-offset_left = 92.0
-offset_top = 43.0
-offset_right = 192.0
-offset_bottom = 68.0
+[node name="DescriptionLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(244, 11)
+layout_mode = 2
 text = "Steve"
 label_settings = ExtResource("3_7nf1l")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -19.0
-offset_top = 25.0
-offset_right = 21.0
-offset_bottom = 65.0
+[node name="PerWeekControl" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
 
-[node name="PerWeekControl" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = 212.0
-offset_top = 10.0
-offset_right = 252.0
-offset_bottom = 50.0
-
-[node name="PerWeekCostLabel" type="Label" parent="Control/PerWeekControl"]
-layout_mode = 0
-offset_left = -164.79767
-offset_top = 40.515873
-offset_right = -53.79767
-offset_bottom = 63.515873
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl"]
+layout_mode = 2
 text = "Income Per Week"
 label_settings = ExtResource("2_b5ulf")
 
-[node name="PerWeekCostView" parent="Control/PerWeekControl" instance=ExtResource("3_4jaii")]
-layout_mode = 0
-offset_left = 58.470806
-offset_top = 41.888885
-offset_right = 58.470806
-offset_bottom = 41.888885
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="CompletionRewardControl" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = 11.949417
-offset_top = 57.380955
-offset_right = 51.949417
-offset_bottom = 97.38095
+[node name="PerWeekCostView" parent="PerWeekControl" instance=ExtResource("3_4jaii")]
+layout_mode = 2
 
-[node name="CompletionRewardControlLabel" type="Label" parent="Control/CompletionRewardControl"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 33.0
-offset_right = 143.0
-offset_bottom = 56.0
+[node name="CompletionRewardControl" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CompletionRewardControlLabel" type="Label" parent="CompletionRewardControl"]
+layout_mode = 2
 text = "Reward when Completed"
 label_settings = ExtResource("2_b5ulf")
 
-[node name="CompletionRewardControlView" parent="Control/CompletionRewardControl" instance=ExtResource("3_4jaii")]
-layout_mode = 0
-offset_left = 256.1712
-offset_top = 35.698414
-offset_right = 256.1712
-offset_bottom = 35.698414
+[node name="MarginContainer" type="MarginContainer" parent="CompletionRewardControl"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="WeeksLeftLabel" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 49.552536
-offset_top = 127.40477
-offset_right = 233.55254
-offset_bottom = 150.40477
+[node name="CompletionRewardControlView" parent="CompletionRewardControl" instance=ExtResource("3_4jaii")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="WeeksLeftLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
 text = "Weeks until Completion"
 label_settings = ExtResource("2_b5ulf")
 
-[node name="WeeksLeftValue" parent="Control" node_paths=PackedStringArray("label_component") instance=ExtResource("5_hroap")]
-layout_mode = 0
-offset_left = 310.4241
-offset_top = 131.5238
-offset_right = 350.4241
-offset_bottom = 154.5238
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WeeksLeftValue" parent="HBoxContainer" node_paths=PackedStringArray("label_component") instance=ExtResource("5_hroap")]
+layout_mode = 2
 text = "5"
 label_settings = ExtResource("2_b5ulf")
 label_component = NodePath("LabelComponent2")
 
-[node name="LabelComponent2" parent="Control/WeeksLeftValue" instance=ExtResource("6_jjgg8")]
+[node name="LabelComponent2" parent="HBoxContainer/WeeksLeftValue" instance=ExtResource("6_jjgg8")]
 prepend_string = ""
 positive_label_settings = ExtResource("2_b5ulf")
 use_plus_sign_in_label = false
 
-[node name="LabelForPercentage" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 51.90274
-offset_top = 160.35715
-offset_right = 239.90274
-offset_bottom = 183.35715
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LabelForPercentage" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
 text = "Percent Chance of Event"
 label_settings = ExtResource("2_b5ulf")
 
-[node name="PercentageLabel" parent="Control" instance=ExtResource("5_v03va")]
-layout_mode = 0
-offset_left = 298.67316
-offset_top = 161.73015
-offset_right = 338.67316
-offset_bottom = 184.73015
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PercentageLabel" parent="HBoxContainer2" instance=ExtResource("5_v03va")]
+layout_mode = 2
