@@ -16,6 +16,7 @@ func _ready() -> void:
 
 func remove_offer_view(acceptedOfferType: Variant) -> void:
 	if offers.all(is_offer_accepted):
+		SignalBus.offers_all_closed.emit()
 		close_all_offers()
 
 func is_offer_accepted(offer: Offer) -> bool:
@@ -35,18 +36,21 @@ func _on_new_offers_offers_button_press_done() -> void:
 func _on_new_offer_offer_anim_done() -> void:
 	curr_offer_index += 1
 	
+	potential_income_streams = PotentialIncomeStreamManager.get_potential_income_streams()
 	# we've animated all our offers
 	if curr_offer_index >= len(potential_income_streams):
 		
+		# reset this value
+		curr_offer_index = 0
 		# put the offers back on the table
 		if is_closing_offers:
 			visible = false
 			SignalBus.offers_closed.emit()
+			is_closing_offers = false
 		
 		close_offers.visible = !is_closing_offers
-		is_closing_offers = false
 		return
-		
+			
 	if !is_closing_offers:
 		offers[curr_offer_index].show_income_offer(potential_income_streams[curr_offer_index])
 	else:

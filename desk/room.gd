@@ -4,7 +4,6 @@ class_name Room
 @onready var binder: Binder = $Binder
 @onready var week_label: Label = $WeekLabel
 @onready var close_offers: TextureButton = $CloseOffers
-@onready var new_offers_button: AnimatedSprite2D = $NewOffers
 
 func _ready() -> void:
 	set_week_label()

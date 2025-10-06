@@ -29,7 +29,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CloseOffers" parent="." instance=ExtResource("3_2vxl8")]
-visible = false
 layout_mode = 0
 offset_left = 43.0
 offset_top = 56.0

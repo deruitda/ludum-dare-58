@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://bmyba0ficifug"]
+[gd_scene load_steps=110 format=3 uid="uid://bmyba0ficifug"]
 
 [ext_resource type="Texture2D" uid="uid://cmc5tcany3xkq" path="res://assets/final/new-offers.png" id="1_c8u14"]
 [ext_resource type="Script" uid="uid://38s1gauuesuu" path="res://scenes/new_offers.gd" id="2_q7l02"]
@@ -7,6 +7,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7l02"]
 atlas = ExtResource("1_c8u14")
 region = Rect2(0, 0, 93, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm2nn"]
+atlas = ExtResource("1_c8u14")
+region = Rect2(0, 540, 93, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2nni"]
 atlas = ExtResource("1_c8u14")
@@ -427,6 +431,14 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm2nn")
+}],
+"loop": true,
+"name": &"disabled",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.75,
 "texture": SubResource("AtlasTexture_x2nni")
 }, {
@@ -763,9 +775,7 @@ points = PackedVector2Array(22.07762, -12.774673, 62.0276, 7.3958635, 32.590775,
 
 [node name="NewOffersButton" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_m6xuq")
-animation = &"give"
-frame = 33
-frame_progress = 1.0
+autoplay = "default"
 script = ExtResource("2_q7l02")
 
 [node name="Area2D" type="Area2D" parent="."]
