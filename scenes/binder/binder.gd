@@ -9,6 +9,8 @@ class_name Binder
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var x_button: TextureButton = $"X-Button"
 @onready var table_of_contents: VBoxContainer = $TableOfContents
+@onready var workers_button: TextureButton = $TableOfContents/Workers/WorkersButton
+@onready var income_streams_button: TextureButton = $TableOfContents/IncomeStreams/IncomeStreamsButton
 
 var active_view: Node
 
@@ -54,6 +56,8 @@ func change_page(new_view_node: Node, forward: bool = true):
 func open_binder():
 	reset_pages()
 	income_streams_page.refresh()
+	income_streams_button.disabled = true
+	workers_button.disabled = false
 	animated_sprite_2d.play("raise")
 	visible = true
 
@@ -109,12 +113,24 @@ func _on_x_button_pressed() -> void:
 
 
 func _on_workers_button_pressed() -> void:
+	if active_view == workers_page:
+		return
+	
+	income_streams_button.disabled = false
+	workers_button.disabled = true
+	
 	reset_pages()
 	workers_page.refresh()
 	change_page(workers_page)
 
 
 func _on_income_streams_button_pressed() -> void:
+	if active_view == income_streams_page:
+		return
+	
+	income_streams_button.disabled = true
+	workers_button.disabled = false
+	
 	reset_pages()
 	income_streams_page.refresh()
 	change_page(income_streams_page)

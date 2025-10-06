@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmyba0ficifug"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6xuq"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"give",
+"speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"highlight",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"take",
+"speed": 5.0
+}]
+
+[node name="NewOffers" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_m6xuq")
+animation = &"give"
