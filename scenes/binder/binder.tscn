@@ -1529,7 +1529,6 @@ script = ExtResource("1_pm15x")
 position = Vector2(198, 388.00003)
 scale = Vector2(6.197077, 7.7739863)
 sprite_frames = SubResource("SpriteFrames_bdmok")
-animation = &"raise"
 
 [node name="IncomeStreamsPage" parent="." instance=ExtResource("2_c8f22")]
 visible = false
@@ -1546,8 +1545,8 @@ offset_right = -2.0
 offset_bottom = -1.0
 
 [node name="WorkersPage" parent="." instance=ExtResource("6_jey3g")]
-visible = false
-position = Vector2(0, -2)
+position = Vector2(29, -1.9999981)
+scale = Vector2(4.451295, 4.6512938)
 
 [node name="IndividualWorkerPage" parent="." instance=ExtResource("7_10clj")]
 visible = false

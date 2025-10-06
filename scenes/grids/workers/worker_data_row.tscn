@@ -1,74 +1,78 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt6ns88810b87"]
+[gd_scene load_steps=10 format=3 uid="uid://bt6ns88810b87"]
 
 [ext_resource type="Script" uid="uid://dttxj8qukvbsc" path="res://scenes/grids/workers/worker_data_row.gd" id="1_ifnqu"]
-[ext_resource type="Texture2D" uid="uid://btt5dlu1r12te" path="res://assets/proto/money-counter.png" id="2_2gqjb"]
+[ext_resource type="Texture2D" uid="uid://meqdivmr2t8u" path="res://assets/proto/soldier.png" id="2_83pko"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_rnyny"]
 [ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="4_26sid"]
+[ext_resource type="Texture2D" uid="uid://dw1tl7tuymdy7" path="res://assets/final/step-into.png" id="5_uof5n"]
+[ext_resource type="Texture2D" uid="uid://pqovl4gfwbug" path="res://assets/final/step-into-pressed.png" id="6_83pko"]
+[ext_resource type="Texture2D" uid="uid://dj7k3veq6gkul" path="res://assets/final/step-into-hover.png" id="7_83pko"]
 
-[sub_resource type="Gradient" id="Gradient_cabeh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlx04"]
+bg_color = Color(0.8235294, 0.87058824, 0.76862746, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0n6gc"]
-gradient = SubResource("Gradient_cabeh")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0n3l"]
+bg_color = Color(0.3758189, 0.67945707, 0.44915903, 1)
 
-[sub_resource type="Gradient" id="Gradient_5iqje"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8pqwb"]
-gradient = SubResource("Gradient_5iqje")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0.0066006603, 0)
-
-[node name="WorkerDataRow" type="HBoxContainer"]
+[node name="WorkerDataRow" type="Control"]
+custom_minimum_size = Vector2(400, 64)
+layout_mode = 3
+anchors_preset = 0
 offset_top = -2.0
-offset_right = 349.0
-offset_bottom = 62.0
-scale = Vector2(0.72, 1)
+offset_right = 511.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_ifnqu")
 
-[node name="ImageTextureRect" type="TextureRect" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 472.0
+offset_bottom = 66.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mlx04")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x0n3l")
+show_percentage = false
+
+[node name="WorkerDataRowHBox" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 655.55554
+offset_bottom = 66.0
+scale = Vector2(0.72, 1)
+
+[node name="ImageTextureRect" type="TextureRect" parent="WorkerDataRowHBox"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 size_flags_vertical = 4
-texture = ExtResource("2_2gqjb")
+texture = ExtResource("2_83pko")
 expand_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="NameLabel" type="Label" parent="."]
+[node name="NameLabel" type="Label" parent="WorkerDataRowHBox"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_horizontal = 6
 text = "Tony Baloney"
 label_settings = ExtResource("3_rnyny")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(10, 0)
+[node name="CapacityLabel" type="Label" parent="WorkerDataRowHBox"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CapacityLabel" type="Label" parent="."]
-layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 text = "0/1"
 label_settings = ExtResource("4_26sid")
 horizontal_alignment = 1
 
-[node name="MarginContainer3" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(10, 0)
+[node name="DetailsButton" type="TextureButton" parent="WorkerDataRowHBox"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="DetailsButton" type="TextureButton" parent="."]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = SubResource("GradientTexture2D_0n6gc")
-texture_pressed = SubResource("GradientTexture2D_8pqwb")
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("5_uof5n")
+texture_pressed = ExtResource("6_83pko")
+texture_hover = ExtResource("7_83pko")
 stretch_mode = 0
 
-[connection signal="button_up" from="DetailsButton" to="." method="_on_details_button_button_up"]
+[connection signal="button_up" from="WorkerDataRowHBox/DetailsButton" to="." method="_on_details_button_button_up"]
