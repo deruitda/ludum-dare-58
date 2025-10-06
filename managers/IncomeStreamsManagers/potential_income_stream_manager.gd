@@ -59,3 +59,7 @@ func accept_income_stream_by_index(index: int) -> IncomeStream:
 	remove_child(income_stream)
 	income_stream_accepted.emit(income_stream)
 	return income_stream
+
+func accept_income_stream(incomeStream: IncomeStream) -> void:
+	remove_child(incomeStream)
+	income_stream_accepted.emit(incomeStream)

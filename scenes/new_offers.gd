@@ -1,10 +1,12 @@
 extends AnimatedSprite2D
 
-signal offers_button_press_done()
 @onready var area_2d: Area2D = $Area2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var isPlaying: bool = false
+
+func _ready() -> void:
+	SignalBus.offers_closed.connect(place_offers)
 
 func place_offers() -> void:
 	if !isPlaying:
@@ -30,7 +32,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 
 func _on_animation_finished() -> void:
 	if animation == "me_take":
-		offers_button_press_done.emit()
+		SignalBus.offers_button_press_done.emit()
 		
 	if animation == "me_give":
 		area_2d.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=11 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
@@ -9,12 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bmyba0ficifug" path="res://scenes/new_offers.tscn" id="9_bil3o"]
 [ext_resource type="PackedScene" uid="uid://b4uimt1clhey4" path="res://scenes/ceiling-fan.tscn" id="9_x1u2a"]
 [ext_resource type="PackedScene" uid="uid://d0asi7pvmfh83" path="res://desk/buttons/binder_button.tscn" id="10_bil3o"]
-[ext_resource type="PackedScene" uid="uid://nu1tyw2jv5yg" path="res://scenes/new_offers_overview.tscn" id="10_jo3hx"]
-[ext_resource type="PackedScene" uid="uid://clh5sbrnsfl16" path="res://scenes/x-button.tscn" id="11_jo3hx"]
+[ext_resource type="PackedScene" uid="uid://ba57vblxhkv4w" path="res://desk/NewOffersGridView.tscn" id="11_26u5u"]
 
 [node name="Room" type="Node2D" node_paths=PackedStringArray("offers")]
 script = ExtResource("1_bs3hi")
-offers = [NodePath("NewOffersViews/PanelContainer/NewOffer"), NodePath("NewOffersViews/PanelContainer2/NewOffer"), NodePath("NewOffersViews/PanelContainer3/NewOffer")]
+offers = [null, null, null]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(581, 322)
@@ -43,6 +42,10 @@ offset_right = 1130.0
 offset_bottom = 625.0
 text = "Next Week"
 
+[node name="NewOffers" parent="." instance=ExtResource("9_bil3o")]
+position = Vector2(568, 344)
+scale = Vector2(5.7535934, 5.7535934)
+
 [node name="WeekLabel" type="Label" parent="."]
 offset_left = 18.0
 offset_top = 6.0
@@ -61,51 +64,8 @@ position = Vector2(190, 157)
 position = Vector2(1006, 138)
 scale = Vector2(0.55738956, 0.5596341)
 
-[node name="NewOffers" parent="." instance=ExtResource("9_bil3o")]
-position = Vector2(568, 344)
-scale = Vector2(5.7535934, 5.7535934)
-
-[node name="CloseOffers" parent="." instance=ExtResource("11_jo3hx")]
+[node name="NewOffersViews" parent="." instance=ExtResource("11_26u5u")]
 visible = false
-offset_left = 53.0
-offset_top = 39.0
-offset_right = 117.0
-offset_bottom = 103.0
-
-[node name="NewOffersViews" type="HBoxContainer" parent="."]
-visible = false
-offset_top = 180.0
-offset_right = 1156.0
-offset_bottom = 646.0
-
-[node name="PanelContainer" type="Control" parent="NewOffersViews"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="NewOffer" parent="NewOffersViews/PanelContainer" instance=ExtResource("10_jo3hx")]
-position = Vector2(222, 243)
-animation = &"empty"
-
-[node name="PanelContainer2" type="Control" parent="NewOffersViews"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="NewOffer" parent="NewOffersViews/PanelContainer2" instance=ExtResource("10_jo3hx")]
-position = Vector2(222, 243)
-animation = &"empty"
-
-[node name="PanelContainer3" type="Control" parent="NewOffersViews"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="NewOffer" parent="NewOffersViews/PanelContainer3" instance=ExtResource("10_jo3hx")]
-position = Vector2(222, 243)
-animation = &"empty"
 
 [connection signal="button_pressed" from="Background/BinderButton" to="." method="_on_binder_button_button_pressed"]
 [connection signal="button_up" from="ProgressButton" to="." method="_on_progress_button_click"]
-[connection signal="offers_button_press_done" from="NewOffers" to="." method="_on_new_offers_offers_button_press_done"]
-[connection signal="pressed" from="CloseOffers" to="." method="_on_close_offers_pressed"]
-[connection signal="offer_anim_done" from="NewOffersViews/PanelContainer/NewOffer" to="." method="_on_new_offer_offer_anim_done"]
-[connection signal="offer_anim_done" from="NewOffersViews/PanelContainer2/NewOffer" to="." method="_on_new_offer_offer_anim_done"]
-[connection signal="offer_anim_done" from="NewOffersViews/PanelContainer3/NewOffer" to="." method="_on_new_offer_offer_anim_done"]

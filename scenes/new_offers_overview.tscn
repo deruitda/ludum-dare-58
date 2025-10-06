@@ -1,9 +1,13 @@
-[gd_scene load_steps=48 format=3 uid="uid://nu1tyw2jv5yg"]
+[gd_scene load_steps=52 format=3 uid="uid://nu1tyw2jv5yg"]
 
 [ext_resource type="Texture2D" uid="uid://dsp2iubqbrmub" path="res://assets/final/paper.png" id="1_vrjig"]
 [ext_resource type="Script" uid="uid://c6oxf5mwxdus" path="res://scenes/new_offers_overview.gd" id="2_iauyw"]
 [ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="3_sk82e"]
 [ext_resource type="PackedScene" uid="uid://cxh3bwtvp3el1" path="res://ui/worker_view.tscn" id="4_eeppm"]
+[ext_resource type="Texture2D" uid="uid://t16adebrr2qk" path="res://assets/final/binder-button.png" id="5_eeppm"]
+[ext_resource type="Texture2D" uid="uid://d4jm3m5g7ioux" path="res://assets/final/binder-button-selected.png" id="6_j0b1c"]
+[ext_resource type="Texture2D" uid="uid://butegaonl7dfb" path="res://assets/final/binder-button-highlighted.png" id="7_xktrq"]
+[ext_resource type="Texture2D" uid="uid://dhjtbycxyo2gb" path="res://assets/final/binder-button-selected-export.png" id="8_vjn4g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lnr7"]
 atlas = ExtResource("1_vrjig")
@@ -322,21 +326,92 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="NewOffer" type="AnimatedSprite2D"]
+[node name="Offer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 265.0
+offset_bottom = 454.0
+size_flags_horizontal = 3
+script = ExtResource("2_iauyw")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(132, 226)
 sprite_frames = SubResource("SpriteFrames_5d17c")
 animation = &"hide"
 autoplay = "empty"
-script = ExtResource("2_iauyw")
 
 [node name="IncomeStreamView" parent="." instance=ExtResource("3_sk82e")]
 visible = false
-position = Vector2(-123, -220)
+position = Vector2(19, 32)
 
 [node name="WorkerView" parent="." instance=ExtResource("4_eeppm")]
 visible = false
-offset_left = -112.0
-offset_top = -220.0
-offset_right = 128.0
-offset_bottom = -44.0
+layout_mode = 0
+offset_left = 22.0
+offset_top = 38.0
+offset_right = 262.0
+offset_bottom = 214.0
 
-[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[node name="AcceptIncomeStreamButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = 204.0
+offset_right = 192.0
+offset_bottom = 268.0
+texture_normal = ExtResource("5_eeppm")
+texture_pressed = ExtResource("6_j0b1c")
+texture_hover = ExtResource("7_xktrq")
+texture_disabled = ExtResource("8_vjn4g")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="AcceptIncomeStreamButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -11.5
+offset_right = 48.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Accept Offer"
+horizontal_alignment = 1
+
+[node name="HireWorkerButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = 205.0
+offset_right = 192.0
+offset_bottom = 269.0
+texture_normal = ExtResource("5_eeppm")
+texture_pressed = ExtResource("6_j0b1c")
+texture_hover = ExtResource("7_xktrq")
+texture_disabled = ExtResource("8_vjn4g")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HireWorkerButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -11.5
+offset_right = 48.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hire"
+horizontal_alignment = 1
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_finished"]
+[connection signal="pressed" from="AcceptIncomeStreamButton" to="." method="_on_accept_income_stream_button_pressed"]
+[connection signal="pressed" from="HireWorkerButton" to="." method="_on_hire_worker_button_pressed"]

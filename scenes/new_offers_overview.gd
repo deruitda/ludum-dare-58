@@ -1,42 +1,66 @@
-extends AnimatedSprite2D
+extends Control
 
 class_name Offer
 @onready var worker_view: WorkerView = $WorkerView
 @onready var income_stream_view: IncomeStreamView = $IncomeStreamView
-
+@onready var accept_income_stream_button: TextureButton = $AcceptIncomeStreamButton
+@onready var hire_worker_button: TextureButton = $HireWorkerButton
+@onready var animation: AnimatedSprite2D = $Animation
+var income_stream: IncomeStream
+var worker_data: Worker
 var isWorker : bool = false
-
-signal offer_anim_done()
 
 func show_worker_offer(worker: Worker) -> void:
 	isWorker = true
-	worker_view.set_worker(worker)
+	worker_data = worker
+	
 	show_offer()
 	pass
 	
 func show_income_offer(incomeStream: IncomeStream) -> void:
 	isWorker = false
-	income_stream_view.set_income_stream(incomeStream)
+	
+	income_stream = incomeStream
 	show_offer()
 	pass	
 
 func show_offer() -> void:
-	play("show")
+	if !isWorker:
+		income_stream_view.set_income_stream(income_stream)
+	else: 
+		worker_view.set_worker(worker_data)
+		
+	animation.play("show")
 	
 func hide_offer() -> void:
 	income_stream_view.visible = false
 	worker_view.visible = false
-	play("hide")
+	accept_income_stream_button.visible = false
+	hire_worker_button.visible = false
+	animation.play("hide")
 	
 
 func _on_animation_finished() -> void:
-	offer_anim_done.emit()
-	if animation == "show":
+	SignalBus.offer_anim_done.emit()
+	if animation.animation == "show":
 		if isWorker:
+			accept_income_stream_button.visible = false
+			hire_worker_button.visible = true
 			income_stream_view.visible = false
 			worker_view.visible = true
 
 		if !isWorker:
+			accept_income_stream_button.visible = true
+			hire_worker_button.visible = false
 			income_stream_view.visible = true
 			worker_view.visible = false
 			
+
+
+func _on_accept_income_stream_button_pressed() -> void:
+	PotentialIncomeStreamManager.accept_income_stream(income_stream)
+	SignalBus.offer_accepted.emit(income_stream)
+
+func _on_hire_worker_button_pressed() -> void:
+	WorkerManager.hire_worker(worker_data)
+	SignalBus.offer_accepted.emit(worker_data)
