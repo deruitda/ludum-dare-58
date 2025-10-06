@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=88 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
@@ -12,9 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://jx2vulg5n542" path="res://desk/potential_income_stream_binder.tscn" id="8_tfbhj"]
 [ext_resource type="PackedScene" uid="uid://bmyba0ficifug" path="res://scenes/new_offers.tscn" id="9_bil3o"]
 [ext_resource type="PackedScene" uid="uid://b4uimt1clhey4" path="res://scenes/ceiling-fan.tscn" id="9_x1u2a"]
+[ext_resource type="AudioStream" uid="uid://faudk8pcwjb1" path="res://assets/final/audio/Shot.wav" id="10_21ogv"]
 [ext_resource type="PackedScene" uid="uid://d0asi7pvmfh83" path="res://desk/buttons/binder_button.tscn" id="10_bil3o"]
 [ext_resource type="PackedScene" uid="uid://dij2u6c3o584a" path="res://desk/NewOffersGridView_Simple.tscn" id="10_jo3hx"]
 [ext_resource type="PackedScene" uid="uid://cfoxhpbvyepx5" path="res://calendar.tscn" id="11_jo3hx"]
+[ext_resource type="AudioStream" uid="uid://sbvcl1psx8mv" path="res://assets/final/audio/9b54d12f-2fe1-4cd3-818b-8bae585ff229.mp3" id="17_70f46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jo3hx"]
 atlas = ExtResource("2_bnidx")
@@ -523,6 +525,7 @@ position = Vector2(588, 320)
 position = Vector2(584, -1.0000076)
 scale = Vector2(1.7875, 1.7972223)
 sprite_frames = SubResource("SpriteFrames_26u5u")
+animation = &"game_over"
 autoplay = "default"
 
 [node name="BinderButton" parent="Background" instance=ExtResource("10_bil3o")]
@@ -532,10 +535,16 @@ scale = Vector2(3.4174724, 3.398985)
 [node name="MoneyCounter" parent="Background" instance=ExtResource("4_4is0s")]
 position = Vector2(177.9021, 211.43741)
 scale = Vector2(1.0517483, 1.1620363)
+frame_progress = 0.0
 
 [node name="CeilingFan" parent="Background" instance=ExtResource("9_x1u2a")]
 position = Vector2(4.475525, -291.0046)
 scale = Vector2(3.9160812, 3.8948967)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Background"]
+stream = ExtResource("10_21ogv")
+volume_db = 17.495
+pitch_scale = 1.56
 
 [node name="NewOffers" parent="." instance=ExtResource("9_bil3o")]
 position = Vector2(265, 361)
@@ -573,5 +582,12 @@ offset_top = -647.0
 offset_right = 1161.0
 offset_bottom = 645.0
 
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_70f46")
+volume_db = 7.128
+
+[connection signal="animation_finished" from="Background" to="." method="_on_background_animation_finished"]
+[connection signal="frame_changed" from="Background" to="." method="_on_background_frame_changed"]
 [connection signal="button_pressed" from="Background/BinderButton" to="." method="_on_binder_button_button_pressed"]
 [connection signal="animation_finished" from="Background/MoneyCounter" to="." method="_on_money_counter_animation_finished"]
+[connection signal="frame_changed" from="Background/MoneyCounter" to="." method="_on_money_counter_frame_changed"]

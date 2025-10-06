@@ -8,6 +8,11 @@ class_name Room
 @export var disable_things: Control
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var background: AnimatedSprite2D = $Background
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Background/AudioStreamPlayer2D
+@onready var music: AudioStreamPlayer2D = $Music
+
+const LUDUM_DARE_58_DEATH_MUSIC_ANA = preload("uid://7jd2st33r02j")
+
 
 var pan_speed = 3
 var pan_up = false
@@ -21,6 +26,7 @@ func _ready() -> void:
 	SignalBus.game_over.connect(begin_game_over)
 	SignalBus.week_changed.connect(trigger_week_change)
 	set_week_label()
+	begin_game_over()
 
 func _process(delta: float) -> void:
 	
@@ -50,6 +56,7 @@ func _process(delta: float) -> void:
 			camera_2d.position.y = camera_y_min
 
 func begin_game_over() -> void:
+	music.stop()
 	disable_things.visible = true
 	is_game_over = true
 	begin_pan_up()
@@ -82,3 +89,17 @@ func end_week_change() -> void:
 func _on_money_counter_animation_finished() -> void:
 	if money_counter.animation == "count":
 		end_week_change()
+
+
+func _on_background_frame_changed() -> void:
+	if background.animation != "game_over":
+		return
+		
+	if background.frame == 32:
+		audio_stream_player_2d.play(0)
+
+
+func _on_background_animation_finished() -> void:
+	if background.animation == "game_over":
+		music.stream = LUDUM_DARE_58_DEATH_MUSIC_ANA
+		music.play()

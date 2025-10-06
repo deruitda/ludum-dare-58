@@ -788,6 +788,13 @@ shape = SubResource("ConvexPolygonShape2D_c8u14")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_x2nni")
 
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = 11.0
+offset_right = 22.0
+offset_bottom = 34.0
+tooltip_text = "Clicking this will open your new offers for the week"
+
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

@@ -388,6 +388,7 @@ offset_top = -17.0
 offset_right = 29.0
 offset_bottom = 26.0
 scale = Vector2(1, 0.9599994)
+tooltip_text = "Clicking will open a binder to manage workers and income streams"
 focus_mode = 0
 flat = true
 
