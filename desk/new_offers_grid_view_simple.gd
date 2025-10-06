@@ -34,7 +34,7 @@ func show_offer_view() -> void:
 	var index = 0
 	for potential_income in potential_income_offers:
 		# hardcoding this so we can have max two potential incomes
-		if index > 1:
+		if index > 1 || index >= len(potential_income_offers):
 			break
 		offers[index].show_income_offer(potential_income)
 		index += 1
@@ -44,7 +44,7 @@ func show_offer_view() -> void:
 	index = 2
 	for potential_worker in potential_workers:
 		# hardcoding this so we can have max two potential incomes
-		if index > 3:
+		if index > 3 || index - 2 >= len(potential_workers):
 			break
 		offers[index].show_worker_offer(potential_worker)
 		index += 1

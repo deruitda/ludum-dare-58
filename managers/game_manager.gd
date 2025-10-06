@@ -2,8 +2,8 @@ extends Node
 
 signal worker_fired
 
-@export var number_of_potential_income_streams_per_week: int = 3
-@export var number_of_candidates_per_week: int = 3
+@export var number_of_potential_income_streams_per_week: int = 2
+@export var number_of_candidates_per_week: int = 2
 
 @export var running_report: RunningReport
 @onready var running_reports: Node

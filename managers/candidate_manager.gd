@@ -43,3 +43,7 @@ func hire_worker_by_index(index: int) -> void:
 	var worker = hierable_workers.pop_at(index)
 	remove_child(worker)
 	worker_hired.emit(worker)
+	
+func hire_worker(worker: Worker) -> void:
+	remove_child(worker)
+	worker_hired.emit(worker)

@@ -9,15 +9,17 @@ var isDisabled: bool = false
 func _ready() -> void:
 	SignalBus.offers_closed.connect(place_offers)
 	SignalBus.offers_all_closed.connect(disable_button)
-	SignalBus.offers_reset.connect(reset_button)
+	SignalBus.week_changed.connect(reset_button)
 
 func reset_button() -> void:
 	isDisabled = false
-
+	area_2d.visible = true
+	play("default")
 func disable_button() -> void:
 	isDisabled = true
 
 func place_offers() -> void:
+	
 	if !isPlaying:
 		audio_stream_player_2d.play(0)
 		play("me_give")
