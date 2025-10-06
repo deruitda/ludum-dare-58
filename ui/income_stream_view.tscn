@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://euex01opw2ii"]
+[gd_scene load_steps=10 format=3 uid="uid://euex01opw2ii"]
 
 [ext_resource type="Script" uid="uid://vcgoa0uv7lvn" path="res://ui/income_stream_view.gd" id="1_mdr4a"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_b5ulf"]
 [ext_resource type="PackedScene" uid="uid://c77i2c6uu0f33" path="res://ui/cost_view.tscn" id="3_4jaii"]
 [ext_resource type="LabelSettings" uid="uid://0ejlgbcqp8ns" path="res://desk/Resumes/description_label.tres" id="3_7nf1l"]
+[ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="5_3m4f5"]
 [ext_resource type="PackedScene" uid="uid://de7xv2m41lp1m" path="res://ui/stat_label.tscn" id="5_hroap"]
 [ext_resource type="PackedScene" uid="uid://b52bu006uvuoy" path="res://ui/percentage_label.tscn" id="5_v03va"]
 [ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="6_jjgg8"]
+[ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="7_ov1ok"]
 
 [node name="IncomeStreamView" type="VBoxContainer"]
 offset_right = 244.0
@@ -40,8 +42,45 @@ label_settings = ExtResource("2_b5ulf")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PerWeekCostView" parent="PerWeekControl" instance=ExtResource("3_4jaii")]
+[node name="MoneyPerWeekValue" parent="PerWeekControl" node_paths=PackedStringArray("label_component") instance=ExtResource("5_hroap")]
 layout_mode = 2
+tooltip_text = "Money"
+mouse_filter = 0
+text = "$+10"
+label_settings = ExtResource("5_3m4f5")
+label_component = NodePath("MoneyLabelComponent")
+use_tooltip = true
+tooltip_suffix = "Dollars"
+
+[node name="MoneyLabelComponent" parent="PerWeekControl/MoneyPerWeekValue" instance=ExtResource("6_jjgg8")]
+positive_label_settings = ExtResource("5_3m4f5")
+
+[node name="PerWeekControl2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl2"]
+layout_mode = 2
+text = "Respect Per Week"
+label_settings = ExtResource("2_b5ulf")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RespectLabel" parent="PerWeekControl2" node_paths=PackedStringArray("label_component") instance=ExtResource("5_hroap")]
+layout_mode = 2
+tooltip_text = "Respect"
+mouse_filter = 0
+text = "+5"
+label_settings = ExtResource("7_ov1ok")
+label_component = NodePath("RespectLabelComponent")
+use_tooltip = true
+tooltip_suffix = "Respect"
+
+[node name="RespectLabelComponent" parent="PerWeekControl2/RespectLabel" instance=ExtResource("6_jjgg8")]
+prepend_string = ""
+positive_label_settings = ExtResource("7_ov1ok")
 
 [node name="CompletionRewardControl" type="HBoxContainer" parent="."]
 layout_mode = 2
