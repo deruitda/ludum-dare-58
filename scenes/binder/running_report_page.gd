@@ -3,6 +3,7 @@ class_name RunningReportPage
 
 
 @export var income_overview_grid: IncomeOverviewGrid
+@onready var label: Label = $Label
 
 @export var report_overview: ReportOverview
 
