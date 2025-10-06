@@ -1,6 +1,7 @@
 extends Control
 
 @export var offers : Array[OfferSimple]
+@onready var close_offers: TextureButton = $CloseOffers
 
 func _ready() -> void:
 	SignalBus.offer_accepted.connect(offer_accepted)
@@ -21,6 +22,7 @@ func is_offer_accepted(offer: Offer) -> bool:
 	
 func close_offer_view() -> void:
 	visible = false
+	close_offers.disabled = true
 	SignalBus.offers_closed.emit()
 	
 func _on_close_offers_pressed() -> void:
@@ -28,7 +30,7 @@ func _on_close_offers_pressed() -> void:
 
 func show_offer_view() -> void:
 	visible = true
-	
+	close_offers.disabled = false
 	var potential_income_offers = PotentialIncomeStreamManager.get_potential_income_streams()
 	
 	var index = 0

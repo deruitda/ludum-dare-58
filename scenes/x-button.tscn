@@ -8,6 +8,7 @@
 [node name="X-Button" type="TextureButton"]
 offset_right = 64.0
 offset_bottom = 64.0
+disabled = true
 texture_normal = ExtResource("1_cykar")
 texture_pressed = ExtResource("2_dsgsp")
 texture_hover = ExtResource("3_dsgsp")

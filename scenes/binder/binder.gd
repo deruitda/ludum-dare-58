@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func close_book() -> void:
 	x_button.visible = false
+	x_button.disabled = true
 	income_streams_page.visible = false
 	individual_income_stream_page.visible = false
 	workers_page.visible = false
@@ -102,10 +103,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		active_view = income_streams_page
 		active_view.visible = true
 		x_button.visible = true
+		x_button.disabled = false
 		table_of_contents.visible = true
 		
 	if animated_sprite_2d.animation == "lower":
 		visible = false
+		SignalBus.binder_lowered.emit()
 		
 	if animated_sprite_2d.animation == "flip_page" || animated_sprite_2d.animation == "flip_back":
 		active_view.visible = true
