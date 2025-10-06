@@ -9,6 +9,7 @@ class_name Offer
 var income_stream: IncomeStream
 var worker_data: Worker
 var isWorker : bool = false
+var isAccepted: bool = false
 
 func show_worker_offer(worker: Worker) -> void:
 	isWorker = true
@@ -33,6 +34,12 @@ func show_offer() -> void:
 	animation.play("show")
 	
 func hide_offer() -> void:
+	
+	# shit hack to re-trigger animation complete event for the caller
+	if animation.animation == "empty" && isAccepted:
+		SignalBus.offer_anim_done.emit()
+		return
+	
 	income_stream_view.visible = false
 	worker_view.visible = false
 	accept_income_stream_button.visible = false
@@ -55,12 +62,18 @@ func _on_animation_finished() -> void:
 			income_stream_view.visible = true
 			worker_view.visible = false
 			
+	if animation.animation == "hide":
+		animation.play("empty")
 
 
 func _on_accept_income_stream_button_pressed() -> void:
 	PotentialIncomeStreamManager.accept_income_stream(income_stream)
 	SignalBus.offer_accepted.emit(income_stream)
+	isAccepted = true
+	hide_offer()
 
 func _on_hire_worker_button_pressed() -> void:
 	WorkerManager.hire_worker(worker_data)
 	SignalBus.offer_accepted.emit(worker_data)
+	isAccepted = true
+	hide_offer()

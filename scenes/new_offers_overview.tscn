@@ -337,8 +337,7 @@ script = ExtResource("2_iauyw")
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(132, 226)
 sprite_frames = SubResource("SpriteFrames_5d17c")
-animation = &"hide"
-autoplay = "empty"
+animation = &"empty"
 
 [node name="IncomeStreamView" parent="." instance=ExtResource("3_sk82e")]
 visible = false
