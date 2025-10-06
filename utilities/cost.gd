@@ -1,8 +1,14 @@
 extends Node
 class_name Cost
 
-@onready var cost: int = 0
-@onready var respect: int = 0
+@export var cost: int
+@export var respect: int
+
+func _ready() -> void: 
+	if cost == null:
+		cost = 0
+	if respect == null:
+		respect = 0
 
 func set_cost(new_cost: int) -> void:
 	cost = new_cost

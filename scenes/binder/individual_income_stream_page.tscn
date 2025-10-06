@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://og67qjuev08k"]
+[gd_scene load_steps=7 format=3 uid="uid://og67qjuev08k"]
 
 [ext_resource type="Script" uid="uid://d22do6aaw1qih" path="res://scenes/binder/individual_income_stream_page.gd" id="1_vns1v"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_vns1v"]
 [ext_resource type="PackedScene" uid="uid://b5kfuahvbhjn1" path="res://ui/capacity_row.tscn" id="4_vns1v"]
 [ext_resource type="PackedScene" uid="uid://bwey7fsjlbv0i" path="res://scenes/binder/idle_event_view.tscn" id="5_dcgje"]
 [ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="6_1om3t"]
+[ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="6_midxx"]
 
 [node name="IndividualIncomeStreamPage" type="Control" node_paths=PackedStringArray("capacity_row")]
 layout_mode = 3
@@ -15,8 +16,8 @@ capacity_row = NodePath("VBoxContainer/CapacityRow")
 
 [node name="VBoxContainer" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 0.21499395
-offset_right = 139.53831
+offset_left = 0.4294948
+offset_right = 139.7528
 offset_bottom = 129.37003
 scale = Vector2(0.9433105, 1.0702332)
 
@@ -31,29 +32,6 @@ theme_override_font_sizes/font_size = 6
 text = "Debt Collection"
 label_settings = ExtResource("2_vns1v")
 vertical_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 26.0
-offset_right = 93.0
-offset_bottom = 32.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="WeeklyIncomeLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 5
-text = "Weekly Income:"
-
-[node name="WeeklyIncomeValueLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 5
-text = "$100"
 
 [node name="CapacityRow" parent="VBoxContainer" instance=ExtResource("4_vns1v")]
 custom_minimum_size = Vector2(50, 50)
@@ -99,6 +77,10 @@ offset_bottom = 101.74697
 scale = Vector2(0.35882306, 0.42798993)
 text = "This has been resolved!"
 label_settings = ExtResource("2_vns1v")
+
+[node name="IncomeStreamView" parent="VBoxContainer" instance=ExtResource("6_midxx")]
+position = Vector2(8.195501, 22.900906)
+scale = Vector2(0.108816534, 0.18626152)
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
