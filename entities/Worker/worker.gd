@@ -54,3 +54,9 @@ func is_eligable_for_promotion() -> bool:
 
 func do_promotion() -> void:
 	number_of_raises = number_of_raises + 1
+	
+func get_forecasted_cost() -> Cost:
+	var return_cost = Cost.new()
+	return_cost.set_cost(-1 * cost_per_week)
+	return_cost.set_respect(get_current_weekly_respect_amount())
+	return return_cost

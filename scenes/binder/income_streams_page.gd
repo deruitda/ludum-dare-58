@@ -24,8 +24,8 @@ func _on_worker_hired(worker: Worker):
 
 func set_labels() -> void:
 	total_money_label.set_value(GameState.total_money)
-	forcasted_income_amount_label.set_value(GameState.get_forecasted_income())
-	forcasted_expenses_amount_label.set_value(GameState.get_forecasted_expenses() * -1)
+	forcasted_income_amount_label.set_value(GameManager.get_forecasted_income().cost)
+	forcasted_expenses_amount_label.set_value(GameManager.get_forecasted_expenses().cost)
 func set_income_streams(income_streams: Array[IncomeStream]) -> void:
 	refresh()
 	for income_stream in income_streams:

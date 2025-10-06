@@ -20,16 +20,23 @@ func remove_worker(worker: Worker) -> void:
 func get_number_of_workers() -> int:
 	return get_child_count()
 
-func get_forecasted_expenses() -> int:
-	var forecasted_expenses: int = 0
+func get_forecasted_expenses() -> Cost:
+	var return_cost = Cost.new()
 	for worker in WorkerManager.get_workers():
-		forecasted_expenses = forecasted_expenses + worker.get_cost_per_week()
+		return_cost.add_to_cost(worker.get_forecasted_cost().get_only_negative_cost())
 	
-	return forecasted_expenses
+	return return_cost
 
-func get_forecasted_respect() -> int:
-	var forecasted_respect: int = 0
+func get_forecasted_cost() -> Cost:
+	var return_cost = Cost.new()
 	for worker in WorkerManager.get_workers():
-		forecasted_respect = forecasted_respect + worker.get_current_weekly_respect_amount()
+		return_cost.add_to_cost(worker.get_forecasted_cost())
 	
-	return forecasted_respect
+	return return_cost
+
+func get_forecasted_income() -> Cost:
+	var return_cost = Cost.new()
+	for worker in WorkerManager.get_workers():
+		return_cost.add_to_cost(worker.get_forecasted_cost().get_only_positive_cost())
+	
+	return return_cost

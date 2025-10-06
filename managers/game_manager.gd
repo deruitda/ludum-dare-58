@@ -63,3 +63,24 @@ func progress_to_next_week():
 	SignalBus.week_changed.emit()
 	SignalBus.on_week_report_publish.emit(running_report)
 	running_report.refresh()
+	
+
+func get_forecasted_cost() -> Cost:
+	var return_cost = Cost.new()
+	return_cost.add_to_cost(WorkerManager.get_forecasted_cost())
+	return_cost.add_to_cost(IncomeStreamManager.get_forecasted_cost())
+	return return_cost
+
+func get_forecasted_expenses() -> Cost:
+	var return_cost = Cost.new()
+	return_cost.add_to_cost(WorkerManager.get_forecasted_expenses())
+	return_cost.add_to_cost(IncomeStreamManager.get_forecasted_expense())
+	
+	return return_cost
+	
+func get_forecasted_income() -> Cost:
+	var return_cost = Cost.new()
+	return_cost.add_to_cost(WorkerManager.get_forecasted_income())
+	return_cost.add_to_cost(IncomeStreamManager.get_forecasted_income())
+	
+	return return_cost

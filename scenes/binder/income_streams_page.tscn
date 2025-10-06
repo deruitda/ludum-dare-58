@@ -33,10 +33,10 @@ label_settings = ExtResource("2_b1eng")
 
 [node name="TotalMoneyLabel" parent="Control" node_paths=PackedStringArray("label_component") instance=ExtResource("5_vmer1")]
 layout_mode = 0
-offset_left = 54.178486
-offset_top = 6.9720063
-offset_right = 94.17848
-offset_bottom = 29.972006
+offset_left = 55.25345
+offset_top = 6.7541313
+offset_right = 95.25345
+offset_bottom = 29.754131
 scale = Vector2(0.35288483, 0.35288483)
 label_component = NodePath("../MoneyLabelComponent")
 
@@ -53,10 +53,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ForcastedIncomeAmountLabel" parent="Control" node_paths=PackedStringArray("label_component") instance=ExtResource("5_vmer1")]
 layout_mode = 0
-offset_left = 54.178474
-offset_top = 14.379765
-offset_right = 94.178474
-offset_bottom = 37.379765
+offset_left = 56.32841
+offset_top = 14.379763
+offset_right = 96.328415
+offset_bottom = 37.37976
 scale = Vector2(0.35288483, 0.35288483)
 label_component = NodePath("../MoneyLabelComponent")
 

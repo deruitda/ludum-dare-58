@@ -81,4 +81,29 @@ func attempt_to_resolve_idle_event() -> void:
 func remove_all_workers() -> void:
 	CapacityManager.remove_capacities_by_income_stream(self)
 	
+func is_on_last_week() -> bool:
+	return active_weeks_transpired == duration_in_weeks - 1
+
+func get_forecasted_cost() -> Cost:
+	var return_cost = Cost.new()
+	if is_idle() == false:
+		return_cost.add_to_cost(weekly_return_cost)
+		if is_on_last_week():
+			return_cost.add_to_cost(completed_return_cost)
+	return return_cost
 	
+func get_forecasted_income_cost() -> Cost:
+	var return_cost = Cost.new()
+	if is_idle() == false:
+		return_cost.add_to_cost(weekly_return_cost.get_only_positive_cost())
+		if is_on_last_week():
+			return_cost.add_to_cost(completed_return_cost.get_only_positive_cost())
+	return return_cost
+
+func get_forecasted_expense_cost() -> Cost:
+	var return_cost = Cost.new()
+	if is_idle() == false:
+		return_cost.add_to_cost(weekly_return_cost.get_only_negative_cost())
+		if is_on_last_week():
+			return_cost.add_to_cost(completed_return_cost.get_only_negative_cost())
+	return return_cost
