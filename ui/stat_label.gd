@@ -1,7 +1,7 @@
 extends Label
 class_name StatLabel
 @export var label_component: LabelComponent
-
+\
 func set_value(value: int) -> void:
 	text = label_component.get_label_from_int(value)
 	if value > 0:

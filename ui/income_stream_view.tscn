@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b52bu006uvuoy" path="res://ui/percentage_label.tscn" id="5_v03va"]
 
 [node name="IncomeStreamView" type="Node2D"]
+scale = Vector2(0.4254967, 0.7283237)
 script = ExtResource("1_mdr4a")
 
 [node name="Control2" type="Control" parent="."]
