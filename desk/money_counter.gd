@@ -9,3 +9,13 @@ func _ready() -> void:
 	
 func on_money_changed() -> void:
 	money_label.text = "$" + str(GameState.total_money)
+
+
+func _on_animation_changed() -> void:
+	if animation == "count":
+		money_label.visible = false
+
+
+func _on_animation_finished() -> void:
+	if animation == "count":
+		money_label.visible = true

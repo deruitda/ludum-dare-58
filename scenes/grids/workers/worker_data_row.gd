@@ -1,10 +1,9 @@
-extends HBoxContainer
+extends Control
 class_name WorkerDataRow
 
-@onready var details_button: TextureButton = $DetailsButton
-
-@onready var name_label: Label = $NameLabel
-@onready var capacity_label: Label = $CapacityLabel
+@onready var details_button: TextureButton = $WorkerDataRowHBox/DetailsButton
+@onready var name_label: Label = $WorkerDataRowHBox/NameLabel
+@onready var capacity_label: Label = $WorkerDataRowHBox/CapacityLabel
 
 const DANGER_LABEL = preload("uid://di5o3x4joi7mt")
 const RESUME_LABEL = preload("uid://djkpwc0lasqli")

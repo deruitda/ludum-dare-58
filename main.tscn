@@ -1,11 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6vd1ct10le5s"]
 
 [ext_resource type="Script" uid="uid://vkhugeyoj47s" path="res://main.gd" id="1_3fcf7"]
-[ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bpa13iucdr4gj" path="res://desk/room.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3fcf7")
 
-[node name="Room" type="Node2D" parent="."]
-script = ExtResource("2_h2yge")
-metadata/_custom_type_script = "uid://d357h8upue4fy"
+[node name="Room" parent="." instance=ExtResource("2_0xm2m")]
