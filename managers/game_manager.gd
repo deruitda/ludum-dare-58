@@ -121,6 +121,6 @@ func get_forecasted_income() -> Cost:
 	return return_cost
 
 func get_needed_total_respect(current_month: int) -> int:
-	var base_respect = 5.0
+	var base_respect = 5
 	var growth_factor = 1.5
-	return int(base_respect * pow(growth_factor, current_month - 1))
+	return int(base_respect * pow(growth_factor, float(current_month)))

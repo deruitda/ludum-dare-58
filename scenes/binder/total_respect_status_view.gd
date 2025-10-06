@@ -18,9 +18,9 @@ func _ready() -> void:
 	SignalBus.money_changed.connect(refresh)
 	
 func refresh():
+	var current_month = GameManager.get_current_month()
 	current_month_value.set_value(GameManager.get_current_month())
-	
-	var respect_threshold = GameManager.get_needed_total_respect(use_current_month)
+	var respect_threshold = GameManager.get_needed_total_respect(current_month)
 	current_respect_label_component.neutral_threshold = respect_threshold
 	current_respect_value.set_value(GameState.total_respect)
 	
