@@ -1,5 +1,6 @@
 extends Node2D
 const ROOM = preload("uid://bpa13iucdr4gj")
+@onready var color_rect: ColorRect = $ColorRect
 
 func _ready() -> void:
 	CandidateManager.worker_hired.connect(_on_candidate_manager_worker_hired)
@@ -9,10 +10,14 @@ func _ready() -> void:
 	
 	PotentialIncomeStreamManager.generate_income_stream()
 	PotentialIncomeStreamManager.generate_income_stream()
+	
+	SignalBus.game_over.connect(_on_game_over)
 
 func _on_button_button_up() -> void:
 	pass # Replace with function body.
 
+func _on_game_over():
+	color_rect.visible = false
 
 func _on_candidate_manager_worker_hired(worker: Worker) -> void:
 	WorkerManager.hire_worker(worker)

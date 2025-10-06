@@ -12,6 +12,7 @@ class_name Room
 @onready var music: AudioStreamPlayer2D = $Music
 
 const LUDUM_DARE_58_DEATH_MUSIC_ANA = preload("uid://7jd2st33r02j")
+@onready var final_report: FinalReport = $FinalReport
 
 
 var pan_speed = 3
@@ -102,3 +103,4 @@ func _on_background_animation_finished() -> void:
 	if background.animation == "game_over":
 		music.stream = LUDUM_DARE_58_DEATH_MUSIC_ANA
 		music.play()
+		final_report.visible = true

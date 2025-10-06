@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=88 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dij2u6c3o584a" path="res://desk/NewOffersGridView_Simple.tscn" id="10_jo3hx"]
 [ext_resource type="PackedScene" uid="uid://cfoxhpbvyepx5" path="res://calendar.tscn" id="11_jo3hx"]
 [ext_resource type="AudioStream" uid="uid://sbvcl1psx8mv" path="res://assets/final/audio/9b54d12f-2fe1-4cd3-818b-8bae585ff229.mp3" id="17_70f46"]
-[ext_resource type="PackedScene" uid="uid://c64doav5hhk3h" path="res://desk/final_report.tscn" id="18_6bf2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jo3hx"]
 atlas = ExtResource("2_bnidx")
@@ -526,6 +525,7 @@ position = Vector2(588, 320)
 position = Vector2(584, -1.0000076)
 scale = Vector2(1.7875, 1.7972223)
 sprite_frames = SubResource("SpriteFrames_26u5u")
+animation = &"game_over"
 autoplay = "default"
 
 [node name="BinderButton" parent="Background" instance=ExtResource("10_bil3o")]
@@ -585,13 +585,6 @@ offset_bottom = 645.0
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_70f46")
 volume_db = 7.128
-
-[node name="FinalReport" parent="." instance=ExtResource("18_6bf2v")]
-visible = false
-offset_left = 505.0
-offset_top = -364.0
-offset_right = 679.0
-offset_bottom = -290.0
 
 [connection signal="animation_finished" from="Background" to="." method="_on_background_animation_finished"]
 [connection signal="frame_changed" from="Background" to="." method="_on_background_frame_changed"]

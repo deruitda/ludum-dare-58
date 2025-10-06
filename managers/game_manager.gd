@@ -5,14 +5,19 @@ signal worker_fired
 @export var number_of_potential_income_streams_per_week: int = 2
 @export var number_of_candidates_per_week: int = 2
 
-@export var running_report: RunningReport
+@export var weekly_running_report: RunningReport
 @onready var running_reports: Node
+
+@export var game_running_report: RunningReport
 
 @export var time_manager: TimeManager
 
 func _ready() -> void:
-	running_report = RunningReport.new()
-	add_child(running_report)
+	weekly_running_report = RunningReport.new()
+	add_child(weekly_running_report)
+	
+	game_running_report = RunningReport.new()
+	add_child(game_running_report)
 	
 	time_manager = TimeManager.new()
 	add_child(time_manager)
@@ -86,8 +91,8 @@ func progress_to_next_week():
 	else:
 		time_manager.increment_week()
 		
-		SignalBus.on_week_report_publish.emit(running_report)
-		running_report.refresh()
+		SignalBus.on_week_report_publish.emit(weekly_running_report)
+		weekly_running_report.refresh()
 	
 func is_safe_from_death() -> bool:
 	return GameState.total_respect < get_needed_total_respect(time_manager.current_month)

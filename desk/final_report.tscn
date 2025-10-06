@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://c64doav5hhk3h"]
+
+[ext_resource type="LabelSettings" uid="uid://cicruonmq7adv" path="res://desk/Resumes/white_label.tres" id="1_ajdqx"]
+[ext_resource type="Script" uid="uid://bk4xltfiwpobe" path="res://desk/final_report.gd" id="1_o1uni"]
+[ext_resource type="PackedScene" uid="uid://de7xv2m41lp1m" path="res://ui/stat_label.tscn" id="2_uk2ci"]
+[ext_resource type="Script" uid="uid://dy5gevfywaxuc" path="res://ui/label_component.gd" id="4_p2myo"]
+[ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="6_p2myo"]
+[ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="7_p2myo"]
+
+[node name="FinalReport" type="VBoxContainer" node_paths=PackedStringArray("total_respect_label", "total_money_label", "total_weeks_label")]
+offset_left = 3.0
+offset_right = 177.0
+offset_bottom = 74.0
+script = ExtResource("1_o1uni")
+total_respect_label = NodePath("PerWeekControl5/TotalRespectValue")
+total_money_label = NodePath("PerWeekControl6/TotalMoney")
+total_weeks_label = NodePath("PerWeekControl7/WeeksLasted")
+
+[node name="PerWeekControl5" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl5"]
+layout_mode = 2
+text = "Total Respect"
+label_settings = ExtResource("1_ajdqx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TotalRespectValue" parent="PerWeekControl5" node_paths=PackedStringArray("label_component") instance=ExtResource("2_uk2ci")]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_ajdqx")
+label_component = NodePath("RespectComponent")
+
+[node name="RespectComponent" type="Node" parent="PerWeekControl5/TotalRespectValue"]
+script = ExtResource("4_p2myo")
+prepend_string = ""
+positive_label_settings = ExtResource("6_p2myo")
+neutral_label_settings = ExtResource("1_ajdqx")
+use_plus_sign_in_label = false
+use_paranthesis = false
+metadata/_custom_type_script = "uid://dy5gevfywaxuc"
+
+[node name="PerWeekControl6" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl6"]
+layout_mode = 2
+text = "Total Money"
+label_settings = ExtResource("1_ajdqx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl6"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TotalMoney" parent="PerWeekControl6" node_paths=PackedStringArray("label_component") instance=ExtResource("2_uk2ci")]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_ajdqx")
+label_component = NodePath("MoneyComponent")
+
+[node name="MoneyComponent" type="Node" parent="PerWeekControl6/TotalMoney"]
+script = ExtResource("4_p2myo")
+positive_label_settings = ExtResource("7_p2myo")
+neutral_label_settings = ExtResource("1_ajdqx")
+use_plus_sign_in_label = false
+use_paranthesis = false
+metadata/_custom_type_script = "uid://dy5gevfywaxuc"
+
+[node name="PerWeekControl7" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PerWeekCostLabel" type="Label" parent="PerWeekControl7"]
+layout_mode = 2
+text = "Weeks Lasted"
+label_settings = ExtResource("1_ajdqx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PerWeekControl7"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WeeksLasted" parent="PerWeekControl7" node_paths=PackedStringArray("label_component") instance=ExtResource("2_uk2ci")]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_ajdqx")
+label_component = NodePath("MoneyComponent")
+
+[node name="MoneyComponent" type="Node" parent="PerWeekControl7/WeeksLasted"]
+script = ExtResource("4_p2myo")
+prepend_string = ""
+positive_label_settings = ExtResource("1_ajdqx")
+neutral_label_settings = ExtResource("1_ajdqx")
+use_plus_sign_in_label = false
+use_paranthesis = false
+metadata/_custom_type_script = "uid://dy5gevfywaxuc"
