@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://de7xv2m41lp1m"]
+
+[ext_resource type="Script" uid="uid://du3wcqq57120u" path="res://ui/money_label.gd" id="1_6mg6p"]
+
+[node name="MoneyLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_6mg6p")

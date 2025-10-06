@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bol06tokko7wx"]
+
+[ext_resource type="Script" uid="uid://davy53ctecdmh" path="res://ui/respect_label.gd" id="1_vlh5i"]
+
+[node name="RespectLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_vlh5i")
