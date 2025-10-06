@@ -52,9 +52,6 @@ func refresh():
 func refresh_capacity_state() -> void:
 	capacity_row.refresh_capacity_state()
 
-func _on_back_button_button_up() -> void:
-	back_button_pressed.emit()
-
 func _on_idle_event_view_on_abandon_button_pressed() -> void:
 	GameState.collect_cost(income_stream.get_idle_event().abandon_cost)
 	IncomeStreamManager.abandon_income_stream(income_stream)
@@ -79,3 +76,7 @@ func _on_capacity_row_on_assign_workers_button_pressed() -> void:
 func _on_capacity_row_on_unassign_workers_button_pressed() -> void:
 	income_stream.remove_all_workers()
 	refresh()
+
+
+func _on_back_button_pressed() -> void:
+	back_button_pressed.emit()

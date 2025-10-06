@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3qcft3fyrlv8"]
+
+[ext_resource type="Texture2D" uid="uid://dw1tl7tuymdy7" path="res://assets/final/step-into.png" id="1_wixl4"]
+[ext_resource type="Texture2D" uid="uid://pqovl4gfwbug" path="res://assets/final/step-into-pressed.png" id="2_1sa4s"]
+[ext_resource type="Texture2D" uid="uid://dj7k3veq6gkul" path="res://assets/final/step-into-hover.png" id="3_v007g"]
+
+[node name="BackButton" type="TextureButton"]
+offset_left = 3.865453
+offset_top = 104.917046
+offset_right = 21.865454
+offset_bottom = 135.91705
+texture_normal = ExtResource("1_wixl4")
+texture_pressed = ExtResource("2_1sa4s")
+texture_hover = ExtResource("3_v007g")
+stretch_mode = 0
+flip_h = true

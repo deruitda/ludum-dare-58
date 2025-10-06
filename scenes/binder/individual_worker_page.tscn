@@ -1,15 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://def27twulj86u"]
+[gd_scene load_steps=7 format=3 uid="uid://def27twulj86u"]
 
 [ext_resource type="Script" uid="uid://d0u7nf16bg8ck" path="res://scenes/binder/individual_worker_page.gd" id="1_e51yi"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_kg0ra"]
 [ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="4_kg0ra"]
 [ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="5_0b26s"]
 [ext_resource type="PackedScene" uid="uid://cyybl5axjotgx" path="res://scenes/binder/worker_action_row.tscn" id="6_b02kc"]
+[ext_resource type="PackedScene" uid="uid://b3qcft3fyrlv8" path="res://scenes/binder/back_button.tscn" id="6_qhxny"]
 
-[node name="IndividualWorkerPage" type="Node2D"]
+[node name="IndividualWorkerPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_e51yi")
 
 [node name="NameLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 233.0
 offset_top = 16.0
 offset_right = 336.0
@@ -18,6 +28,7 @@ text = "Johnny Smith"
 label_settings = ExtResource("3_kg0ra")
 
 [node name="MonthlyRespectLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 196.0
 offset_top = 55.0
 offset_right = 299.0
@@ -26,6 +37,7 @@ text = "Johnny Smith"
 label_settings = ExtResource("3_kg0ra")
 
 [node name="MonthlyRespectValue" type="Label" parent="."]
+layout_mode = 0
 offset_left = 327.0
 offset_top = 53.0
 offset_right = 430.0
@@ -34,6 +46,7 @@ text = "+5"
 label_settings = ExtResource("4_kg0ra")
 
 [node name="MonthlyWages" type="Label" parent="."]
+layout_mode = 0
 offset_left = 186.0
 offset_top = 80.0
 offset_right = 301.0
@@ -42,6 +55,7 @@ text = "Monthly Wages"
 label_settings = ExtResource("3_kg0ra")
 
 [node name="MonthlyWagesValue" type="Label" parent="."]
+layout_mode = 0
 offset_left = 326.0
 offset_top = 82.0
 offset_right = 429.0
@@ -50,21 +64,23 @@ text = "-5"
 label_settings = ExtResource("5_0b26s")
 
 [node name="WorkerActionRow" parent="." instance=ExtResource("6_b02kc")]
+layout_mode = 0
 offset_left = 166.0
 offset_top = 325.0
 offset_right = 166.0
 offset_bottom = 325.0
 
-[node name="BackButton" type="Button" parent="."]
-offset_left = 32.0
-offset_top = 487.0
-offset_right = 50.0
-offset_bottom = 518.0
-scale = Vector2(3.615479, 3.2000902)
-text = "<"
+[node name="BackButton" parent="." instance=ExtResource("6_qhxny")]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 548.0
+offset_right = 189.0
+offset_bottom = 693.0
+grow_vertical = 2
 
 [connection signal="on_add_to_income_stream_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_add_to_income_stream_button_pressed"]
 [connection signal="on_fire_worker_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_fire_worker_button_pressed"]
 [connection signal="on_relieved_of_jobs" from="WorkerActionRow" to="." method="_on_worker_action_row_on_relieved_of_jobs"]
 [connection signal="on_worker_promoted" from="WorkerActionRow" to="." method="_on_worker_action_row_on_worker_promoted"]
-[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
