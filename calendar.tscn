@@ -111,6 +111,7 @@ offset_right = 30.252514
 offset_bottom = 14.007729
 rotation = 0.061195284
 tooltip_text = "Clicking will advance to the next week"
+mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
 text = "Week 1"

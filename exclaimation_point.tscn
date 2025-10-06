@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://b0c7xjqjnaqxa"]
+
+[ext_resource type="Texture2D" uid="uid://bgldrbhygicj2" path="res://assets/final/exclaimation-point-anim.png" id="1_y2j5l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y5j2"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jn85"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5ga3"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2stnn"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deq0s"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(256, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oschy"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(320, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hivei"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(384, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1kww"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(448, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh1no"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(512, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssf08"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(576, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnjnp"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(640, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxs2g"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(704, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkk6o"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(768, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2wpi"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(832, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlb25"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(896, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf4vj"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(960, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehqfp"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(1024, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1yx3"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(1088, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhagg"]
+atlas = ExtResource("1_y2j5l")
+region = Rect2(1152, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnjnp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y5j2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jn85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5ga3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2stnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deq0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oschy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hivei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1kww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh1no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssf08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnjnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxs2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkk6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2wpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlb25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf4vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehqfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1yx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhagg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ExclaimationPoint" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mnjnp")
+frame_progress = 0.1383603
