@@ -19,8 +19,8 @@ parameters/looping = true
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 943.0
 offset_top = 23.0
-offset_right = 1134.0
-offset_bottom = 116.0
+offset_right = 1136.0
+offset_bottom = 156.0
 
 [node name="TotalRespectStatus" parent="ColorRect" instance=ExtResource("4_1bvp3")]
 layout_mode = 0

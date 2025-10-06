@@ -20,12 +20,14 @@ func _ready() -> void:
 	time_manager.on_current_week_incremented.connect(_on_time_manager_current_week_incremented)
 	time_manager.on_current_month_incremented.connect(_on_time_manager_current_month_incremented)
 
-
 func _on_time_manager_current_week_incremented() -> void:
 	SignalBus.week_changed.emit()
 
 func _on_time_manager_current_month_incremented() -> void:
 	SignalBus.month_changed.emit()
+	
+func get_weeks_left_in_period() -> int:
+	return time_manager.get_weeks_left_in_month()
 
 func get_current_week() -> int:
 	return time_manager.current_week
