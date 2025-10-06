@@ -10,7 +10,9 @@ class_name PercentageLabel
 @export var happy_label_settings: LabelSettings = preload("uid://d0ai4x5b6g57f")
 
 func set_percentage(percentage: float):
-	text = str(percentage) + "%"
+	var percent_value := percentage * 100.0
+	text = "%d%%" % int(round(percent_value))
+
 	var value = percentage
 	if high_is_bad:
 		value = 1 - value
@@ -18,6 +20,6 @@ func set_percentage(percentage: float):
 		label_settings = danger_label_settings
 	elif value < caution_threshold:
 		label_settings = caution_label_settings
-	
-	label_settings = happy_label_settings
+	else:
+		label_settings = happy_label_settings
 		

@@ -4,8 +4,10 @@ class_name StatLabel
 
 func set_value(value: int) -> void:
 	text = label_component.get_label_from_int(value)
-	if value >= 0:
+	if value > 0:
 		label_settings = label_component.positive_label_settings
-	else:
+	elif value < 0:
 		label_settings = label_component.negative_label_settings
+	else:
+		label_settings = label_component.neutral_label_settings
 	

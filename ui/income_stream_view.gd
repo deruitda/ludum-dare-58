@@ -24,4 +24,6 @@ func set_income_stream(new_income_stream: IncomeStream):
 	completion_reward_control_view.set_cost(income_stream.completed_return_cost)
 	
 	weeks_left_value.text = str(income_stream.duration_in_weeks)
+	percentage_label.set_percentage(income_stream.percent_chance_of_event)
+	
 	

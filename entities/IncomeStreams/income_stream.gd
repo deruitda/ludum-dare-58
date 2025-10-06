@@ -17,7 +17,7 @@ class_name IncomeStream
 
 @export var capacity: int = 1
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
-@export var chanceOfEvent: float = 0.5
+@export var percent_chance_of_event: float = 0.5
 
 @onready var idle_event_manager: IdleEventManager = $IdleEventManager
 
@@ -45,7 +45,7 @@ func has_idle_event() -> bool:
 	
 func roll_dice_for_event() -> bool:
 	var roll = randf()
-	return roll < chanceOfEvent
+	return roll < percent_chance_of_event
 					
 func create_random_idle_event() -> void:
 	idle_event_manager.create_idle_event_from_potential_idle_events(type.potential_idle_events)

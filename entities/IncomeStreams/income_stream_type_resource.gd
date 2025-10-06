@@ -13,8 +13,6 @@ class_name IncomeStreamTypeResource
 
 @export var duration_intensity: Enums.IncomeStreamTimeIntensity
 
-
-
 @export var capacity: int = 1
 @export var description: String = ""
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
@@ -25,7 +23,9 @@ func set_income_stream(income_stream: IncomeStream) -> void:
 	var name_generator = NameGenerator.new()
 	var victim_random_name = name_generator.generate_victim_name()
 	name_generator.queue_free()
+	
 	income_stream.type = self
+	
 	var initial_cost = initial_cost_resource.calculate_new_cost()
 	income_stream.set_initial_cost(initial_cost)
 	income_stream.set_completed_return_cost(completed_cost_resource.calculate_new_cost())
@@ -43,11 +43,10 @@ func set_income_stream(income_stream: IncomeStream) -> void:
 	cost.set_cost(weekly_amount)
 	cost.set_respect(weekly_return_intensity_cost.calculate_respect())
 
-	
 	income_stream.set_weekly_return_cost(cost)
 	
-	
 	income_stream.income_stream_name = type + " " + victim_random_name
+	income_stream.percent_chance_of_event = Enums.get_percentage_rate_from_intensity(potential_idle_event_intensity)
 	
 	var potential_idle_event = PotentialIdleEvent.new()
 	income_stream.type.potential_idle_events.append(potential_idle_event)

@@ -36,6 +36,7 @@ type = "Drug Deal"
 initial_cost_resource = SubResource("Resource_tqgtf")
 weekly_return_intensity_cost = SubResource("Resource_k58h3")
 completed_cost_resource = SubResource("Resource_qiit0")
+potential_idle_event_intensity = 4
 duration_intensity = 1
 description = "Buy some drugs. Have someone sell it on the street for you!"
 accepted_worker_types = Array[ExtResource("1_qiit0")]([ExtResource("2_tqgtf")])
