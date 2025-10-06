@@ -10,7 +10,6 @@ func spend_money(amount: int) -> void:
 func collect_money(amount: int) -> void:
 	total_money = total_money + amount
 	SignalBus.money_changed.emit()
-
 	
 func get_level() -> int:
 	if total_respect < 10:

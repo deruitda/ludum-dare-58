@@ -18,9 +18,6 @@ func _ready() -> void:
 	SignalBus.money_changed.connect(refresh)
 	
 func refresh():
-	var month = GameManager.get_current_month()
-	if use_current_month == false:
-		month = month + 1
 	current_month_value.set_value(GameManager.get_current_month())
 	
 	var respect_threshold = GameManager.get_needed_total_respect(use_current_month)

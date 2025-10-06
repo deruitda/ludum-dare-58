@@ -72,7 +72,6 @@ func progress_to_next_week():
 		if new_level > current_level:
 			pass
 	
-	
 	PotentialIncomeStreamManager.remove_all_income_streams()
 	CandidateManager.remove_all_candidates()
 	
@@ -82,11 +81,19 @@ func progress_to_next_week():
 	for i in number_of_candidates_per_week:
 		CandidateManager.generate_worker()
 	
-	time_manager.increment_week()
+	if time_manager.get_weeks_left_in_month() == 1 and is_safe_from_death():
+		do_endgame()
+	else:
+		time_manager.increment_week()
+		
+		SignalBus.on_week_report_publish.emit(running_report)
+		running_report.refresh()
 	
-	SignalBus.on_week_report_publish.emit(running_report)
-	running_report.refresh()
-	
+func is_safe_from_death() -> bool:
+	return GameState.total_respect < get_needed_total_respect(time_manager.current_month)
+
+func do_endgame():
+	SignalBus.game_over.emit()
 
 func get_forecasted_cost() -> Cost:
 	var return_cost = Cost.new()
