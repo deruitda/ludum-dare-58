@@ -60,12 +60,10 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="StatusLabel" type="Label" parent="IncomeDataRow"]
+[node name="StatusTexture" type="TextureRect" parent="IncomeDataRow"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Idle"
-horizontal_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="IncomeDataRow"]
 custom_minimum_size = Vector2(10, 0)

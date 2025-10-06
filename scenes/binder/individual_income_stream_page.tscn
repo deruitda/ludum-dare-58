@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://og67qjuev08k"]
+[gd_scene load_steps=9 format=3 uid="uid://og67qjuev08k"]
 
 [ext_resource type="Script" uid="uid://d22do6aaw1qih" path="res://scenes/binder/individual_income_stream_page.gd" id="1_vns1v"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_vns1v"]
@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://bwey7fsjlbv0i" path="res://scenes/binder/idle_event_view.tscn" id="5_dcgje"]
 [ext_resource type="LabelSettings" uid="uid://di5o3x4joi7mt" path="res://desk/Resumes/danger_label.tres" id="6_1om3t"]
 [ext_resource type="PackedScene" uid="uid://euex01opw2ii" path="res://ui/income_stream_view.tscn" id="6_midxx"]
+[ext_resource type="PackedScene" uid="uid://b3qcft3fyrlv8" path="res://scenes/binder/back_button.tscn" id="8_mwexf"]
 
 [node name="IndividualIncomeStreamPage" type="Control" node_paths=PackedStringArray("income_stream_view", "summary_income_stream_view", "capacity_row", "idle_event_view", "resolution_failed_label", "resolution_successful_label")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 115.534096
-offset_bottom = 223.16371
+offset_right = 637.0
+offset_bottom = 643.0
 script = ExtResource("1_vns1v")
 income_stream_view = NodePath("ScrollContainer/HBoxContainer/IncomeStreamView")
 summary_income_stream_view = NodePath("ScrollContainer/HBoxContainer/IncomeStreamView/SummaryIncomeStreamView")
@@ -38,37 +39,29 @@ custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
 [node name="IncomeStreamView" parent="ScrollContainer/HBoxContainer" instance=ExtResource("6_midxx")]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
 
 [node name="SummaryIncomeStreamView" parent="ScrollContainer/HBoxContainer/IncomeStreamView" instance=ExtResource("3_midxx")]
-layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/HBoxContainer/IncomeStreamView"]
-layout_mode = 2
 size_flags_vertical = 3
 
 [node name="CapacityRow" parent="ScrollContainer/HBoxContainer/IncomeStreamView" instance=ExtResource("4_vns1v")]
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer/IncomeStreamView"]
-layout_mode = 2
 size_flags_vertical = 3
 
 [node name="IdleEventView" parent="ScrollContainer/HBoxContainer/IncomeStreamView" instance=ExtResource("5_dcgje")]
-layout_mode = 2
 
 [node name="ResolutionFailedLabel" type="Label" parent="ScrollContainer/HBoxContainer/IncomeStreamView/IdleEventView"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 text = "Resolution Failed. Try again next week"
 label_settings = ExtResource("6_1om3t")
 
 [node name="ResolutionSuccessfulLabel" type="Label" parent="ScrollContainer/HBoxContainer/IncomeStreamView/IdleEventView"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 text = "This has been resolved!"
 label_settings = ExtResource("2_vns1v")
 
@@ -76,16 +69,15 @@ label_settings = ExtResource("2_vns1v")
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" parent="." instance=ExtResource("8_mwexf")]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 157.0
-offset_right = 22.0
-offset_bottom = 188.0
-text = "<"
+offset_left = 31.0
+offset_top = 529.0
+offset_right = 182.0
+offset_bottom = 680.0
 
 [connection signal="on_assign_workers_button_pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/CapacityRow" to="." method="_on_capacity_row_on_assign_workers_button_pressed"]
 [connection signal="on_unassign_workers_button_pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/CapacityRow" to="." method="_on_capacity_row_on_unassign_workers_button_pressed"]
 [connection signal="on_abandon_button_pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/IdleEventView" to="." method="_on_idle_event_view_on_abandon_button_pressed"]
 [connection signal="on_attempt_to_resolve_button_pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/IdleEventView" to="." method="_on_idle_event_view_on_attempt_to_resolve_button_pressed"]
-[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

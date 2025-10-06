@@ -1,8 +1,8 @@
 extends Control
 class_name WorkerActionRow
-@onready var give_raise_button: Button = $GiveRaiseButton
-@onready var add_to_income_stream_button: Button = $AddToIncomeStreamButton
-@onready var relieve_of_all_jobs: Button = $RelieveOfAllJobs
+@onready var give_raise_button: TextureButton = $GiveRaiseButton
+@onready var add_to_income_stream_button: TextureButton = $AddToIncomeStreamButton
+@onready var relieve_of_all_jobs: TextureButton = $RelieveOfAllJobs
 
 @onready var worker: Worker
 

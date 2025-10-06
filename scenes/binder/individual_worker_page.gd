@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name IndividualWorkerPage
 
 @onready var worker: Worker
