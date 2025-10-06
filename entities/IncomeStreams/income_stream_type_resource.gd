@@ -6,10 +6,12 @@ class_name IncomeStreamTypeResource
 @export var required_respect: int = 0
 
 @export var initial_cost_resource: CostResource
+@export var weekly_return_intensity_cost: CostResource
 @export var completed_cost_resource: CostResource
 
-@export var weekly_return_intensity: Enums.IncomeStreamCostIntensity
 @export var duration_intensity: Enums.IncomeStreamTimeIntensity
+
+
 
 @export var capacity: int = 1
 @export var description: String = ""
@@ -25,7 +27,20 @@ func set_income_stream(income_stream: IncomeStream) -> void:
 	
 	income_stream.set_initial_cost(initial_cost_resource.calculate_new_cost())
 	income_stream.set_completed_return_cost(completed_cost_resource.calculate_new_cost())
-	income_stream.weekly_return_intensity = weekly_return_intensity
+	
+	
+	var rate = Enums.get_rate_of_return_from_cost_intensity(weekly_return_intensity_cost.cost_intensity)
+	var upfront_cash = income_stream.initial_cost.cost
+	var weekly_amount = absi((rate * (upfront_cash ) / income_stream.duration_in_weeks))
+	if weekly_return_intensity_cost.negative_cost:
+		weekly_amount = weekly_amount * -1
+
+	var cost = Cost.new()
+	cost.set_cost(weekly_amount)
+	cost.set_respect(weekly_return_intensity_cost.calculate_respect())
+
+	
+	income_stream.set_weekly_return_cost(cost)
 	
 	income_stream.duration_in_weeks = Enums.get_duration_in_weeks_from_time_intensity(duration_intensity)
 	

@@ -6,5 +6,5 @@ class_name PotentialIdleEventsResource
 @export var idle_description: String = ""
 
 @export var resolve_cost: CostResource
-@export var cost_to_attempt_to_resolve: Enums.IncomeStreamCostIntensity
-@export var respect_cost_to_attempt_to_resolve: Enums.IncomeStreamCostIntensity
+@export var cost_to_attempt_to_resolve: Enums.Intensity
+@export var respect_cost_to_attempt_to_resolve: Enums.Intensity

@@ -6,7 +6,7 @@ class_name IncomeStream
 
 @export var initial_cost: Cost
 @export var completed_return_cost: Cost
-@export var weekly_return_intensity: Enums.IncomeStreamCostIntensity
+@export var weekly_return_cost: Cost
 
 @export var duration_in_weeks: int = 10
 
@@ -36,12 +36,9 @@ func set_initial_cost(cost: Cost):
 func set_completed_return_cost(cost: Cost):
 	completed_return_cost = cost
 	add_child(completed_return_cost)
-
-func get_weekly_cost() -> int:
-	var rate = Enums.get_rate_of_return_from_cost_intensity(weekly_return_intensity)
-	var upfront_cash = initial_cost.cost
-	var weekly_amount = ceil((rate * (upfront_cash / 10.0) / duration_in_weeks)) * 10
-	return weekly_amount
+func set_weekly_return_cost(cost: Cost):
+	weekly_return_cost = cost
+	add_child(weekly_return_cost)
 
 func has_idle_event() -> bool:
 	return idle_event_manager.has_idle_event()

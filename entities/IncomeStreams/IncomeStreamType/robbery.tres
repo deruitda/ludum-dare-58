@@ -12,13 +12,10 @@ cost_intensity = 3
 respect_intensity = 3
 metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
-[sub_resource type="Resource" id="Resource_coe0b"]
-script = ExtResource("3_06xff")
-metadata/_custom_type_script = "uid://cllgeulnh2up3"
-
 [sub_resource type="Resource" id="Resource_64npk"]
 script = ExtResource("3_06xff")
 respect_intensity = 1
+negative_respect_intensity = true
 metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
 [sub_resource type="Resource" id="Resource_2oqkb"]
@@ -28,11 +25,15 @@ chance_of_failure = 0.0
 cost_to_attempt_to_resolve = 1
 metadata/_custom_type_script = "uid://cy44ryxdfwf47"
 
+[sub_resource type="Resource" id="Resource_06xff"]
+script = ExtResource("3_06xff")
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
 [resource]
 script = ExtResource("4_06xff")
 type = "Rob a bank"
 initial_cost_resource = SubResource("Resource_64npk")
-earned_per_week_cost_resource = SubResource("Resource_coe0b")
+weekly_return_intensity_cost = SubResource("Resource_06xff")
 completed_cost_resource = SubResource("Resource_n1y87")
 description = "Go in with weapon of choice. Come out with money. What could go wrong?"
 accepted_worker_types = Array[ExtResource("1_06xff")]([ExtResource("2_2oqkb")])

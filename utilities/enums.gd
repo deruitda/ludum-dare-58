@@ -1,6 +1,6 @@
 extends Node
 
-enum IncomeStreamCostIntensity {
+enum Intensity {
 	NONE,
 	LOW,
 	LOW_MEDIUM,
@@ -17,52 +17,52 @@ enum IncomeStreamTimeIntensity {
 	RECURRING
 }
 
-func get_cost_from_cost_intensity(intensity: Enums.IncomeStreamCostIntensity) -> int:
+func get_cost_from_cost_intensity(intensity: Enums.Intensity) -> int:
 	match intensity:
-		Enums.IncomeStreamCostIntensity.NONE:
+		Enums.Intensity.NONE:
 			return 0
-		Enums.IncomeStreamCostIntensity.LOW:
+		Enums.Intensity.LOW:
 			return randi_range(1, 9) * 10
-		Enums.IncomeStreamCostIntensity.LOW_MEDIUM:
+		Enums.Intensity.LOW_MEDIUM:
 			return randi_range(5, 25) * 10
-		Enums.IncomeStreamCostIntensity.MEDIUM:
+		Enums.Intensity.MEDIUM:
 			return randi_range(20, 90) * 10
-		Enums.IncomeStreamCostIntensity.MEDIUM_HIGH:
+		Enums.Intensity.MEDIUM_HIGH:
 			return randi_range(100, 900) * 10
-		Enums.IncomeStreamCostIntensity.HIGH:
+		Enums.Intensity.HIGH:
 			return randi_range(100, 900) * 10
 	return 0
 
-func get_respect_cost_from_cost_intensity(intensity: Enums.IncomeStreamCostIntensity) -> int:
+func get_respect_cost_from_cost_intensity(intensity: Enums.Intensity) -> int:
 	match intensity:
-		Enums.IncomeStreamCostIntensity.NONE:
+		Enums.Intensity.NONE:
 			return 0
-		Enums.IncomeStreamCostIntensity.LOW:
+		Enums.Intensity.LOW:
 			return 1
-		Enums.IncomeStreamCostIntensity.LOW_MEDIUM:
+		Enums.Intensity.LOW_MEDIUM:
 			return 3
-		Enums.IncomeStreamCostIntensity.MEDIUM:
+		Enums.Intensity.MEDIUM:
 			return 6
-		Enums.IncomeStreamCostIntensity.MEDIUM_HIGH:
+		Enums.Intensity.MEDIUM_HIGH:
 			return 15
-		Enums.IncomeStreamCostIntensity.HIGH:
+		Enums.Intensity.HIGH:
 			return 30
 	return 0
 
-## @param intensity Enums.IncomeStreamCostIntensity
+## @param intensity Enums.Intensity
 func get_rate_of_return_from_cost_intensity(intensity: int) -> float:
 	match intensity:
-		Enums.IncomeStreamCostIntensity.NONE:
+		Enums.Intensity.NONE:
 			return 0.0
-		Enums.IncomeStreamCostIntensity.LOW:
-			return randf_range(1.1, 1.2) * 10
-		Enums.IncomeStreamCostIntensity.LOW_MEDIUM:
+		Enums.Intensity.LOW:
+			return randf_range(1.1, 1.2) 
+		Enums.Intensity.LOW_MEDIUM:
 			return randf_range(1.2, 1.4)
-		Enums.IncomeStreamCostIntensity.MEDIUM:
+		Enums.Intensity.MEDIUM:
 			return randf_range(1.5, 1.8)
-		Enums.IncomeStreamCostIntensity.MEDIUM_HIGH:
+		Enums.Intensity.MEDIUM_HIGH:
 			return randf_range(2, 2.5)
-		Enums.IncomeStreamCostIntensity.HIGH:
+		Enums.Intensity.HIGH:
 			return randf_range(3.0, 5.0)
 
 	return 0

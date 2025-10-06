@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b52bu006uvuoy"]
+
+[ext_resource type="Script" uid="uid://b10sydyxm6e2c" path="res://ui/percentage_label.gd" id="1_bvfle"]
+
+[node name="PercentageLabel" type="Label"]
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 22.0
+text = "%20"
+script = ExtResource("1_bvfle")

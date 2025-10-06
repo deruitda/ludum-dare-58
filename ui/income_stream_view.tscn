@@ -1,34 +1,138 @@
-[gd_scene load_steps=3 format=3 uid="uid://euex01opw2ii"]
+[gd_scene load_steps=6 format=3 uid="uid://euex01opw2ii"]
 
 [ext_resource type="Script" uid="uid://vcgoa0uv7lvn" path="res://ui/income_stream_view.gd" id="1_mdr4a"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="2_b5ulf"]
+[ext_resource type="PackedScene" uid="uid://c77i2c6uu0f33" path="res://ui/cost_view.tscn" id="3_4jaii"]
+[ext_resource type="LabelSettings" uid="uid://0ejlgbcqp8ns" path="res://desk/Resumes/description_label.tres" id="3_7nf1l"]
+[ext_resource type="PackedScene" uid="uid://b52bu006uvuoy" path="res://ui/percentage_label.tscn" id="5_v03va"]
 
-[node name="IncomeStreamView" type="Node2D" node_paths=PackedStringArray("name_label", "expected_weekly_income_label", "weeks_left_label")]
+[node name="IncomeStreamView" type="Node2D"]
 script = ExtResource("1_mdr4a")
-name_label = NodePath("NameLabel")
-expected_weekly_income_label = NodePath("ExpectedWeeklyIncomeLabel")
-weeks_left_label = NodePath("WeeksLeftLabel")
 
-[node name="NameLabel" type="Label" parent="."]
-offset_left = 32.0
-offset_top = 9.0
-offset_right = 132.0
-offset_bottom = 34.0
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -75.0
+offset_top = -9.0
+offset_right = -35.0
+offset_bottom = 31.0
+
+[node name="NameLabel" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 12.0
+offset_right = 191.0
+offset_bottom = 37.0
 text = "Steve"
 label_settings = ExtResource("2_b5ulf")
 
-[node name="ExpectedWeeklyIncomeLabel" type="Label" parent="."]
-offset_left = 34.0
-offset_top = 37.0
-offset_right = 66.0
-offset_bottom = 60.0
-text = "$10"
+[node name="DescriptionLabel" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 43.0
+offset_right = 192.0
+offset_bottom = 68.0
+text = "Steve"
+label_settings = ExtResource("3_7nf1l")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -19.0
+offset_top = 25.0
+offset_right = 21.0
+offset_bottom = 65.0
+
+[node name="InitialCostControl" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 10.0
+offset_right = 48.0
+offset_bottom = 50.0
+
+[node name="IntialCostLabel" type="Label" parent="Control/InitialCostControl"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 34.0
+offset_right = 126.0
+offset_bottom = 57.0
+text = "Initial Cost"
 label_settings = ExtResource("2_b5ulf")
 
-[node name="WeeksLeftLabel" type="Label" parent="."]
-offset_left = 36.0
-offset_top = 64.0
-offset_right = 144.0
-offset_bottom = 87.0
-text = "10 Weeks Left"
+[node name="InitialCostView" parent="Control/InitialCostControl" instance=ExtResource("3_4jaii")]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 63.0
+offset_right = 47.0
+offset_bottom = 63.0
+
+[node name="PerWeekControl" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 212.0
+offset_top = 10.0
+offset_right = 252.0
+offset_bottom = 50.0
+
+[node name="PerWeekCostLabel" type="Label" parent="Control/PerWeekControl"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 32.0
+offset_right = 141.0
+offset_bottom = 55.0
+text = "Cost Per Week"
 label_settings = ExtResource("2_b5ulf")
+
+[node name="PerWeekCostView" parent="Control/PerWeekControl" instance=ExtResource("3_4jaii")]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 63.0
+offset_right = 47.0
+offset_bottom = 63.0
+
+[node name="CompletionRewardControl" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 439.0
+offset_top = 14.0
+offset_right = 479.0
+offset_bottom = 54.0
+
+[node name="CompletionRewardControlLabel" type="Label" parent="Control/CompletionRewardControl"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 33.0
+offset_right = 143.0
+offset_bottom = 56.0
+text = "Completion Reward"
+label_settings = ExtResource("2_b5ulf")
+
+[node name="CompletionRewardControlView" parent="Control/CompletionRewardControl" instance=ExtResource("3_4jaii")]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 63.0
+offset_right = 47.0
+offset_bottom = 63.0
+
+[node name="WeeksLeftLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 127.0
+offset_right = 400.0
+offset_bottom = 150.0
+text = "Weeks until Completion"
+label_settings = ExtResource("2_b5ulf")
+
+[node name="WeeksLeftValue" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 165.0
+offset_right = 385.0
+offset_bottom = 188.0
+text = "10"
+label_settings = ExtResource("2_b5ulf")
+
+[node name="PercentageLabel" parent="Control" instance=ExtResource("5_v03va")]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 37.0
+offset_bottom = 24.0

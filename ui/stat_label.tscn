@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://de7xv2m41lp1m"]
+
+[ext_resource type="Script" uid="uid://du3wcqq57120u" path="res://ui/stat_label.gd" id="1_cx6us"]
+[ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="2_kam33"]
+[ext_resource type="Script" uid="uid://dy5gevfywaxuc" path="res://ui/label_component.gd" id="3_rn15x"]
+
+[node name="StatLabel" type="Label" node_paths=PackedStringArray("label_component")]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "$10"
+script = ExtResource("1_cx6us")
+positive_label_settings = ExtResource("2_kam33")
+label_component = NodePath("LabelComponent")
+
+[node name="LabelComponent" type="Node" parent="."]
+script = ExtResource("3_rn15x")
