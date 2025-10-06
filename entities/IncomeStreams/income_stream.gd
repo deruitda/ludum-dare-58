@@ -2,16 +2,21 @@ extends Node
 class_name IncomeStream
 
 @export var income_stream_name: String = ""
-@export var income_per_week: int = 20
-@export var duration_in_weeks: int = 10
-@onready var active_weeks_transpired: int = 0
-@onready var total_weekly_income: int = 0
-@export var type: IncomeStreamTypeResource
-@export var cost = 50
-@export var capacity: int = 1
 @export var description: String = ""
+
+@export var initial_cost: Cost
+@export var completed_return_cost: Cost
+@export var weekly_return_intensity: Enums.IncomeStreamCostIntensity
+
+@export var duration_in_weeks: int = 10
+
+@onready var active_weeks_transpired: int = 0
+@export var type: IncomeStreamTypeResource
+
+@export var completed_respect_payout: int = 0
+
+@export var capacity: int = 1
 @export var accepted_worker_types: Array[WorkerTypeResource] = []
-@export var status: String = "Active"
 @export var chanceOfEvent: float = 0.5
 
 @onready var idle_event_manager: IdleEventManager = $IdleEventManager
@@ -23,6 +28,20 @@ func is_idle() -> bool:
 		return true
 	
 	return false
+
+func set_initial_cost(cost: Cost):
+	initial_cost = cost
+	add_child(initial_cost)
+	
+func set_completed_return_cost(cost: Cost):
+	completed_return_cost = cost
+	add_child(completed_return_cost)
+
+func get_weekly_cost() -> int:
+	var rate = Enums.get_rate_of_return_from_cost_intensity(weekly_return_intensity)
+	var upfront_cash = initial_cost.cost
+	var weekly_amount = ceil((rate * (upfront_cash / 10.0) / duration_in_weeks)) * 10
+	return weekly_amount
 
 func has_idle_event() -> bool:
 	return idle_event_manager.has_idle_event()

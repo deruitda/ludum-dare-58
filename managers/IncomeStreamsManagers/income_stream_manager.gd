@@ -39,7 +39,7 @@ func get_active_income_streams() -> Array[IncomeStream]:
 func get_forecasted_income() -> int:
 	var forecasted_income: int = 0
 	for income_stream in  get_active_income_streams():
-		forecasted_income = forecasted_income + income_stream.income_per_week
+		forecasted_income = forecasted_income + income_stream.get_weekly_cost()
 	return forecasted_income
 
 func abandon_income_stream(income_stream) -> void:

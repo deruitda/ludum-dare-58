@@ -27,7 +27,7 @@ func simulate_events():
 
 func progress_to_next_week():
 	for income_stream in IncomeStreamManager.get_active_income_streams():
-		GameState.collect_money(income_stream.income_per_week)
+		GameState.collect_money(income_stream.get_weekly_cost())
 		income_stream.increment_week()
 		if income_stream.is_completed():
 			SignalBus.income_stream_completed.emit(income_stream)

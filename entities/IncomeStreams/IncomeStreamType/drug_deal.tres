@@ -1,41 +1,36 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=11 format=3 uid="uid://br3k32lsh2lh3"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=9 format=3 uid="uid://br3k32lsh2lh3"]
 
 [ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_qiit0"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_tqgtf"]
-[ext_resource type="Script" uid="uid://cka4w8iop4hux" path="res://utilities/range_resource.gd" id="3_87mv3"]
-[ext_resource type="Script" uid="uid://3vlxcis7548q" path="res://utilities/float_range_resource.gd" id="4_k58h3"]
+[ext_resource type="Script" uid="uid://cllgeulnh2up3" path="res://utilities/cost_resource.gd" id="3_qiit0"]
+[ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="4_p08p6"]
 [ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_event_resource.gd" id="4_tqgtf"]
-[ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="5_jakfk"]
 
-[sub_resource type="Resource" id="Resource_ilewg"]
-script = ExtResource("3_87mv3")
-min_value = 25
-max_value = 100
-metadata/_custom_type_script = "uid://cka4w8iop4hux"
+[sub_resource type="Resource" id="Resource_qiit0"]
+script = ExtResource("3_qiit0")
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
-[sub_resource type="Resource" id="Resource_olfx7"]
-script = ExtResource("3_87mv3")
-min_value = 3
-max_value = 6
-metadata/_custom_type_script = "uid://cka4w8iop4hux"
+[sub_resource type="Resource" id="Resource_tqgtf"]
+script = ExtResource("3_qiit0")
+cost_intensity = 1
+respect_intensity = 1
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
 [sub_resource type="Resource" id="Resource_87mv3"]
 script = ExtResource("4_tqgtf")
-idle_event_name = "Chickened Out"
+idle_event_name = "{worker} got the flu"
+chance_of_failure = 0.0
+idle_description = "Get your hands dirty this week and sell it yourself"
 metadata/_custom_type_script = "uid://cy44ryxdfwf47"
 
-[sub_resource type="Resource" id="Resource_dhnjb"]
-script = ExtResource("4_k58h3")
-min_value = 1.1
-max_value = 1.3
-metadata/_custom_type_script = "uid://3vlxcis7548q"
-
 [resource]
-script = ExtResource("5_jakfk")
+script = ExtResource("4_p08p6")
 type = "Drug Deal"
-cost = SubResource("Resource_ilewg")
-duration_in_week = SubResource("Resource_olfx7")
-return_percentage = SubResource("Resource_dhnjb")
+initial_cost_resource = SubResource("Resource_tqgtf")
+completed_cost_resource = SubResource("Resource_qiit0")
+weekly_return_intensity = 2
+duration_intensity = 1
+description = "Buy some drugs. Have someone sell it on the street for you!"
 accepted_worker_types = Array[ExtResource("1_qiit0")]([ExtResource("2_tqgtf")])
 potential_idle_events = Array[ExtResource("4_tqgtf")]([SubResource("Resource_87mv3")])
 metadata/_custom_type_script = "uid://dtm2kuspofwj3"

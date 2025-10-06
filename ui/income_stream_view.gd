@@ -10,5 +10,5 @@ class_name IncomeStreamView
 func set_income_stream(new_income_stream: IncomeStream):
 	income_stream = new_income_stream
 	name_label.text = income_stream.income_stream_name
-	expected_weekly_income_label.text = "$" + str(income_stream.income_per_week)
+	expected_weekly_income_label.text = "$" + str(income_stream.get_weekly_cost())
 	weeks_left_label.text = str(income_stream.get_weeks_left())

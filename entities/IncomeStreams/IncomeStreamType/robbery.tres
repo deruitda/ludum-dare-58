@@ -1,35 +1,40 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=9 format=3 uid="uid://boho71235pqn8"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=10 format=3 uid="uid://boho71235pqn8"]
 
 [ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_06xff"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_2oqkb"]
-[ext_resource type="Script" uid="uid://cka4w8iop4hux" path="res://utilities/range_resource.gd" id="3_n1y87"]
-[ext_resource type="Script" uid="uid://3vlxcis7548q" path="res://utilities/float_range_resource.gd" id="4_coe0b"]
-[ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="5_64npk"]
+[ext_resource type="Script" uid="uid://cllgeulnh2up3" path="res://utilities/cost_resource.gd" id="3_06xff"]
+[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_event_resource.gd" id="3_je7f4"]
+[ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="4_06xff"]
 
-[sub_resource type="Resource" id="Resource_ilewg"]
-script = ExtResource("3_n1y87")
-min_value = 25
-max_value = 100
-metadata/_custom_type_script = "uid://cka4w8iop4hux"
+[sub_resource type="Resource" id="Resource_n1y87"]
+script = ExtResource("3_06xff")
+cost_intensity = 3
+respect_intensity = 3
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
-[sub_resource type="Resource" id="Resource_olfx7"]
-script = ExtResource("3_n1y87")
-min_value = 3
-max_value = 6
-metadata/_custom_type_script = "uid://cka4w8iop4hux"
+[sub_resource type="Resource" id="Resource_coe0b"]
+script = ExtResource("3_06xff")
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
-[sub_resource type="Resource" id="Resource_dhnjb"]
-script = ExtResource("4_coe0b")
-min_value = 1.1
-max_value = 1.3
-metadata/_custom_type_script = "uid://3vlxcis7548q"
+[sub_resource type="Resource" id="Resource_64npk"]
+script = ExtResource("3_06xff")
+respect_intensity = 1
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_2oqkb"]
+script = ExtResource("3_je7f4")
+idle_event_name = "Flat tire in the getaway vehicle"
+chance_of_failure = 0.0
+cost_to_attempt_to_resolve = 1
+metadata/_custom_type_script = "uid://cy44ryxdfwf47"
 
 [resource]
-script = ExtResource("5_64npk")
-type = "Rob"
-required_respect = 50
-cost = SubResource("Resource_ilewg")
-duration_in_week = SubResource("Resource_olfx7")
-return_percentage = SubResource("Resource_dhnjb")
+script = ExtResource("4_06xff")
+type = "Rob a bank"
+initial_cost_resource = SubResource("Resource_64npk")
+earned_per_week_cost_resource = SubResource("Resource_coe0b")
+completed_cost_resource = SubResource("Resource_n1y87")
+description = "Go in with weapon of choice. Come out with money. What could go wrong?"
 accepted_worker_types = Array[ExtResource("1_06xff")]([ExtResource("2_2oqkb")])
+potential_idle_events = Array[ExtResource("3_je7f4")]([SubResource("Resource_2oqkb")])
 metadata/_custom_type_script = "uid://dtm2kuspofwj3"

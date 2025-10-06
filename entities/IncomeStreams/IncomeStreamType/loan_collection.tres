@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=9 format=3 uid="uid://bk1q8dt5p8frh"]
+
+[ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_ua45v"]
+[ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_ptop8"]
+[ext_resource type="Script" uid="uid://cy44ryxdfwf47" path="res://entities/IncomeStreams/potential_idle_event_resource.gd" id="3_fxhdf"]
+[ext_resource type="Script" uid="uid://cllgeulnh2up3" path="res://utilities/cost_resource.gd" id="3_ptop8"]
+[ext_resource type="Script" uid="uid://dtm2kuspofwj3" path="res://entities/IncomeStreams/income_stream_type_resource.gd" id="4_m5ntf"]
+
+[sub_resource type="Resource" id="Resource_fxhdf"]
+script = ExtResource("3_ptop8")
+respect_intensity = 1
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_54xmu"]
+script = ExtResource("3_ptop8")
+cost_intensity = 2
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_87mv3"]
+script = ExtResource("3_fxhdf")
+idle_event_name = "{subject_name} stopped paying."
+chance_of_failure = 0.3
+idle_description = "Rought their ass up and let them know you mean business"
+metadata/_custom_type_script = "uid://cy44ryxdfwf47"
+
+[resource]
+script = ExtResource("4_m5ntf")
+type = "Loan Collection"
+initial_cost_resource = SubResource("Resource_54xmu")
+completed_cost_resource = SubResource("Resource_fxhdf")
+weekly_return_intensity = 3
+duration_intensity = 2
+description = "Buy some drugs. Have someone sell it on the street for you!"
+accepted_worker_types = Array[ExtResource("1_ua45v")]([ExtResource("2_ptop8")])
+potential_idle_events = Array[ExtResource("3_fxhdf")]([SubResource("Resource_87mv3")])
+metadata/_custom_type_script = "uid://dtm2kuspofwj3"

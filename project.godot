@@ -25,6 +25,7 @@ CandidateManager="*res://managers/candidate_manager.gd"
 WorkerManager="*res://managers/worker_manager.gd"
 CapacityManager="*res://managers/capacity_manager.gd"
 GameManager="*res://managers/game_manager.gd"
+Enums="*res://utilities/enums.gd"
 
 [display]
 
