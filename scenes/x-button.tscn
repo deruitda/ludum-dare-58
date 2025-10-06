@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cqfkoyh8u15ie" path="res://assets/final/x-pressed.png" id="2_dsgsp"]
 
 [node name="X-Button" type="TextureButton"]
-custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
 texture_normal = ExtResource("1_cykar")
 texture_pressed = ExtResource("2_dsgsp")
+ignore_texture_size = true
+stretch_mode = 0
