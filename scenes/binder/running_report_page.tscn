@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://8ho5lvoidmio"]
+[gd_scene load_steps=8 format=3 uid="uid://8ho5lvoidmio"]
 
 [ext_resource type="Script" uid="uid://du8qonkmtu0ui" path="res://scenes/binder/running_report_page.gd" id="1_jukmm"]
 [ext_resource type="LabelSettings" uid="uid://djkpwc0lasqli" path="res://desk/Resumes/resume_label.tres" id="3_g3n0d"]
 [ext_resource type="LabelSettings" uid="uid://cyhf11t8g3re5" path="res://desk/Resumes/respect_label.tres" id="4_3rgv7"]
+[ext_resource type="PackedScene" uid="uid://de7xv2m41lp1m" path="res://ui/stat_label.tscn" id="5_g3n0d"]
+[ext_resource type="PackedScene" uid="uid://byqlkeohgkgp3" path="res://ui/label_component.tscn" id="6_3rgv7"]
 [ext_resource type="LabelSettings" uid="uid://d0ai4x5b6g57f" path="res://desk/Resumes/money_label.tres" id="6_bcxn2"]
 [ext_resource type="PackedScene" uid="uid://dsf0578qhhgyk" path="res://scenes/grids/income/income_overview_grid.tscn" id="6_jukmm"]
 
-[node name="RoundReportPage" type="Node2D"]
+[node name="RunningReportPage" type="Node2D"]
 scale = Vector2(4.6512938, 4.6512938)
 script = ExtResource("1_jukmm")
 
@@ -37,16 +39,6 @@ scale = Vector2(0.31999952, 0.32000005)
 text = "Respect Gained"
 label_settings = ExtResource("3_g3n0d")
 
-[node name="RespectChangeValue" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 70.73301
-offset_top = 8.169768
-offset_right = 211.733
-offset_bottom = 31.16977
-scale = Vector2(0.31999952, 0.32000005)
-text = "+3"
-label_settings = ExtResource("4_3rgv7")
-
 [node name="MoneyChangeLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 1.7199516
@@ -57,14 +49,31 @@ scale = Vector2(0.31999952, 0.32000005)
 text = "Money Earned"
 label_settings = ExtResource("3_g3n0d")
 
-[node name="MoneyChangeValue" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 70.948006
-offset_top = 15.264569
-offset_right = 211.948
-offset_bottom = 38.26457
-scale = Vector2(0.31999952, 0.32000005)
-text = "$15"
-label_settings = ExtResource("6_bcxn2")
-
 [node name="IncomeOverviewGrid" parent="." instance=ExtResource("6_jukmm")]
+offset_left = 4.729867
+offset_top = 48.58863
+offset_right = 515.6399
+offset_bottom = 263.0687
+scale = Vector2(0.24987489, 0.40196076)
+
+[node name="RespectGainedLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("5_g3n0d")]
+offset_left = 58.693348
+offset_top = 26.014267
+offset_right = 86.693344
+offset_bottom = 48.347603
+scale = Vector2(0.40299508, 0.40299508)
+label_component = NodePath("LabelComponent2")
+
+[node name="LabelComponent2" parent="RespectGainedLabel" instance=ExtResource("6_3rgv7")]
+positive_label_settings = ExtResource("4_3rgv7")
+
+[node name="MoneyGainedLabel" parent="." node_paths=PackedStringArray("label_component") instance=ExtResource("5_g3n0d")]
+offset_left = 58.90834
+offset_top = 35.044014
+offset_right = 86.90834
+offset_bottom = 57.37735
+scale = Vector2(0.40299508, 0.40299508)
+label_component = NodePath("LabelComponent3")
+
+[node name="LabelComponent3" parent="MoneyGainedLabel" instance=ExtResource("6_3rgv7")]
+positive_label_settings = ExtResource("6_bcxn2")

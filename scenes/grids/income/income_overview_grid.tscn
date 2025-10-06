@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsf0578qhhgyk"]
+[gd_scene load_steps=3 format=3 uid="uid://dsf0578qhhgyk"]
 
 [ext_resource type="Script" uid="uid://xhcbykyqj7hi" path="res://scenes/grids/income/income_overview_grid.gd" id="1_1ljx6"]
+[ext_resource type="PackedScene" uid="uid://duwlhtwcqgncq" path="res://scenes/grids/income/income_data_row.tscn" id="2_qijie"]
 
 [node name="ScrollContainer" type="ScrollContainer"]
 custom_minimum_size = Vector2(510.91, 0)
@@ -10,4 +11,7 @@ script = ExtResource("1_1ljx6")
 
 [node name="IncomeStreamsVBox" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(510.91, 344)
+layout_mode = 2
+
+[node name="Control" parent="IncomeStreamsVBox" instance=ExtResource("2_qijie")]
 layout_mode = 2

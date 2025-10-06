@@ -59,7 +59,7 @@ func _on_idle_event_view_on_attempt_to_resolve_button_pressed() -> void:
 	resolution_failed_label.text = idle_event.attempt_failed_message
 	resolution_successful_label.text = idle_event.attempt_successful_message
 	
-	GameState.spend_cost(income_stream.get_idle_event().attempt_to_resolve_cost)
+	GameState.collect_cost(income_stream.get_idle_event().attempt_to_resolve_cost)
 	income_stream.attempt_to_resolve_idle_event()
 	idle_event_view.visible = false
 	if income_stream.has_idle_event():
