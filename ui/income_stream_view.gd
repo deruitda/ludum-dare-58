@@ -13,6 +13,7 @@ class_name IncomeStreamView
 @onready var weeks_left_value: Label = $Control/WeeksLeftValue
 
 @onready var percentage_label: PercentageLabel = $Control/PercentageLabel
+@onready var workers_needed_value: Label = $Control/WorkersNeededValue
 
 func set_income_stream(new_income_stream: IncomeStream):
 	income_stream = new_income_stream
@@ -25,5 +26,7 @@ func set_income_stream(new_income_stream: IncomeStream):
 	
 	weeks_left_value.text = str(income_stream.duration_in_weeks)
 	percentage_label.set_percentage(income_stream.percent_chance_of_event)
+	
+	workers_needed_value.text = str(income_stream.capacity)
 	
 	

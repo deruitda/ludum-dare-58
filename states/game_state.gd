@@ -26,6 +26,14 @@ func gain_respect(amount: int) -> void:
 func lose_respect(amount: int) -> void:
 	total_respect = total_respect - amount
 
+func collect_cost(cost: Cost) -> void:
+	total_money = total_money + cost.cost
+	total_respect = total_respect + cost.respect
+
+func spend_cost(cost: Cost) -> void:
+	total_money = total_money - cost.cost
+	total_respect = total_respect - cost.respect
+
 func increment_week() -> void:
 	current_week = current_week + 1
 #

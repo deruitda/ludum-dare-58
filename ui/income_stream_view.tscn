@@ -131,6 +131,24 @@ offset_bottom = 187.0
 text = "10"
 label_settings = ExtResource("2_b5ulf")
 
+[node name="WorkersNeededLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 244.61868
+offset_top = 208.4127
+offset_right = 428.61868
+offset_bottom = 231.4127
+text = "Workers Needed on Job"
+label_settings = ExtResource("2_b5ulf")
+
+[node name="WorkersNeededValue" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 315.1245
+offset_top = 241.36508
+offset_right = 423.1245
+offset_bottom = 264.3651
+text = "1"
+label_settings = ExtResource("2_b5ulf")
+
 [node name="LabelForPercentage" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 387.0
