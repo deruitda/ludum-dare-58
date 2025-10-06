@@ -4,9 +4,18 @@ extends AnimatedSprite2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var isPlaying: bool = false
+var isDisabled: bool = false
 
 func _ready() -> void:
 	SignalBus.offers_closed.connect(place_offers)
+	SignalBus.offers_all_closed.connect(disable_button)
+	SignalBus.offers_reset.connect(reset_button)
+
+func reset_button() -> void:
+	isDisabled = false
+
+func disable_button() -> void:
+	isDisabled = true
 
 func place_offers() -> void:
 	if !isPlaying:
@@ -35,6 +44,10 @@ func _on_animation_finished() -> void:
 		SignalBus.offers_button_press_done.emit()
 		
 	if animation == "me_give":
-		area_2d.visible = true
+		if !isDisabled:
+			area_2d.visible = true
+		else:
+			area_2d.visible = false
+			play("disabled")
 		
 	isPlaying = false

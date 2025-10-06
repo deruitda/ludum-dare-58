@@ -1,11 +1,9 @@
 extends Control
-
-class_name Offer
-@onready var worker_view: WorkerView = $WorkerView
+class_name OfferSimple
 @onready var income_stream_view: IncomeStreamView = $IncomeStreamView
+@onready var worker_view: WorkerView = $WorkerView
 @onready var accept_income_stream_button: TextureButton = $AcceptIncomeStreamButton
 @onready var hire_worker_button: TextureButton = $HireWorkerButton
-@onready var animation: AnimatedSprite2D = $Animation
 var income_stream: IncomeStream
 var worker_data: Worker
 var isWorker : bool = false
@@ -28,49 +26,29 @@ func show_income_offer(incomeStream: IncomeStream) -> void:
 func show_offer() -> void:
 	if !isWorker:
 		income_stream_view.set_income_stream(income_stream)
+		income_stream_view.visible = true
+		accept_income_stream_button.visible = true
+		worker_view.visible = false
+		hire_worker_button.visible = false
 	else: 
 		worker_view.set_worker(worker_data)
+		worker_view.visible = true
+		hire_worker_button.visible = true
 		
-	animation.play("show")
+		income_stream_view.visible = false
+		accept_income_stream_button.visible = false
+	visible = true
 	
+	
+	
+	
+
 func hide_offer() -> void:
-	
-	# shit hack to re-trigger animation complete event for the caller
-	if animation.animation == "empty" && isAccepted:
-		SignalBus.offer_anim_done.emit()
-		return
-	
+	visible = false
 	income_stream_view.visible = false
 	worker_view.visible = false
 	accept_income_stream_button.visible = false
 	hire_worker_button.visible = false
-	animation.play("hide")
-	
-
-func _on_animation_finished() -> void:
-	if animation.animation == "empty":
-		return
-	
-	if animation.animation == "hide":
-		SignalBus.offer_anim_done.emit()
-		animation.play("empty")
-		return
-		
-	SignalBus.offer_anim_done.emit()
-	if animation.animation == "show":
-		if isWorker:
-			accept_income_stream_button.visible = false
-			hire_worker_button.visible = true
-			income_stream_view.visible = false
-			worker_view.visible = true
-
-		if !isWorker:
-			accept_income_stream_button.visible = true
-			hire_worker_button.visible = false
-			income_stream_view.visible = true
-			worker_view.visible = false
-			
-
 
 func _on_accept_income_stream_button_pressed() -> void:
 	isAccepted = true

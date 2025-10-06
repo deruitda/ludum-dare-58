@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dij2u6c3o584a"]
+
+[ext_resource type="Script" uid="uid://ee42tv2nafhp" path="res://desk/new_offers_grid_view_simple.gd" id="1_v81wt"]
+[ext_resource type="PackedScene" uid="uid://chuam0mgkf1w5" path="res://scenes/offer_simple.tscn" id="2_i1cry"]
+[ext_resource type="PackedScene" uid="uid://clh5sbrnsfl16" path="res://scenes/x-button.tscn" id="3_l584h"]
+
+[node name="NewOffersGridView" type="Control" node_paths=PackedStringArray("offers")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_right = 1156.0
+offset_bottom = 646.0
+script = ExtResource("1_v81wt")
+offers = [NodePath("NewOffersViews/OfferSimple"), NodePath("NewOffersViews/OfferSimple2"), NodePath("NewOffersViews/OfferSimple3"), NodePath("NewOffersViews/OfferSimple4")]
+
+[node name="NewOffersViews" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 180.0
+offset_right = 1156.0
+offset_bottom = 646.0
+
+[node name="OfferSimple" parent="NewOffersViews" instance=ExtResource("2_i1cry")]
+visible = false
+layout_mode = 2
+
+[node name="OfferSimple2" parent="NewOffersViews" instance=ExtResource("2_i1cry")]
+visible = false
+layout_mode = 2
+
+[node name="OfferSimple3" parent="NewOffersViews" instance=ExtResource("2_i1cry")]
+visible = false
+layout_mode = 2
+
+[node name="OfferSimple4" parent="NewOffersViews" instance=ExtResource("2_i1cry")]
+visible = false
+layout_mode = 2
+
+[node name="CloseOffers" parent="." instance=ExtResource("3_l584h")]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 56.0
+offset_right = 100.83264
+offset_bottom = 111.0
+
+[connection signal="pressed" from="CloseOffers" to="." method="_on_close_offers_pressed"]
