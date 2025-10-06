@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=10 format=3 uid="uid://boho71235pqn8"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=12 format=3 uid="uid://boho71235pqn8"]
 
 [ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_06xff"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_2oqkb"]
@@ -18,11 +18,27 @@ respect_intensity = 1
 negative_respect_intensity = true
 metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
+[sub_resource type="Resource" id="Resource_coe0b"]
+script = ExtResource("3_06xff")
+cost_intensity = 4
+negative_cost = true
+respect_intensity = 1
+negative_respect_intensity = true
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_ey3gu"]
+script = ExtResource("3_06xff")
+cost_intensity = 3
+negative_cost = true
+respect_intensity = 1
+negative_respect_intensity = true
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
 [sub_resource type="Resource" id="Resource_2oqkb"]
 script = ExtResource("3_je7f4")
 idle_event_name = "Flat tire in the getaway vehicle"
-chance_of_failure = 0.0
-cost_to_attempt_to_resolve = 1
+attempt_to_resolve_cost = SubResource("Resource_ey3gu")
+abandon_cost = SubResource("Resource_coe0b")
 metadata/_custom_type_script = "uid://cy44ryxdfwf47"
 
 [sub_resource type="Resource" id="Resource_06xff"]

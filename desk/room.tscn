@@ -55,11 +55,9 @@ position = Vector2(610.99994, 97)
 scale = Vector2(0.4887172, 0.4980004)
 
 [node name="PotentialIncomeStreamBinder" parent="." instance=ExtResource("8_tfbhj")]
-visible = false
 position = Vector2(190, 157)
 
 [node name="Resumes" parent="." instance=ExtResource("2_xcxlp")]
-visible = false
 position = Vector2(1006, 138)
 scale = Vector2(0.55738956, 0.5596341)
 

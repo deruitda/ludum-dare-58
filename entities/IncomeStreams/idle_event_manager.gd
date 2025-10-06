@@ -6,7 +6,6 @@ class_name IdleEventManager
 @onready var has_attempted_success_this_week = false
 @onready var attempt_successful_message: String
 
-
 func _ready() -> void:
 	SignalBus.week_changed.connect(_on_week_changed)
 
@@ -25,9 +24,8 @@ func create_idle_event_from_potential_idle_events(potential_idle_events: Array[P
 	current_idle_event.chance_of_failure = Enums.get_percentage_rate_from_intensity(potential_idle_event.chance_of_failure)
 	current_idle_event.idle_description = potential_idle_event.idle_description
 	
-	current_idle_event.set_attempt_to_resolve_cost(potential_idle_event.attempt_to_resolve_cost.calculate_cost())
-	current_idle_event.set_succeed_cost(potential_idle_event.succeed_cost.calculate_cost())
-	current_idle_event.set_abandon_cost(potential_idle_event.abandon_cost.calculate_cost())
+	current_idle_event.set_attempt_to_resolve_cost(potential_idle_event.attempt_to_resolve_cost.calculate_new_cost())
+	current_idle_event.set_abandon_cost(potential_idle_event.abandon_cost.calculate_new_cost())
 	
 	current_idle_event.abandon_button_label = potential_idle_event.abandon_button_label
 	current_idle_event.attempt_button_label = potential_idle_event.attempt_button_label

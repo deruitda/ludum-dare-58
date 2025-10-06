@@ -38,11 +38,11 @@ offset_bottom = 14.332687
 text = "Name"
 label_settings = ExtResource("2_nyro6")
 
-[node name="ChanceOfFailure" type="Label" parent="Idle"]
+[node name="DescriptionLabel" type="Label" parent="Idle"]
 layout_mode = 0
 offset_left = 27.934656
 offset_top = 22.332691
-offset_right = 447.93466
+offset_right = 117.934654
 offset_bottom = 71.33269
 text = "Description"
 label_settings = ExtResource("2_nyro6")

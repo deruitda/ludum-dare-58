@@ -50,7 +50,7 @@ func _on_back_button_button_up() -> void:
 	back_button_pressed.emit()
 
 func _on_idle_event_view_on_abandon_button_pressed() -> void:
-	GameState.spend_cost(income_stream.get_idle_event().abandon_cost)
+	GameState.collect_cost(income_stream.get_idle_event().abandon_cost)
 	IncomeStreamManager.abandon_income_stream(income_stream)
 	back_button_pressed.emit()
 

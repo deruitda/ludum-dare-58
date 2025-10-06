@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=10 format=3 uid="uid://bk1q8dt5p8frh"]
+[gd_resource type="Resource" script_class="IncomeStreamTypeResource" load_steps=12 format=3 uid="uid://bk1q8dt5p8frh"]
 
 [ext_resource type="Script" uid="uid://cifg2poebppj" path="res://entities/Worker/worker_type_resource.gd" id="1_ua45v"]
 [ext_resource type="Resource" uid="uid://d1vf41qhlc86o" path="res://entities/Worker/WorkerType/soldier.tres" id="2_ptop8"]
@@ -17,11 +17,28 @@ cost_intensity = 2
 negative_cost = true
 metadata/_custom_type_script = "uid://cllgeulnh2up3"
 
+[sub_resource type="Resource" id="Resource_m5ntf"]
+script = ExtResource("3_ptop8")
+respect_intensity = 4
+negative_respect_intensity = true
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
+[sub_resource type="Resource" id="Resource_0ixfi"]
+script = ExtResource("3_ptop8")
+respect_intensity = 1
+metadata/_custom_type_script = "uid://cllgeulnh2up3"
+
 [sub_resource type="Resource" id="Resource_87mv3"]
 script = ExtResource("3_fxhdf")
 idle_event_name = "{subject_name} stopped paying."
-chance_of_failure = 0.3
 idle_description = "Rought their ass up and let them know you mean business"
+chance_of_failure = 0.3
+attempt_to_resolve_cost = SubResource("Resource_0ixfi")
+abandon_cost = SubResource("Resource_m5ntf")
+attempt_button_label = "Beat them Up"
+abandon_button_label = "Ditch the loan"
+attempt_failed_message = "{subject_name} was tougher than they looked.... Still refusing to pay"
+attempt_successful_message = "You kicked {subject_name}'s ass. Loan payments are back on schedule!"
 metadata/_custom_type_script = "uid://cy44ryxdfwf47"
 
 [sub_resource type="Resource" id="Resource_ptop8"]
