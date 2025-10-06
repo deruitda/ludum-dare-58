@@ -1,7 +1,7 @@
 extends Node
 
 @onready var total_money: int = 500
-@onready var total_respect: int = 500
+@onready var total_respect: int = 0
 
 func spend_money(amount: int) -> void:
 	total_money = total_money - amount

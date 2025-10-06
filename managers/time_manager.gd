@@ -1,7 +1,7 @@
 extends Node
 class_name TimeManager
 
-@export var number_of_weeks_in_month: int = 1
+@export var number_of_weeks_in_month: int = 6
 var current_week: int = 1
 var current_month: int = 1
 
