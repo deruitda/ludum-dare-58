@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6vd1ct10le5s"]
+[gd_scene load_steps=4 format=3 uid="uid://c6vd1ct10le5s"]
 
 [ext_resource type="Script" uid="uid://vkhugeyoj47s" path="res://main.gd" id="1_3fcf7"]
 [ext_resource type="PackedScene" uid="uid://bpa13iucdr4gj" path="res://desk/room.tscn" id="2_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://sbvcl1psx8mv" path="res://assets/final/audio/9b54d12f-2fe1-4cd3-818b-8bae585ff229.mp3" id="3_h2yge"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3fcf7")
 
 [node name="Room" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h2yge")
+volume_db = 18.468
+autoplay = true
+parameters/looping = true

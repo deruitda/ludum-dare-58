@@ -22,6 +22,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"give",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qmsus")
@@ -50,4 +55,5 @@ script = ExtResource("4_slwsa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_slwsa")
+animation = &"give"
 autoplay = "default"
