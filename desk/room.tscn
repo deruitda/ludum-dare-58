@@ -577,8 +577,8 @@ scale = Vector2(0.55738956, 0.5596341)
 
 [node name="NewOffersGridView" parent="." instance=ExtResource("10_jo3hx")]
 visible = false
-offset_left = 0.0
-offset_right = 1153.0
+offset_left = 71.0
+offset_right = 1002.0
 
 [node name="Node2D" parent="." instance=ExtResource("11_jo3hx")]
 position = Vector2(999.0001, 576)

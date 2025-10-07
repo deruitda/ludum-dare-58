@@ -7,33 +7,46 @@
 [node name="NewOffersGridView" type="Control" node_paths=PackedStringArray("offers")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 3.0
-offset_right = 1156.0
-offset_bottom = 646.0
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 648.0
 script = ExtResource("1_v81wt")
 offers = [NodePath("NewOffersViews/OfferSimple"), NodePath("NewOffersViews/OfferSimple2"), NodePath("NewOffersViews/OfferSimple3"), NodePath("NewOffersViews/OfferSimple4")]
 
 [node name="NewOffersViews" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_top = 180.0
-offset_right = 1156.0
-offset_bottom = 646.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -671.5
+offset_top = -504.0
+offset_right = 514.5
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="OfferSimple" parent="NewOffersViews" instance=ExtResource("2_i1cry")]
-visible = false
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 
 [node name="OfferSimple2" parent="NewOffersViews" instance=ExtResource("2_i1cry")]
-visible = false
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 
 [node name="OfferSimple3" parent="NewOffersViews" instance=ExtResource("2_i1cry")]
-visible = false
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 
 [node name="OfferSimple4" parent="NewOffersViews" instance=ExtResource("2_i1cry")]
-visible = false
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 
 [node name="CloseOffers" parent="." instance=ExtResource("3_l584h")]
 layout_mode = 0

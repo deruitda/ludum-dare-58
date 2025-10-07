@@ -89,8 +89,8 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 44.0
 offset_top = 548.0
-offset_right = 189.0
-offset_bottom = 693.0
+offset_right = 109.0
+offset_bottom = 613.0
 grow_vertical = 2
 
 [connection signal="on_add_to_income_stream_button_pressed" from="WorkerActionRow" to="." method="_on_worker_action_row_on_add_to_income_stream_button_pressed"]

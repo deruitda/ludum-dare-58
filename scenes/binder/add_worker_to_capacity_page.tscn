@@ -14,6 +14,11 @@ script = ExtResource("1_q4qy8")
 
 [node name="BackButton" parent="." instance=ExtResource("2_2mqqt")]
 layout_mode = 0
+offset_left = 7.516159
+offset_top = 120.396614
+offset_right = 23.192719
+offset_bottom = 136.07317
+ignore_texture_size = true
 
 [node name="WorkerOverviewGrid" parent="." instance=ExtResource("3_8k224")]
 layout_mode = 0
