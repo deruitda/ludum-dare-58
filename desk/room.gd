@@ -10,6 +10,8 @@ class_name Room
 @onready var background: AnimatedSprite2D = $Background
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $Background/AudioStreamPlayer2D
 @onready var music: AudioStreamPlayer2D = $Music
+@onready var exclaimation_point_binder: AnimatedSprite2D = $ExclaimationPointBinder
+@onready var exclaimation_point_offers: AnimatedSprite2D = $ExclaimationPointOffers
 
 const LUDUM_DARE_58_DEATH_MUSIC_ANA = preload("uid://7jd2st33r02j")
 @onready var final_report: FinalReport = $FinalReport
@@ -27,6 +29,7 @@ var is_game_over = false
 
 func _ready() -> void:
 	SignalBus.game_over.connect(begin_game_over)
+	SignalBus.offers_button_press_done.connect(offers_button_pressed)
 	SignalBus.week_changed.connect(trigger_week_change)
 	set_week_label()
 
@@ -79,7 +82,11 @@ func set_week_label() -> void:
 
 func _on_binder_button_button_pressed() -> void:
 	binder.open_binder()
+	exclaimation_point_binder.visible = false
 	pass # Replace with function body.
+	
+func offers_button_pressed() -> void:
+	exclaimation_point_offers.visible = false
 	
 func trigger_week_change() -> void:
 	disable_things.visible = true
@@ -93,6 +100,8 @@ func end_week_change() -> void:
 func _on_money_counter_animation_finished() -> void:
 	if money_counter.animation == "count":
 		end_week_change()
+		exclaimation_point_binder.visible = true
+		exclaimation_point_offers.visible = true
 
 
 func _on_background_frame_changed() -> void:

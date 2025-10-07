@@ -145,4 +145,5 @@ animations = [{
 
 [node name="ExclaimationPoint" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_mnjnp")
+autoplay = "default"
 frame_progress = 0.1383603
