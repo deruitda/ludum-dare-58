@@ -586,6 +586,7 @@ offset_bottom = 645.0
 stream = ExtResource("17_70f46")
 volume_db = 7.128
 autoplay = true
+parameters/looping = true
 
 [node name="FinalReport" parent="." instance=ExtResource("18_6bf2v")]
 visible = false
