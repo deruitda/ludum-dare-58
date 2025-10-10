@@ -39,45 +39,53 @@ custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
 [node name="IncomeStreamView" parent="ScrollContainer/HBoxContainer" instance=ExtResource("6_midxx")]
+layout_mode = 2
 
 [node name="SummaryIncomeStreamView" parent="ScrollContainer/HBoxContainer/IncomeStreamView" instance=ExtResource("3_midxx")]
+layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/HBoxContainer/IncomeStreamView"]
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="CapacityRow" parent="ScrollContainer/HBoxContainer/IncomeStreamView" instance=ExtResource("4_vns1v")]
 custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer/IncomeStreamView"]
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="IdleEventView" parent="ScrollContainer/HBoxContainer/IncomeStreamView" instance=ExtResource("5_dcgje")]
+layout_mode = 2
 
 [node name="ResolutionFailedLabel" type="Label" parent="ScrollContainer/HBoxContainer/IncomeStreamView/IdleEventView"]
 visible = false
-layout_mode = 0
+layout_mode = 2
 text = "Resolution Failed. Try again next week"
 label_settings = ExtResource("6_1om3t")
 
 [node name="ResolutionSuccessfulLabel" type="Label" parent="ScrollContainer/HBoxContainer/IncomeStreamView/IdleEventView"]
 visible = false
-layout_mode = 0
+layout_mode = 2
 text = "This has been resolved!"
 label_settings = ExtResource("2_vns1v")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/IncomeStreamView"]
+layout_mode = 2
+
+[node name="BackButton" parent="ScrollContainer/HBoxContainer/IncomeStreamView/HBoxContainer3" instance=ExtResource("8_mwexf")]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/HBoxContainer/IncomeStreamView/HBoxContainer3"]
+layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="BackButton" parent="." instance=ExtResource("8_mwexf")]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 529.0
-offset_right = 182.0
-offset_bottom = 680.0
-
 [connection signal="on_assign_workers_button_pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/CapacityRow" to="." method="_on_capacity_row_on_assign_workers_button_pressed"]
 [connection signal="on_unassign_workers_button_pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/CapacityRow" to="." method="_on_capacity_row_on_unassign_workers_button_pressed"]
 [connection signal="on_abandon_button_pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/IdleEventView" to="." method="_on_idle_event_view_on_abandon_button_pressed"]
 [connection signal="on_attempt_to_resolve_button_pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/IdleEventView" to="." method="_on_idle_event_view_on_attempt_to_resolve_button_pressed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/IncomeStreamView/HBoxContainer3/BackButton" to="." method="_on_back_button_pressed"]

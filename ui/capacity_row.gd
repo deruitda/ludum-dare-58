@@ -1,7 +1,7 @@
 extends Control
 class_name CapacityRow
-@onready var unassign_workers_button: Button = $UnassignWorkersButton
-@onready var assign_workers_button: Button = $AssignWorkersButton
+@onready var unassign_workers_button: TextureButton = $UnassignWorkersButton
+@onready var assign_workers_button: TextureButton = $AssignWorkersButton
 
 @onready var income_stream: IncomeStream
 @onready var capacity_label: CapacityLabel = $HBoxContainer/CapacityLabel

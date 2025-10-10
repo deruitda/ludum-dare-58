@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://bpa13iucdr4gj"]
+[gd_scene load_steps=90 format=3 uid="uid://bpa13iucdr4gj"]
 
 [ext_resource type="Script" uid="uid://d357h8upue4fy" path="res://desk/room.gd" id="1_bs3hi"]
 [ext_resource type="Texture2D" uid="uid://b5behhfk2e23m" path="res://assets/final/background-capo.png" id="2_bnidx"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d0asi7pvmfh83" path="res://desk/buttons/binder_button.tscn" id="10_bil3o"]
 [ext_resource type="PackedScene" uid="uid://dij2u6c3o584a" path="res://desk/NewOffersGridView_Simple.tscn" id="10_jo3hx"]
 [ext_resource type="PackedScene" uid="uid://cfoxhpbvyepx5" path="res://calendar.tscn" id="11_jo3hx"]
+[ext_resource type="PackedScene" uid="uid://b0c7xjqjnaqxa" path="res://exclaimation_point.tscn" id="11_pnjpl"]
 [ext_resource type="AudioStream" uid="uid://sbvcl1psx8mv" path="res://assets/final/audio/9b54d12f-2fe1-4cd3-818b-8bae585ff229.mp3" id="17_70f46"]
 [ext_resource type="PackedScene" uid="uid://c64doav5hhk3h" path="res://desk/final_report.tscn" id="18_6bf2v"]
 
@@ -535,6 +536,8 @@ scale = Vector2(3.4174724, 3.398985)
 [node name="MoneyCounter" parent="Background" instance=ExtResource("4_4is0s")]
 position = Vector2(177.9021, 211.43741)
 scale = Vector2(1.0517483, 1.1620363)
+animation = &"default"
+frame = 0
 frame_progress = 0.0
 
 [node name="CeilingFan" parent="Background" instance=ExtResource("9_x1u2a")]
@@ -545,6 +548,14 @@ scale = Vector2(3.9160812, 3.8948967)
 stream = ExtResource("10_21ogv")
 volume_db = 9.665
 pitch_scale = 1.56
+
+[node name="ExclaimationPointOffers" parent="." instance=ExtResource("11_pnjpl")]
+position = Vector2(282.9, 303.28882)
+scale = Vector2(1.0343752, 1.0400013)
+
+[node name="ExclaimationPointBinder" parent="." instance=ExtResource("11_pnjpl")]
+position = Vector2(613, 285.00003)
+scale = Vector2(1.0343752, 1.0400013)
 
 [node name="NewOffers" parent="." instance=ExtResource("9_bil3o")]
 position = Vector2(265, 361)
@@ -566,8 +577,8 @@ scale = Vector2(0.55738956, 0.5596341)
 
 [node name="NewOffersGridView" parent="." instance=ExtResource("10_jo3hx")]
 visible = false
-offset_left = 0.0
-offset_right = 1153.0
+offset_left = 71.0
+offset_right = 1002.0
 
 [node name="Node2D" parent="." instance=ExtResource("11_jo3hx")]
 position = Vector2(999.0001, 576)
